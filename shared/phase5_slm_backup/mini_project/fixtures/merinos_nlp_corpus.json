@@ -1,0 +1,62 @@
+[
+  {
+    "id": "MER-NLP-001",
+    "department": "Dokuma Salonu 1",
+    "text": "Van de Wiele RCE02 tezgahında atkı ipliği pnömatik fren gerginliği 18-22 cN aralığında kalmalıdır. Düşük gerginlik atkı sıkışmasına sebep olur."
+  },
+  {
+    "id": "MER-NLP-002",
+    "department": "Dokuma Salonu 1",
+    "text": "Çözgü levent fren pnömatik basıncı 4.5 bar değerinde sabitlenmelidir. 4.0 bar altı basınçta jakar desen kayması ve çözgü kopuşu görülür."
+  },
+  {
+    "id": "MER-NLP-003",
+    "department": "Dokuma Salonu 2",
+    "text": "Schönherr Alpha 400 rapierli dokuma tezgahında sol ve sağ rapier kaset aşınma limiti 0.35 mm'dir. Düzenli gresleme periyodu haftalıktır."
+  },
+  {
+    "id": "MER-NLP-004",
+    "department": "İplik BCF",
+    "text": "Neumag S+ BCF polipropilen ekstrüzyon hattında eriyik sıcaklığı 240-245°C aralığında tutulur. Filtre giriş diferansiyel basıncı 80 bar'ı aşmamalıdır."
+  },
+  {
+    "id": "MER-NLP-005",
+    "department": "İplik BCF",
+    "text": "Tekstüre ünitesinde nozul hava basıncı 5.8 bar seviyesinde kilitlenmelidir. Düşük hava basıncı iplikte hacim ve kıvrım düzensizliğine yol açar."
+  },
+  {
+    "id": "MER-NLP-006",
+    "department": "Boyahane & Terbiye",
+    "text": "Bruckner Ramöz kurutma makinesinde birinci kamara 140°C, ikinci kamara 150°C sıcaklıkta çalıştırılmalıdır. Hat hızı 18 m/dk olmalıdır."
+  },
+  {
+    "id": "MER-NLP-007",
+    "department": "Boyahane & Terbiye",
+    "text": "Kumaş eni gerdirilerek overfeed besleme oranı yüzde 12 seviyesinde sabitlenmelidir. Dengesiz çekme durumunda kenar açıcılar temizlenir."
+  },
+  {
+    "id": "MER-NLP-008",
+    "department": "Mekanik Bakım",
+    "text": "Ana tahrik şanzıman yağı ISO VG 220 sentetik dişli yağı ile 2000 çalışma saatinde bir değiştirilir. Manyetik tapa metal talaşı için denetlenir."
+  },
+  {
+    "id": "MER-NLP-009",
+    "department": "Mekanik Bakım",
+    "text": "Jakar bıçak mekanizması senkronizasyon açısı 180 derecede kilitlenmeli ve kızaklar lityum kompleks gres ile periyodik olarak yağlanmalıdır."
+  },
+  {
+    "id": "MER-NLP-010",
+    "department": "Kalite Kontrol",
+    "text": "Halı yüzeyinde hav dökülmesi veya renk dalgalanması tespit edildiğinde konfeksiyon hattı derhal durdurulur ve lot barkodu sisteme işlenir."
+  },
+  {
+    "id": "MER-NLP-011",
+    "department": "Dokuma Salonu 1",
+    "text": "Jakar kancalarının düşmemesi durumunda solenoid bobin soketleri ve 24V DC besleme voltajı ölçülmelidir."
+  },
+  {
+    "id": "MER-NLP-012",
+    "department": "İplik BCF",
+    "text": "Godet silindirleri yüzey sıcaklığı 130°C olarak ayarlanmalı, çekim oranı 3.2 kat seviyesinde tutulmalıdır."
+  }
+]

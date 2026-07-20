@@ -1,0 +1,202 @@
+[
+  {
+    "query_id": "CAP-Q01",
+    "query": "Van de Wiele RCE02 halı dokuma tezgâhında rapier şeridi merkezleme kaçıklığı toleransı nedir?",
+    "department": "dokuma_salonu_1",
+    "machine": "vdw_rce02",
+    "target_doc_id": "SOP-CAP-001",
+    "gold_fact": "merkezleme kaçıklığı maksimum ±0.08 mm tolerans aralığında olmalıdır"
+  },
+  {
+    "query_id": "CAP-Q02",
+    "query": "RCE02 dokuma tezgâhında tekrarlayan atkı kopuşlarında ilk kontrol adımı nedir ve standart atkı fren gerginliği kaç cN olmalıdır?",
+    "department": "dokuma_salonu_1",
+    "machine": "vdw_rce02",
+    "target_doc_id": "SOP-CAP-001",
+    "gold_fact": "ilk kontrol adımı atkı ipliği pnomatik fren gerginliğinin kontrol edilmesidir. Standart gerginlik 18-22 cN aralığında kalmalıdır"
+  },
+  {
+    "query_id": "CAP-Q03",
+    "query": "RCE02 ana rapier tahrik dişli kutusu yağı tipi ve periyodik değişim süresi nedir?",
+    "department": "dokuma_salonu_1",
+    "machine": "vdw_rce02",
+    "target_doc_id": "SOP-CAP-001",
+    "gold_fact": "Mobilgear 600 XP 220, ilk 500 saat sonra 2000 saat"
+  },
+  {
+    "query_id": "CAP-Q04",
+    "query": "RCE02 çözgü levent freni pnömatik çalışma basınç aralığı kaç bar olmalıdır?",
+    "department": "dokuma_salonu_1",
+    "machine": "vdw_rce02",
+    "target_doc_id": "SOP-CAP-002",
+    "gold_fact": "çözgü levent fren pnömatik basıncı 4.2 bar ile 4.8 bar aralığında stabil tutulmalıdır"
+  },
+  {
+    "query_id": "CAP-Q05",
+    "query": "RCE02 levent fren balatası minimum aşınma kalınlığı kaç mm'dir?",
+    "department": "dokuma_salonu_1",
+    "machine": "vdw_rce02",
+    "target_doc_id": "SOP-CAP-002",
+    "gold_fact": "Minimum balata et kalınlığı 2.5 mm olmalıdır"
+  },
+  {
+    "query_id": "CAP-Q06",
+    "query": "Neuenhauser otomatik halı sarma makinesinde sarım tansiyonu pnömatik basıncı kaç bar aralığında tutulmalıdır?",
+    "department": "dokuma_salonu_1",
+    "machine": "neuenhauser_winder",
+    "target_doc_id": "SOP-CAP-003",
+    "gold_fact": "pnömatik tansiyon silindiri çalışma basıncı 2.5 bar ile 3.0 bar arasında ayarlanmalıdır"
+  },
+  {
+    "query_id": "CAP-Q07",
+    "query": "Neuenhauser sarıcıda halı rulosu hangi çapa ulaştığında otomatik kesim bıçağı tetiklenir?",
+    "department": "dokuma_salonu_1",
+    "machine": "neuenhauser_winder",
+    "target_doc_id": "SOP-CAP-003",
+    "gold_fact": "Rulo dış çapı 120 cm'ye ulaştığında"
+  },
+  {
+    "query_id": "CAP-Q08",
+    "query": "Schönherr Alpha 500 armür şedding açılma yüksekliği kaç mm olmalıdır?",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "target_doc_id": "SOP-CAP-004",
+    "gold_fact": "armür şedding açılma yüksekliği 145 mm (±2 mm) olmalıdır"
+  },
+  {
+    "query_id": "CAP-Q09",
+    "query": "Alpha 500 tezgâhında şedding kapanma zamanlaması ana krank milinin kaç derece pozisyonunda gerçekleşmelidir?",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "target_doc_id": "SOP-CAP-004",
+    "gold_fact": "şedding kapanma zamanlaması ana krank mili 310 derece pozisyonunda gerçekleşmelidir"
+  },
+  {
+    "query_id": "CAP-Q010",
+    "query": "Schönherr Alpha 500 elektronik jakar kabininde izin verilen maksimum sıcaklık eşiği kaç derecedir?",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "target_doc_id": "SOP-CAP-005",
+    "gold_fact": "izin verilen maksimum sıcaklık eşiği 45°C'dir"
+  },
+  {
+    "query_id": "CAP-Q011",
+    "query": "Alpha 500 jakar kancası modülü elektrovalf selenoid bobin direnci 20°C'de kaç Ohm olmalıdır?",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "target_doc_id": "SOP-CAP-005",
+    "gold_fact": "selenoid bobin direnci 20°C ortamda 14.2 Ohm (±0.5 Ohm) olmalıdır"
+  },
+  {
+    "query_id": "CAP-Q012",
+    "query": "Alpha 500 ana tahrik motoru ve redüktör rulmanlarında izin verilen maksimum RMS titreşim hızı sınırı kaç mm/s'dir?",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "target_doc_id": "SOP-CAP-006",
+    "gold_fact": "izin verilen maksimum RMS titreşim hızı 2.8 mm/s'dir. 4.5 mm/s üzerinde acil durdurulur"
+  },
+  {
+    "query_id": "CAP-Q013",
+    "query": "Alpha 500 ana redüktör dişli yağı viskozite sınıfı nedir ve karter çalışma sıcaklığı kaç °C'yi geçmemelidir?",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "target_doc_id": "SOP-CAP-006",
+    "gold_fact": "ISO VG 320 sentetik poligliserol (PG) dişli yağı kullanılmalı ve karter sıcaklığı 80°C'yi aşmamalıdır"
+  },
+  {
+    "query_id": "CAP-Q014",
+    "query": "Rieter BCF polipropilen ekstrüder kovanı besleme boğazı (Zone 1) sıcaklığı kaç °C olmalıdır?",
+    "department": "iplik_bcf",
+    "machine": "rieter_bcf",
+    "target_doc_id": "SOP-CAP-007",
+    "gold_fact": "besleme boğazı (Zone 1) sıcaklığı granül erken erimesini önlemek için 180°C (±5°C) olarak ayarlanmalıdır"
+  },
+  {
+    "query_id": "CAP-Q015",
+    "query": "Rieter BCF hattında eriyik pompası çıkış çalışma basıncı kaç bar seviyesinde tutulmalıdır?",
+    "department": "iplik_bcf",
+    "machine": "rieter_bcf",
+    "target_doc_id": "SOP-CAP-007",
+    "gold_fact": "Eriyik pompası çıkış basıncı 120 bar seviyesinde tutulmalıdır"
+  },
+  {
+    "query_id": "CAP-Q016",
+    "query": "Rieter BCF tekstüre ünitesinde tekstüre jeti proses hava basıncı ve sıcaklığı ne olmalıdır?",
+    "department": "iplik_bcf",
+    "machine": "rieter_bcf",
+    "target_doc_id": "SOP-CAP-008",
+    "gold_fact": "proses hava basıncı 5.8 bar ile 6.2 bar arasında olmalı, sıcaklığı ise 195°C'de sabitlenmelidir"
+  },
+  {
+    "query_id": "CAP-Q017",
+    "query": "Barmag BCF ekstrüder eriyik filtresinde diferansiyel basınç (Delta P) kaç barı aştığında filtre değişimi zorunludur?",
+    "department": "iplik_bcf",
+    "machine": "barmag_extruder",
+    "target_doc_id": "SOP-CAP-009",
+    "gold_fact": "diferansiyel basınç (Delta P) 65 bar değerini aştığında filtre elemanı derhal temizlenmeli veya yenisiyle değiştirilmelidir"
+  },
+  {
+    "query_id": "CAP-Q018",
+    "query": "Barmag ekstrüder eriyik basınç transmiteri kalibrasyonu hangi kovan sıcaklığında ve kaç bar basınç altında sıfırlanmalıdır?",
+    "department": "iplik_bcf",
+    "machine": "barmag_extruder",
+    "target_doc_id": "SOP-CAP-009",
+    "gold_fact": "kovan proses sıcaklığı olan 240°C'de ve sıfır polimer basıncı altında (0 bar) offset sıfırlaması ile"
+  },
+  {
+    "query_id": "CAP-Q019",
+    "query": "Poliamid PA6 halı ipliği bobin boyama banyosu pH değeri hangi aralıkta tutulmalı ve hangi asitler kullanılmalıdır?",
+    "department": "boyahane",
+    "machine": "boyahane_jet",
+    "target_doc_id": "SOP-CAP-010",
+    "gold_fact": "pH değeri 4.5 ile 5.0 aralığında tutulmalı, formik asit veya asetik asit kullanılmalıdır"
+  },
+  {
+    "query_id": "CAP-Q020",
+    "query": "Halı ipliği boyama jetinde durulama aşamasında banyo sıcaklığı kaç °C'ye düşürülmeli ve durulama suyu pH değeri ne olmalıdır?",
+    "department": "boyahane",
+    "machine": "boyahane_jet",
+    "target_doc_id": "SOP-CAP-011",
+    "gold_fact": "banyo sıcaklığı 60°C'ye düşürülmeli ve durulama suyu pH değeri 6.5 ile 7.0 aralığına getirilmelidir"
+  },
+  {
+    "query_id": "CAP-Q021",
+    "query": "Süperba termofiksaj buhar kazanı sıcaklığı kaç °C ve ipliğin buhar tünelindeki fiksaj süresi kaç saniye olmalıdır?",
+    "department": "boyahane",
+    "machine": "fiksaj_hatti",
+    "target_doc_id": "SOP-CAP-012",
+    "gold_fact": "proses sıcaklığı 130°C (±1.5°C) olmalı ve buhar tünelindeki kalış süresi 60 saniye olarak uygulanmalıdır"
+  },
+  {
+    "query_id": "CAP-Q022",
+    "query": "1.200.000 noktalı Merinos akrilik halılarda standart hav yüksekliği toleransı ve metrekare ağırlık sapma limiti nedir?",
+    "department": "kalite_kontrol",
+    "machine": "dokuma_salonu_1",
+    "target_doc_id": "SOP-CAP-013",
+    "gold_fact": "hav yüksekliği toleransı ±0.5 mm, metrekare hav ipliği ağırlığı sapma limiti ise maksimum ±%3.0 olmalıdır"
+  },
+  {
+    "query_id": "CAP-Q023",
+    "query": "Halı dokuma son kontrolünde 10 cm uzunluktaki atkı ve çözgü sıklığı sapma toleransı yüzde kaçtır?",
+    "department": "kalite_kontrol",
+    "machine": "dokuma_salonu_1",
+    "target_doc_id": "SOP-CAP-013",
+    "gold_fact": "atkı ve çözgü sıklığı sapma toleransı maksimum ±%1.5 sınırında olmalıdır"
+  },
+  {
+    "query_id": "CAP-Q024",
+    "query": "BCF polipropilen halı ipliğinde laboratuvar standartlarına göre minimum Uster mukavemet (Tenacity) ve kopma uzaması limiti nedir?",
+    "department": "kalite_kontrol",
+    "machine": "rieter_bcf",
+    "target_doc_id": "SOP-CAP-014",
+    "gold_fact": "minimum mukavemet (Tenacity) 3.2 cN/dtex, kopma uzaması ise %65 ile %75 aralığında olmalıdır"
+  },
+  {
+    "query_id": "CAP-Q025",
+    "query": "Dokuma ve redüktör yağ analizinde demir partikül miktarı kaç ppm'i geçerse dişli kutusu revizyona alınmalıdır?",
+    "department": "mekanik_bakim",
+    "machine": "schonherr_alpha500",
+    "target_doc_id": "SOP-CAP-015",
+    "gold_fact": "Demir (Fe) partikül miktarı 150 ppm'i geçerse dişli kutusu revizyona alınır"
+  }
+]

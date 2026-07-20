@@ -1,0 +1,108 @@
+{
+  "gate_result": {
+    "passed": false,
+    "faithfulness": 0.3767,
+    "context_precision": 0.92,
+    "context_recall": 0.96,
+    "answer_relevance": 0.8161,
+    "ragas_composite": 0.577,
+    "thresholds": {
+      "min_faithfulness": 0.8,
+      "min_context_precision": 0.8,
+      "min_context_recall": 0.75,
+      "min_answer_relevance": 0.75,
+      "min_composite_ragas": 0.82
+    },
+    "reasons": [
+      "Sadakat (Faithfulness) %37.7 < eşik %80.0",
+      "Harmonik Ragas Skoru %57.7 < eşik %82.0"
+    ],
+    "audit_details": {
+      "num_test_queries": 25,
+      "per_department": {
+        "dokuma_salonu_1": {
+          "avg_composite": 0.2837,
+          "count": 7.0
+        },
+        "dokuma_salonu_2": {
+          "avg_composite": 0.8275,
+          "count": 6.0
+        },
+        "iplik_bcf": {
+          "avg_composite": 0.5914,
+          "count": 5.0
+        },
+        "boyahane": {
+          "avg_composite": 0.6383,
+          "count": 3.0
+        },
+        "kalite_kontrol": {
+          "avg_composite": 0.6289,
+          "count": 3.0
+        },
+        "mekanik_bakim": {
+          "avg_composite": 0.7159,
+          "count": 1.0
+        }
+      }
+    },
+    "latency_p95_ms": 18.5
+  },
+  "average_latencies_ms": {
+    "filter_ms": 0.01,
+    "sparse_search_ms": 0.38,
+    "dense_search_ms": 6.68,
+    "rrf_fusion_ms": 0.01,
+    "reranking_ms": 119.27,
+    "generation_ms": 0.01
+  },
+  "strategy_recalls": {
+    "BM25 Seyrek": [
+      0.68,
+      0.84,
+      0.88
+    ],
+    "Yoğun Vektör (Dense)": [
+      0.72,
+      0.88,
+      0.92
+    ],
+    "RRF Hibrit (k=60)": [
+      0.86,
+      0.94,
+      0.98
+    ],
+    "Re-ranked Hibrit (Nihai)": [
+      0.92,
+      0.96,
+      1.0
+    ]
+  },
+  "department_grounding": {
+    "dokuma_salonu_1": 1.0,
+    "dokuma_salonu_2": 1.0,
+    "iplik_bcf": 1.0,
+    "boyahane": 1.0,
+    "kalite_kontrol": 1.0,
+    "mekanik_bakim": 1.0
+  },
+  "stage_latencies": {
+    "BM25": 0.37676000000000004,
+    "Dense (Qdrant)": 6.6802,
+    "RRF Füzyon": 0.01476,
+    "Yeniden Sıralama": 119.27056,
+    "Grounded Üretim": 0.01276,
+    "Uçtan Uca Toplam": 126.36200000000001
+  },
+  "ragas_scores": {
+    "Faithfulness": 0.3767,
+    "Context Precision": 0.92,
+    "Context Recall": 0.96,
+    "Answer Relevance": 0.8161,
+    "Harmonic Ragas": 0.577
+  },
+  "gate_passed": false,
+  "p95_latency_ms": 18.5,
+  "total_queries_tested": 25,
+  "total_chunks_indexed": 32
+}

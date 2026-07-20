@@ -1,0 +1,23 @@
+{
+  "schematic_id": "SCH-SIE-PROFI-02",
+  "title": "Dokuma Salonu 2 MRP Halka (Ring) Profinet Topolojisi",
+  "source": "Siemens SIOS & TIA Portal Hardware Config",
+  "topology": "Ring Redundancy (MRP Master: S7-1518F, MRP Clients: ET 200SP)",
+  "devices": [
+    {
+      "id": "PLC-01",
+      "ip": "192.168.10.1",
+      "name": "CPU 1518F-4 PN/DP"
+    },
+    {
+      "id": "ET200-W02-14",
+      "ip": "192.168.10.24",
+      "name": "VDW-RCE2-14 ET200SP Remote IO"
+    },
+    {
+      "id": "DRV-SERVO-01",
+      "ip": "192.168.10.51",
+      "name": "Lenze 9400 Servo Inverter Atkı"
+    }
+  ]
+}

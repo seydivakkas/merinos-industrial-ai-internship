@@ -1,0 +1,122 @@
+[
+  {
+    "doc_id": "SOP-CAP-001",
+    "title": "Van de Wiele RCE02 Halı Dokuma Tezgâhı Rapier ve Mekanik Bakım Kılavuzu",
+    "department": "dokuma_salonu_1",
+    "machine": "vdw_rce02",
+    "priority": "high",
+    "content": "# SOP-CAP-001: Van de Wiele RCE02 Halı Dokuma Tezgâhı Bakım Talimatı\n\n## 1. Rapier Şeridi Merkezleme ve Boşluk Ayarı\nVan de Wiele RCE02 çift rapierli halı dokuma tezgâhında sol ve sağ rapier şeritlerinin merkezleme kaçıklığı maksimum ±0.08 mm tolerans aralığında olmalıdır. Şerit kılavuz pabuçlarının aşınma kalınlık kaybı 0.40 mm değerini aştığında teflon raylar derhal yenilenmelidir. Rapier tırnak boşluğu sentil çakısı ile 0.35 mm seviyesine ayarlanır.\n\n## 2. Atkı İpliği Fren ve Besleme Gerginliği\nTekrarlayan atkı kopuşlarında ilk kontrol adımı atkı ipliği pnomatik fren gerginliğinin kontrol edilmesidir. Standart gerginlik 18-22 cN aralığında kalmalıdır. 25 cN üzeri gerginlik atkı kopuşuna, 15 cN altı ise atkı yığılmasına yol açar.\n\n## 3. Dişli Kutusu Yağlama Tablosu\n| Bileşen | Yağ Tipi | Değişim Periyodu | Yağ Miktarı |\n| :--- | :--- | :--- | :--- |\n| Ana Rapier Tahrik Kutusu | Mobilgear 600 XP 220 | İlk 500 saat, sonra 2000 saat | 18.5 Litre |\n| Tarak Redüktörü | Mobilgear 600 XP 320 | 4000 saat | 8.0 Litre |\n| Çözgü Levent Freni | Pnömatik Kuru Sistem | Haftalık toz tahliyesi | - |\n"
+  },
+  {
+    "doc_id": "SOP-CAP-002",
+    "title": "Van de Wiele RCE02 Çözgü Levent Fren ve Pnömatik Kontrol Talimatnamesi",
+    "department": "dokuma_salonu_1",
+    "machine": "vdw_rce02",
+    "priority": "high",
+    "content": "# SOP-CAP-002: RCE02 Çözgü Levent Freni ve Pnömatik Sistemi\n\n## 1. Çözgü Levent Fren Çalışma Basıncı\nVan de Wiele RCE02 tezgâhında çözgü levent fren pnömatik basıncı 4.2 bar ile 4.8 bar aralığında stabil tutulmalıdır. Eşik değer 4.0 bar altıdır. Basınç 4.0 bar altına düşerse tezgâh otomatik duruşa geçer.\n\n## 2. Fren Balatası Aşınma ve Bakım Limitleri\nFren balatası aşınma kalınlığı kumpas ile kontrol edilir. Minimum balata et kalınlığı 2.5 mm olmalıdır. 2.5 mm altındaki balatalar levent kaymasına ve desende enine çizgi hatasına neden olur.\n\n## 3. Pnömatik Filtre ve Şartlandırıcı Bakımı\nŞartlandırıcı su tahliyesi günlük vardiya başında otomatik valf üzerinden yapılır. Yağlayıcı haznesinde Festo sentetik pnömatik yağ kullanılır.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-003",
+    "title": "Neuenhauser Otomatik Halı Sarma ve Dokuma Çıkış Sistemi",
+    "department": "dokuma_salonu_1",
+    "machine": "neuenhauser_winder",
+    "priority": "medium",
+    "content": "# SOP-CAP-003: Neuenhauser Otomatik Halı Sarma Ünitesi\n\n## 1. Sarım Tansiyon Pnömatik Basınç Ayarı\nNeuenhauser otomatik halı sarma ünitesinde pnömatik tansiyon silindiri çalışma basıncı 2.5 bar ile 3.0 bar arasında ayarlanmalıdır. 2.5 bar altında gevşek sarım, 3.0 bar üzerinde ise hav ezilmesi ve kalıcı kırışıklık meydana gelir.\n\n## 2. Otomatik Kesim ve Rulo Boşaltma\nRulo dış çapı 120 cm'ye ulaştığında optik fotosel otomatik enine kesim bıçağını tetikler. Kesim bıçağı hidrolik tahriklidir ve kesim hızı 1.2 m/s'dir.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-004",
+    "title": "Schönherr Alpha 500 Armür Şedding ve Dokuma Senkronizasyonu",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "priority": "high",
+    "content": "# SOP-CAP-004: Schönherr Alpha 500 Armür Şedding ve Senkronizasyon\n\n## 1. Armür Şedding Açılma Yüksekliği ve Zamanlaması\nSchönherr Alpha 500 tezgâhında armür şedding açılma yüksekliği 145 mm (±2 mm) olmalıdır. Şedding kapanma zamanlaması ana krank mili 310 derece pozisyonunda gerçekleşmelidir. Yanlış açı rapier çarpışmasına yol açar.\n\n## 2. Çerçeve Kılavuz Pabuçları Yağlaması\nÇerçeve pabuçları sentetik lityum kompleks gres (Shell Gadus S3 V220C) ile haftalık yağlanır. Otomatik yağlama sistemi basıncı 150 bar seviyesindedir.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-005",
+    "title": "Schönherr Alpha 500 Elektronik Jakar Soğutma ve Selenoid Bakımı",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "priority": "high",
+    "content": "# SOP-CAP-005: Alpha 500 Elektronik Jakar ve Pano Bakımı\n\n## 1. Jakar Kabini Termal Limitleri\nSchönherr Alpha 500 elektronik jakar kabininde izin verilen maksimum sıcaklık eşiği 45°C'dir. Sıcaklık 45°C üzerine çıktığında sistem termal koruma alarmı üretir ve dokumayı güvenli şekilde durdurur.\n\n## 2. Selenoid Bobin Direnci Ölçümü\nElektronik jakar modüllerinde kullanılan elektrovalf selenoid bobin direnci 20°C ortamda 14.2 Ohm (±0.5 Ohm) olmalıdır. 12.0 Ohm altındaki direnç kısa devre riski nedeniyle kartı yakabilir.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-006",
+    "title": "Schönherr Alpha 500 Ana Tahrik Motoru Titreşim ve Yağlama Standartları",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "priority": "medium",
+    "content": "# SOP-CAP-006: Alpha 500 Ana Tahrik ve Titreşim Kontrolü\n\n## 1. Rulman Titreşim Sınırları (ISO 10816-3)\nSchönherr Alpha 500 ana tahrik motoru ve redüktör rulman yataklarında izin verilen maksimum RMS titreşim hızı 2.8 mm/s'dir. Titreşim 4.5 mm/s üzerinde ölçüldüğünde tezgâh acil durdurulur ve rulman değişimi yapılır.\n\n## 2. Redüktör Dişli Yağı\nAna redüktörde ISO VG 320 viskozite sınıfında sentetik poligliserol (PG) dişli yağı kullanılmalı ve karter sıcaklığı 80°C'yi aşmamalıdır.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-007",
+    "title": "Rieter BCF İplik Çekim Hattı Polipropilen Ekstrüzyon Talimatnamesi",
+    "department": "iplik_bcf",
+    "machine": "rieter_bcf",
+    "priority": "high",
+    "content": "# SOP-CAP-007: Rieter BCF Polipropilen (PP) Ekstrüzyon Standartları\n\n## 1. Kovan Sıcaklık Profili ve Besleme Boğazı\nRieter BCF ekstrüder kovanı 5 bağımsız ısıtma bölgesinden oluşur. Besleme boğazı (Zone 1) sıcaklığı granül erken erimesini önlemek için 180°C (±5°C) olarak ayarlanmalıdır. Kovan ucu sıcaklığı 240°C, meme sıcaklığı 245°C'dir.\n\n## 2. Eriyik Basıncı ve Eriyik Pompası\nEriyik pompası çıkış basıncı 120 bar seviyesinde tutulmalıdır. Pompa devri iplik dtex numarasına göre 35-50 rpm arasında otomatik ayarlanır.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-008",
+    "title": "Rieter BCF Tekstüre Ünitesi Sıcaklık ve Basınç Kontrolü",
+    "department": "iplik_bcf",
+    "machine": "rieter_bcf",
+    "priority": "high",
+    "content": "# SOP-CAP-008: Rieter BCF Tekstüre ve Hacimlendirme Prosesi\n\n## 1. Tekstüre Jeti Proses Havası Parametreleri\nRieter BCF tekstüre ünitesinde tekstüre jeti proses hava basıncı 5.8 bar ile 6.2 bar arasında olmalıdır. Proses hava sıcaklığı rezistansları 195°C'de sabitlenmelidir (tolerans ±2°C).\n\n## 2. Soğutma Tamburu ve İplik Kıvrımı (Crimp)\nHacimlendirilen iplik soğutma tamburunda 40°C altına düşürülür. İplik kıvrım büzülme oranı (crimp contraction) %38-42 aralığında kalmalıdır.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-009",
+    "title": "Barmag BCF Ekstrüder Eriyik Filtresi ve Basınç Transmiteri",
+    "department": "iplik_bcf",
+    "machine": "barmag_extruder",
+    "priority": "high",
+    "content": "# SOP-CAP-009: Barmag Ekstrüder Eriyik Filtresi ve Sensör Kalibrasyonu\n\n## 1. Eriyik Filtresi Değişim Fark Basıncı (Delta P)\nBarmag ekstrüder eriyik filtre paketinde diferansiyel basınç (Delta P) 65 bar değerini aştığında filtre elemanı derhal temizlenmeli veya yenisiyle değiştirilmelidir. 65 bar üzeri basınç polimer zincir kırılmasına yol açar.\n\n## 2. Eriyik Basınç Transmiteri Kalibrasyonu\nDynisco eriyik basınç transmiteri kalibrasyonu proses sıcaklığında (240°C) ve hat içi sıfır basınç (0 bar) altındayken sıfırlanmalıdır. Soğuk kalibrasyon sensör diyaframını bozar.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-010",
+    "title": "Poliamid (PA6) Halı İpliği Bobin Boyama Prosesi ve pH Dengesi",
+    "department": "boyahane",
+    "machine": "boyahane_jet",
+    "priority": "high",
+    "content": "# SOP-CAP-010: Poliamid PA6 Halı İpliği Boyama Talimatı\n\n## 1. Boya Banyosu pH Aralığı ve Tamponlama\nPoliamid (PA6) halı ipliği bobin boyama prosesinde boya banyosu pH değeri 4.5 ile 5.0 aralığında tutulmalıdır. pH tamponlama işlemi teknik formik asit veya asetik asit kullanılarak gerçekleştirilmelidir.\n\n## 2. Boyama Sıcaklık Eğrisi\nBanyo sıcaklığı dakikada 1.5°C artış hızı ile 98°C'ye çıkarılır ve 45 dakika izotermal fiksaj uygulanır.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-011",
+    "title": "Boya Jeti Yıkama ve Durulama Parametreleri",
+    "department": "boyahane",
+    "machine": "boyahane_jet",
+    "priority": "medium",
+    "content": "# SOP-CAP-011: Halı İpliği Boyama Sonrası Durulama ve Nötralizasyon\n\n## 1. Durulama Sıcaklığı ve Nötralizasyon pH Değeri\nBoya jeti prosesinde ana boyama sonrası durulama aşamasında banyo sıcaklığı 60°C'ye düşürülmeli ve durulama suyu pH değeri 6.5 ile 7.0 aralığına getirilmelidir. Yüksek pH lif sertleşmesine neden olur.\n\n## 2. Anti-Statik Yumuşatıcı İlavesi\nSon durulama banyosuna %1.2 oranında katyonik anti-statik yumuşatıcı ilave edilerek statik elektriklenme önlenir.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-012",
+    "title": "Süperba Termofiksaj Hattı Doymuş Buhar Proses Kılavuzu",
+    "department": "boyahane",
+    "machine": "fiksaj_hatti",
+    "priority": "high",
+    "content": "# SOP-CAP-012: Süperba Halı İpliği Fiksaj Hattı\n\n## 1. Buhar Kazanı Sıcaklığı ve Fiksaj Süresi\nSüperba termofiksaj hattında doymuş buhar kazanı proses sıcaklığı 130°C (±1.5°C) olmalı ve ipliğin buhar tünelindeki kalış süresi 60 saniye olarak uygulanmalıdır. Yetersiz fiksaj hav dökülmesine yol açar.\n\n## 2. Soğutma ve Çile Kurutma\nBuhar tünelinden çıkan iplik 65°C kurutma odasından geçirilerek nem oranı %1.5 altına düşürülür.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-013",
+    "title": "Merinos Akrilik ve Polipropilen Halı Kalite Kontrol Standartları",
+    "department": "kalite_kontrol",
+    "machine": "dokuma_salonu_1",
+    "priority": "high",
+    "content": "# SOP-CAP-013: Halı Son Kalite Kontrol ve Fiziksel Ölçüm Toleransları\n\n## 1. Hav Yüksekliği ve Metrekare Ağırlık Sapması\n1.200.000 noktalı Merinos akrilik halılarda standart hav yüksekliği toleransı ±0.5 mm, metrekare hav ipliği ağırlığı sapma limiti ise maksimum ±%3.0 olmalıdır.\n\n## 2. Atkı ve Çözgü Sıklığı Sapma Toleransı\n10 cm uzunluktaki atkı ve çözgü sıklığı sapma toleransı maksimum ±%1.5 sınırında olmalıdır. ±%1.5 üzeri sapma desende orantısızlığa neden olur.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-014",
+    "title": "BCF İplik Laboratuvarı Uster Mukavemet ve Puntalama Testleri",
+    "department": "kalite_kontrol",
+    "machine": "rieter_bcf",
+    "priority": "high",
+    "content": "# SOP-CAP-014: İplik Laboratuvarı Çekme ve Puntalama Standartları\n\n## 1. Uster Tenacity ve Uzama Standartları\nBCF polipropilen halı ipliğinde minimum mukavemet (Tenacity) 3.2 cN/dtex, kopma uzaması ise %65 ile %75 aralığında olmalıdır.\n\n## 2. Puntalama Sıklığı Ölçümü\nİplik puntalama sıklığı metre başına 28 ile 32 düğüm/nokta aralığında olmalıdır. Düşük puntalama dokumada filament açılmasına yol açar.\n"
+  },
+  {
+    "doc_id": "SOP-CAP-015",
+    "title": "Merinos Fabrika Genel Yağlama ve Titreşim İnceleme Prosedürü",
+    "department": "mekanik_bakim",
+    "machine": "schonherr_alpha500",
+    "priority": "medium",
+    "content": "# SOP-CAP-015: Fabrika Genel Yağlama ve Titreşim Önleyici Bakım\n\n## 1. Rulman Yağlama Gres Seçimi\nAğır hizmet dokuma rulmanlarında Shell Gadus S3 V220C lityum kompleks gres kullanılır. Gres tabancası ile her yatağa 15 gram gres basılır.\n\n## 2. Yağ Analiz Periyodu ve Kirlilik Limitleri\nTüm kapalı dişli kutularından her 4000 çalışma saatinde bir yağ numunesi alınarak spektrometrik element analizi yapılır. Demir (Fe) partikül miktarı 150 ppm'i geçerse dişli kutusu revizyona alınır.\n"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "catalog_id": "VDW-VDIRECT-FAULT-CODES",
+  "machine_family": "Vandewiele RCE2+ / RCF / VTR",
+  "fault_codes": [
+    {
+      "code": "ERR-RAP-05",
+      "hmi_message": "Left/Right Rapier Gripper Yarn Handover Failure",
+      "description": "Atkı ipliği sol verici rapyerden sağ alıcı rapyere aktarılamadı.",
+      "probable_cause": "Kıskaç mandal yay yorulması veya sentil açıklığı > 0.38 mm.",
+      "remedy": "Kıskaç sentil ayarını 0.35 mm'ye getiriniz, aşınan tırnakları yenileyiniz.",
+      "iso_failure_mode": "MEC-TRN-BRK"
+    },
+    {
+      "code": "ERR-BIC-07",
+      "hmi_message": "Pile Loop Cutting Blade Temperature or Dull Warning",
+      "description": "Hav kesme döner bıçağı aşırı ısındı veya köreldi.",
+      "probable_cause": "Elmas taşlama mekanizması boşluğu veya yetersiz teflon sprey.",
+      "remedy": "Bileme taşını 15° açıyla ayarlayınız, traverse PTFE uygulayınız.",
+      "iso_failure_mode": "MEC-CUT-DUL"
+    },
+    {
+      "code": "ERR-NET-03",
+      "hmi_message": "Profinet Remote IO Station Drop - ET200SP Timeout",
+      "description": "Dokuma tezgâhı uzak IO modülü haberleşme zaman aşımına uğradı.",
+      "probable_cause": "Cat6 STP kablo ekranlama zafiyeti veya motor EMI gürültüsü.",
+      "remedy": "Kablo ekranlama bileziğini kontrol ediniz, topraklamayı sıkınız.",
+      "iso_failure_mode": "ELC-NET-TMO"
+    }
+  ]
+}

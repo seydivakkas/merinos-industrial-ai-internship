@@ -1,0 +1,51 @@
+{
+  "phase": "Phase 5: Fine-Tuning & LLM Customization",
+  "day": "Day 29: Open-Source Minimal SLM Selection, Custom Nano-LLM Engine & Quantization",
+  "organization": "Merinos Halı Sanayi ve Ticaret A.Ş.",
+  "facility": "Gaziantep 4. OSB Tesisleri",
+  "nano_llm_config": {
+    "model_name": "MerinosNanoLLM-32M",
+    "vocab_size": 1024,
+    "d_model": 192,
+    "n_heads": 6,
+    "n_kv_heads": 2,
+    "n_layers": 4,
+    "intermediate_size": 512,
+    "max_seq_len": 256,
+    "rope_theta": 10000.0,
+    "rms_norm_eps": 1e-6,
+    "dropout": 0.05
+  },
+  "hardware_targets": [
+    {
+      "name": "NVIDIA RTX 4060 (Edge / Atölye)",
+      "vram_gb": 8.0,
+      "memory_bandwidth_gbs": 272.0,
+      "fp16_tflops": 15.1,
+      "int8_tops": 121.0,
+      "tpd_watts": 115
+    },
+    {
+      "name": "NVIDIA RTX 3060 (Vardiya Mühendisliği)",
+      "vram_gb": 12.0,
+      "memory_bandwidth_gbs": 360.0,
+      "fp16_tflops": 12.7,
+      "int8_tops": 101.0,
+      "tpd_watts": 170
+    },
+    {
+      "name": "Merinos Fabrika On-Premise Sunucu (A10G)",
+      "vram_gb": 24.0,
+      "memory_bandwidth_gbs": 600.0,
+      "fp16_tflops": 31.2,
+      "int8_tops": 250.0,
+      "tpd_watts": 300
+    }
+  ],
+  "quantization_formats": [
+    { "type": "FP32", "bits_per_param": 32, "bytes_per_param": 4.0, "efficiency_multiplier": 1.0 },
+    { "type": "FP16 / BF16", "bits_per_param": 16, "bytes_per_param": 2.0, "efficiency_multiplier": 2.0 },
+    { "type": "INT8 (SQ / LLM.int8)", "bits_per_param": 8, "bytes_per_param": 1.0, "efficiency_multiplier": 3.8 },
+    { "type": "INT4 (NF4 / QLoRA / GGUF)", "bits_per_param": 4, "bytes_per_param": 0.5, "efficiency_multiplier": 7.2 }
+  ]
+}

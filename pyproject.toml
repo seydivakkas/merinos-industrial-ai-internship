@@ -1,0 +1,98 @@
+[tool.poetry]
+name = "merinos-industrial-ai-internship"
+version = "0.1.0"
+description = "Merinos Endüstriyel Yapay Zeka Staj Portföyü — 40 Günlük Mühendislik Müfredatı"
+authors = ["Seydi Eryılmaz <seydivakkas>"]
+license = "Proprietary"
+readme = "README.md"
+packages = [
+    { include = "shared" },
+    { include = "day01" },
+    { include = "day02" },
+    { include = "day03" },
+    { include = "day04" },
+    { include = "day05" },
+    { include = "day06" },
+    { include = "day07" },
+    { include = "day08" },
+    { include = "day09" },
+    { include = "day10" },
+    { include = "day11" },
+    { include = "day12" },
+    { include = "day13" },
+    { include = "day14" },
+    { include = "day15" },
+    { include = "day16" },
+    { include = "day17" },
+    { include = "day18" },
+    { include = "day19" },
+    { include = "day20" },
+    { include = "day21" },
+    { include = "day22" },
+    { include = "day23" },
+    { include = "day24" },
+    { include = "day25" },
+    { include = "day26" },
+    { include = "day27" },
+    { include = "day28" },
+    { include = "day29" },
+    { include = "day30" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+numpy = "^1.26.0 || ^2.0.0"
+pandas = "^2.2.0"
+pydantic = "^2.6.0"
+scipy = "^1.12.0"
+scikit-learn = "^1.4.0"
+scikit-image = "^0.22.0"
+opencv-python-headless = "^4.9.0"
+matplotlib = "^3.8.0"
+seaborn = "^0.13.0"
+xgboost = "^2.0.0 || ^3.0.0"
+lightgbm = "^4.0.0"
+torch = "^2.2.0"
+torchvision = "^0.17.0"
+sentence-transformers = "^2.5.0"
+fastapi = "^0.110.0"
+uvicorn = {extras = ["standard"], version = "^0.28.0"}
+redis = "^5.0.0"
+celery = "^5.3.0"
+httpx = "^0.27.0"
+python-dotenv = "^1.0.0"
+rich = "^13.7.0"
+qdrant-client = "^1.8.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+ruff = "^0.3.0"
+black = "^24.2.0"
+pre-commit = "^3.6.0"
+ipykernel = "^6.29.0"
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+addopts = "--import-mode=importlib --basetemp=.pytest_temp"
+norecursedirs = ["shared", ".*", "build", "dist"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+

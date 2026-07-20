@@ -1,0 +1,57 @@
+{
+  "project_name": "Merinos Phase 4 Capstone: Full End-to-End Industrial RAG Pipeline & Deployment Gate",
+  "version": "1.0.0",
+  "facility": "Gaziantep 4. OSB Tesisleri",
+  "chunking": {
+    "strategy": "markdown_aware",
+    "max_chunk_size": 450,
+    "chunk_overlap": 50,
+    "inject_breadcrumbs": true
+  },
+  "bm25": {
+    "k1": 1.5,
+    "b": 0.75,
+    "lowercase": true
+  },
+  "vector_index": {
+    "collection_name": "merinos_capstone_kb",
+    "vector_size": 384,
+    "distance": "COSINE",
+    "hnsw_m": 16,
+    "hnsw_ef_construct": 64,
+    "hnsw_ef_search": 32,
+    "quantization": "INT8",
+    "in_memory": true
+  },
+  "fusion": {
+    "method": "RRF",
+    "rrf_k": 60,
+    "top_k_sparse": 10,
+    "top_k_dense": 10,
+    "dense_weight": 0.6,
+    "sparse_weight": 0.4
+  },
+  "reranking": {
+    "enabled": true,
+    "top_k_candidates": 10,
+    "top_k_final": 3
+  },
+  "generation": {
+    "max_context_length": 1500,
+    "temperature": 0.1,
+    "strict_citations": true,
+    "system_persona": "Merinos Fabrika Başmühendisi ve Bakım Uzmanı"
+  },
+  "deployment_gate": {
+    "min_faithfulness": 0.80,
+    "min_context_precision": 0.80,
+    "min_context_recall": 0.75,
+    "min_answer_relevance": 0.75,
+    "min_composite_ragas": 0.82
+  },
+  "api": {
+    "host": "127.0.0.1",
+    "port": 8080,
+    "reload": false
+  }
+}
