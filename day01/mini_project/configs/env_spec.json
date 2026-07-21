@@ -1,0 +1,38 @@
+{
+  "spec_version": "1.0.0",
+  "project_name": "merinos-industrial-ai-internship",
+  "min_python_version": [3, 11],
+  "recommended_python_version": [3, 11],
+  "required_packages": [
+    "numpy",
+    "pydantic",
+    "pytest"
+  ],
+  "optional_packages": [
+    "torch",
+    "torchvision",
+    "cv2",
+    "fastapi",
+    "redis",
+    "celery"
+  ],
+  "required_repo_directories": [
+    "shared",
+    "shared/datasets",
+    "shared/utils",
+    "shared/configs",
+    "tests",
+    "docs",
+    "day01"
+  ],
+  "required_root_files": [
+    "README.md",
+    "AGENTS.md",
+    "ARCHITECTURE.md",
+    "ROADMAP.md",
+    "LEARNING_OUTCOMES.md",
+    "LICENSE",
+    ".gitignore",
+    ".env.example"
+  ]
+}

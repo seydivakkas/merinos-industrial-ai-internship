@@ -1,0 +1,82 @@
+{
+  "python_version": "3.14.3",
+  "python_executable": "C:\\Users\\Seydi Eryılmaz\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+  "os_name": "Windows",
+  "os_release": "11",
+  "architecture": "AMD64",
+  "hardware": {
+    "cuda_available": true,
+    "device_count": 1,
+    "device_name": "NVIDIA GeForce RTX 4070 Laptop GPU",
+    "cuda_version": "12.6",
+    "total_memory_gb": 8.0
+  },
+  "packages": [
+    {
+      "name": "numpy",
+      "installed": true,
+      "version": "2.4.3",
+      "required": true
+    },
+    {
+      "name": "pydantic",
+      "installed": true,
+      "version": "2.13.3",
+      "required": true
+    },
+    {
+      "name": "pytest",
+      "installed": true,
+      "version": "9.0.3",
+      "required": true
+    },
+    {
+      "name": "torch",
+      "installed": true,
+      "version": "2.11.0+cu126",
+      "required": false
+    },
+    {
+      "name": "torchvision",
+      "installed": true,
+      "version": "0.26.0+cu126",
+      "required": false
+    },
+    {
+      "name": "cv2",
+      "installed": false,
+      "version": null,
+      "required": false
+    },
+    {
+      "name": "fastapi",
+      "installed": true,
+      "version": "0.139.0",
+      "required": false
+    },
+    {
+      "name": "redis",
+      "installed": true,
+      "version": "6.4.0",
+      "required": false
+    },
+    {
+      "name": "celery",
+      "installed": true,
+      "version": "5.6.3",
+      "required": false
+    }
+  ],
+  "is_compliant": true,
+  "validation_messages": [
+    "Python 3.14 tespit edildi (Beklenen asgari: 3.11).",
+    "Kurulu zorunlu paket: numpy (2.4.3)",
+    "Kurulu zorunlu paket: pydantic (2.13.3)",
+    "Kurulu zorunlu paket: pytest (9.0.3)",
+    "Kurulu opsiyonel paket: torch (2.11.0+cu126)",
+    "Kurulu opsiyonel paket: torchvision (0.26.0+cu126)",
+    "Kurulu opsiyonel paket: fastapi (0.139.0)",
+    "Kurulu opsiyonel paket: redis (6.4.0)",
+    "Kurulu opsiyonel paket: celery (5.6.3)"
+  ]
+}
