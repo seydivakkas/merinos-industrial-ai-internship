@@ -1,0 +1,462 @@
+{
+  "IndustrialImageMetadata": {
+    "$defs": {
+      "ColorSpaceEnum": {
+        "enum": [
+          "RGB",
+          "BGR",
+          "HSV",
+          "LAB",
+          "GRAY"
+        ],
+        "title": "ColorSpaceEnum",
+        "type": "string"
+      }
+    },
+    "additionalProperties": false,
+    "description": "Kamera, tarayıcı veya CAD kaynaklı endüstriyel halı görseli metadata modeli.",
+    "properties": {
+      "image_id": {
+        "description": "Benzersiz görsel kimliği",
+        "maxLength": 64,
+        "minLength": 3,
+        "title": "Image Id",
+        "type": "string"
+      },
+      "width_px": {
+        "description": "Piksel cinsinden genişlik",
+        "maximum": 8192,
+        "minimum": 64,
+        "title": "Width Px",
+        "type": "integer"
+      },
+      "height_px": {
+        "description": "Piksel cinsinden yükseklik",
+        "maximum": 8192,
+        "minimum": 64,
+        "title": "Height Px",
+        "type": "integer"
+      },
+      "channels": {
+        "default": 3,
+        "description": "Kanal sayısı (1: Grayscale, 3: RGB/LAB, 4: RGBA)",
+        "title": "Channels",
+        "type": "integer"
+      },
+      "color_space": {
+        "$ref": "#/$defs/ColorSpaceEnum",
+        "default": "RGB",
+        "description": "Görselin renk uzayı"
+      },
+      "dpi": {
+        "default": 300,
+        "description": "Baskı/tarama çözünürlüğü (DPI)",
+        "maximum": 2400,
+        "minimum": 72,
+        "title": "Dpi",
+        "type": "integer"
+      },
+      "knot_density": {
+        "anyOf": [
+          {
+            "maximum": 120,
+            "minimum": 10,
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "10 cm başına düşen düğüm sıklığı",
+        "title": "Knot Density"
+      }
+    },
+    "required": [
+      "image_id",
+      "width_px",
+      "height_px"
+    ],
+    "title": "IndustrialImageMetadata",
+    "type": "object"
+  },
+  "CarpetDimensions": {
+    "additionalProperties": false,
+    "description": "Halı ürününün fiziksel üretim ölçüleri.",
+    "properties": {
+      "width_cm": {
+        "description": "Genişlik (cm)",
+        "maximum": 1500.0,
+        "minimum": 20.0,
+        "title": "Width Cm",
+        "type": "number"
+      },
+      "length_cm": {
+        "description": "Uzunluk (cm)",
+        "maximum": 1500.0,
+        "minimum": 20.0,
+        "title": "Length Cm",
+        "type": "number"
+      },
+      "pile_height_mm": {
+        "default": 10.0,
+        "description": "Hav yüksekliği (mm)",
+        "maximum": 50.0,
+        "minimum": 1.0,
+        "title": "Pile Height Mm",
+        "type": "number"
+      }
+    },
+    "required": [
+      "width_cm",
+      "length_cm"
+    ],
+    "title": "CarpetDimensions",
+    "type": "object"
+  },
+  "CarpetProduct": {
+    "$defs": {
+      "CarpetDimensions": {
+        "additionalProperties": false,
+        "description": "Halı ürününün fiziksel üretim ölçüleri.",
+        "properties": {
+          "width_cm": {
+            "description": "Genişlik (cm)",
+            "maximum": 1500.0,
+            "minimum": 20.0,
+            "title": "Width Cm",
+            "type": "number"
+          },
+          "length_cm": {
+            "description": "Uzunluk (cm)",
+            "maximum": 1500.0,
+            "minimum": 20.0,
+            "title": "Length Cm",
+            "type": "number"
+          },
+          "pile_height_mm": {
+            "default": 10.0,
+            "description": "Hav yüksekliği (mm)",
+            "maximum": 50.0,
+            "minimum": 1.0,
+            "title": "Pile Height Mm",
+            "type": "number"
+          }
+        },
+        "required": [
+          "width_cm",
+          "length_cm"
+        ],
+        "title": "CarpetDimensions",
+        "type": "object"
+      },
+      "MaterialEnum": {
+        "enum": [
+          "wool",
+          "silk",
+          "acrylic",
+          "polyester",
+          "cotton",
+          "bamboo_silk"
+        ],
+        "title": "MaterialEnum",
+        "type": "string"
+      }
+    },
+    "description": "Katalog, ERP ve üretim hattı için kanonik halı ürün modeli.",
+    "properties": {
+      "product_id": {
+        "description": "Ürün kodu (Örn: MRP-104928)",
+        "title": "Product Id",
+        "type": "string"
+      },
+      "title": {
+        "description": "Ürün ticari başlığı",
+        "maxLength": 150,
+        "minLength": 3,
+        "title": "Title",
+        "type": "string"
+      },
+      "collection": {
+        "description": "Koleksiyon adı",
+        "maxLength": 50,
+        "minLength": 2,
+        "title": "Collection",
+        "type": "string"
+      },
+      "material": {
+        "$ref": "#/$defs/MaterialEnum",
+        "description": "Ana iplik materyali"
+      },
+      "dimensions": {
+        "$ref": "#/$defs/CarpetDimensions",
+        "description": "Fiziksel boyutlar"
+      },
+      "palette_hex": {
+        "description": "Hedef iplik paleti (Hex)",
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 16,
+        "minItems": 1,
+        "title": "Palette Hex",
+        "type": "array"
+      },
+      "knot_count_total": {
+        "anyOf": [
+          {
+            "minimum": 1000,
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Tahmini toplam düğüm adedi",
+        "title": "Knot Count Total"
+      },
+      "is_active": {
+        "default": true,
+        "description": "Üretim durumu aktif mi?",
+        "title": "Is Active",
+        "type": "boolean"
+      },
+      "tags": {
+        "description": "Stil ve arama etiketleri",
+        "items": {
+          "type": "string"
+        },
+        "title": "Tags",
+        "type": "array"
+      }
+    },
+    "required": [
+      "product_id",
+      "title",
+      "collection",
+      "material",
+      "dimensions",
+      "palette_hex"
+    ],
+    "title": "CarpetProduct",
+    "type": "object"
+  },
+  "TechnicalDocument": {
+    "description": "RAG sistemi için teknik tekstil şartnamesi veya kalite dokümanı chunk modeli.",
+    "properties": {
+      "doc_id": {
+        "description": "Doküman/Chunk kimliği (Örn: DOC-TEX-001)",
+        "maxLength": 64,
+        "minLength": 3,
+        "title": "Doc Id",
+        "type": "string"
+      },
+      "title": {
+        "description": "Doküman başlığı",
+        "maxLength": 200,
+        "minLength": 5,
+        "title": "Title",
+        "type": "string"
+      },
+      "section": {
+        "description": "Bölüm başlığı",
+        "maxLength": 100,
+        "minLength": 2,
+        "title": "Section",
+        "type": "string"
+      },
+      "content": {
+        "description": "Metinsel içerik",
+        "maxLength": 10000,
+        "minLength": 10,
+        "title": "Content",
+        "type": "string"
+      },
+      "tags": {
+        "description": "Kategori etiketleri",
+        "items": {
+          "type": "string"
+        },
+        "title": "Tags",
+        "type": "array"
+      },
+      "author": {
+        "default": "Sistem Mühendisliği",
+        "description": "Dokümanı hazırlayan birim",
+        "title": "Author",
+        "type": "string"
+      },
+      "created_at": {
+        "description": "Oluşturulma zamanı",
+        "format": "date-time",
+        "title": "Created At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "doc_id",
+      "title",
+      "section",
+      "content"
+    ],
+    "title": "TechnicalDocument",
+    "type": "object"
+  },
+  "InferenceRequest": {
+    "additionalProperties": false,
+    "description": "Üretken AI desen üretim motoru için tip denetimli servis istek modeli.",
+    "properties": {
+      "request_id": {
+        "description": "İstek takip kimliği",
+        "maxLength": 64,
+        "minLength": 4,
+        "title": "Request Id",
+        "type": "string"
+      },
+      "prompt": {
+        "description": "Pozitif tasarım yönlendirmesi",
+        "maxLength": 1000,
+        "minLength": 5,
+        "title": "Prompt",
+        "type": "string"
+      },
+      "negative_prompt": {
+        "anyOf": [
+          {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": "blurry, distorted, low resolution, 3d shadows, folds, wrinkles",
+        "description": "Negatif prompt",
+        "title": "Negative Prompt"
+      },
+      "lora_weight": {
+        "default": 0.75,
+        "description": "Tekstil LoRA adaptör ağırlığı",
+        "maximum": 1.0,
+        "minimum": 0.0,
+        "title": "Lora Weight",
+        "type": "number"
+      },
+      "steps": {
+        "default": 35,
+        "description": "Difüzyon çıkarım adım sayısı",
+        "maximum": 100,
+        "minimum": 10,
+        "title": "Steps",
+        "type": "integer"
+      },
+      "guidance_scale": {
+        "default": 7.5,
+        "description": "Classifier-Free Guidance (CFG) ölçeği",
+        "maximum": 20.0,
+        "minimum": 1.0,
+        "title": "Guidance Scale",
+        "type": "number"
+      },
+      "seed": {
+        "default": 42,
+        "description": "Deterministik rastgelelik çekirdeği",
+        "maximum": 4294967295,
+        "minimum": 0,
+        "title": "Seed",
+        "type": "integer"
+      },
+      "target_palette_size": {
+        "default": 8,
+        "description": "Dokuma tezgahı iplik bobin sayısı",
+        "maximum": 16,
+        "minimum": 2,
+        "title": "Target Palette Size",
+        "type": "integer"
+      },
+      "enable_seamless": {
+        "default": false,
+        "description": "Dikişsiz desen için dairesel dolgu (circular padding)",
+        "title": "Enable Seamless",
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "request_id",
+      "prompt"
+    ],
+    "title": "InferenceRequest",
+    "type": "object"
+  },
+  "InferenceResponse": {
+    "additionalProperties": false,
+    "description": "Desen üretim hattının istemciye döndürdüğü yapısal yanıt modeli.",
+    "properties": {
+      "request_id": {
+        "description": "İstek takip kimliği",
+        "title": "Request Id",
+        "type": "string"
+      },
+      "status": {
+        "description": "Görev durumu (SUCCESS, FAILED, PROCESSING)",
+        "title": "Status",
+        "type": "string"
+      },
+      "execution_time_ms": {
+        "anyOf": [
+          {
+            "minimum": 0.0,
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Toplam işlem süresi (ms)",
+        "title": "Execution Time Ms"
+      },
+      "output_image_uri": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Üretilen görselin depolama yolu/URI",
+        "title": "Output Image Uri"
+      },
+      "extracted_palette_hex": {
+        "description": "Kuantize edilmiş iplik paleti",
+        "items": {
+          "type": "string"
+        },
+        "title": "Extracted Palette Hex",
+        "type": "array"
+      },
+      "error_message": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Hata detayı",
+        "title": "Error Message"
+      }
+    },
+    "required": [
+      "request_id",
+      "status"
+    ],
+    "title": "InferenceResponse",
+    "type": "object"
+  }
+}

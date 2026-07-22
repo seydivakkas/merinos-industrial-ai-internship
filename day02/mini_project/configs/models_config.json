@@ -1,0 +1,17 @@
+{
+  "validation_rules": {
+    "min_dimension_cm": 20.0,
+    "max_dimension_cm": 1500.0,
+    "min_resolution_px": 64,
+    "max_resolution_px": 8192,
+    "min_knot_density": 10,
+    "max_knot_density": 120,
+    "allowed_color_spaces": ["RGB", "BGR", "HSV", "LAB", "GRAY"],
+    "allowed_materials": ["wool", "silk", "acrylic", "polyester", "cotton", "bamboo_silk"],
+    "min_inference_steps": 10,
+    "max_inference_steps": 100,
+    "min_guidance_scale": 1.0,
+    "max_guidance_scale": 20.0
+  },
+  "default_seed": 42
+}

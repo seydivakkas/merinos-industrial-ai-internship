@@ -1,0 +1,75 @@
+{
+  "image_metadata": {
+    "image_id": "IMG-USAK-001",
+    "width_px": 1024,
+    "height_px": 1536,
+    "channels": 3,
+    "color_space": "RGB",
+    "dpi": 300,
+    "knot_density": 60
+  },
+  "carpet_product": {
+    "product_id": "MRP-202601",
+    "title": "Geleneksel Uşak Madalyonlu Halı",
+    "collection": "Anatolia Heritage",
+    "material": "wool",
+    "dimensions": {
+      "width_cm": 200.0,
+      "length_cm": 300.0,
+      "pile_height_mm": 12.0
+    },
+    "palette_hex": [
+      "#8B0000",
+      "#1E3F66",
+      "#D4AF37",
+      "#F5F5DC",
+      "#2E8B57"
+    ],
+    "knot_count_total": 360000,
+    "is_active": true,
+    "tags": [
+      "vintage",
+      "madalyon",
+      "usak",
+      "el-dokuma-hissi"
+    ]
+  },
+  "technical_document": {
+    "doc_id": "DOC-STAND-042",
+    "title": "Merinos Yün İplik Dokuma Standartları Şartnamesi",
+    "section": "4.2 Hav Yüksekliği ve Düğüm Toleransları",
+    "content": "Yün halı üretiminde 10 cm başına düşen düğüm sayısı en az 50x50 olmalıdır. Jakarlı dokuma tezgahlarında hav yüksekliği toleransı ±1.5 mm olarak belirlenmiştir.",
+    "tags": [
+      "kalite",
+      "jakar",
+      "tolerans",
+      "yun"
+    ],
+    "author": "Tekstil Ar-Ge ve Kalite Kontrol Müdürlüğü",
+    "created_at": "2026-09-04T03:55:50.705102Z"
+  },
+  "inference_request": {
+    "request_id": "REQ-GEN-8910",
+    "prompt": "traditional Usak carpet motif, central ornamental medallion, symmetrical border, high knot density, 2d vector texture",
+    "negative_prompt": "blurry, distorted, 3d furniture shadows, human, folds",
+    "lora_weight": 0.75,
+    "steps": 35,
+    "guidance_scale": 7.5,
+    "seed": 42,
+    "target_palette_size": 8,
+    "enable_seamless": true
+  },
+  "inference_response": {
+    "request_id": "REQ-GEN-8910",
+    "status": "SUCCESS",
+    "execution_time_ms": 1420.5,
+    "output_image_uri": "shared/artifacts/generated_patterns/REQ-GEN-8910.png",
+    "extracted_palette_hex": [
+      "#8B0000",
+      "#1E3F66",
+      "#D4AF37",
+      "#F5F5DC"
+    ],
+    "error_message": null
+  }
+}
