@@ -1,0 +1,82 @@
+[
+  {
+    "product_code": "MRP-1001",
+    "product_name": "  Prestij Venedik Klasik  ",
+    "collection": "Prestij",
+    "composition": "wool",
+    "palette": ["#2B3A42", "#4F6D7A", "#C0D6DF"],
+    "is_active": true
+  },
+  {
+    "product_code": "MRP-1002",
+    "product_name": "Prestij Floransa Damask",
+    "collection": "PRESTIJ",
+    "composition": "ACRYLIC",
+    "palette": ["#1A252C", "#3D5A6C", "#E0FBFC"],
+    "is_active": true
+  },
+  {
+    "product_code": "MRP-2001",
+    "product_name": "Uşak Saray Madalyon",
+    "collection": "Usak",
+    "composition": "wool",
+    "palette": ["#800020", "#D4AF37", "#2C3E50"],
+    "is_active": true
+  },
+  {
+    "product_code": "MRP-2002",
+    "product_name": "Uşak Yıldız Geometrik",
+    "collection": "Usak",
+    "composition": "BAMBOO_SILK",
+    "palette": ["#A3B18A", "#588157", "#344E41"],
+    "is_active": true
+  },
+  {
+    "product_code": "MRP-3001",
+    "product_name": "Hereke Zümrüt Dokuma",
+    "collection": "Hereke",
+    "composition": "BAMBOO_SILK",
+    "palette": ["#004B23", "#38B000", "#70E000"],
+    "is_active": true
+  },
+  {
+    "product_code": "MRP-3002",
+    "product_name": "Hereke Safir Bordür",
+    "collection": "Hereke",
+    "composition": "POLYESTER",
+    "palette": ["#03045E", "#0077B6", "#90E0EF"],
+    "is_active": true
+  },
+  {
+    "product_code": "MRP-4001",
+    "product_name": "Anadolu Motifli Kilim Tarzı",
+    "collection": "Anadolu",
+    "composition": "wool",
+    "palette": ["#9D0208", "#D00000", "#DC2F02"],
+    "is_active": true
+  },
+  {
+    "product_code": "MRP-4002",
+    "product_name": "Anadolu Toprak Tonları",
+    "collection": "Anadolu",
+    "composition": "ACRYLIC",
+    "palette": ["#6F4E37", "#A67B5B", "#ECB176"],
+    "is_active": true
+  },
+  {
+    "product_code": "MRP-5001",
+    "product_name": "Modern Soyut Çizgiler",
+    "collection": "Modern",
+    "composition": "POLYESTER",
+    "palette": ["#212529", "#495057", "#ADB5BD"],
+    "is_active": true
+  },
+  {
+    "product_code": "MRP-5002",
+    "product_name": "Modern Koridor Yolluk",
+    "collection": "Modern",
+    "composition": "ACRYLIC",
+    "palette": ["#343A40", "#6C757D", "#CED4DA"],
+    "is_active": true
+  }
+]

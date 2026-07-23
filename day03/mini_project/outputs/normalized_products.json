@@ -1,0 +1,192 @@
+[
+  {
+    "product_id": "MRP-1001",
+    "title": "Prestij Venedik Klasik",
+    "collection": "Prestij",
+    "material": "wool",
+    "dimensions": {
+      "width_cm": 160.0,
+      "length_cm": 230.0,
+      "pile_height_mm": 11.5
+    },
+    "palette_hex": [
+      "#2B3A42",
+      "#4F6D7A",
+      "#C0D6DF"
+    ],
+    "knot_count_total": null,
+    "is_active": true,
+    "tags": []
+  },
+  {
+    "product_id": "MRP-1002",
+    "title": "Prestij Floransa Damask",
+    "collection": "Prestij",
+    "material": "acrylic",
+    "dimensions": {
+      "width_cm": 200.0,
+      "length_cm": 290.0,
+      "pile_height_mm": 12.0
+    },
+    "palette_hex": [
+      "#1A252C",
+      "#3D5A6C",
+      "#E0FBFC"
+    ],
+    "knot_count_total": null,
+    "is_active": true,
+    "tags": []
+  },
+  {
+    "product_id": "MRP-2001",
+    "title": "Uşak Saray Madalyon",
+    "collection": "Usak",
+    "material": "wool",
+    "dimensions": {
+      "width_cm": 200.0,
+      "length_cm": 300.0,
+      "pile_height_mm": 9.0
+    },
+    "palette_hex": [
+      "#800020",
+      "#D4AF37",
+      "#2C3E50"
+    ],
+    "knot_count_total": null,
+    "is_active": true,
+    "tags": []
+  },
+  {
+    "product_id": "MRP-2002",
+    "title": "Uşak Yıldız Geometrik",
+    "collection": "Usak",
+    "material": "bamboo_silk",
+    "dimensions": {
+      "width_cm": 120.0,
+      "length_cm": 180.0,
+      "pile_height_mm": 10.0
+    },
+    "palette_hex": [
+      "#A3B18A",
+      "#588157",
+      "#344E41"
+    ],
+    "knot_count_total": null,
+    "is_active": true,
+    "tags": []
+  },
+  {
+    "product_id": "MRP-3001",
+    "title": "Hereke Zümrüt Dokuma",
+    "collection": "Hereke",
+    "material": "bamboo_silk",
+    "dimensions": {
+      "width_cm": 300.0,
+      "length_cm": 449.99,
+      "pile_height_mm": 14.0
+    },
+    "palette_hex": [
+      "#004B23",
+      "#38B000",
+      "#70E000"
+    ],
+    "knot_count_total": null,
+    "is_active": true,
+    "tags": []
+  },
+  {
+    "product_id": "MRP-3002",
+    "title": "Hereke Safir Bordür",
+    "collection": "Hereke",
+    "material": "polyester",
+    "dimensions": {
+      "width_cm": 80.0,
+      "length_cm": 150.0,
+      "pile_height_mm": 8.5
+    },
+    "palette_hex": [
+      "#03045E",
+      "#0077B6",
+      "#90E0EF"
+    ],
+    "knot_count_total": null,
+    "is_active": true,
+    "tags": []
+  },
+  {
+    "product_id": "MRP-4001",
+    "title": "Anadolu Motifli Kilim Tarzı",
+    "collection": "Anadolu",
+    "material": "wool",
+    "dimensions": {
+      "width_cm": 100.0,
+      "length_cm": 200.0,
+      "pile_height_mm": 10.5
+    },
+    "palette_hex": [
+      "#9D0208",
+      "#D00000",
+      "#DC2F02"
+    ],
+    "knot_count_total": null,
+    "is_active": true,
+    "tags": []
+  },
+  {
+    "product_id": "MRP-4002",
+    "title": "Anadolu Toprak Tonları",
+    "collection": "Anadolu",
+    "material": "acrylic",
+    "dimensions": {
+      "width_cm": 140.0,
+      "length_cm": 200.0,
+      "pile_height_mm": 11.0
+    },
+    "palette_hex": [
+      "#6F4E37",
+      "#A67B5B",
+      "#ECB176"
+    ],
+    "knot_count_total": null,
+    "is_active": true,
+    "tags": []
+  },
+  {
+    "product_id": "MRP-5001",
+    "title": "Modern Soyut Çizgiler",
+    "collection": "Modern",
+    "material": "polyester",
+    "dimensions": {
+      "width_cm": 240.0,
+      "length_cm": 340.0,
+      "pile_height_mm": 13.0
+    },
+    "palette_hex": [
+      "#212529",
+      "#495057",
+      "#ADB5BD"
+    ],
+    "knot_count_total": null,
+    "is_active": true,
+    "tags": []
+  },
+  {
+    "product_id": "MRP-5002",
+    "title": "Modern Koridor Yolluk",
+    "collection": "Modern",
+    "material": "acrylic",
+    "dimensions": {
+      "width_cm": 80.0,
+      "length_cm": 300.0,
+      "pile_height_mm": 7.5
+    },
+    "palette_hex": [
+      "#343A40",
+      "#6C757D",
+      "#CED4DA"
+    ],
+    "knot_count_total": null,
+    "is_active": true,
+    "tags": []
+  }
+]

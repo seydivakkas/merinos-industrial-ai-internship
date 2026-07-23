@@ -1,0 +1,18 @@
+{
+  "problems": [
+    {
+      "problem_id": "PROB-SIM-01",
+      "name": "Carpet Pattern Similarity",
+      "input_contract": {
+        "query_image": "numpy.ndarray (H, W, 3)",
+        "candidate_set": "List[ImageMetadata]"
+      },
+      "output_contract": {
+        "top_5_matches": "List[Tuple[str, float]]"
+      },
+      "target_metric": "Top-1 Precision",
+      "baseline_threshold": 0.60,
+      "latency_sla_ms": 30.0
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "pipeline_name": "merinos_multisource_ingestion_pipeline",
+  "total_csv_records": 10,
+  "total_json_records": 10,
+  "merged_unique_records": 10,
+  "valid_products_count": 10,
+  "quarantine_records_count": 0,
+  "data_quality_score_pct": 100.0,
+  "error_breakdown": {},
+  "status": "SUCCESS"
+}

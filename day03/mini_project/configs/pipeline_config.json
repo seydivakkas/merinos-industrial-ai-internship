@@ -1,0 +1,30 @@
+{
+  "pipeline_name": "merinos_multisource_ingestion_pipeline",
+  "version": "1.0.0",
+  "unit_conversions": {
+    "inch_to_cm": 2.54,
+    "cm_to_inch": 0.393701,
+    "mm_to_cm": 0.1,
+    "sqm_to_sqft": 10.7639
+  },
+  "tolerances": {
+    "min_width_cm": 20.0,
+    "max_width_cm": 1200.0,
+    "min_length_cm": 20.0,
+    "max_length_cm": 1200.0,
+    "min_aspect_ratio": 0.3,
+    "max_aspect_ratio": 5.0,
+    "min_pile_height_mm": 1.0,
+    "max_pile_height_mm": 50.0
+  },
+  "imputation_defaults": {
+    "material": "ACRYLIC",
+    "pile_height_mm": 10.0,
+    "collection": "STANDART"
+  },
+  "color_palette_policy": {
+    "default_hex": "#808080",
+    "max_colors": 8
+  },
+  "output_formats": ["json", "parquet"]
+}
