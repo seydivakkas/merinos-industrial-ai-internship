@@ -1,0 +1,21 @@
+product_id,title,collection,material,width_cm,length_cm,pile_height_mm,primary_hex,knot_density_dm2,is_active
+MRP-1001,Prestij Venedik Klasik,Prestij,wool,160.0,230.0,11.5,#2B3A42,650,True
+MRP-1001,Prestij Venedik Tekrar,Prestij,wool,160.0,230.0,11.5,#2B3A42,650,True
+,Eksik ID Halı,Prestij,acrylic,200.0,290.0,12.0,#1A252C,550,True
+INVALID_999,Bozuk Kodlu Seri,Prestij,viscose,120.0,180.0,9.5,#4A5568,600,True
+MRP-2001,Uşak Saray Madalyon,Usak,wool,,300.0,10.0,#800020,700,True
+MRP-2002,Uşak Aşırı Geniş,Usak,cotton,450.0,220.0,8.5,#D4AF37,500,True
+MRP-2003,Uşak Negatif En,Usak,wool,-20.0,340.0,11.0,#8B0000,750,True
+MRP-3001,Elegance Minik Boy,Elegance,bamboo,160.0,50.0,9.0,#E2E8F0,800,True
+MRP-3002,Elegance Zümrüt Vaha,Elegance,viscose,200.0,290.0,,#2E8B57,650,True
+MRP-3003,Elegance Dev Hav,Elegance,polyester,140.0,200.0,38.0,#1E3A8A,580,True
+MRP-4001,Vintage Sıfır Hav,Vintage,acrylic,160.0,230.0,1.5,#718096,520,True
+MRP-4002,Vintage Yasak Malzeme,Vintage,plastic,180.0,280.0,9.5,#A0AEC0,620,True
+MRP-4003,Vintage Naylon,Vintage,nylon_synthetic,120.0,180.0,8.5,#CBD5E1,480,True
+MRP-5001,ModernLine Yasak Koleksiyon,BilinmeyenKoleksiyon,bamboo,200.0,290.0,13.0,#319795,720,True
+MRP-5002,ModernLine Bozuk Hex 1,ModernLine,polyester,160.0,230.0,14.0,#12345,510,True
+MRP-5003,ModernLine Bozuk Hex 2,ModernLine,acrylic,140.0,200.0,11.0,mavi_renk,530,True
+MRP-6001,AkrilikSoft Normal,AkrilikSoft,acrylic,160.0,230.0,15.0,#ED8936,540,True
+MRP-6002,AkrilikSoft Normal 2,AkrilikSoft,acrylic,120.0,180.0,14.5,#F6AD55,520,True
+MRP-6003,AkrilikSoft Normal 3,AkrilikSoft,polyester,100.0,150.0,13.5,#FBD38D,500,True
+MRP-7001,Prestij Kraliyet,Prestij,wool,250.0,350.0,12.0,#4A154B,780,True

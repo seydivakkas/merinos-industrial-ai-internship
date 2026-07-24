@@ -1,0 +1,21 @@
+product_id,title,collection,material,width_cm,length_cm,pile_height_mm,primary_hex,knot_density_dm2,is_active
+MRP-1001,Prestij Venedik Klasik,Prestij,wool,160.0,230.0,11.5,#2B3A42,650,True
+MRP-1002,Prestij Floransa Damask,Prestij,acrylic,200.0,290.0,12.0,#1A252C,550,True
+MRP-1003,Prestij Milano Modern,Prestij,viscose,120.0,180.0,9.5,#4A5568,600,True
+MRP-2001,Uşak Saray Madalyon,Usak,wool,200.0,300.0,10.0,#800020,700,True
+MRP-2002,Uşak Antik Geometrik,Usak,cotton,150.0,220.0,8.5,#D4AF37,500,True
+MRP-2003,Uşak Kök Boya Miras,Usak,wool,240.0,340.0,11.0,#8B0000,750,True
+MRP-3001,Elegance İpek Dokunuş,Elegance,bamboo,160.0,230.0,9.0,#E2E8F0,800,True
+MRP-3002,Elegance Zümrüt Vaha,Elegance,viscose,200.0,290.0,10.5,#2E8B57,650,True
+MRP-3003,Elegance Safir Çizgi,Elegance,polyester,140.0,200.0,12.5,#1E3A8A,580,True
+MRP-4001,Vintage Taş Baskı,Vintage,acrylic,160.0,230.0,9.0,#718096,520,True
+MRP-4002,Vintage Eskitme Halı,Vintage,wool,180.0,280.0,9.5,#A0AEC0,620,True
+MRP-4003,Vintage Anadolu Ruhu,Vintage,cotton,120.0,180.0,8.5,#CBD5E1,480,True
+MRP-5001,ModernLine İskandinav Doku,ModernLine,bamboo,200.0,290.0,13.0,#319795,720,True
+MRP-5002,ModernLine Loft Minimal,ModernLine,polyester,160.0,230.0,14.0,#2D3748,510,True
+MRP-5003,ModernLine Geo Form,ModernLine,acrylic,140.0,200.0,11.0,#4FD1C5,530,True
+MRP-6001,AkrilikSoft Bulut Yumuşak,AkrilikSoft,acrylic,160.0,230.0,15.0,#ED8936,540,True
+MRP-6002,AkrilikSoft Pastel Düş,AkrilikSoft,acrylic,120.0,180.0,14.5,#F6AD55,520,True
+MRP-6003,AkrilikSoft Çocuk Odası,AkrilikSoft,polyester,100.0,150.0,13.5,#FBD38D,500,True
+MRP-7001,Prestij Kraliyet Bordür,Prestij,wool,250.0,350.0,12.0,#4A154B,780,True
+MRP-7002,Elegance İnci Parıltı,Elegance,bamboo,160.0,230.0,10.0,#F7FAFC,820,True

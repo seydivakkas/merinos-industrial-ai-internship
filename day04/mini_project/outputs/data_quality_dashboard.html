@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merinos Endüstriyel Veri Kalitesi & Profil Paneli</title>
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: #151d30;
+            --bg-card-hover: #1c263f;
+            --border-color: #24304f;
+            --text-primary: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --accent-rose: #f43f5e;
+            --accent-amber: #f59e0b;
+            --accent-indigo: #6366f1;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            padding: 32px 24px;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+        }
+        .header-title h1 {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #fff;
+        }
+        .header-title p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        .brand-badge {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .grid-kpi {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .kpi-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+        .kpi-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .kpi-value {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 8px 0;
+            color: #fff;
+        }
+        .kpi-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            text-align: left;
+            padding: 12px 14px;
+            background: #101626;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cbd5e1;
+        }
+        tr:hover td {
+            background-color: var(--bg-card-hover);
+        }
+        .row-fail td {
+            background: rgba(244, 63, 94, 0.08);
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .badge-info { background: #1e293b; color: #38bdf8; }
+        .badge-pass { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-fail { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+        .progress-bar-wrap {
+            position: relative;
+            background: #202b46;
+            height: 18px;
+            border-radius: 9999px;
+            overflow: hidden;
+            min-width: 140px;
+        }
+        .progress-bar-fill {
+            position: absolute;
+            top: 0; left: 0; bottom: 0;
+            background: var(--accent-rose);
+            border-radius: 9999px;
+        }
+        .progress-text {
+            position: relative;
+            z-index: 2;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 18px;
+            padding-left: 8px;
+            color: #fff;
+        }
+        .stats-cell {
+            font-family: monospace;
+            font-size: 12px;
+            color: #93c5fd;
+        }
+        code {
+            background: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+            color: #e2e8f0;
+        }
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-title">
+                <h1>Merinos Endüstriyel Veri Kalitesi & Profil Paneli</h1>
+                <p>Otomatik Şema Doğrulama, İstatistiksel Dağılım ve Anomali Tespit Raporu</p>
+            </div>
+            <div class="brand-badge">Day 04 — MLOps Data Quality</div>
+        </header>
+
+        <div class="grid-kpi">
+            <div class="kpi-card">
+                <span class="kpi-label">Toplam Satır (Rows)</span>
+                <span class="kpi-value">20</span>
+                <span class="kpi-sub">10 Sütun | 6.47 KB Bellek</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">Kalite Kural Başarımı</span>
+                <span class="kpi-value" style="color: #34d399;">%93.33</span>
+                <span class="kpi-sub">14/15 Başarılı Kural</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">Eksik Veri Oranı</span>
+                <span class="kpi-value" style="color: #34d399;">%0.0</span>
+                <span class="kpi-sub">0 Eksik Hücre</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-label">Mükerrer (Duplicate) Satır</span>
+                <span class="kpi-value">0</span>
+                <span class="kpi-sub">Oran: %0.0</span>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <span>📋 Expectation Suite Doğrulama Sonuçları</span>
+                <span style="font-size: 13px; font-weight: normal; color: var(--text-muted);">Paket: <code>merinos_industrial_carpet_production_suite</code></span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Beklenti Kuralı</th>
+                        <th style="width: 30%;">Parametreler</th>
+                        <th style="width: 15%;">Durum</th>
+                        <th style="width: 30%;">Sonuç / Hata Açıklaması</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr class="">
+                        <td><code>expect_table_row_count_to_be_between</code></td>
+                        <td><small>min_value=5, max_value=1000</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>Observed 20 rows (Expected: [5, 1000])</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_not_be_null</code></td>
+                        <td><small>column=product_id, mostly=1.0</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>20/20 (100.0%) non-null (threshold: 100.0%)</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_be_unique</code></td>
+                        <td><small>column=product_id</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>Found 0 duplicate values in 'product_id'.</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_match_regex</code></td>
+                        <td><small>column=product_id, regex=^MRP-[0-9]{4}$</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>0 string values do not conform to regex pattern '^MRP-[0-9]{4}$'.</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_not_be_null</code></td>
+                        <td><small>column=width_cm, mostly=1.0</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>20/20 (100.0%) non-null (threshold: 100.0%)</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_be_between</code></td>
+                        <td><small>column=width_cm, min_value=60.0, max_value=350.0</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>0 out-of-spec values found outside [60.0, 350.0].</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_not_be_null</code></td>
+                        <td><small>column=length_cm, mostly=1.0</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>20/20 (100.0%) non-null (threshold: 100.0%)</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_be_between</code></td>
+                        <td><small>column=length_cm, min_value=90.0, max_value=500.0</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>0 out-of-spec values found outside [90.0, 500.0].</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_not_be_null</code></td>
+                        <td><small>column=pile_height_mm, mostly=1.0</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>20/20 (100.0%) non-null (threshold: 100.0%)</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_be_between</code></td>
+                        <td><small>column=pile_height_mm, min_value=5.0, max_value=25.0</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>0 out-of-spec values found outside [5.0, 25.0].</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_be_in_set</code></td>
+                        <td><small>column=material, allowed_set=['wool', 'acrylic', 'viscose', 'bamboo', 'polyester', 'cotton']</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>0 invalid categorical values found not in allowed set.</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_be_in_set</code></td>
+                        <td><small>column=collection, allowed_set=['Prestij', 'Usak', 'Elegance', 'Vintage', 'ModernLine', 'AkrilikSoft']</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>0 invalid categorical values found not in allowed set.</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_values_to_match_regex</code></td>
+                        <td><small>column=primary_hex, regex=^#[0-9A-Fa-f]{6}$</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>0 string values do not conform to regex pattern '^#[0-9A-Fa-f]{6}$'.</small></td>
+                    </tr>
+                
+                    <tr class="row-fail">
+                        <td><code>expect_column_mean_to_be_between</code></td>
+                        <td><small>column=pile_height_mm, min_value=8.0, max_value=15.0</small></td>
+                        <td><span class="badge badge-fail">BAŞARISIZ (FAIL)</span></td>
+                        <td><small>Observed mean=18.750 (Expected range: [8.0, 15.0])</small></td>
+                    </tr>
+                
+                    <tr class="">
+                        <td><code>expect_column_mean_to_be_between</code></td>
+                        <td><small>column=width_cm, min_value=120.0, max_value=220.0</small></td>
+                        <td><span class="badge badge-pass">GEÇTİ (PASS)</span></td>
+                        <td><small>Observed mean=166.000 (Expected range: [120.0, 220.0])</small></td>
+                    </tr>
+                
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <span>📊 Sütun Bazlı İstatistiksel Profil</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">Sütun Adı</th>
+                        <th style="width: 10%;">Veri Tipi</th>
+                        <th style="width: 14%;">Tekil Değerler</th>
+                        <th style="width: 22%;">Eksiklik Dağılımı</th>
+                        <th style="width: 36%;">İstatistiksel Özet / Sık Değerler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td><strong>product_id</strong></td>
+                    <td><span class="badge badge-info">object</span></td>
+                    <td>20 (100.0%)</td>
+                    <td>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" style="width: 0.0%;"></div>
+                    <span class="progress-text">0 (0.0%)</span>
+                </div>
+            </td>
+                    <td class="stats-cell">Top: MRP-8001 (5.0%), MRP-8002 (5.0%), MRP-8003 (5.0%)</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>title</strong></td>
+                    <td><span class="badge badge-info">object</span></td>
+                    <td>20 (100.0%)</td>
+                    <td>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" style="width: 0.0%;"></div>
+                    <span class="progress-text">0 (0.0%)</span>
+                </div>
+            </td>
+                    <td class="stats-cell">Top: Drift Serisi No 1 (5.0%), Drift Serisi No 2 (5.0%), Drift Serisi No 3 (5.0%)</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>collection</strong></td>
+                    <td><span class="badge badge-info">object</span></td>
+                    <td>6 (30.0%)</td>
+                    <td>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" style="width: 0.0%;"></div>
+                    <span class="progress-text">0 (0.0%)</span>
+                </div>
+            </td>
+                    <td class="stats-cell">Top: Prestij (20.0%), Elegance (20.0%), Usak (15.0%)</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>material</strong></td>
+                    <td><span class="badge badge-info">object</span></td>
+                    <td>6 (30.0%)</td>
+                    <td>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" style="width: 0.0%;"></div>
+                    <span class="progress-text">0 (0.0%)</span>
+                </div>
+            </td>
+                    <td class="stats-cell">Top: wool (25.0%), acrylic (25.0%), polyester (15.0%)</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>width_cm</strong></td>
+                    <td><span class="badge badge-info">float64</span></td>
+                    <td>9 (45.0%)</td>
+                    <td>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" style="width: 0.0%;"></div>
+                    <span class="progress-text">0 (0.0%)</span>
+                </div>
+            </td>
+                    <td class="stats-cell">Min: 100.0 | Med: 160.0 | Max: 250.0 (Ort: 166.0)</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>length_cm</strong></td>
+                    <td><span class="badge badge-info">float64</span></td>
+                    <td>10 (50.0%)</td>
+                    <td>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" style="width: 0.0%;"></div>
+                    <span class="progress-text">0 (0.0%)</span>
+                </div>
+            </td>
+                    <td class="stats-cell">Min: 150.0 | Med: 230.0 | Max: 350.0 (Ort: 241.5)</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>pile_height_mm</strong></td>
+                    <td><span class="badge badge-info">float64</span></td>
+                    <td>10 (50.0%)</td>
+                    <td>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" style="width: 0.0%;"></div>
+                    <span class="progress-text">0 (0.0%)</span>
+                </div>
+            </td>
+                    <td class="stats-cell">Min: 17.0 | Med: 18.5 | Max: 22.0 (Ort: 18.75)</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>primary_hex</strong></td>
+                    <td><span class="badge badge-info">object</span></td>
+                    <td>20 (100.0%)</td>
+                    <td>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" style="width: 0.0%;"></div>
+                    <span class="progress-text">0 (0.0%)</span>
+                </div>
+            </td>
+                    <td class="stats-cell">Top: #2B3A42 (5.0%), #1A252C (5.0%), #4A5568 (5.0%)</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>knot_density_dm2</strong></td>
+                    <td><span class="badge badge-info">int64</span></td>
+                    <td>17 (85.0%)</td>
+                    <td>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" style="width: 0.0%;"></div>
+                    <span class="progress-text">0 (0.0%)</span>
+                </div>
+            </td>
+                    <td class="stats-cell">Min: 480.0 | Med: 590.0 | Max: 820.0 (Ort: 616.0)</td>
+                </tr>
+            
+                <tr>
+                    <td><strong>is_active</strong></td>
+                    <td><span class="badge badge-info">bool</span></td>
+                    <td>1 (5.0%)</td>
+                    <td>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" style="width: 0.0%;"></div>
+                    <span class="progress-text">0 (0.0%)</span>
+                </div>
+            </td>
+                    <td class="stats-cell">Min: 1.0 | Med: 1.0 | Max: 1.0 (Ort: 1.0)</td>
+                </tr>
+            
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            Merinos Endüstriyel Yapay Zeka Staj Portföyü — Day 04: Otomatik Veri Kalitesi Doğrulama ve Profilleme Hattı &copy; 2026 Seydi Eryılmaz
+        </footer>
+    </div>
+</body>
+</html>
+        

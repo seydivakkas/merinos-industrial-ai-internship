@@ -1,0 +1,116 @@
+{
+  "suite_name": "merinos_industrial_carpet_production_suite",
+  "version": "1.0.0",
+  "description": "Otomatik halı üretim hattı kalite ve şema doğrulama kuralları",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_row_count_to_be_between",
+      "kwargs": {
+        "min_value": 5,
+        "max_value": 1000
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "product_id",
+        "mostly": 1.0
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "product_id"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "product_id",
+        "regex": "^MRP-[0-9]{4}$"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "width_cm",
+        "mostly": 1.0
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "width_cm",
+        "min_value": 60.0,
+        "max_value": 350.0
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "length_cm",
+        "mostly": 1.0
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "length_cm",
+        "min_value": 90.0,
+        "max_value": 500.0
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "pile_height_mm",
+        "mostly": 1.0
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "pile_height_mm",
+        "min_value": 5.0,
+        "max_value": 25.0
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "material",
+        "allowed_set": ["wool", "acrylic", "viscose", "bamboo", "polyester", "cotton"]
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "collection",
+        "allowed_set": ["Prestij", "Usak", "Elegance", "Vintage", "ModernLine", "AkrilikSoft"]
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "kwargs": {
+        "column": "primary_hex",
+        "regex": "^#[0-9A-Fa-f]{6}$"
+      }
+    },
+    {
+      "expectation_type": "expect_column_mean_to_be_between",
+      "kwargs": {
+        "column": "pile_height_mm",
+        "min_value": 8.0,
+        "max_value": 15.0
+      }
+    },
+    {
+      "expectation_type": "expect_column_mean_to_be_between",
+      "kwargs": {
+        "column": "width_cm",
+        "min_value": 120.0,
+        "max_value": 220.0
+      }
+    }
+  ]
+}

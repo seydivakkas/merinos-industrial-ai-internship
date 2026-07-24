@@ -1,0 +1,285 @@
+{
+  "dataset_path": "C:\\Users\\seydieryilmaz\\Desktop\\Projeler\\Merinos 40 Günlük Staj Deneyimim\\merinos-industrial-ai-internship\\day04\\mini_project\\fixtures\\drifted_production_data.csv",
+  "total_records": 20,
+  "anomalous_records_count": 0,
+  "clean_records_count": 20,
+  "composite_quality_score": 93.33,
+  "validation_success": false,
+  "statistics": {
+    "evaluated_expectations": 15,
+    "successful_expectations": 14,
+    "unsuccessful_expectations": 1,
+    "success_percent": 93.33
+  },
+  "validation_details": {
+    "suite_name": "merinos_industrial_carpet_production_suite",
+    "success": false,
+    "statistics": {
+      "evaluated_expectations": 15,
+      "successful_expectations": 14,
+      "unsuccessful_expectations": 1,
+      "success_percent": 93.33
+    },
+    "results": [
+      {
+        "expectation_type": "expect_table_row_count_to_be_between",
+        "success": true,
+        "kwargs": {
+          "min_value": 5,
+          "max_value": 1000
+        },
+        "result": {
+          "observed_value": 20,
+          "element_count": 20,
+          "message": "Observed 20 rows (Expected: [5, 1000])"
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "success": true,
+        "kwargs": {
+          "column": "product_id",
+          "mostly": 1.0
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "message": "20/20 (100.0%) non-null (threshold: 100.0%)"
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_be_unique",
+        "success": true,
+        "kwargs": {
+          "column": "product_id"
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "message": "Found 0 duplicate values in 'product_id'."
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_match_regex",
+        "success": true,
+        "kwargs": {
+          "column": "product_id",
+          "regex": "^MRP-[0-9]{4}$"
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "message": "0 string values do not conform to regex pattern '^MRP-[0-9]{4}$'."
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "success": true,
+        "kwargs": {
+          "column": "width_cm",
+          "mostly": 1.0
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "message": "20/20 (100.0%) non-null (threshold: 100.0%)"
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_be_between",
+        "success": true,
+        "kwargs": {
+          "column": "width_cm",
+          "min_value": 60.0,
+          "max_value": 350.0
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "observed_min": 100.0,
+          "observed_max": 250.0,
+          "message": "0 out-of-spec values found outside [60.0, 350.0]."
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "success": true,
+        "kwargs": {
+          "column": "length_cm",
+          "mostly": 1.0
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "message": "20/20 (100.0%) non-null (threshold: 100.0%)"
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_be_between",
+        "success": true,
+        "kwargs": {
+          "column": "length_cm",
+          "min_value": 90.0,
+          "max_value": 500.0
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "observed_min": 150.0,
+          "observed_max": 350.0,
+          "message": "0 out-of-spec values found outside [90.0, 500.0]."
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "success": true,
+        "kwargs": {
+          "column": "pile_height_mm",
+          "mostly": 1.0
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "message": "20/20 (100.0%) non-null (threshold: 100.0%)"
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_be_between",
+        "success": true,
+        "kwargs": {
+          "column": "pile_height_mm",
+          "min_value": 5.0,
+          "max_value": 25.0
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "observed_min": 17.0,
+          "observed_max": 22.0,
+          "message": "0 out-of-spec values found outside [5.0, 25.0]."
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_be_in_set",
+        "success": true,
+        "kwargs": {
+          "column": "material",
+          "allowed_set": [
+            "wool",
+            "acrylic",
+            "viscose",
+            "bamboo",
+            "polyester",
+            "cotton"
+          ]
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "message": "0 invalid categorical values found not in allowed set."
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_be_in_set",
+        "success": true,
+        "kwargs": {
+          "column": "collection",
+          "allowed_set": [
+            "Prestij",
+            "Usak",
+            "Elegance",
+            "Vintage",
+            "ModernLine",
+            "AkrilikSoft"
+          ]
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "message": "0 invalid categorical values found not in allowed set."
+        }
+      },
+      {
+        "expectation_type": "expect_column_values_to_match_regex",
+        "success": true,
+        "kwargs": {
+          "column": "primary_hex",
+          "regex": "^#[0-9A-Fa-f]{6}$"
+        },
+        "result": {
+          "element_count": 20,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "unexpected_index_list": [],
+          "partial_unexpected_list": [],
+          "message": "0 string values do not conform to regex pattern '^#[0-9A-Fa-f]{6}$'."
+        }
+      },
+      {
+        "expectation_type": "expect_column_mean_to_be_between",
+        "success": false,
+        "kwargs": {
+          "column": "pile_height_mm",
+          "min_value": 8.0,
+          "max_value": 15.0
+        },
+        "result": {
+          "observed_value": 18.75,
+          "element_count": 20,
+          "message": "Observed mean=18.750 (Expected range: [8.0, 15.0])"
+        }
+      },
+      {
+        "expectation_type": "expect_column_mean_to_be_between",
+        "success": true,
+        "kwargs": {
+          "column": "width_cm",
+          "min_value": 120.0,
+          "max_value": 220.0
+        },
+        "result": {
+          "observed_value": 166.0,
+          "element_count": 20,
+          "message": "Observed mean=166.000 (Expected range: [120.0, 220.0])"
+        }
+      }
+    ],
+    "meta": {
+      "dataset_rows": 20,
+      "dataset_columns": 10
+    }
+  }
+}

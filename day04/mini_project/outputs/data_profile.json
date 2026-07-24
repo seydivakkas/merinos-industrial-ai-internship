@@ -1,0 +1,290 @@
+{
+  "dataset_summary": {
+    "total_rows": 20,
+    "total_columns": 10,
+    "memory_bytes": 6625,
+    "memory_kb": 6.47,
+    "duplicate_rows": 0,
+    "duplicate_percent": 0.0,
+    "total_cells": 200,
+    "total_missing_cells": 0,
+    "overall_missing_percent": 0.0
+  },
+  "columns": {
+    "product_id": {
+      "name": "product_id",
+      "dtype": "object",
+      "is_numeric": false,
+      "non_null_count": 20,
+      "missing_count": 0,
+      "missing_percent": 0.0,
+      "unique_count": 20,
+      "unique_percent": 100.0,
+      "top_values": [
+        {
+          "value": "MRP-8001",
+          "percentage": 5.0
+        },
+        {
+          "value": "MRP-8002",
+          "percentage": 5.0
+        },
+        {
+          "value": "MRP-8003",
+          "percentage": 5.0
+        },
+        {
+          "value": "MRP-8004",
+          "percentage": 5.0
+        },
+        {
+          "value": "MRP-8005",
+          "percentage": 5.0
+        }
+      ],
+      "min_length": 8,
+      "max_length": 8,
+      "mean_length": 8.0
+    },
+    "title": {
+      "name": "title",
+      "dtype": "object",
+      "is_numeric": false,
+      "non_null_count": 20,
+      "missing_count": 0,
+      "missing_percent": 0.0,
+      "unique_count": 20,
+      "unique_percent": 100.0,
+      "top_values": [
+        {
+          "value": "Drift Serisi No 1",
+          "percentage": 5.0
+        },
+        {
+          "value": "Drift Serisi No 2",
+          "percentage": 5.0
+        },
+        {
+          "value": "Drift Serisi No 3",
+          "percentage": 5.0
+        },
+        {
+          "value": "Drift Serisi No 4",
+          "percentage": 5.0
+        },
+        {
+          "value": "Drift Serisi No 5",
+          "percentage": 5.0
+        }
+      ],
+      "min_length": 17,
+      "max_length": 18,
+      "mean_length": 17.6
+    },
+    "collection": {
+      "name": "collection",
+      "dtype": "object",
+      "is_numeric": false,
+      "non_null_count": 20,
+      "missing_count": 0,
+      "missing_percent": 0.0,
+      "unique_count": 6,
+      "unique_percent": 30.0,
+      "top_values": [
+        {
+          "value": "Prestij",
+          "percentage": 20.0
+        },
+        {
+          "value": "Elegance",
+          "percentage": 20.0
+        },
+        {
+          "value": "Usak",
+          "percentage": 15.0
+        },
+        {
+          "value": "Vintage",
+          "percentage": 15.0
+        },
+        {
+          "value": "ModernLine",
+          "percentage": 15.0
+        }
+      ],
+      "min_length": 4,
+      "max_length": 11,
+      "mean_length": 7.8
+    },
+    "material": {
+      "name": "material",
+      "dtype": "object",
+      "is_numeric": false,
+      "non_null_count": 20,
+      "missing_count": 0,
+      "missing_percent": 0.0,
+      "unique_count": 6,
+      "unique_percent": 30.0,
+      "top_values": [
+        {
+          "value": "wool",
+          "percentage": 25.0
+        },
+        {
+          "value": "acrylic",
+          "percentage": 25.0
+        },
+        {
+          "value": "polyester",
+          "percentage": 15.0
+        },
+        {
+          "value": "bamboo",
+          "percentage": 15.0
+        },
+        {
+          "value": "cotton",
+          "percentage": 10.0
+        }
+      ],
+      "min_length": 4,
+      "max_length": 9,
+      "mean_length": 6.3
+    },
+    "width_cm": {
+      "name": "width_cm",
+      "dtype": "float64",
+      "is_numeric": true,
+      "non_null_count": 20,
+      "missing_count": 0,
+      "missing_percent": 0.0,
+      "unique_count": 9,
+      "unique_percent": 45.0,
+      "mean": 166.0,
+      "std": 39.656,
+      "min": 100.0,
+      "q25": 140.0,
+      "median": 160.0,
+      "q75": 200.0,
+      "max": 250.0,
+      "skewness": 0.504,
+      "zeros_count": 0,
+      "zeros_percent": 0.0
+    },
+    "length_cm": {
+      "name": "length_cm",
+      "dtype": "float64",
+      "is_numeric": true,
+      "non_null_count": 20,
+      "missing_count": 0,
+      "missing_percent": 0.0,
+      "unique_count": 10,
+      "unique_percent": 50.0,
+      "mean": 241.5,
+      "std": 55.182,
+      "min": 150.0,
+      "q25": 200.0,
+      "median": 230.0,
+      "q75": 290.0,
+      "max": 350.0,
+      "skewness": 0.42,
+      "zeros_count": 0,
+      "zeros_percent": 0.0
+    },
+    "pile_height_mm": {
+      "name": "pile_height_mm",
+      "dtype": "float64",
+      "is_numeric": true,
+      "non_null_count": 20,
+      "missing_count": 0,
+      "missing_percent": 0.0,
+      "unique_count": 10,
+      "unique_percent": 50.0,
+      "mean": 18.75,
+      "std": 1.372,
+      "min": 17.0,
+      "q25": 17.875,
+      "median": 18.5,
+      "q75": 19.5,
+      "max": 22.0,
+      "skewness": 0.739,
+      "zeros_count": 0,
+      "zeros_percent": 0.0
+    },
+    "primary_hex": {
+      "name": "primary_hex",
+      "dtype": "object",
+      "is_numeric": false,
+      "non_null_count": 20,
+      "missing_count": 0,
+      "missing_percent": 0.0,
+      "unique_count": 20,
+      "unique_percent": 100.0,
+      "top_values": [
+        {
+          "value": "#2B3A42",
+          "percentage": 5.0
+        },
+        {
+          "value": "#1A252C",
+          "percentage": 5.0
+        },
+        {
+          "value": "#4A5568",
+          "percentage": 5.0
+        },
+        {
+          "value": "#800020",
+          "percentage": 5.0
+        },
+        {
+          "value": "#D4AF37",
+          "percentage": 5.0
+        }
+      ],
+      "min_length": 7,
+      "max_length": 7,
+      "mean_length": 7.0
+    },
+    "knot_density_dm2": {
+      "name": "knot_density_dm2",
+      "dtype": "int64",
+      "is_numeric": true,
+      "non_null_count": 20,
+      "missing_count": 0,
+      "missing_percent": 0.0,
+      "unique_count": 17,
+      "unique_percent": 85.0,
+      "mean": 616.0,
+      "std": 111.138,
+      "min": 480.0,
+      "q25": 520.0,
+      "median": 590.0,
+      "q75": 705.0,
+      "max": 820.0,
+      "skewness": 0.568,
+      "zeros_count": 0,
+      "zeros_percent": 0.0
+    },
+    "is_active": {
+      "name": "is_active",
+      "dtype": "bool",
+      "is_numeric": true,
+      "non_null_count": 20,
+      "missing_count": 0,
+      "missing_percent": 0.0,
+      "unique_count": 1,
+      "unique_percent": 5.0,
+      "mean": 1.0,
+      "std": 0.0,
+      "min": 1.0,
+      "q25": 1.0,
+      "median": 1.0,
+      "q75": 1.0,
+      "max": 1.0,
+      "skewness": 0.0,
+      "zeros_count": 0,
+      "zeros_percent": 0.0
+    }
+  }
+}
