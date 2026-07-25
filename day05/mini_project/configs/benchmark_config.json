@@ -1,0 +1,26 @@
+{
+  "benchmark_name": "merinos_numpy_vectorization_benchmarks",
+  "version": "1.0.0",
+  "description": "NumPy vektörize operasyonlar, bellek düzeni ve matris hesaplama konfigürasyonu",
+  "resolutions": [
+    { "name": "small", "height": 128, "width": 128 },
+    { "name": "medium", "height": 512, "width": 512 },
+    { "name": "large", "height": 1024, "width": 1024 }
+  ],
+  "benchmark_parameters": {
+    "warmup_runs": 2,
+    "repeat_runs": 5,
+    "number_per_run": 3
+  },
+  "tolerances": {
+    "numerical_atol": 1e-5,
+    "numerical_rtol": 1e-5
+  },
+  "operations_to_test": [
+    "luma_channel_weighting",
+    "min_max_normalization",
+    "z_score_standardization",
+    "gram_matrix_computation",
+    "spatial_box_filtering"
+  ]
+}

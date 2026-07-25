@@ -1,0 +1,16 @@
+{
+  "matrix_dimension": "1024x1024",
+  "element_count": 1048576,
+  "memory_size_mb": 4.0,
+  "c_contiguous_order": {
+    "row_sum_time_ms": 0.277,
+    "col_sum_time_ms": 0.153,
+    "speed_difference_ratio": 0.55
+  },
+  "f_contiguous_order": {
+    "row_sum_time_ms": 0.139,
+    "col_sum_time_ms": 0.267,
+    "speed_difference_ratio": 0.52
+  },
+  "engineering_insight": "Row-major sequential scanning utilizes CPU cache lines (L1/L2) efficiently without cache thrashing. Non-contiguous strided scanning causes cache misses and degrades memory bandwidth throughput."
+}

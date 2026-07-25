@@ -1,0 +1,123 @@
+{
+  "luma_conversion": {
+    "dimension": "256x256x3",
+    "naive": {
+      "mean_ms": 33.1701,
+      "std_ms": 0.3695,
+      "min_ms": 32.6949,
+      "max_ms": 33.7621,
+      "p95_ms": 33.6878,
+      "peak_memory_kb": 256.14
+    },
+    "vectorized": {
+      "mean_ms": 1.3007,
+      "std_ms": 0.0258,
+      "min_ms": 1.2735,
+      "max_ms": 1.3444,
+      "p95_ms": 1.3374,
+      "peak_memory_kb": 1025.04
+    },
+    "einsum": {
+      "mean_ms": 0.2864,
+      "std_ms": 0.0029,
+      "min_ms": 0.282,
+      "max_ms": 0.2911,
+      "p95_ms": 0.2903,
+      "peak_memory_kb": 257.48
+    },
+    "speedup_factor": 25.5,
+    "throughput_mpx_sec": 50.39
+  },
+  "min_max_normalization": {
+    "dimension": "256x256",
+    "naive": {
+      "mean_ms": 18.8753,
+      "std_ms": 1.6618,
+      "min_ms": 17.6743,
+      "max_ms": 22.1676,
+      "p95_ms": 21.4118,
+      "peak_memory_kb": 512.3
+    },
+    "vectorized": {
+      "mean_ms": 0.0593,
+      "std_ms": 0.0324,
+      "min_ms": 0.0412,
+      "max_ms": 0.124,
+      "p95_ms": 0.1085,
+      "peak_memory_kb": 512.36
+    },
+    "speedup_factor": 318.3,
+    "throughput_mpx_sec": 1105.16
+  },
+  "z_score_standardization": {
+    "dimension": "256x256",
+    "naive": {
+      "mean_ms": 24.9571,
+      "std_ms": 0.3795,
+      "min_ms": 24.6442,
+      "max_ms": 25.5657,
+      "p95_ms": 25.5013,
+      "peak_memory_kb": 512.3
+    },
+    "vectorized": {
+      "mean_ms": 0.1195,
+      "std_ms": 0.0284,
+      "min_ms": 0.1022,
+      "max_ms": 0.1757,
+      "p95_ms": 0.1631,
+      "peak_memory_kb": 512.33
+    },
+    "speedup_factor": 208.8,
+    "throughput_mpx_sec": 548.42
+  },
+  "gram_matrix_computation": {
+    "dimension": "16x65536",
+    "naive": {
+      "mean_ms": 6710.946,
+      "std_ms": 2075.0222,
+      "min_ms": 3978.3588,
+      "max_ms": 8483.9777,
+      "p95_ms": 8468.1247,
+      "peak_memory_kb": 1.14
+    },
+    "vectorized": {
+      "mean_ms": 0.9441,
+      "std_ms": 0.002,
+      "min_ms": 0.9418,
+      "max_ms": 0.9475,
+      "p95_ms": 0.9469,
+      "peak_memory_kb": 1.64
+    },
+    "einsum": {
+      "mean_ms": 2.7064,
+      "std_ms": 0.0406,
+      "min_ms": 2.6589,
+      "max_ms": 2.7528,
+      "p95_ms": 2.7527,
+      "peak_memory_kb": 2.48
+    },
+    "speedup_factor": 7108.3,
+    "throughput_mpx_sec": 69.42
+  },
+  "spatial_box_filtering": {
+    "dimension": "128x128 (Kernel: 3x3)",
+    "naive": {
+      "mean_ms": 27.5032,
+      "std_ms": 0.4527,
+      "min_ms": 27.0691,
+      "max_ms": 28.1277,
+      "p95_ms": 28.0462,
+      "peak_memory_kb": 62.16
+    },
+    "vectorized": {
+      "mean_ms": 0.5673,
+      "std_ms": 0.0022,
+      "min_ms": 0.5645,
+      "max_ms": 0.5698,
+      "p95_ms": 0.5696,
+      "peak_memory_kb": 192.29
+    },
+    "speedup_factor": 48.5,
+    "throughput_mpx_sec": 28.88
+  }
+}
