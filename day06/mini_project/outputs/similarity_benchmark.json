@@ -1,0 +1,26 @@
+{
+  "cosine": {
+    "pairwise_matrix_shape": "100x100",
+    "vector_dimension": 128,
+    "latency_ms": 0.146,
+    "throughput_pairs_per_sec": 68308343
+  },
+  "euclidean": {
+    "pairwise_matrix_shape": "100x100",
+    "vector_dimension": 128,
+    "latency_ms": 0.071,
+    "throughput_pairs_per_sec": 140944326
+  },
+  "manhattan": {
+    "pairwise_matrix_shape": "100x100",
+    "vector_dimension": 128,
+    "latency_ms": 2.995,
+    "throughput_pairs_per_sec": 3339372
+  },
+  "mahalanobis": {
+    "pairwise_matrix_shape": "100x100",
+    "vector_dimension": 128,
+    "latency_ms": 10.144,
+    "throughput_pairs_per_sec": 985762
+  }
+}

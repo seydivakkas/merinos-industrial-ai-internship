@@ -1,0 +1,28 @@
+{
+  "project_name": "merinos_vector_similarity_laboratory",
+  "version": "1.0.0",
+  "description": "Halı öznitelik vektörleri için benzerlik metrikleri, ölçekleme ve boyut analizi konfigürasyonu",
+  "metrics": [
+    "euclidean",
+    "manhattan",
+    "cosine",
+    "mahalanobis",
+    "minkowski_p3"
+  ],
+  "scaling_methods": [
+    "none",
+    "standard",
+    "min_max",
+    "l2_normalized"
+  ],
+  "curse_of_dimensionality": {
+    "dimensions": [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024],
+    "sample_size": 1000,
+    "seed": 42
+  },
+  "retrieval_parameters": {
+    "top_k": 5,
+    "default_metric": "cosine",
+    "distance_threshold": 0.35
+  }
+}

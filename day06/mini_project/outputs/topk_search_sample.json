@@ -1,0 +1,135 @@
+{
+  "query_product_id": "MRP-1001",
+  "query_collection": "Prestij",
+  "top_k": 5,
+  "comparisons": {
+    "cosine": [
+      {
+        "product_id": "MRP-1019",
+        "collection": "Prestij",
+        "distance": 0.0343,
+        "similarity": 0.9657
+      },
+      {
+        "product_id": "MRP-1016",
+        "collection": "Prestij",
+        "distance": 0.0345,
+        "similarity": 0.9655
+      },
+      {
+        "product_id": "MRP-1011",
+        "collection": "Prestij",
+        "distance": 0.0355,
+        "similarity": 0.9645
+      },
+      {
+        "product_id": "MRP-1002",
+        "collection": "Prestij",
+        "distance": 0.0371,
+        "similarity": 0.9629
+      },
+      {
+        "product_id": "MRP-1015",
+        "collection": "Prestij",
+        "distance": 0.0379,
+        "similarity": 0.9621
+      }
+    ],
+    "euclidean": [
+      {
+        "product_id": "MRP-1016",
+        "collection": "Prestij",
+        "distance": 5.9388,
+        "similarity": 0.1441
+      },
+      {
+        "product_id": "MRP-1019",
+        "collection": "Prestij",
+        "distance": 6.0393,
+        "similarity": 0.1421
+      },
+      {
+        "product_id": "MRP-1011",
+        "collection": "Prestij",
+        "distance": 6.0561,
+        "similarity": 0.1417
+      },
+      {
+        "product_id": "MRP-1002",
+        "collection": "Prestij",
+        "distance": 6.1982,
+        "similarity": 0.1389
+      },
+      {
+        "product_id": "MRP-1009",
+        "collection": "Prestij",
+        "distance": 6.3115,
+        "similarity": 0.1368
+      }
+    ],
+    "manhattan": [
+      {
+        "product_id": "MRP-1016",
+        "collection": "Prestij",
+        "distance": 51.0338,
+        "similarity": 0.0192
+      },
+      {
+        "product_id": "MRP-1011",
+        "collection": "Prestij",
+        "distance": 52.6267,
+        "similarity": 0.0186
+      },
+      {
+        "product_id": "MRP-1019",
+        "collection": "Prestij",
+        "distance": 53.3015,
+        "similarity": 0.0184
+      },
+      {
+        "product_id": "MRP-1018",
+        "collection": "Prestij",
+        "distance": 55.0325,
+        "similarity": 0.0178
+      },
+      {
+        "product_id": "MRP-1007",
+        "collection": "Prestij",
+        "distance": 55.9023,
+        "similarity": 0.0176
+      }
+    ],
+    "mahalanobis": [
+      {
+        "product_id": "MRP-1092",
+        "collection": "ModernLine",
+        "distance": 13.6035,
+        "similarity": 0.0685
+      },
+      {
+        "product_id": "MRP-1091",
+        "collection": "ModernLine",
+        "distance": 13.6437,
+        "similarity": 0.0683
+      },
+      {
+        "product_id": "MRP-1084",
+        "collection": "ModernLine",
+        "distance": 13.6689,
+        "similarity": 0.0682
+      },
+      {
+        "product_id": "MRP-1028",
+        "collection": "Usak",
+        "distance": 13.7336,
+        "similarity": 0.0679
+      },
+      {
+        "product_id": "MRP-1079",
+        "collection": "Vintage",
+        "distance": 13.782,
+        "similarity": 0.0676
+      }
+    ]
+  }
+}

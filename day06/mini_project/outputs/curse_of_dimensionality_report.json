@@ -1,0 +1,130 @@
+{
+  "metric": "euclidean",
+  "dimensions_tested": [
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024
+  ],
+  "sample_size": 500,
+  "contrast_decay_ratio": 5214.3,
+  "results": [
+    {
+      "dimension": 2,
+      "n_samples": 500,
+      "metric": "euclidean",
+      "min_distance": 0.0029,
+      "max_distance": 2.7348,
+      "mean_distance": 1.0535,
+      "std_distance": 0.5007,
+      "relative_contrast": 934.9244,
+      "var_to_mean_ratio": 0.238
+    },
+    {
+      "dimension": 4,
+      "n_samples": 500,
+      "metric": "euclidean",
+      "min_distance": 0.0643,
+      "max_distance": 3.4706,
+      "mean_distance": 1.5644,
+      "std_distance": 0.5025,
+      "relative_contrast": 52.998,
+      "var_to_mean_ratio": 0.1614
+    },
+    {
+      "dimension": 8,
+      "n_samples": 500,
+      "metric": "euclidean",
+      "min_distance": 0.439,
+      "max_distance": 4.1631,
+      "mean_distance": 2.2686,
+      "std_distance": 0.4979,
+      "relative_contrast": 8.4837,
+      "var_to_mean_ratio": 0.1093
+    },
+    {
+      "dimension": 16,
+      "n_samples": 500,
+      "metric": "euclidean",
+      "min_distance": 1.2226,
+      "max_distance": 5.2406,
+      "mean_distance": 3.2242,
+      "std_distance": 0.4924,
+      "relative_contrast": 3.2864,
+      "var_to_mean_ratio": 0.0752
+    },
+    {
+      "dimension": 32,
+      "n_samples": 500,
+      "metric": "euclidean",
+      "min_distance": 2.4657,
+      "max_distance": 6.6227,
+      "mean_distance": 4.5836,
+      "std_distance": 0.4872,
+      "relative_contrast": 1.6859,
+      "var_to_mean_ratio": 0.0518
+    },
+    {
+      "dimension": 64,
+      "n_samples": 500,
+      "metric": "euclidean",
+      "min_distance": 4.2995,
+      "max_distance": 8.5953,
+      "mean_distance": 6.5086,
+      "std_distance": 0.4872,
+      "relative_contrast": 0.9991,
+      "var_to_mean_ratio": 0.0365
+    },
+    {
+      "dimension": 128,
+      "n_samples": 500,
+      "metric": "euclidean",
+      "min_distance": 7.1707,
+      "max_distance": 11.3292,
+      "mean_distance": 9.2197,
+      "std_distance": 0.4838,
+      "relative_contrast": 0.5799,
+      "var_to_mean_ratio": 0.0254
+    },
+    {
+      "dimension": 256,
+      "n_samples": 500,
+      "metric": "euclidean",
+      "min_distance": 10.9505,
+      "max_distance": 15.2364,
+      "mean_distance": 13.0461,
+      "std_distance": 0.4777,
+      "relative_contrast": 0.3914,
+      "var_to_mean_ratio": 0.0175
+    },
+    {
+      "dimension": 512,
+      "n_samples": 500,
+      "metric": "euclidean",
+      "min_distance": 16.4343,
+      "max_distance": 20.4264,
+      "mean_distance": 18.4739,
+      "std_distance": 0.4811,
+      "relative_contrast": 0.2429,
+      "var_to_mean_ratio": 0.0125
+    },
+    {
+      "dimension": 1024,
+      "n_samples": 500,
+      "metric": "euclidean",
+      "min_distance": 23.9413,
+      "max_distance": 28.2345,
+      "mean_distance": 26.118,
+      "std_distance": 0.4827,
+      "relative_contrast": 0.1793,
+      "var_to_mean_ratio": 0.0089
+    }
+  ],
+  "theoretical_insight": "As dimension D increases from 2 to 1024, relative contrast (D_max - D_min)/D_min decreases by 5214.3x. In high-dimensional spaces, points become nearly equidistant, making metric selection (e.g. Cosine on normalized manifolds) and dimensionality reduction essential."
+}
