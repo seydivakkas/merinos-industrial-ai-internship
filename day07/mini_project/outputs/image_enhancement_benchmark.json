@@ -1,0 +1,66 @@
+[
+  {
+    "operation": "Gaussian Filter (5x5)",
+    "avg_latency_ms": 0.136,
+    "throughput_fps": 7370.6,
+    "contrast_gain": -7.2057,
+    "entropy_gain": -0.201,
+    "sharpness_gain": -16242.64
+  },
+  {
+    "operation": "Median Filter (k=5)",
+    "avg_latency_ms": 0.971,
+    "throughput_fps": 1030.3,
+    "contrast_gain": -3.2665,
+    "entropy_gain": -1.0029,
+    "sharpness_gain": -15477.87
+  },
+  {
+    "operation": "Bilateral Filter (d=9)",
+    "avg_latency_ms": 13.321,
+    "throughput_fps": 75.1,
+    "contrast_gain": -0.795,
+    "entropy_gain": -1.7471,
+    "sharpness_gain": -1668.14
+  },
+  {
+    "operation": "Unsharp Mask (strength=1.5)",
+    "avg_latency_ms": 4.77,
+    "throughput_fps": 209.7,
+    "contrast_gain": 3.395,
+    "entropy_gain": 0.4777,
+    "sharpness_gain": 2915.2
+  },
+  {
+    "operation": "CLAHE Perceptual (LAB L*)",
+    "avg_latency_ms": 1.928,
+    "throughput_fps": 518.8,
+    "contrast_gain": 5.9449,
+    "entropy_gain": 1.6988,
+    "sharpness_gain": 127.7
+  },
+  {
+    "operation": "CLAHE Perceptual (YCrCb Y)",
+    "avg_latency_ms": 1.297,
+    "throughput_fps": 770.9,
+    "contrast_gain": 6.8909,
+    "entropy_gain": 1.6825,
+    "sharpness_gain": 147.25
+  },
+  {
+    "operation": "Global HE Perceptual (LAB L*)",
+    "avg_latency_ms": 1.598,
+    "throughput_fps": 625.7,
+    "contrast_gain": 57.5816,
+    "entropy_gain": 0.4376,
+    "sharpness_gain": 2359.19
+  },
+  {
+    "operation": "Letterbox Resize (512x512)",
+    "avg_latency_ms": 0.528,
+    "throughput_fps": 1894.2,
+    "contrast_gain": 21.8322,
+    "entropy_gain": -0.4599,
+    "sharpness_gain": -698.88
+  }
+]

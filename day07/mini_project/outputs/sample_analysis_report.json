@@ -1,0 +1,198 @@
+{
+  "normal": {
+    "metadata": {
+      "path": "C:\\Users\\seydieryilmaz\\Desktop\\Projeler\\Merinos 40 G\u00fcnl\u00fck Staj Deneyimim\\merinos-industrial-ai-internship\\day07\\mini_project\\fixtures\\synthetic_carpets\\carpet_normal.png",
+      "height": 360,
+      "width": 480,
+      "channels": 3,
+      "dtype": "uint8",
+      "size_bytes": 518400,
+      "aspect_ratio": 1.3333,
+      "is_c_contiguous": true,
+      "min_intensity": 25.0,
+      "max_intensity": 254.0,
+      "mean_intensity": 164.47,
+      "std_intensity": 76.67
+    },
+    "profile": {
+      "mean_intensity": 167.38,
+      "std_intensity": 76.03,
+      "rms_contrast": 76.0317,
+      "shannon_entropy": 5.8284,
+      "dynamic_range": 190,
+      "min_val": 46,
+      "max_val": 236,
+      "p10_intensity": 55.0,
+      "median_intensity": 220.0,
+      "p90_intensity": 232.0,
+      "sharpness_laplacian": 1320.41
+    },
+    "bgr_channel_stats": {
+      "B": {
+        "mean": 147.03,
+        "std": 53.78,
+        "min": 40.0,
+        "max": 199.0
+      },
+      "G": {
+        "mean": 163.73,
+        "std": 78.91,
+        "min": 40.0,
+        "max": 234.0
+      },
+      "R": {
+        "mean": 182.66,
+        "std": 88.78,
+        "min": 25.0,
+        "max": 254.0
+      }
+    }
+  },
+  "low_contrast": {
+    "metadata": {
+      "path": "C:\\Users\\seydieryilmaz\\Desktop\\Projeler\\Merinos 40 G\u00fcnl\u00fck Staj Deneyimim\\merinos-industrial-ai-internship\\day07\\mini_project\\fixtures\\synthetic_carpets\\carpet_low_contrast.png",
+      "height": 360,
+      "width": 480,
+      "channels": 3,
+      "dtype": "uint8",
+      "size_bytes": 518400,
+      "aspect_ratio": 1.3333,
+      "is_c_contiguous": true,
+      "min_intensity": 46.0,
+      "max_intensity": 109.0,
+      "mean_intensity": 84.65,
+      "std_intensity": 21.04
+    },
+    "profile": {
+      "mean_intensity": 85.42,
+      "std_intensity": 20.77,
+      "rms_contrast": 20.7711,
+      "shannon_entropy": 4.0533,
+      "dynamic_range": 52,
+      "min_val": 52,
+      "max_val": 104,
+      "p10_intensity": 55.0,
+      "median_intensity": 100.0,
+      "p90_intensity": 103.0,
+      "sharpness_laplacian": 100.1
+    },
+    "bgr_channel_stats": {
+      "B": {
+        "mean": 79.86,
+        "std": 14.75,
+        "min": 50.0,
+        "max": 94.0
+      },
+      "G": {
+        "mean": 84.47,
+        "std": 21.65,
+        "min": 50.0,
+        "max": 104.0
+      },
+      "R": {
+        "mean": 89.62,
+        "std": 24.37,
+        "min": 46.0,
+        "max": 109.0
+      }
+    }
+  },
+  "noisy": {
+    "metadata": {
+      "path": "C:\\Users\\seydieryilmaz\\Desktop\\Projeler\\Merinos 40 G\u00fcnl\u00fck Staj Deneyimim\\merinos-industrial-ai-internship\\day07\\mini_project\\fixtures\\synthetic_carpets\\carpet_noisy.png",
+      "height": 360,
+      "width": 480,
+      "channels": 3,
+      "dtype": "uint8",
+      "size_bytes": 518400,
+      "aspect_ratio": 1.3333,
+      "is_c_contiguous": true,
+      "min_intensity": 0.0,
+      "max_intensity": 255.0,
+      "mean_intensity": 162.59,
+      "std_intensity": 79.45
+    },
+    "profile": {
+      "mean_intensity": 165.53,
+      "std_intensity": 78.38,
+      "rms_contrast": 78.3832,
+      "shannon_entropy": 6.7452,
+      "dynamic_range": 255,
+      "min_val": 0,
+      "max_val": 255,
+      "p10_intensity": 52.0,
+      "median_intensity": 215.0,
+      "p90_intensity": 235.0,
+      "sharpness_laplacian": 16304.34
+    },
+    "bgr_channel_stats": {
+      "B": {
+        "mean": 145.93,
+        "std": 58.66,
+        "min": 0.0,
+        "max": 255.0
+      },
+      "G": {
+        "mean": 162.11,
+        "std": 81.83,
+        "min": 0.0,
+        "max": 255.0
+      },
+      "R": {
+        "mean": 179.72,
+        "std": 90.72,
+        "min": 0.0,
+        "max": 255.0
+      }
+    }
+  },
+  "uneven": {
+    "metadata": {
+      "path": "C:\\Users\\seydieryilmaz\\Desktop\\Projeler\\Merinos 40 G\u00fcnl\u00fck Staj Deneyimim\\merinos-industrial-ai-internship\\day07\\mini_project\\fixtures\\synthetic_carpets\\carpet_uneven_illumination.png",
+      "height": 360,
+      "width": 480,
+      "channels": 3,
+      "dtype": "uint8",
+      "size_bytes": 518400,
+      "aspect_ratio": 1.3333,
+      "is_c_contiguous": true,
+      "min_intensity": 6.0,
+      "max_intensity": 255.0,
+      "mean_intensity": 114.87,
+      "std_intensity": 76.59
+    },
+    "profile": {
+      "mean_intensity": 117.96,
+      "std_intensity": 77.01,
+      "rms_contrast": 77.0123,
+      "shannon_entropy": 7.7668,
+      "dynamic_range": 244,
+      "min_val": 11,
+      "max_val": 255,
+      "p10_intensity": 17.0,
+      "median_intensity": 115.0,
+      "p90_intensity": 228.0,
+      "sharpness_laplacian": 614.64
+    },
+    "bgr_channel_stats": {
+      "B": {
+        "mean": 99.23,
+        "std": 60.53,
+        "min": 10.0,
+        "max": 255.0
+      },
+      "G": {
+        "mean": 115.66,
+        "std": 78.77,
+        "min": 10.0,
+        "max": 255.0
+      },
+      "R": {
+        "mean": 129.71,
+        "std": 85.23,
+        "min": 6.0,
+        "max": 255.0
+      }
+    }
+  }
+}
