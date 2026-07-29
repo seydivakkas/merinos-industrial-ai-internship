@@ -1,0 +1,27 @@
+[
+  {
+    "operation": "BGR to HSV Conversion",
+    "avg_latency_ms": 0.097,
+    "throughput_fps": 10297.6
+  },
+  {
+    "operation": "BGR to CIELAB (float32)",
+    "avg_latency_ms": 2.153,
+    "throughput_fps": 464.5
+  },
+  {
+    "operation": "HSV Thresholding (Imperial Red with Wrap-around)",
+    "avg_latency_ms": 0.677,
+    "throughput_fps": 1477.4
+  },
+  {
+    "operation": "CIELAB Delta E Thresholding (Royal Navy)",
+    "avg_latency_ms": 6.507,
+    "throughput_fps": 153.7
+  },
+  {
+    "operation": "Full 4-Yarn Palette Segmentation & QA",
+    "avg_latency_ms": 6.73,
+    "throughput_fps": 148.6
+  }
+]

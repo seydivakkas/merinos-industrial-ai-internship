@@ -1,0 +1,326 @@
+{
+  "master": {
+    "carpet_name": "master",
+    "total_pixels": 172800,
+    "overall_status": "PASS",
+    "max_delta_e": 0.568,
+    "yarn_findings": [
+      {
+        "yarn_name": "Royal Navy",
+        "yarn_code": "YARN-NAVY-01",
+        "pixel_count": 38816,
+        "area_percentage": 22.46,
+        "mean_rgb": [
+          25.5,
+          42.4,
+          75.5
+        ],
+        "mean_lab": [
+          17.49,
+          5.14,
+          -22.48
+        ],
+        "delta_e_from_target": 0.265,
+        "grade": "PASS"
+      },
+      {
+        "yarn_name": "Imperial Red",
+        "yarn_code": "YARN-RED-02",
+        "pixel_count": 14686,
+        "area_percentage": 8.5,
+        "mean_rgb": [
+          138.6,
+          0.9,
+          0.9
+        ],
+        "mean_lab": [
+          28.03,
+          50.74,
+          40.8
+        ],
+        "delta_e_from_target": 0.568,
+        "grade": "PASS"
+      },
+      {
+        "yarn_name": "Silk Cream",
+        "yarn_code": "YARN-CREAM-03",
+        "pixel_count": 99188,
+        "area_percentage": 57.4,
+        "mean_rgb": [
+          244.5,
+          241.5,
+          234.5
+        ],
+        "mean_lab": [
+          95.22,
+          -0.19,
+          3.72
+        ],
+        "delta_e_from_target": 0.181,
+        "grade": "PASS"
+      },
+      {
+        "yarn_name": "Antique Gold",
+        "yarn_code": "YARN-GOLD-04",
+        "pixel_count": 19603,
+        "area_percentage": 11.34,
+        "mean_rgb": [
+          211.5,
+          174.5,
+          54.5
+        ],
+        "mean_lab": [
+          72.61,
+          1.34,
+          62.88
+        ],
+        "delta_e_from_target": 0.195,
+        "grade": "PASS"
+      }
+    ],
+    "unclassified_percentage": 0.29
+  },
+  "drift_pass": {
+    "carpet_name": "drift_pass",
+    "total_pixels": 172800,
+    "overall_status": "PASS",
+    "max_delta_e": 0.775,
+    "yarn_findings": [
+      {
+        "yarn_name": "Royal Navy",
+        "yarn_code": "YARN-NAVY-01",
+        "pixel_count": 38974,
+        "area_percentage": 22.55,
+        "mean_rgb": [
+          27.5,
+          43.5,
+          76.5
+        ],
+        "mean_lab": [
+          18.02,
+          5.26,
+          -22.31
+        ],
+        "delta_e_from_target": 0.422,
+        "grade": "PASS"
+      },
+      {
+        "yarn_name": "Imperial Red",
+        "yarn_code": "YARN-RED-02",
+        "pixel_count": 14686,
+        "area_percentage": 8.5,
+        "mean_rgb": [
+          141.5,
+          3.7,
+          2.1
+        ],
+        "mean_lab": [
+          28.87,
+          51.09,
+          41.28
+        ],
+        "delta_e_from_target": 0.775,
+        "grade": "PASS"
+      },
+      {
+        "yarn_name": "Silk Cream",
+        "yarn_code": "YARN-CREAM-03",
+        "pixel_count": 99188,
+        "area_percentage": 57.4,
+        "mean_rgb": [
+          243.5,
+          240.5,
+          233.5
+        ],
+        "mean_lab": [
+          94.88,
+          -0.2,
+          3.73
+        ],
+        "delta_e_from_target": 0.521,
+        "grade": "PASS"
+      },
+      {
+        "yarn_name": "Antique Gold",
+        "yarn_code": "YARN-GOLD-04",
+        "pixel_count": 19603,
+        "area_percentage": 11.34,
+        "mean_rgb": [
+          213.5,
+          176.5,
+          56.5
+        ],
+        "mean_lab": [
+          73.31,
+          1.26,
+          62.88
+        ],
+        "delta_e_from_target": 0.512,
+        "grade": "PASS"
+      }
+    ],
+    "unclassified_percentage": 0.2
+  },
+  "drift_warning": {
+    "carpet_name": "drift_warning",
+    "total_pixels": 172800,
+    "overall_status": "WARNING",
+    "max_delta_e": 3.782,
+    "yarn_findings": [
+      {
+        "yarn_name": "Royal Navy",
+        "yarn_code": "YARN-NAVY-01",
+        "pixel_count": 39060,
+        "area_percentage": 22.6,
+        "mean_rgb": [
+          31.5,
+          47.5,
+          81.5
+        ],
+        "mean_lab": [
+          19.88,
+          5.29,
+          -22.69
+        ],
+        "delta_e_from_target": 2.218,
+        "grade": "WARNING"
+      },
+      {
+        "yarn_name": "Imperial Red",
+        "yarn_code": "YARN-RED-02",
+        "pixel_count": 14686,
+        "area_percentage": 8.5,
+        "mean_rgb": [
+          149.5,
+          8.5,
+          5.5
+        ],
+        "mean_lab": [
+          30.94,
+          52.53,
+          42.24
+        ],
+        "delta_e_from_target": 3.36,
+        "grade": "WARNING"
+      },
+      {
+        "yarn_name": "Silk Cream",
+        "yarn_code": "YARN-CREAM-03",
+        "pixel_count": 99188,
+        "area_percentage": 57.4,
+        "mean_rgb": [
+          239.5,
+          235.5,
+          224.5
+        ],
+        "mean_lab": [
+          93.12,
+          -0.52,
+          5.79
+        ],
+        "delta_e_from_target": 3.109,
+        "grade": "WARNING"
+      },
+      {
+        "yarn_name": "Antique Gold",
+        "yarn_code": "YARN-GOLD-04",
+        "pixel_count": 19603,
+        "area_percentage": 11.34,
+        "mean_rgb": [
+          224.5,
+          184.5,
+          64.5
+        ],
+        "mean_lab": [
+          76.47,
+          2.14,
+          63.26
+        ],
+        "delta_e_from_target": 3.782,
+        "grade": "WARNING"
+      }
+    ],
+    "unclassified_percentage": 0.15
+  },
+  "drift_reject": {
+    "carpet_name": "drift_reject",
+    "total_pixels": 172800,
+    "overall_status": "REJECT",
+    "max_delta_e": 15.426,
+    "yarn_findings": [
+      {
+        "yarn_name": "Royal Navy",
+        "yarn_code": "YARN-NAVY-01",
+        "pixel_count": 39216,
+        "area_percentage": 22.69,
+        "mean_rgb": [
+          44.5,
+          59.5,
+          94.5
+        ],
+        "mean_lab": [
+          25.31,
+          5.08,
+          -22.59
+        ],
+        "delta_e_from_target": 7.613,
+        "grade": "REJECT"
+      },
+      {
+        "yarn_name": "Imperial Red",
+        "yarn_code": "YARN-RED-02",
+        "pixel_count": 14686,
+        "area_percentage": 8.5,
+        "mean_rgb": [
+          189.5,
+          44.5,
+          29.5
+        ],
+        "mean_lab": [
+          42.44,
+          56.04,
+          43.93
+        ],
+        "delta_e_from_target": 15.426,
+        "grade": "REJECT"
+      },
+      {
+        "yarn_name": "Silk Cream",
+        "yarn_code": "YARN-CREAM-03",
+        "pixel_count": 99188,
+        "area_percentage": 57.4,
+        "mean_rgb": [
+          229.5,
+          224.5,
+          209.5
+        ],
+        "mean_lab": [
+          89.25,
+          -0.85,
+          7.93
+        ],
+        "delta_e_from_target": 7.493,
+        "grade": "REJECT"
+      },
+      {
+        "yarn_name": "Antique Gold",
+        "yarn_code": "YARN-GOLD-04",
+        "pixel_count": 19528,
+        "area_percentage": 11.3,
+        "mean_rgb": [
+          239.5,
+          194.5,
+          79.5
+        ],
+        "mean_lab": [
+          80.54,
+          4.05,
+          61.8
+        ],
+        "delta_e_from_target": 8.287,
+        "grade": "REJECT"
+      }
+    ],
+    "unclassified_percentage": 0.11
+  }
+}

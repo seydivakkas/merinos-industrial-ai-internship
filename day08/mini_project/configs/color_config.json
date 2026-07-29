@@ -1,0 +1,65 @@
+{
+  "project_name": "Merinos Industrial AI Internship - Day 08",
+  "module": "Perceptual Color Space Analysis and Color Thresholding",
+  "version": "1.0.0",
+  "reference_palette": [
+    {
+      "name": "Royal Navy",
+      "code": "YARN-NAVY-01",
+      "hex": "#1A2B4C",
+      "rgb": [26, 43, 76],
+      "bgr": [76, 43, 26],
+      "hsv_range": {
+        "lower": [105, 100, 20],
+        "upper": [125, 255, 120]
+      },
+      "lab_reference": [17.7, 5.0, -22.4]
+    },
+    {
+      "name": "Imperial Red",
+      "code": "YARN-RED-02",
+      "hex": "#8B0000",
+      "rgb": [139, 0, 0],
+      "bgr": [0, 0, 139],
+      "hsv_range": {
+        "lower1": [0, 140, 40],
+        "upper1": [10, 255, 220],
+        "lower2": [170, 140, 40],
+        "upper2": [180, 255, 220]
+      },
+      "lab_reference": [28.1, 51.0, 41.3]
+    },
+    {
+      "name": "Silk Cream",
+      "code": "YARN-CREAM-03",
+      "hex": "#F5F2EB",
+      "rgb": [245, 242, 235],
+      "bgr": [235, 242, 245],
+      "hsv_range": {
+        "lower": [0, 0, 180],
+        "upper": [180, 45, 255]
+      },
+      "lab_reference": [95.4, -0.2, 3.7]
+    },
+    {
+      "name": "Antique Gold",
+      "code": "YARN-GOLD-04",
+      "hex": "#D4AF37",
+      "rgb": [212, 175, 55],
+      "bgr": [55, 175, 212],
+      "hsv_range": {
+        "lower": [20, 140, 120],
+        "upper": [35, 255, 255]
+      },
+      "lab_reference": [72.8, 1.3, 62.9]
+    }
+  ],
+  "delta_e_thresholds": {
+    "pass": 2.0,
+    "warning": 5.0
+  },
+  "morphology": {
+    "open_kernel_size": [3, 3],
+    "close_kernel_size": [5, 5]
+  }
+}
