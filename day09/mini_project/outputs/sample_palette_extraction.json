@@ -1,0 +1,100 @@
+{
+  "k": 6,
+  "space_used": "LAB",
+  "palette": [
+    {
+      "cluster_id": 0,
+      "rgb": [
+        245,
+        242,
+        232
+      ],
+      "cielab": [
+        95.67,
+        -0.71,
+        5.15
+      ],
+      "percentage": 39.255,
+      "pixel_count": 102904
+    },
+    {
+      "cluster_id": 1,
+      "rgb": [
+        24,
+        37,
+        71
+      ],
+      "cielab": [
+        15.72,
+        6.61,
+        -22.96
+      ],
+      "percentage": 24.613,
+      "pixel_count": 64522
+    },
+    {
+      "cluster_id": 2,
+      "rgb": [
+        197,
+        155,
+        51
+      ],
+      "cielab": [
+        66.5,
+        5.26,
+        57.47
+      ],
+      "percentage": 11.327,
+      "pixel_count": 29694
+    },
+    {
+      "cluster_id": 3,
+      "rgb": [
+        151,
+        27,
+        44
+      ],
+      "cielab": [
+        33.32,
+        50.32,
+        23.18
+      ],
+      "percentage": 11.24,
+      "pixel_count": 29464
+    },
+    {
+      "cluster_id": 4,
+      "rgb": [
+        183,
+        83,
+        53
+      ],
+      "cielab": [
+        47.91,
+        38.47,
+        36.46
+      ],
+      "percentage": 9.344,
+      "pixel_count": 24496
+    },
+    {
+      "cluster_id": 5,
+      "rgb": [
+        87,
+        101,
+        55
+      ],
+      "cielab": [
+        40.89,
+        -13.63,
+        24.07
+      ],
+      "percentage": 4.221,
+      "pixel_count": 11064
+    }
+  ],
+  "inertia": 100244.66725249184,
+  "sample_ratio": 0.0572,
+  "total_pixels": 262144,
+  "elapsed_ms": 1676.83
+}

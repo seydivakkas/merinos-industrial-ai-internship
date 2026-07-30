@@ -1,0 +1,71 @@
+{
+  "kmeans_benchmarks": [
+    {
+      "subsample_size": "5,000",
+      "mean_ms": 592.2,
+      "throughput_fps": 1.7,
+      "inertia": 33580.75
+    },
+    {
+      "subsample_size": "15,000",
+      "mean_ms": 49.13,
+      "throughput_fps": 20.4,
+      "inertia": 100244.67
+    },
+    {
+      "subsample_size": "50,000",
+      "mean_ms": 131.68,
+      "throughput_fps": 7.6,
+      "inertia": 332308.15
+    },
+    {
+      "subsample_size": "Full (262,144)",
+      "mean_ms": 336.06,
+      "throughput_fps": 3.0,
+      "inertia": 1734056.83
+    }
+  ],
+  "delta_e_vectorized_benchmark_10k_pairs": {
+    "cie1976_ms": 0.332,
+    "ciede2000_ms": 4.76,
+    "ratio_ciede2000_over_cie76": 14.3,
+    "ciede2000_pairs_per_sec": 2100840
+  },
+  "sharma_standard_pairs_verification": [
+    {
+      "pair": 1,
+      "computed": 2.0425,
+      "expected": 2.0425,
+      "abs_error": 4e-05,
+      "status": "PASSED"
+    },
+    {
+      "pair": 2,
+      "computed": 2.8615,
+      "expected": 2.8615,
+      "abs_error": 1e-05,
+      "status": "PASSED"
+    },
+    {
+      "pair": 3,
+      "computed": 1.6982,
+      "expected": 1.6982,
+      "abs_error": 7e-06,
+      "status": "PASSED"
+    },
+    {
+      "pair": 4,
+      "computed": 2.2549,
+      "expected": 2.2549,
+      "abs_error": 3e-05,
+      "status": "PASSED"
+    },
+    {
+      "pair": 5,
+      "computed": 1.1271,
+      "expected": 1.1271,
+      "abs_error": 1.4e-05,
+      "status": "PASSED"
+    }
+  ]
+}

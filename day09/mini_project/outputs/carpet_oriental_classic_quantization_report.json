@@ -1,0 +1,18 @@
+{
+  "image_shape": [
+    512,
+    512,
+    3
+  ],
+  "num_colors_used": 6,
+  "mean_delta_e_00": 2.419,
+  "max_delta_e_00": 6.622,
+  "coverage_percentages": {
+    "MRN-YRN-001": 24.61,
+    "MRN-YRN-002": 11.24,
+    "MRN-YRN-003": 39.25,
+    "MRN-YRN-004": 11.33,
+    "MRN-YRN-005": 9.34,
+    "MRN-YRN-006": 4.22
+  }
+}

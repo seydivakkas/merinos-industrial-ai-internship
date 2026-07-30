@@ -1,0 +1,358 @@
+{
+  "allocation_id": "CREEL-ALLOC-CARPET_ORIENTAL_CLASSIC",
+  "pattern_name": "carpet_oriental_classic",
+  "target_creel_size": 6,
+  "active_bobbins": [
+    {
+      "extracted_color": {
+        "cluster_id": 0,
+        "rgb": [
+          245,
+          242,
+          232
+        ],
+        "cielab": [
+          95.67,
+          -0.71,
+          5.15
+        ],
+        "percentage": 39.255,
+        "pixel_count": 102904
+      },
+      "matched_yarn": {
+        "yarn_id": "MRN-YRN-003",
+        "name": "Silk Cream",
+        "rgb": [
+          246,
+          243,
+          233
+        ],
+        "cielab": [
+          95.84,
+          -0.74,
+          5.56
+        ],
+        "pantone_code": "11-0604 TCX",
+        "material": "100% Heat-Set Polypropylene",
+        "cost_per_kg": 3.9,
+        "in_stock": true
+      },
+      "delta_e_00": 0.347,
+      "delta_e_76": 0.445,
+      "match_grade": "exact",
+      "alternative_matches": [
+        {
+          "yarn_id": "MRN-YRN-010",
+          "name": "Ivory Bone",
+          "delta_e_00": 4.419,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-014",
+          "name": "Silver Ash",
+          "delta_e_00": 13.407,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-011",
+          "name": "Sage Mist",
+          "delta_e_00": 26.281,
+          "in_stock": true
+        }
+      ]
+    },
+    {
+      "extracted_color": {
+        "cluster_id": 1,
+        "rgb": [
+          24,
+          37,
+          71
+        ],
+        "cielab": [
+          15.72,
+          6.61,
+          -22.96
+        ],
+        "percentage": 24.613,
+        "pixel_count": 64522
+      },
+      "matched_yarn": {
+        "yarn_id": "MRN-YRN-001",
+        "name": "Royal Navy",
+        "rgb": [
+          24,
+          38,
+          72
+        ],
+        "cielab": [
+          16.48,
+          4.35,
+          -23.12
+        ],
+        "pantone_code": "19-4024 TCX",
+        "material": "100% Heat-Set Polypropylene",
+        "cost_per_kg": 4.25,
+        "in_stock": true
+      },
+      "delta_e_00": 2.231,
+      "delta_e_76": 2.39,
+      "match_grade": "warning",
+      "alternative_matches": [
+        {
+          "yarn_id": "MRN-YRN-007",
+          "name": "Charcoal Black",
+          "delta_e_00": 14.336,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-009",
+          "name": "Slate Blue",
+          "delta_e_00": 25.312,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-015",
+          "name": "Bordeaux Wine",
+          "delta_e_00": 29.699,
+          "in_stock": true
+        }
+      ]
+    },
+    {
+      "extracted_color": {
+        "cluster_id": 2,
+        "rgb": [
+          197,
+          155,
+          51
+        ],
+        "cielab": [
+          66.5,
+          5.26,
+          57.47
+        ],
+        "percentage": 11.327,
+        "pixel_count": 29694
+      },
+      "matched_yarn": {
+        "yarn_id": "MRN-YRN-004",
+        "name": "Antique Gold",
+        "rgb": [
+          198,
+          156,
+          52
+        ],
+        "cielab": [
+          65.48,
+          5.25,
+          60.18
+        ],
+        "pantone_code": "16-0953 TCX",
+        "material": "100% Heat-Set Polypropylene",
+        "cost_per_kg": 4.85,
+        "in_stock": true
+      },
+      "delta_e_00": 1.122,
+      "delta_e_76": 2.896,
+      "match_grade": "acceptable",
+      "alternative_matches": [
+        {
+          "yarn_id": "MRN-YRN-008",
+          "name": "Mustard Sun",
+          "delta_e_00": 4.762,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-013",
+          "name": "Warm Taupe",
+          "delta_e_00": 21.697,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-010",
+          "name": "Ivory Bone",
+          "delta_e_00": 25.914,
+          "in_stock": true
+        }
+      ]
+    },
+    {
+      "extracted_color": {
+        "cluster_id": 3,
+        "rgb": [
+          151,
+          27,
+          44
+        ],
+        "cielab": [
+          33.32,
+          50.32,
+          23.18
+        ],
+        "percentage": 11.24,
+        "pixel_count": 29464
+      },
+      "matched_yarn": {
+        "yarn_id": "MRN-YRN-002",
+        "name": "Imperial Ruby Red",
+        "rgb": [
+          152,
+          28,
+          45
+        ],
+        "cielab": [
+          29.62,
+          51.48,
+          28.32
+        ],
+        "pantone_code": "19-1763 TCX",
+        "material": "100% Heat-Set Polypropylene",
+        "cost_per_kg": 4.6,
+        "in_stock": true
+      },
+      "delta_e_00": 3.86,
+      "delta_e_76": 6.439,
+      "match_grade": "warning",
+      "alternative_matches": [
+        {
+          "yarn_id": "MRN-YRN-015",
+          "name": "Bordeaux Wine",
+          "delta_e_00": 10.38,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-005",
+          "name": "Anatolian Terracotta",
+          "delta_e_00": 16.313,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-007",
+          "name": "Charcoal Black",
+          "delta_e_00": 30.443,
+          "in_stock": true
+        }
+      ]
+    },
+    {
+      "extracted_color": {
+        "cluster_id": 4,
+        "rgb": [
+          183,
+          83,
+          53
+        ],
+        "cielab": [
+          47.91,
+          38.47,
+          36.46
+        ],
+        "percentage": 9.344,
+        "pixel_count": 24496
+      },
+      "matched_yarn": {
+        "yarn_id": "MRN-YRN-005",
+        "name": "Anatolian Terracotta",
+        "rgb": [
+          184,
+          84,
+          54
+        ],
+        "cielab": [
+          46.85,
+          39.12,
+          37.45
+        ],
+        "pantone_code": "18-1440 TCX",
+        "material": "100% Heat-Set Polypropylene",
+        "cost_per_kg": 4.4,
+        "in_stock": true
+      },
+      "delta_e_00": 1.107,
+      "delta_e_76": 1.589,
+      "match_grade": "acceptable",
+      "alternative_matches": [
+        {
+          "yarn_id": "MRN-YRN-002",
+          "name": "Imperial Ruby Red",
+          "delta_e_00": 18.157,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-013",
+          "name": "Warm Taupe",
+          "delta_e_00": 20.575,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-015",
+          "name": "Bordeaux Wine",
+          "delta_e_00": 25.175,
+          "in_stock": true
+        }
+      ]
+    },
+    {
+      "extracted_color": {
+        "cluster_id": 5,
+        "rgb": [
+          87,
+          101,
+          55
+        ],
+        "cielab": [
+          40.89,
+          -13.63,
+          24.07
+        ],
+        "percentage": 4.221,
+        "pixel_count": 11064
+      },
+      "matched_yarn": {
+        "yarn_id": "MRN-YRN-006",
+        "name": "Olive Grove",
+        "rgb": [
+          88,
+          102,
+          56
+        ],
+        "cielab": [
+          41.25,
+          -12.45,
+          25.6
+        ],
+        "pantone_code": "18-0430 TCX",
+        "material": "100% Heat-Set Polypropylene",
+        "cost_per_kg": 4.1,
+        "in_stock": true
+      },
+      "delta_e_00": 1.351,
+      "delta_e_76": 1.965,
+      "match_grade": "acceptable",
+      "alternative_matches": [
+        {
+          "yarn_id": "MRN-YRN-016",
+          "name": "Forest Emerald",
+          "delta_e_00": 14.684,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-011",
+          "name": "Sage Mist",
+          "delta_e_00": 23.198,
+          "in_stock": true
+        },
+        {
+          "yarn_id": "MRN-YRN-013",
+          "name": "Warm Taupe",
+          "delta_e_00": 24.321,
+          "in_stock": true
+        }
+      ]
+    }
+  ],
+  "unique_yarn_count": 6,
+  "total_estimated_yarn_cost_per_m2": 9.3,
+  "uncatalogued_colors_count": 0
+}
