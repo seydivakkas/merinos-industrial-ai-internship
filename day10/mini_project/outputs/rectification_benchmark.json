@@ -1,0 +1,54 @@
+{
+  "distortion_angle_benchmarks": [
+    {
+      "distortion_case": "Oblique 25 deg",
+      "corner_detect_ms": 5.98,
+      "full_rectify_ms": 2.66,
+      "throughput_fps": 375.9,
+      "original_max_angle_skew_deg": 8.01,
+      "rectified_max_angle_skew_deg": 0.0,
+      "homography_cond_number": 42310.37,
+      "qa_grade": "PASS"
+    },
+    {
+      "distortion_case": "Conveyor 35 deg",
+      "corner_detect_ms": 5.39,
+      "full_rectify_ms": 1.88,
+      "throughput_fps": 531.9,
+      "original_max_angle_skew_deg": 13.24,
+      "rectified_max_angle_skew_deg": 0.0,
+      "homography_cond_number": 91469.47,
+      "qa_grade": "PASS"
+    },
+    {
+      "distortion_case": "Severe 45 deg",
+      "corner_detect_ms": 5.35,
+      "full_rectify_ms": 2.26,
+      "throughput_fps": 442.5,
+      "original_max_angle_skew_deg": 23.75,
+      "rectified_max_angle_skew_deg": 0.0,
+      "homography_cond_number": 178495.85,
+      "qa_grade": "WARNING"
+    }
+  ],
+  "resolution_scaling_benchmarks": [
+    {
+      "resolution": "512x512",
+      "megapixels": 0.26,
+      "warp_latency_ms": 1.58,
+      "fps": 632.9
+    },
+    {
+      "resolution": "1024x1024",
+      "megapixels": 1.05,
+      "warp_latency_ms": 5.13,
+      "fps": 194.9
+    },
+    {
+      "resolution": "2048x2048",
+      "megapixels": 4.19,
+      "warp_latency_ms": 9.18,
+      "fps": 108.9
+    }
+  ]
+}

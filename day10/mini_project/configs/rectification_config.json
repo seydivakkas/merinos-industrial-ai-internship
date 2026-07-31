@@ -1,0 +1,53 @@
+{
+  "project_name": "Merinos Carpet Perspective Rectification & Homography Engine",
+  "version": "1.0.0",
+  "corner_detection": {
+    "gaussian_blur_kernel": [5, 5],
+    "gaussian_blur_sigma": 1.2,
+    "canny_low_threshold": 10,
+    "canny_high_threshold": 35,
+    "morph_kernel_size": [5, 5],
+    "approx_poly_epsilon_ratio": 0.025,
+    "min_carpet_area_ratio": 0.15
+  },
+  "homography_settings": {
+    "default_interpolation": "INTER_LINEAR",
+    "max_condition_number": 1e6,
+    "min_determinant": 1e-5
+  },
+  "standard_carpet_sizes": {
+    "160x230": {
+      "name": "Standard Living Room (160x230 cm)",
+      "width_cm": 160.0,
+      "height_cm": 230.0,
+      "aspect_ratio": 0.6957,
+      "default_pixel_resolution": [696, 1000]
+    },
+    "200x290": {
+      "name": "Large Living Room (200x290 cm)",
+      "width_cm": 200.0,
+      "height_cm": 290.0,
+      "aspect_ratio": 0.6897,
+      "default_pixel_resolution": [690, 1000]
+    },
+    "80x150": {
+      "name": "Hallway Runner (80x150 cm)",
+      "width_cm": 80.0,
+      "height_cm": 150.0,
+      "aspect_ratio": 0.5333,
+      "default_pixel_resolution": [533, 1000]
+    },
+    "100x100": {
+      "name": "Square Medallion Accent (100x100 cm)",
+      "width_cm": 100.0,
+      "height_cm": 100.0,
+      "aspect_ratio": 1.0000,
+      "default_pixel_resolution": [800, 800]
+    }
+  },
+  "qa_rectification_thresholds": {
+    "max_corner_angle_deviation_pass": 1.5,
+    "max_corner_angle_deviation_warning": 4.0,
+    "max_aspect_ratio_error_pct": 3.0
+  }
+}

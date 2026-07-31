@@ -1,0 +1,57 @@
+{
+  "source_corners": {
+    "top_left": {
+      "x": 150.0,
+      "y": 100.0
+    },
+    "top_right": {
+      "x": 550.0,
+      "y": 120.0
+    },
+    "bottom_right": {
+      "x": 590.0,
+      "y": 620.0
+    },
+    "bottom_left": {
+      "x": 90.0,
+      "y": 590.0
+    }
+  },
+  "target_dimensions": [
+    501,
+    502
+  ],
+  "rectification_mode": "adaptive",
+  "aspect_ratio": 0.998,
+  "corner_angles": [
+    90.0,
+    90.0,
+    90.0,
+    90.0
+  ],
+  "max_angle_deviation": 0.0,
+  "homography": {
+    "matrix": [
+      [
+        1.31836013,
+        0.16143185,
+        -213.89720506
+      ],
+      [
+        -0.06680232,
+        1.33604632,
+        -123.58428463
+      ],
+      [
+        -5.39e-06,
+        0.00053423,
+        1.0
+      ]
+    ],
+    "determinant": 1.865418,
+    "condition_number": 42310.37,
+    "inverse_frobenius_error": 0.0
+  },
+  "qa_grade": "pass",
+  "message": "Perspective successfully rectified with high precision (Max deviation: 0.00 deg)."
+}
