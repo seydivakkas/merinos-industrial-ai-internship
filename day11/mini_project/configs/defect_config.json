@@ -1,0 +1,32 @@
+{
+  "project_name": "Merinos Carpet Morphological Defect Detection Engine",
+  "version": "1.0.0",
+  "morphology": {
+    "blur_kernel": [3, 3],
+    "blur_sigma": 1.0,
+    "tophat_kernel_size": [11, 11],
+    "blackhat_kernel_size": [11, 11],
+    "closing_kernel_size": [5, 5],
+    "opening_kernel_size": [3, 3],
+    "directional_kernel_length": 15,
+    "directional_kernel_thickness": 1
+  },
+  "detection_thresholds": {
+    "tophat_brightness_threshold": 35.0,
+    "blackhat_darkness_threshold": 30.0,
+    "min_defect_area_px": 15.0,
+    "max_defect_area_px": 5000.0,
+    "aspect_ratio_yarn_break_threshold": 3.5,
+    "circularity_hole_threshold": 0.55
+  },
+  "severity_classification": {
+    "hole_critical_area_px": 150.0,
+    "yarn_break_critical_length_px": 80.0,
+    "oil_stain_critical_area_px": 250.0
+  },
+  "roll_decision_thresholds": {
+    "max_critical_defects": 0,
+    "max_major_defects": 2,
+    "max_minor_defects": 6
+  }
+}

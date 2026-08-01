@@ -1,0 +1,51 @@
+{
+  "image_path": "day11\\mini_project\\fixtures\\synthetic_carpets\\carpet_defect_hole_puncture.png",
+  "resolution": [
+    512,
+    512
+  ],
+  "total_defects": 2,
+  "defect_counts": {
+    "OIL_STAIN": 2
+  },
+  "roll_decision": "REJECT",
+  "processing_time_ms": 7.27,
+  "defects": [
+    {
+      "defect_type": "OIL_STAIN",
+      "severity": "CRITICAL",
+      "confidence": 0.986,
+      "bbox": {
+        "x": 347,
+        "y": 307,
+        "width": 26,
+        "height": 26,
+        "area": 487.5,
+        "aspect_ratio": 1.0,
+        "centroid": [
+          360.04,
+          319.82
+        ]
+      },
+      "mean_contrast": 114.22
+    },
+    {
+      "defect_type": "OIL_STAIN",
+      "severity": "MAJOR",
+      "confidence": 0.981,
+      "bbox": {
+        "x": 140,
+        "y": 141,
+        "width": 20,
+        "height": 20,
+        "area": 289.0,
+        "aspect_ratio": 1.0,
+        "centroid": [
+          150.08,
+          150.09
+        ]
+      },
+      "mean_contrast": 112.22
+    }
+  ]
+}

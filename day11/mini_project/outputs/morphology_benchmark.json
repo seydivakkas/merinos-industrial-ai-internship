@@ -1,0 +1,53 @@
+{
+  "operators": {
+    "Erosion (11x11)": {
+      "avg_latency_ms": 0.45,
+      "fps": 2221.7
+    },
+    "Dilation (11x11)": {
+      "avg_latency_ms": 0.441,
+      "fps": 2266.8
+    },
+    "Opening (11x11)": {
+      "avg_latency_ms": 0.658,
+      "fps": 1519.7
+    },
+    "Closing (11x11)": {
+      "avg_latency_ms": 0.656,
+      "fps": 1523.5
+    },
+    "Morph Gradient (11x11)": {
+      "avg_latency_ms": 0.952,
+      "fps": 1050.0
+    },
+    "White Top-Hat (11x11)": {
+      "avg_latency_ms": 0.701,
+      "fps": 1426.7
+    },
+    "Black Top-Hat (11x11)": {
+      "avg_latency_ms": 0.708,
+      "fps": 1412.2
+    },
+    "Directional Weft BTH (1x17)": {
+      "avg_latency_ms": 0.718,
+      "fps": 1393.5
+    }
+  },
+  "full_pipeline": {
+    "512x512": {
+      "megapixels": 0.26,
+      "avg_latency_ms": 4.37,
+      "fps": 228.9
+    },
+    "1024x1024": {
+      "megapixels": 1.05,
+      "avg_latency_ms": 17.08,
+      "fps": 58.6
+    },
+    "2048x2048": {
+      "megapixels": 4.19,
+      "avg_latency_ms": 66.5,
+      "fps": 15.0
+    }
+  }
+}
