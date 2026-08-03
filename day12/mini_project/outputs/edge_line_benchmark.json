@@ -1,0 +1,37 @@
+{
+  "operators": {
+    "Sobel (3x3)": {
+      "avg_latency_ms": 42.964,
+      "fps": 23.3
+    },
+    "Scharr (3x3)": {
+      "avg_latency_ms": 43.154,
+      "fps": 23.2
+    },
+    "Laplacian (3x3)": {
+      "avg_latency_ms": 39.274,
+      "fps": 25.5
+    },
+    "Canny": {
+      "avg_latency_ms": 2.448,
+      "fps": 408.6
+    }
+  },
+  "full_pipeline": {
+    "512x512": {
+      "megapixels": 0.26,
+      "avg_latency_ms": 3.75,
+      "fps": 266.3
+    },
+    "1024x1024": {
+      "megapixels": 1.05,
+      "avg_latency_ms": 8.88,
+      "fps": 112.6
+    },
+    "2048x2048": {
+      "megapixels": 4.19,
+      "avg_latency_ms": 20.79,
+      "fps": 48.1
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "image_shape": [
+    800,
+    800
+  ],
+  "total_lines_detected": 12,
+  "borders": {
+    "TOP": {
+      "side": "TOP",
+      "x1": 0.0,
+      "y1": 51.0,
+      "x2": 799.0,
+      "y2": 51.0,
+      "angle_deg": -0.0,
+      "segment_count": 2,
+      "straightness_rms": 0.0,
+      "mean_coordinate": 51.0
+    },
+    "BOTTOM": {
+      "side": "BOTTOM",
+      "x1": 0.0,
+      "y1": 746.53,
+      "x2": 799.0,
+      "y2": 772.77,
+      "angle_deg": 1.881,
+      "segment_count": 6,
+      "straightness_rms": 0.087,
+      "mean_coordinate": 765.0
+    },
+    "LEFT": {
+      "side": "LEFT",
+      "x1": 51.0,
+      "y1": 0.0,
+      "x2": 51.0,
+      "y2": 799.0,
+      "angle_deg": 90.0,
+      "segment_count": 2,
+      "straightness_rms": 0.0,
+      "mean_coordinate": 51.0
+    },
+    "RIGHT": {
+      "side": "RIGHT",
+      "x1": 749.0,
+      "y1": 0.0,
+      "x2": 749.0,
+      "y2": 799.0,
+      "angle_deg": 90.0,
+      "segment_count": 2,
+      "straightness_rms": 0.0,
+      "mean_coordinate": 749.0
+    }
+  },
+  "horizontal_parallelism": {
+    "pair_name": "TOP-BOTTOM",
+    "angle_difference_deg": 1.881,
+    "is_parallel": false,
+    "distance_min_px": 695.53,
+    "distance_max_px": 721.77,
+    "distance_mean_px": 708.65,
+    "distance_std_px": 7.73
+  },
+  "vertical_parallelism": {
+    "pair_name": "LEFT-RIGHT",
+    "angle_difference_deg": 0.0,
+    "is_parallel": true,
+    "distance_min_px": 698.0,
+    "distance_max_px": 698.0,
+    "distance_mean_px": 698.0,
+    "distance_std_px": 0.0
+  },
+  "orthogonality_angle_deg": 89.059,
+  "orthogonality_deviation_deg": 0.941,
+  "decision": "REJECT",
+  "decision_notes": [
+    "KALİTE RED (HATA): Paralellik sapması 1.88° > 1.2° veya Diklik sapması 0.94° > 1.8° limitlerini aştı."
+  ],
+  "processing_time_ms": 11.68
+}
