@@ -1,0 +1,35 @@
+{
+  "otsu": {
+    "gaussian_blur_ksize": [5, 5],
+    "gaussian_sigma": 1.2,
+    "multi_level_classes": 3,
+    "morphological_cleanup": {
+      "apply": true,
+      "ksize": [3, 3]
+    }
+  },
+  "watershed": {
+    "distance_transform_threshold_ratio": 0.45,
+    "background_dilation_ksize": [3, 3],
+    "background_dilation_iterations": 3,
+    "morphological_kernel_size": [3, 3]
+  },
+  "grabcut": {
+    "iterations": 5,
+    "margin_fraction": 0.08,
+    "gmm_components": 5
+  },
+  "evaluation": {
+    "min_acceptable_iou": 0.70,
+    "min_acceptable_dice": 0.80,
+    "boundary_tolerance_px": 2
+  },
+  "benchmark": {
+    "iterations_per_algorithm": 15,
+    "resolutions": [
+      [512, 512],
+      [1024, 1024],
+      [2048, 2048]
+    ]
+  }
+}

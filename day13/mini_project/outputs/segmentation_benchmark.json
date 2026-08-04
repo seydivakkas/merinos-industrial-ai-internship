@@ -1,0 +1,62 @@
+{
+  "image_shape": [
+    600,
+    600
+  ],
+  "evaluated_methods": [
+    "OTSU",
+    "WATERSHED",
+    "GRABCUT"
+  ],
+  "results": {
+    "OTSU": {
+      "method": "OTSU",
+      "latency_ms": 0.845,
+      "fps": 1183.9,
+      "metrics": {
+        "iou": 0.9028,
+        "dice": 0.9489,
+        "pixel_accuracy": 0.9712,
+        "precision": 0.9342,
+        "recall": 0.9641,
+        "boundary_f1": 0.754
+      },
+      "foreground_coverage_pct": 28.63
+    },
+    "WATERSHED": {
+      "method": "WATERSHED",
+      "latency_ms": 11.78,
+      "fps": 84.9,
+      "metrics": {
+        "iou": 0.9386,
+        "dice": 0.9683,
+        "pixel_accuracy": 0.9823,
+        "precision": 0.9617,
+        "recall": 0.975,
+        "boundary_f1": 0.7595
+      },
+      "foreground_coverage_pct": 28.13
+    },
+    "GRABCUT": {
+      "method": "GRABCUT",
+      "latency_ms": 484.545,
+      "fps": 2.1,
+      "metrics": {
+        "iou": 0.9364,
+        "dice": 0.9672,
+        "pixel_accuracy": 0.9812,
+        "precision": 0.9364,
+        "recall": 1.0,
+        "boundary_f1": 0.7724
+      },
+      "foreground_coverage_pct": 29.63
+    }
+  },
+  "recommended_online_method": "WATERSHED",
+  "recommended_offline_method": "GRABCUT",
+  "industrial_notes": [
+    "Otsu Eşikleme: Ultra hızlı (0.84 ms, 1184 FPS), ancak doku gradyanlarına duyarlıdır.",
+    "Watershed: Hızlı (11.78 ms, 85 FPS), mesafe dönüşümü ile tohumlama yaparak sınırları iyi ayırır.",
+    "GrabCut: En yüksek sınır hassasiyeti (GMM optimizasyonu), ancak yüksek işlem süresi (484.54 ms)."
+  ]
+}
