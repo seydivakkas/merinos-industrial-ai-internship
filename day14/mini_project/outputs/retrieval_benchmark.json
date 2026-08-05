@@ -1,0 +1,16 @@
+{
+  "orb_latency_ms": 2.352,
+  "orb_fps": 425.2,
+  "sift_latency_ms": 20.226,
+  "sift_fps": 49.4,
+  "glcm_latency_ms": 5.789,
+  "glcm_fps": 172.8,
+  "retrieval_latency_ms": 30.372,
+  "classification_accuracy": 100.0,
+  "industrial_recommendations": [
+    "ORB Anahtar Noktaları: Ultra hızlı (2.35 ms, 425 FPS). Canlı tezgâh izleme için uygundur.",
+    "SIFT Anahtar Noktaları: Ölçek/rotasyon değişmez, yüksek tanımlama (20.23 ms, 49 FPS). Arşiv kontrolü için uygundur.",
+    "GLCM Haralick: İplik sıklığı ve kumaş pürüzlülüğü için sağlam doku özetlemesi (5.79 ms).",
+    "Çok Modlu Füzyon: Top-K arama gecikmesi 30.37 ms, 4 sınıflı desen sınıflandırma doğruluğu %100.0."
+  ]
+}

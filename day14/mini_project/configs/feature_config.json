@@ -1,0 +1,48 @@
+{
+  "project_name": "Merinos Carpet Classical Visual Feature Extraction",
+  "version": "1.0.0",
+  "orb": {
+    "n_features": 1000,
+    "scale_factor": 1.2,
+    "n_levels": 8,
+    "edge_threshold": 31,
+    "first_level": 0,
+    "wta_k": 2,
+    "score_type": "HARRIS_SCORE",
+    "patch_size": 31,
+    "fast_threshold": 20
+  },
+  "sift": {
+    "n_features": 1000,
+    "n_octave_layers": 3,
+    "contrast_threshold": 0.04,
+    "edge_threshold": 10,
+    "sigma": 1.6
+  },
+  "glcm": {
+    "distances": [1, 3, 5],
+    "angles": [0, 0.7853981633974483, 1.5707963267948966, 2.356194490192345],
+    "levels": 64,
+    "symmetric": true,
+    "normed": true
+  },
+  "color_histogram": {
+    "color_space": "HSV",
+    "bins": [16, 8, 8],
+    "ranges": {
+      "H": [0, 180],
+      "S": [0, 256],
+      "V": [0, 256]
+    },
+    "normalize": true
+  },
+  "classification": {
+    "top_k": 3,
+    "distance_metric": "cosine",
+    "fusion_weights": {
+      "glcm": 0.35,
+      "color_hist": 0.45,
+      "keypoint_stats": 0.20
+    }
+  }
+}
