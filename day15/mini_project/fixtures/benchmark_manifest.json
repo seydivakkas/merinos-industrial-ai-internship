@@ -1,0 +1,91 @@
+{
+  "app_name": "Merinos Industrial Vision CLI Toolkit",
+  "version": "2.0.0",
+  "phase": "Faz 2 - Endüstriyel Görüntü İşleme (Day 07 - Day 15)",
+  "facility": "Gaziantep Dokuma Tesisleri - Merinos Halı San. ve Tic. A.Ş.",
+  "modules": [
+    {
+      "module_id": "day07_io_and_filtering",
+      "module_name": "Industrial I/O & Filtering",
+      "day_number": 7,
+      "fps": 198.0,
+      "mean_latency_ms": 5.05,
+      "std_latency_ms": 1.15,
+      "status": "OPERATIONAL",
+      "memory_mb": 42.5
+    },
+    {
+      "module_id": "day08_color_spaces",
+      "module_name": "Perceptual Color Space Transforms",
+      "day_number": 8,
+      "fps": 46.2,
+      "mean_latency_ms": 21.65,
+      "std_latency_ms": 41.59,
+      "status": "OPERATIONAL",
+      "memory_mb": 44.1
+    },
+    {
+      "module_id": "day09_palette_and_ciede2000",
+      "module_name": "Dominant Palette & CIEDE2000 Engine",
+      "day_number": 9,
+      "fps": 1.6,
+      "mean_latency_ms": 633.12,
+      "std_latency_ms": 1145.26,
+      "status": "OPERATIONAL",
+      "memory_mb": 56.8
+    },
+    {
+      "module_id": "day10_perspective_and_homography",
+      "module_name": "Homography Rectification Engine",
+      "day_number": 10,
+      "fps": 103.6,
+      "mean_latency_ms": 9.65,
+      "std_latency_ms": 7.01,
+      "status": "OPERATIONAL",
+      "memory_mb": 52.3
+    },
+    {
+      "module_id": "day11_morphological_defect_detection",
+      "module_name": "Morphological Defect Inspection",
+      "day_number": 11,
+      "fps": 74.8,
+      "mean_latency_ms": 13.36,
+      "std_latency_ms": 6.41,
+      "status": "OPERATIONAL",
+      "memory_mb": 48.6
+    },
+    {
+      "module_id": "day12_edge_and_line_detection",
+      "module_name": "Border Parallelism & Hough Lines",
+      "day_number": 12,
+      "fps": 103.1,
+      "mean_latency_ms": 9.7,
+      "std_latency_ms": 6.98,
+      "status": "OPERATIONAL",
+      "memory_mb": 50.2
+    },
+    {
+      "module_id": "day13_classical_segmentation",
+      "module_name": "Classical Motif Segmentation",
+      "day_number": 13,
+      "fps": 60.8,
+      "mean_latency_ms": 16.44,
+      "std_latency_ms": 5.83,
+      "status": "OPERATIONAL",
+      "memory_mb": 54.7
+    },
+    {
+      "module_id": "day14_visual_features_and_retrieval",
+      "module_name": "Multimodal Feature Fusion (ORB/GLCM/HSV)",
+      "day_number": 14,
+      "fps": 5.4,
+      "mean_latency_ms": 185.33,
+      "std_latency_ms": 239.23,
+      "status": "OPERATIONAL",
+      "memory_mb": 62.4
+    }
+  ],
+  "overall_health": "HEALTHY - PRODUCTION READY",
+  "total_integrated_days": 8,
+  "release_notes": "Faz 2 final sürümü: 8 temel görüntü işleme modülü (I/O, renk, palet, homografi, morfoloji, kenar, segmentasyon, öznitelik füzyonu) tek çatı altında birleştirildi. Halı kalite kontrol pipeline'ı ve gerçek zamanlı HUD görselleştirici tam doğrulandı."
+}

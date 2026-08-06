@@ -1,0 +1,74 @@
+{
+  "carpet_id": "MERINOS-PERFECT-001",
+  "timestamp": "2026-09-04T13:39:43.712274",
+  "overall_verdict": "ACCEPT",
+  "total_execution_time_ms": 3731.97,
+  "stage_results": {
+    "rectification": {
+      "stage_name": "Perspective Rectification",
+      "status": "PASS",
+      "execution_time_ms": 16.48,
+      "metrics": {
+        "target_width": 600,
+        "target_height": 600
+      },
+      "notes": "Perspective successfully rectified using 4-point homography."
+    },
+    "color_matching": {
+      "stage_name": "Color & Palette Matching",
+      "status": "PASS",
+      "execution_time_ms": 3021.13,
+      "metrics": {
+        "mean_delta_e": 5.4,
+        "extracted_palette_size": 5
+      },
+      "notes": "Color deviation dE00=5.40 within threshold (6.0)."
+    },
+    "morphology": {
+      "stage_name": "Morphological Defect Detection",
+      "status": "PASS",
+      "execution_time_ms": 21.27,
+      "metrics": {
+        "defect_count": 0,
+        "min_defect_area_px": 25
+      },
+      "notes": "Zero morphological defects detected on carpet surface."
+    },
+    "edge_and_lines": {
+      "stage_name": "Border Parallelism & Edge Analysis",
+      "status": "PASS",
+      "execution_time_ms": 20.71,
+      "metrics": {
+        "border_skew_deg": 0.0
+      },
+      "notes": "Border skew 0.00° within limit (0.75°)."
+    },
+    "segmentation": {
+      "stage_name": "Jacquard Motif Segmentation",
+      "status": "PASS",
+      "execution_time_ms": 29.85,
+      "metrics": {
+        "motif_coverage_pct": 16.63,
+        "method": "watershed"
+      },
+      "notes": "Motif coverage 16.6% within expected range [15%, 75%]."
+    },
+    "feature_classification": {
+      "stage_name": "Multimodal Feature Extraction",
+      "status": "PASS",
+      "execution_time_ms": 615.92,
+      "metrics": {
+        "predicted_pattern": "geometric_modern_carpet",
+        "confidence": 0.85
+      },
+      "notes": "Pattern classified as 'geometric_modern_carpet' (Confidence: 0.85)."
+    }
+  },
+  "defect_count": 0,
+  "border_skew_deg": 0.0,
+  "mean_delta_e": 5.4,
+  "motif_coverage_pct": 16.63,
+  "predicted_pattern": "geometric_modern_carpet",
+  "confidence": 0.85,
+  "summary_recommendation": "Ürün Merinos A-Kalite standartlarına tam uyumludur; paketleme ve sevkiyata uygundur."
+}

@@ -1,0 +1,62 @@
+{
+  "app_name": "Merinos Industrial Vision CLI Toolkit",
+  "version": "2.0.0",
+  "phase": "Faz 2 - Endüstriyel Görüntü İşleme",
+  "facility": "Merinos Halı San. ve Tic. A.Ş. - Gaziantep Dokuma Tesisleri",
+  "inspection_pipeline": {
+    "rectification": {
+      "target_width": 600,
+      "target_height": 600,
+      "auto_corner_detect": true
+    },
+    "color_matching": {
+      "n_colors": 5,
+      "delta_e_threshold": 6.0,
+      "standard_palette_hex": [
+        "#800020",
+        "#D4AF37",
+        "#1C2833",
+        "#F5F5DC",
+        "#4A6B82"
+      ]
+    },
+    "morphology": {
+      "opening_kernel_size": [5, 5],
+      "tophat_kernel_size": [15, 15],
+      "max_defect_count": 2,
+      "min_defect_area_px": 25
+    },
+    "edge_and_lines": {
+      "canny_low": 50,
+      "canny_high": 150,
+      "max_border_angle_skew_deg": 0.75,
+      "orthogonality_tolerance_deg": 1.0
+    },
+    "segmentation": {
+      "method": "watershed",
+      "expected_motif_coverage_range": [0.15, 0.75]
+    },
+    "feature_classification": {
+      "feature_type": "orb",
+      "n_features": 500,
+      "min_confidence": 0.65
+    }
+  },
+  "verdict_thresholds": {
+    "max_allowed_defects_accept": 2,
+    "max_allowed_skew_deg_accept": 0.75,
+    "max_allowed_delta_e_accept": 6.0,
+    "warning_skew_deg_threshold": 0.50,
+    "warning_defect_count_threshold": 1
+  },
+  "supported_modules": [
+    "day07_io_and_filtering",
+    "day08_color_spaces",
+    "day09_palette_and_ciede2000",
+    "day10_perspective_and_homography",
+    "day11_morphological_defect_detection",
+    "day12_edge_and_line_detection",
+    "day13_classical_segmentation",
+    "day14_visual_features_and_retrieval"
+  ]
+}

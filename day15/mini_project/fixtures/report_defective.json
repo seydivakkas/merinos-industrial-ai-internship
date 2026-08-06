@@ -1,0 +1,74 @@
+{
+  "carpet_id": "MERINOS-DEFECTIVE-002",
+  "timestamp": "2026-09-04T13:39:57.861358",
+  "overall_verdict": "REJECT",
+  "total_execution_time_ms": 3834.79,
+  "stage_results": {
+    "rectification": {
+      "stage_name": "Perspective Rectification",
+      "status": "PASS",
+      "execution_time_ms": 15.35,
+      "metrics": {
+        "target_width": 600,
+        "target_height": 600
+      },
+      "notes": "Perspective successfully rectified using 4-point homography."
+    },
+    "color_matching": {
+      "stage_name": "Color & Palette Matching",
+      "status": "PASS",
+      "execution_time_ms": 3078.68,
+      "metrics": {
+        "mean_delta_e": 5.8,
+        "extracted_palette_size": 5
+      },
+      "notes": "Color deviation dE00=5.80 within threshold (6.0)."
+    },
+    "morphology": {
+      "stage_name": "Morphological Defect Detection",
+      "status": "FAIL",
+      "execution_time_ms": 28.19,
+      "metrics": {
+        "defect_count": 4,
+        "min_defect_area_px": 25
+      },
+      "notes": "4 defects exceed tolerance of 2."
+    },
+    "edge_and_lines": {
+      "stage_name": "Border Parallelism & Edge Analysis",
+      "status": "PASS",
+      "execution_time_ms": 24.01,
+      "metrics": {
+        "border_skew_deg": 0.0
+      },
+      "notes": "Border skew 0.00° within limit (0.75°)."
+    },
+    "segmentation": {
+      "stage_name": "Jacquard Motif Segmentation",
+      "status": "PASS",
+      "execution_time_ms": 33.51,
+      "metrics": {
+        "motif_coverage_pct": 16.63,
+        "method": "watershed"
+      },
+      "notes": "Motif coverage 16.6% within expected range [15%, 75%]."
+    },
+    "feature_classification": {
+      "stage_name": "Multimodal Feature Extraction",
+      "status": "PASS",
+      "execution_time_ms": 632.38,
+      "metrics": {
+        "predicted_pattern": "geometric_modern_carpet",
+        "confidence": 0.85
+      },
+      "notes": "Pattern classified as 'geometric_modern_carpet' (Confidence: 0.85)."
+    }
+  },
+  "defect_count": 4,
+  "border_skew_deg": 0.0,
+  "mean_delta_e": 5.8,
+  "motif_coverage_pct": 16.63,
+  "predicted_pattern": "geometric_modern_carpet",
+  "confidence": 0.85,
+  "summary_recommendation": "Ürün kalite toleranslarını aşıyor; sevkiyat durduruldu, revizyon ve hat kontrolü gerekli."
+}
