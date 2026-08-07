@@ -1,0 +1,126 @@
+{
+  "dataset_samples": 500,
+  "defect_count": 50,
+  "defect_ratio": 0.1,
+  "roc_auc_metrics": {
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "brier_score": 0.0,
+    "optimal_threshold_youden": 0.01,
+    "optimal_threshold_f2": 0.01,
+    "optimal_threshold_cost": 0.01
+  },
+  "baseline_model": {
+    "model_type": "Baseline (Standard Weights, tau=0.50)",
+    "threshold": 0.5,
+    "metrics": {
+      "tp": 50,
+      "fp": 0,
+      "tn": 450,
+      "fn": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": 1.0,
+      "f1_score": 1.0,
+      "f2_score": 1.0
+    },
+    "cost": 0.0
+  },
+  "balanced_model": {
+    "model_type": "Balanced Class Weights (class_weight='balanced', tau=0.50)",
+    "threshold": 0.5,
+    "metrics": {
+      "tp": 50,
+      "fp": 0,
+      "tn": 450,
+      "fn": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": 1.0,
+      "f1_score": 1.0,
+      "f2_score": 1.0
+    },
+    "cost": 0.0
+  },
+  "tuned_threshold_model": {
+    "model_type": "Cost-Sensitive Tuned Threshold (tau=0.01)",
+    "threshold": 0.01,
+    "metrics": {
+      "tp": 50,
+      "fp": 0,
+      "tn": 450,
+      "fn": 0,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": 1.0,
+      "f1_score": 1.0,
+      "f2_score": 1.0
+    },
+    "cost": 0.0
+  },
+  "feature_weights": [
+    {
+      "feature_name": "yarn_elongation_at_break",
+      "weight": -0.8799,
+      "odds_ratio": 0.4148,
+      "impact_direction": "Kusur Riskini AZALTICI"
+    },
+    {
+      "feature_name": "yarn_hairiness_index",
+      "weight": 0.8497,
+      "odds_ratio": 2.339,
+      "impact_direction": "Kusur Riskini ARTIRICI"
+    },
+    {
+      "feature_name": "loom_tension_variation",
+      "weight": 0.8449,
+      "odds_ratio": 2.3277,
+      "impact_direction": "Kusur Riskini ARTIRICI"
+    },
+    {
+      "feature_name": "twist_per_meter",
+      "weight": -0.7861,
+      "odds_ratio": 0.4556,
+      "impact_direction": "Kusur Riskini AZALTICI"
+    },
+    {
+      "feature_name": "yarn_tensile_strength",
+      "weight": -0.7741,
+      "odds_ratio": 0.4611,
+      "impact_direction": "Kusur Riskini AZALTICI"
+    },
+    {
+      "feature_name": "loom_speed_rpm",
+      "weight": 0.6391,
+      "odds_ratio": 1.8949,
+      "impact_direction": "Kusur Riskini ARTIRICI"
+    },
+    {
+      "feature_name": "weft_insertion_rate",
+      "weight": 0.6186,
+      "odds_ratio": 1.8563,
+      "impact_direction": "Kusur Riskini ARTIRICI"
+    },
+    {
+      "feature_name": "yarn_linear_density_dtex",
+      "weight": 0.603,
+      "odds_ratio": 1.8276,
+      "impact_direction": "Kusur Riskini ARTIRICI"
+    },
+    {
+      "feature_name": "ambient_temperature_c",
+      "weight": 0.5758,
+      "odds_ratio": 1.7785,
+      "impact_direction": "Kusur Riskini ARTIRICI"
+    },
+    {
+      "feature_name": "ambient_humidity_percent",
+      "weight": -0.4916,
+      "odds_ratio": 0.6117,
+      "impact_direction": "Kusur Riskini AZALTICI"
+    }
+  ]
+}

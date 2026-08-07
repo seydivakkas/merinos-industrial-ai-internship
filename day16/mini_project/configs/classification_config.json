@@ -1,0 +1,118 @@
+{
+  "dataset": {
+    "n_samples": 2500,
+    "defect_ratio": 0.10,
+    "random_state": 42,
+    "test_size": 0.20,
+    "features": [
+      {
+        "name": "yarn_tensile_strength",
+        "unit": "cN/tex",
+        "description": "İplik kopma mukavemeti",
+        "normal_mean": 26.5,
+        "normal_std": 2.5,
+        "defect_mean": 17.8,
+        "defect_std": 3.2
+      },
+      {
+        "name": "yarn_elongation_at_break",
+        "unit": "%",
+        "description": "Kopma anındaki uzama yüzdesi",
+        "normal_mean": 14.2,
+        "normal_std": 1.8,
+        "defect_mean": 8.5,
+        "defect_std": 2.1
+      },
+      {
+        "name": "yarn_hairiness_index",
+        "unit": "H",
+        "description": "Uster H tüylülük indeksi",
+        "normal_mean": 4.2,
+        "normal_std": 0.6,
+        "defect_mean": 7.8,
+        "defect_std": 1.2
+      },
+      {
+        "name": "twist_per_meter",
+        "unit": "tpm",
+        "description": "Metre başına büküm sayısı",
+        "normal_mean": 450.0,
+        "normal_std": 25.0,
+        "defect_mean": 360.0,
+        "defect_std": 40.0
+      },
+      {
+        "name": "yarn_linear_density_dtex",
+        "unit": "dtex",
+        "description": "İplik doğrusal yoğunluk numarası",
+        "normal_mean": 2200.0,
+        "normal_std": 50.0,
+        "defect_mean": 2380.0,
+        "defect_std": 90.0
+      },
+      {
+        "name": "loom_speed_rpm",
+        "unit": "rpm",
+        "description": "Dokuma tezgâhı ana mil devir hızı",
+        "normal_mean": 620.0,
+        "normal_std": 20.0,
+        "defect_mean": 670.0,
+        "defect_std": 35.0
+      },
+      {
+        "name": "loom_tension_variation",
+        "unit": "cN",
+        "description": "Çözgü ipliği gerilim dalgalanması",
+        "normal_mean": 18.0,
+        "normal_std": 3.5,
+        "defect_mean": 42.0,
+        "defect_std": 8.0
+      },
+      {
+        "name": "ambient_humidity_percent",
+        "unit": "%",
+        "description": "Dokuma salonu ortam bağıl nemi",
+        "normal_mean": 62.0,
+        "normal_std": 3.0,
+        "defect_mean": 48.0,
+        "defect_std": 7.0
+      },
+      {
+        "name": "ambient_temperature_c",
+        "unit": "C",
+        "description": "Dokuma salonu ortam sıcaklığı",
+        "normal_mean": 23.5,
+        "normal_std": 1.5,
+        "defect_mean": 29.0,
+        "defect_std": 3.0
+      },
+      {
+        "name": "weft_insertion_rate",
+        "unit": "picks/min",
+        "description": "Dakika başına atkı atım sıklığı",
+        "normal_mean": 540.0,
+        "normal_std": 15.0,
+        "defect_mean": 590.0,
+        "defect_std": 25.0
+      }
+    ]
+  },
+  "model": {
+    "solver": "lbfgs",
+    "C": 1.0,
+    "max_iter": 1000,
+    "tol": 1e-4,
+    "random_state": 42
+  },
+  "cost_matrix": {
+    "cost_fn": 10.0,
+    "cost_fp": 1.0,
+    "cost_tp": 0.0,
+    "cost_tn": 0.0
+  },
+  "threshold_sweep": {
+    "min_thresh": 0.01,
+    "max_thresh": 0.99,
+    "num_points": 99
+  }
+}
