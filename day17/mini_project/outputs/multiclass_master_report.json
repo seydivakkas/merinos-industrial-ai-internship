@@ -1,0 +1,237 @@
+{
+  "dataset_samples": 600,
+  "class_distribution": {
+    "YARN_BREAKAGE": 210,
+    "OIL_STAIN": 120,
+    "JACQUARD_PATTERN_SHIFT": 150,
+    "BORDER_SEWING_DEFECT": 120
+  },
+  "multinomial_model": {
+    "strategy_name": "Softmax Multinomial Lojistik Regresyon",
+    "training_time_ms": 7.234,
+    "inference_latency_ms": 0.0001,
+    "throughput_fps": 9751974.8,
+    "metrics": {
+      "accuracy": 1.0,
+      "macro_precision": 1.0,
+      "macro_recall": 1.0,
+      "macro_f1": 1.0,
+      "micro_f1": 1.0,
+      "weighted_f1": 1.0,
+      "cohen_kappa": 1.0,
+      "log_loss": 0.0023,
+      "roc_auc_ovr_macro": 1.0
+    },
+    "per_class": [
+      {
+        "class_id": 0,
+        "class_name": "YARN_BREAKAGE",
+        "tp": 210,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 210
+      },
+      {
+        "class_id": 1,
+        "class_name": "OIL_STAIN",
+        "tp": 120,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 120
+      },
+      {
+        "class_id": 2,
+        "class_name": "JACQUARD_PATTERN_SHIFT",
+        "tp": 150,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 150
+      },
+      {
+        "class_id": 3,
+        "class_name": "BORDER_SEWING_DEFECT",
+        "tp": 120,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 120
+      }
+    ]
+  },
+  "ovr_model": {
+    "strategy_name": "One-vs-Rest (OvR) Lojistik Regresyon",
+    "training_time_ms": 13.357,
+    "inference_latency_ms": 0.0004,
+    "throughput_fps": 2568493.2,
+    "metrics": {
+      "accuracy": 1.0,
+      "macro_precision": 1.0,
+      "macro_recall": 1.0,
+      "macro_f1": 1.0,
+      "micro_f1": 1.0,
+      "weighted_f1": 1.0,
+      "cohen_kappa": 1.0,
+      "log_loss": 0.0142,
+      "roc_auc_ovr_macro": 1.0
+    },
+    "per_class": [
+      {
+        "class_id": 0,
+        "class_name": "YARN_BREAKAGE",
+        "tp": 210,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 210
+      },
+      {
+        "class_id": 1,
+        "class_name": "OIL_STAIN",
+        "tp": 120,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 120
+      },
+      {
+        "class_id": 2,
+        "class_name": "JACQUARD_PATTERN_SHIFT",
+        "tp": 150,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 150
+      },
+      {
+        "class_id": 3,
+        "class_name": "BORDER_SEWING_DEFECT",
+        "tp": 120,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 120
+      }
+    ]
+  },
+  "feature_importance": [
+    {
+      "class_name": "YARN_BREAKAGE",
+      "top_positive_features": [
+        {
+          "loom_tension_variation": 1.5832
+        },
+        {
+          "twist_per_meter": 0.657
+        },
+        {
+          "yarn_linear_density_dtex": 0.546
+        }
+      ],
+      "top_negative_features": [
+        {
+          "yarn_elongation_at_break": -1.8355
+        },
+        {
+          "yarn_tensile_strength": -1.7401
+        },
+        {
+          "ambient_temperature_c": -0.5277
+        }
+      ]
+    },
+    {
+      "class_name": "OIL_STAIN",
+      "top_positive_features": [
+        {
+          "ambient_temperature_c": 1.2179
+        },
+        {
+          "twist_per_meter": 0.9073
+        },
+        {
+          "yarn_elongation_at_break": 0.6927
+        }
+      ],
+      "top_negative_features": [
+        {
+          "ambient_humidity_percent": -1.0793
+        },
+        {
+          "loom_tension_variation": -1.0142
+        },
+        {
+          "loom_speed_rpm": -0.5519
+        }
+      ]
+    },
+    {
+      "class_name": "JACQUARD_PATTERN_SHIFT",
+      "top_positive_features": [
+        {
+          "yarn_linear_density_dtex": 1.2725
+        },
+        {
+          "weft_insertion_rate": 1.1434
+        },
+        {
+          "ambient_humidity_percent": 0.8322
+        }
+      ],
+      "top_negative_features": [
+        {
+          "loom_tension_variation": -0.7801
+        },
+        {
+          "yarn_hairiness_index": -0.6333
+        },
+        {
+          "ambient_temperature_c": -0.3874
+        }
+      ]
+    },
+    {
+      "class_name": "BORDER_SEWING_DEFECT",
+      "top_positive_features": [
+        {
+          "yarn_tensile_strength": 0.5259
+        },
+        {
+          "yarn_elongation_at_break": 0.4844
+        },
+        {
+          "yarn_hairiness_index": 0.3853
+        }
+      ],
+      "top_negative_features": [
+        {
+          "twist_per_meter": -2.3369
+        },
+        {
+          "yarn_linear_density_dtex": -2.0197
+        },
+        {
+          "loom_speed_rpm": -0.553
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "dataset": {
+    "n_samples": 3000,
+    "class_names": [
+      "YARN_BREAKAGE",
+      "OIL_STAIN",
+      "JACQUARD_PATTERN_SHIFT",
+      "BORDER_SEWING_DEFECT"
+    ],
+    "class_descriptions": {
+      "YARN_BREAKAGE": "İplik Kopması — aşırı gerilim dalgalanması ve düşük mukavemet kaynaklı çözgü/atkı kopuşu",
+      "OIL_STAIN": "Yağ Lekesi — rulman sürtünmesi ve mekanik yağlama sızıntısı kaynaklı leke",
+      "JACQUARD_PATTERN_SHIFT": "Jakar Desen Kayması — tezgâh devir dalgalanması ve atkı atım frekans uyumsuzluğu",
+      "BORDER_SEWING_DEFECT": "Kenar Dikiş Hatası — kenar çözgü gerilim dengesizliği ve düşük büküm kaynaklı overlok hatası"
+    },
+    "class_proportions": [0.35, 0.20, 0.25, 0.20],
+    "random_state": 42,
+    "test_size": 0.20,
+    "features": [
+      "yarn_tensile_strength",
+      "yarn_elongation_at_break",
+      "yarn_hairiness_index",
+      "twist_per_meter",
+      "yarn_linear_density_dtex",
+      "loom_speed_rpm",
+      "loom_tension_variation",
+      "ambient_humidity_percent",
+      "ambient_temperature_c",
+      "weft_insertion_rate"
+    ]
+  },
+  "models": {
+    "multinomial": {
+      "multi_class": "multinomial",
+      "solver": "lbfgs",
+      "C": 1.0,
+      "max_iter": 1000,
+      "random_state": 42
+    },
+    "ovr": {
+      "multi_class": "ovr",
+      "solver": "liblinear",
+      "C": 1.0,
+      "max_iter": 1000,
+      "random_state": 42
+    }
+  }
+}
