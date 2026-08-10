@@ -1,0 +1,65 @@
+{
+  "project_name": "Merinos Carpet & Yarn Tree Ensemble Classification System",
+  "version": "1.0.0",
+  "author": "Seydi Eryılmaz (@seydivakkas)",
+  "dataset": {
+    "n_samples": 3000,
+    "test_size": 0.20,
+    "random_state": 42,
+    "feature_names": [
+      "yarn_tensile_strength",
+      "yarn_elongation_at_break",
+      "yarn_hairiness_index",
+      "twist_per_meter",
+      "yarn_linear_density_dtex",
+      "loom_rpm",
+      "loom_tension_variation",
+      "ambient_relative_humidity",
+      "ambient_temperature_c",
+      "weft_insertion_rate"
+    ],
+    "target_column": "defect_class",
+    "classes": [
+      "YARN_BREAKAGE",
+      "OIL_STAIN",
+      "JACQUARD_PATTERN_SHIFT",
+      "BORDER_SEWING_DEFECT"
+    ],
+    "class_distribution": {
+      "YARN_BREAKAGE": 0.35,
+      "OIL_STAIN": 0.20,
+      "JACQUARD_PATTERN_SHIFT": 0.25,
+      "BORDER_SEWING_DEFECT": 0.20
+    }
+  },
+  "decision_tree": {
+    "criterion": "gini",
+    "max_depth": null,
+    "min_samples_split": 5,
+    "min_samples_leaf": 2,
+    "random_state": 42
+  },
+  "pruning": {
+    "cv_folds": 5,
+    "alpha_grid_points": 25,
+    "scoring": "accuracy"
+  },
+  "random_forest": {
+    "n_estimators": 100,
+    "criterion": "gini",
+    "max_depth": null,
+    "min_samples_split": 5,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "bootstrap": true,
+    "oob_score": true,
+    "n_jobs": -1,
+    "random_state": 42
+  },
+  "paths": {
+    "raw_data": "day18/mini_project/fixtures/carpet_defect_tree_dataset.csv",
+    "output_dir": "day18/mini_project/outputs",
+    "diagnostic_panel": "day18/mini_project/outputs/tree_ensemble_diagnostic_panel.png",
+    "evaluation_report": "day18/mini_project/outputs/tree_ensemble_master_report.json"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "timestamp": "2026-09-04T11:51:03.118053+00:00",
+  "n_samples": 3000,
+  "test_samples": 600,
+  "unpruned_tree": {
+    "accuracy": 0.9917,
+    "macro_f1": 0.9907,
+    "weighted_f1": 0.9917,
+    "cohen_kappa": 0.9887,
+    "train_accuracy": 0.9975,
+    "test_accuracy": 0.9917,
+    "overfitting_gap": 0.0058,
+    "latency_ms": 0.047,
+    "throughput_fps": 21273.0
+  },
+  "unpruned_complexity": {
+    "depth": 6,
+    "node_count": 43,
+    "leaf_count": 22,
+    "ccp_alpha": 0.0
+  },
+  "pruned_tree": {
+    "accuracy": 0.9933,
+    "macro_f1": 0.9925,
+    "weighted_f1": 0.9933,
+    "cohen_kappa": 0.9909,
+    "train_accuracy": 0.9975,
+    "test_accuracy": 0.9933,
+    "overfitting_gap": 0.0042,
+    "latency_ms": 0.0481,
+    "throughput_fps": 20769.3
+  },
+  "pruned_complexity": {
+    "depth": 5,
+    "node_count": 33,
+    "leaf_count": 17,
+    "ccp_alpha": 0.0004136636636636692
+  },
+  "random_forest": {
+    "accuracy": 0.9967,
+    "macro_f1": 0.9967,
+    "weighted_f1": 0.9967,
+    "cohen_kappa": 0.9955,
+    "train_accuracy": 1.0,
+    "test_accuracy": 0.9967,
+    "overfitting_gap": 0.0033,
+    "latency_ms": 63.4046,
+    "throughput_fps": 15.8
+  },
+  "random_forest_metrics": {
+    "oob_score": 0.9988,
+    "oob_error": 0.0012,
+    "n_estimators": 100,
+    "max_features": "sqrt",
+    "feature_importances": {
+      "yarn_tensile_strength": 0.1597,
+      "yarn_elongation_at_break": 0.1705,
+      "yarn_hairiness_index": 0.0677,
+      "twist_per_meter": 0.1234,
+      "yarn_linear_density_dtex": 0.1047,
+      "loom_rpm": 0.0492,
+      "loom_tension_variation": 0.0704,
+      "ambient_relative_humidity": 0.0836,
+      "ambient_temperature_c": 0.0694,
+      "weft_insertion_rate": 0.1014
+    }
+  },
+  "criterion_comparison": {
+    "gini": {
+      "train_accuracy": 1.0,
+      "test_accuracy": 0.9917,
+      "overfitting_gap": 0.0083,
+      "leaf_count": 24.0,
+      "depth": 7.0
+    },
+    "entropy": {
+      "train_accuracy": 1.0,
+      "test_accuracy": 0.9933,
+      "overfitting_gap": 0.0067,
+      "leaf_count": 23.0,
+      "depth": 7.0
+    }
+  },
+  "best_model_name": "Random Forest Ensemble",
+  "recommendations": [
+    "Model Champion: Random Forest Ensemble achieved highest generalization with test accuracy 99.67%.",
+    "Overfitting Mitigation: Pruning reduced leaf count from 22 to 17 (22.7% reduction).",
+    "Top Telemetry Driver: 'yarn_elongation_at_break' holds highest MDI importance (0.1705).",
+    "Ensemble Stability: 100 trees achieved OOB score of 99.88% without separate validation set."
+  ]
+}
