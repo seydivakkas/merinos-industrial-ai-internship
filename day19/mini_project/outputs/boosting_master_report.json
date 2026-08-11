@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-09-04T12:20:57.219332+00:00",
+  "n_train": 2100,
+  "n_val": 450,
+  "n_test": 450,
+  "xgboost": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "cohen_kappa": 1.0,
+    "train_loss": 0.0013,
+    "val_loss": 0.0015,
+    "best_iteration": 150,
+    "total_iterations": 150,
+    "latency_ms": 1.0901,
+    "throughput_fps": 917.4,
+    "training_time_ms": 460.36
+  },
+  "lightgbm": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "cohen_kappa": 1.0,
+    "train_loss": 0.0,
+    "val_loss": 0.0,
+    "best_iteration": 148,
+    "total_iterations": 150,
+    "latency_ms": 1.4898,
+    "throughput_fps": 671.2,
+    "training_time_ms": 408.51
+  },
+  "baseline_rf_accuracy": 0.9967,
+  "feature_importances_xgb": {
+    "yarn_tensile_strength": 0.043,
+    "yarn_elongation_at_break": 0.2031,
+    "yarn_hairiness_index": 0.0273,
+    "twist_per_meter": 0.1231,
+    "yarn_linear_density_dtex": 0.1255,
+    "loom_rpm": 0.0329,
+    "loom_tension_variation": 0.0165,
+    "ambient_relative_humidity": 0.2303,
+    "ambient_temperature_c": 0.0483,
+    "weft_insertion_rate": 0.15
+  },
+  "feature_importances_lgb": {
+    "yarn_tensile_strength": 0.1224,
+    "yarn_elongation_at_break": 0.098,
+    "yarn_hairiness_index": 0.0948,
+    "twist_per_meter": 0.079,
+    "yarn_linear_density_dtex": 0.1259,
+    "loom_rpm": 0.0815,
+    "loom_tension_variation": 0.1491,
+    "ambient_relative_humidity": 0.0738,
+    "ambient_temperature_c": 0.0798,
+    "weft_insertion_rate": 0.0957
+  },
+  "champion_model": "XGBoost Classifier",
+  "speedup_factor": 1.13,
+  "recommendations": [
+    "Champion Model: XGBoost Classifier reached top test accuracy of 100.00%.",
+    "Early Stopping Benefit: Prevented overfitting by halting at iteration 150 (XGBoost) and 148 (LightGBM).",
+    "Throughput Comparison: LightGBM delivered 671 FPS (1.4898 ms) vs XGBoost 917 FPS (1.0901 ms).",
+    "Training Speedup: LightGBM completed fitting 1.13x faster than XGBoost on industrial telemetry.",
+    "Top Telemetry Driver: 'ambient_relative_humidity' holds highest Gain in XGBoost (0.2303)."
+  ]
+}

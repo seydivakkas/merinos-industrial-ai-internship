@@ -1,0 +1,63 @@
+{
+  "project_name": "Merinos Carpet Gradient Boosting Optimization System",
+  "version": "1.0.0",
+  "author": "Seydi Eryılmaz (@seydivakkas)",
+  "dataset": {
+    "n_samples": 3000,
+    "train_ratio": 0.70,
+    "val_ratio": 0.15,
+    "test_ratio": 0.15,
+    "random_state": 42,
+    "feature_names": [
+      "yarn_tensile_strength",
+      "yarn_elongation_at_break",
+      "yarn_hairiness_index",
+      "twist_per_meter",
+      "yarn_linear_density_dtex",
+      "loom_rpm",
+      "loom_tension_variation",
+      "ambient_relative_humidity",
+      "ambient_temperature_c",
+      "weft_insertion_rate"
+    ],
+    "target_column": "defect_class",
+    "classes": [
+      "YARN_BREAKAGE",
+      "OIL_STAIN",
+      "JACQUARD_PATTERN_SHIFT",
+      "BORDER_SEWING_DEFECT"
+    ]
+  },
+  "xgboost": {
+    "n_estimators": 150,
+    "learning_rate": 0.08,
+    "max_depth": 4,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "early_stopping_rounds": 15,
+    "eval_metric": "mlogloss",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "lightgbm": {
+    "n_estimators": 150,
+    "learning_rate": 0.08,
+    "num_leaves": 15,
+    "max_depth": 4,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "early_stopping_rounds": 15,
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "tuning": {
+    "learning_rates": [0.03, 0.08, 0.15],
+    "max_depths": [3, 4, 6]
+  },
+  "paths": {
+    "raw_data": "day19/mini_project/fixtures/carpet_defect_boosting_dataset.csv",
+    "output_dir": "day19/mini_project/outputs",
+    "diagnostic_panel": "day19/mini_project/outputs/boosting_diagnostic_panel.png",
+    "evaluation_report": "day19/mini_project/outputs/boosting_master_report.json"
+  }
+}
