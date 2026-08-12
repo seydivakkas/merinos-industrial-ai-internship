@@ -1,0 +1,194 @@
+{
+  "dataset_name": "Merinos Carpet Weaving Sensor Telemetry",
+  "total_samples": 3000,
+  "train_samples": 2400,
+  "test_samples": 600,
+  "features_count": 10,
+  "linear_metrics": {
+    "kernel_name": "linear",
+    "train_accuracy": 1.0,
+    "test_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "cohen_kappa": 1.0,
+    "support_vectors": {
+      "total_support_vectors": 41,
+      "support_vectors_per_class": {
+        "YARN_BREAKAGE": 8,
+        "OIL_STAIN": 13,
+        "JACQUARD_PATTERN_SHIFT": 9,
+        "BORDER_SEWING_DEFECT": 11
+      },
+      "support_vector_ratio_pct": 1.71,
+      "dual_coef_norm": 1.1999
+    },
+    "training_time_ms": 17.33,
+    "single_sample_latency_ms": 0.0589,
+    "throughput_fps": 16980.4
+  },
+  "polynomial_metrics": {
+    "kernel_name": "poly",
+    "train_accuracy": 1.0,
+    "test_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "cohen_kappa": 1.0,
+    "support_vectors": {
+      "total_support_vectors": 47,
+      "support_vectors_per_class": {
+        "YARN_BREAKAGE": 10,
+        "OIL_STAIN": 14,
+        "JACQUARD_PATTERN_SHIFT": 11,
+        "BORDER_SEWING_DEFECT": 12
+      },
+      "support_vector_ratio_pct": 1.96,
+      "dual_coef_norm": 2.2472
+    },
+    "training_time_ms": 16.63,
+    "single_sample_latency_ms": 0.0595,
+    "throughput_fps": 16800.7
+  },
+  "rbf_metrics": {
+    "kernel_name": "rbf",
+    "train_accuracy": 1.0,
+    "test_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "cohen_kappa": 1.0,
+    "support_vectors": {
+      "total_support_vectors": 95,
+      "support_vectors_per_class": {
+        "YARN_BREAKAGE": 27,
+        "OIL_STAIN": 23,
+        "JACQUARD_PATTERN_SHIFT": 18,
+        "BORDER_SEWING_DEFECT": 27
+      },
+      "support_vector_ratio_pct": 3.96,
+      "dual_coef_norm": 5.9671
+    },
+    "training_time_ms": 44.67,
+    "single_sample_latency_ms": 0.0635,
+    "throughput_fps": 15739.9
+  },
+  "winner_model": "Linear SVM",
+  "speedup_summary": "Polynomial SVM en hızlı eğitilen model oldu (16.63 ms). RBF SVM çıkarım gecikmesi 0.0635 ms (15739.9 FPS).",
+  "grid_search_result": {
+    "best_C": 0.1,
+    "best_gamma": 0.001,
+    "best_score": 1.0,
+    "grid_records": [
+      {
+        "C": 0.1,
+        "gamma": 0.001,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 2294
+      },
+      {
+        "C": 0.1,
+        "gamma": 0.01,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 810
+      },
+      {
+        "C": 0.1,
+        "gamma": 0.1,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 256
+      },
+      {
+        "C": 0.1,
+        "gamma": 1.0,
+        "mean_cv_accuracy": 0.9846,
+        "test_accuracy": 0.9967,
+        "n_support_vectors": 1525
+      },
+      {
+        "C": 1.0,
+        "gamma": 0.001,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 771
+      },
+      {
+        "C": 1.0,
+        "gamma": 0.01,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 183
+      },
+      {
+        "C": 1.0,
+        "gamma": 0.1,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 100
+      },
+      {
+        "C": 1.0,
+        "gamma": 1.0,
+        "mean_cv_accuracy": 0.9992,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 934
+      },
+      {
+        "C": 10.0,
+        "gamma": 0.001,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 173
+      },
+      {
+        "C": 10.0,
+        "gamma": 0.01,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 53
+      },
+      {
+        "C": 10.0,
+        "gamma": 0.1,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 95
+      },
+      {
+        "C": 10.0,
+        "gamma": 1.0,
+        "mean_cv_accuracy": 0.9992,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 933
+      },
+      {
+        "C": 100.0,
+        "gamma": 0.001,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 48
+      },
+      {
+        "C": 100.0,
+        "gamma": 0.01,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 46
+      },
+      {
+        "C": 100.0,
+        "gamma": 0.1,
+        "mean_cv_accuracy": 1.0,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 95
+      },
+      {
+        "C": 100.0,
+        "gamma": 1.0,
+        "mean_cv_accuracy": 0.9992,
+        "test_accuracy": 1.0,
+        "n_support_vectors": 933
+      }
+    ]
+  }
+}
