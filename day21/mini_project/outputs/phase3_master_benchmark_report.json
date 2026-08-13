@@ -1,0 +1,134 @@
+{
+  "title": "Merinos Industrial AI Phase 3 Master Benchmark Release",
+  "phase": "Faz 3: Klasik Makine Öğrenmesi & Kalite Sınıflandırma",
+  "total_models_evaluated": 7,
+  "dataset_samples": 3060,
+  "pca_metrics": {
+    "explained_variance_ratio": [
+      0.339,
+      0.2307,
+      0.207,
+      0.0468,
+      0.036,
+      0.0327,
+      0.0321,
+      0.0302,
+      0.0252,
+      0.0204
+    ],
+    "cumulative_variance_ratio": [
+      0.339,
+      0.5697,
+      0.7767,
+      0.8234,
+      0.8595,
+      0.8922,
+      0.9243,
+      0.9545,
+      0.9796,
+      1.0
+    ],
+    "components_for_95_variance": 8,
+    "total_variance_explained": 1.0
+  },
+  "clustering_metrics": {
+    "silhouette_score": 0.5122,
+    "davies_bouldin_index": 0.7762,
+    "calinski_harabasz_index": 2325.29,
+    "adjusted_rand_index": 1.0
+  },
+  "dbscan_metrics": {
+    "n_clusters_found": 3,
+    "n_anomalies_detected": 60,
+    "anomaly_ratio_pct": 1.96
+  },
+  "models": [
+    {
+      "model_name": "Multinomial Logistic Regression",
+      "day_tag": "Day 17",
+      "paradigm": "Doğrusal Hiper-Düzlem (Softmax)",
+      "test_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "training_time_ms": 7.05,
+      "single_sample_latency_ms": 0.0417,
+      "throughput_fps": 23971.2,
+      "memory_footprint_rank": "Orta (Düşük Parametre)",
+      "industrial_deployment_tier": "SCADA İkincil Denetim & İstatistiksel Raporlama"
+    },
+    {
+      "model_name": "Cost-Complexity Pruned Decision Tree",
+      "day_tag": "Day 18",
+      "paradigm": "Eksene Dik Karar Ağacı (Pruned)",
+      "test_accuracy": 0.995,
+      "macro_f1": 0.995,
+      "training_time_ms": 7.98,
+      "single_sample_latency_ms": 0.0556,
+      "throughput_fps": 17991.4,
+      "memory_footprint_rank": "En Düşük (Kural Ağacı)",
+      "industrial_deployment_tier": "Kenar PLC / Mikrodenetleyici (Ultra Düşük Gecikme)"
+    },
+    {
+      "model_name": "Random Forest Classifier",
+      "day_tag": "Day 18",
+      "paradigm": "Topluluk Öğrenmesi (Bagging & Subspace)",
+      "test_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "training_time_ms": 162.14,
+      "single_sample_latency_ms": 30.1605,
+      "throughput_fps": 33.2,
+      "memory_footprint_rank": "Yüksek (100 Ağaç)",
+      "industrial_deployment_tier": "Sunucu / MLOps Kalite Triage Katmanı"
+    },
+    {
+      "model_name": "XGBoost Classifier",
+      "day_tag": "Day 19",
+      "paradigm": "Gradient Boosting (2. Derece Taylor)",
+      "test_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "training_time_ms": 332.13,
+      "single_sample_latency_ms": 0.4533,
+      "throughput_fps": 2205.8,
+      "memory_footprint_rank": "Orta-Yüksek",
+      "industrial_deployment_tier": "Yüksek Hızlı Kamera Denetim Hattı"
+    },
+    {
+      "model_name": "LightGBM Classifier",
+      "day_tag": "Day 19",
+      "paradigm": "Gradient Boosting (Leaf-wise & Histogram)",
+      "test_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "training_time_ms": 377.4,
+      "single_sample_latency_ms": 0.9735,
+      "throughput_fps": 1027.2,
+      "memory_footprint_rank": "Orta (Histogram Sıkıştırma)",
+      "industrial_deployment_tier": "Sürekli Yeniden Eğitim (Continuous Retraining)"
+    },
+    {
+      "model_name": "Linear Support Vector Machine",
+      "day_tag": "Day 20",
+      "paradigm": "Maksimum Marjin Hiper-Düzlem",
+      "test_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "training_time_ms": 6.87,
+      "single_sample_latency_ms": 0.1259,
+      "throughput_fps": 7944.9,
+      "memory_footprint_rank": "En Düşük (Sadece w ve b Vektörü)",
+      "industrial_deployment_tier": "Kenar PLC & Donanımsal FPGA / DSP"
+    },
+    {
+      "model_name": "RBF (Gaussian) Support Vector Machine",
+      "day_tag": "Day 20",
+      "paradigm": "Çekirdek Hilesi (Sonsuz Boyutlu Hilbert)",
+      "test_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "training_time_ms": 12.15,
+      "single_sample_latency_ms": 0.1353,
+      "throughput_fps": 7390.8,
+      "memory_footprint_rank": "Düşük (Destek Vektörleri)",
+      "industrial_deployment_tier": "Laboratuvar İplik & Halı Test Cihazları"
+    }
+  ],
+  "champion_high_speed_edge": "Multinomial Logistic Regression",
+  "champion_high_accuracy_server": "Multinomial Logistic Regression",
+  "phase_conclusion_summary": "Faz 3 kapsamında geliştirilen 7 model başarıyla kıyaslanmıştır. Kenar PLC konuşlandırması için en düşük gecikmeyle (0.0417 ms / 23971.2 FPS) 'Multinomial Logistic Regression' şampiyon seçilmiştir. Merkezi MLOps sunucusu kalite triage'ı için ise %100.00 doğrulukla 'Multinomial Logistic Regression' en kararlı omurga olarak belirlenmiştir."
+}

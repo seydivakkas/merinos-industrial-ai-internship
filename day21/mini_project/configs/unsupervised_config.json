@@ -1,0 +1,33 @@
+{
+  "dataset": {
+    "n_samples": 3000,
+    "n_anomalies": 60,
+    "test_size": 0.20,
+    "random_state": 42
+  },
+  "pca": {
+    "n_components": 10,
+    "variance_threshold": 0.95
+  },
+  "tsne": {
+    "n_components": 2,
+    "perplexity": 30.0,
+    "learning_rate": 200.0,
+    "random_state": 42
+  },
+  "kmeans": {
+    "n_clusters": 4,
+    "init": "k-means++",
+    "n_init": 10,
+    "random_state": 42
+  },
+  "dbscan": {
+    "eps": 1.8,
+    "min_samples": 5
+  },
+  "output_paths": {
+    "dataset_csv": "day21/mini_project/fixtures/carpet_defect_unsupervised_dataset.csv",
+    "master_report_json": "day21/mini_project/outputs/phase3_master_benchmark_report.json",
+    "diagnostic_panel_png": "day21/mini_project/outputs/unsupervised_master_panel.png"
+  }
+}
