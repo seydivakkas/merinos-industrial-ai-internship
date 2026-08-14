@@ -1,0 +1,30 @@
+{
+  "corpus_path": "day22/mini_project/fixtures/merinos_technical_corpus.json",
+  "index_output_path": "day22/mini_project/outputs/inverted_index.json",
+  "benchmark_report_path": "day22/mini_project/outputs/sparse_retrieval_benchmark.json",
+  "diagnostic_panel_path": "day22/mini_project/outputs/sparse_retrieval_panel.png",
+  "tokenizer": {
+    "lowercase": true,
+    "remove_punct": true,
+    "min_token_len": 2,
+    "use_bigrams": false,
+    "stopwords": [
+      "ve", "veya", "ile", "için", "bir", "bu", "şu", "o", "da", "de", "ta", "te",
+      "ki", "mi", "mu", "mü", "ise", "olarak", "gibi", "kadar", "daha", "en",
+      "çok", "her", "tüm", "bazı", "göre", "tarafından", "dolayı", "ancak", "fakat"
+    ]
+  },
+  "bm25": {
+    "k1": 1.5,
+    "b": 0.75,
+    "epsilon": 0.25
+  },
+  "tfidf": {
+    "sublinear_tf": true,
+    "smooth_idf": true
+  },
+  "search": {
+    "default_top_k": 5,
+    "snippet_max_len": 180
+  }
+}

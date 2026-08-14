@@ -1,0 +1,391 @@
+"""Generates comprehensive Merinos Industrial Technical Corpus for Sparse Retrieval."""
+
+import json
+from pathlib import Path
+from typing import List, Dict
+
+DOCUMENTS: List[Dict] = [
+    # Kategori 1: DOKUMA_TEZGAHI_BAKIM (15 Doküman)
+    {
+        "doc_id": "DOC-001",
+        "title": "Van de Wiele Jakarlı Dokuma Tezgâhı Çözgü Gerilim Ayar Prosedürü",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Van de Wiele RCE serisi jakarlı halı dokuma tezgâhlarında çözgü gerilim dalgalanması 15 ile 25 cN arasında tutulmalıdır. Çözgü levent fren balatalarında meydana gelen aşınma, çözgü geriliminde ani sıçramalara ve iplik kopması arızalarına yol açar. Operatörler her vardiya başlangıcında yük hücresi (load-cell) kalibrasyonunu kontrol etmeli ve levent fren hidrolik basıncını 4.2 bar seviyesine ayarlamalıdır. Gerilimin 36 cN üzerine çıkması durumunda otomatik tezgâh durdurma devresi devreye girmelidir.",
+        "metadata": {"author": "Bakım Mühendisliği", "machine": "Van de Wiele RCE02", "rev": "2.1"}
+    },
+    {
+        "doc_id": "DOC-002",
+        "title": "Dokuma Tezgâhı Ana Tahrik Motoru ve Rulman Yağlama Talimatı",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Tezgâh ana tahrik motoru rulmanları her 500 çalışma saatinde bir Klüber Isoflex NBU 15 sentetik gres yağı ile yağlanmalıdır. Aşırı gres basılması motor gövde sıcaklığının 45°C üzerine çıkmasına ve eriyen yağın dokuma kumaşı üzerine damlayarak yağ lekesi kusuru oluşturmasına neden olur. Yağlama sırasında gres tabancası basıncı 2.5 barı geçmemeli ve tahliye kanallarının açık olduğu gözle doğrulanmalıdır.",
+        "metadata": {"author": "Mekanik Bakım", "machine": "Genel Dokuma", "rev": "1.4"}
+    },
+    {
+        "doc_id": "DOC-003",
+        "title": "Atkı İpliği Akümülatör ve Besleyici Gerilim Kalibrasyonu",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "IRO Stella atkı besleyici akümülatörlerinde iplik sarım gerilimi 18 cN ± 2 cN toleransında ayarlanmalıdır. Düşük gerilimde atkı ipliği kılavuzdan kurtularak çift atkı atımına, yüksek gerilimde ise tezgâh ağızlığında atkı kopuşlarına yol açar. Optik iplik sensörlerinin toz filtreleri her 8 saatte bir kuru hava ile temizlenmeli, sensör algılama hassasiyeti yüzde 95 seviyesine ayarlanmalıdır.",
+        "metadata": {"author": "Elektronik Bakım", "machine": "IRO Stella", "rev": "3.0"}
+    },
+    {
+        "doc_id": "DOC-004",
+        "title": "Ağızlık Açma Mekanizması ve Çerçeve Yükseklik Ayarları",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Armürlü dokuma tezgâhlarında çerçeve üst ölü nokta yüksekliği 72 mm, alt ölü nokta yüksekliği 28 mm olarak hizalanmalıdır. Çerçeve kılavuz pabuçlarındaki boşluk 0.3 mm'yi aştığında jakar desen kayması ve desen netliğinde bozulma gözlemlenir. Aşınan bronz burçlar derhal yenilenmeli ve kam kutusu dişli yağı seviyesi cam göstergeden kontrol edilmelidir.",
+        "metadata": {"author": "Mekanik Bakım", "machine": "Staubli Armür", "rev": "1.8"}
+    },
+    {
+        "doc_id": "DOC-005",
+        "title": "Pnömatik Rapiyer ve Kıskaç Aşınma Denetim Kılavuzu",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Çift rapiyerli halı dokuma tezgâhlarında verici ve alıcı kıskaçların merkezleme toleransı ±0.15 mm olmalıdır. Kıskaç yay tansiyonunun zayıflaması atkı ipliğinin kumaş ortasında bırakılmasına (yarım atkı hatası) neden olur. Rapiyer şerit kılavuz rayları her 240 saatte bir teflon sprey ile yağlanmalı ve karbon şerit üzerindeki mikro çatlaklar ultrasonik test cihazıyla taranmalıdır.",
+        "metadata": {"author": "Mekanik Bakım", "machine": "Van de Wiele Rapiyer", "rev": "2.0"}
+    },
+    {
+        "doc_id": "DOC-006",
+        "title": "Dokuma Tarak Dişi Temizliği ve Paralellik Kontrolü",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Paslanmaz çelik dokuma tarağının diş aralıkları 10 cm'de 32 diş olacak şekilde mikrometre ile denetlenmelidir. Tarak dişlerinde biriken havyar ve parafin kalıntıları çözgü ipliklerinde sürtünmeyi artırarak tüylülük indeksini 7.5 H seviyesine fırlatır. Taraklar haftalık periyotlarla ultrasonik solvent banyosunda temizlenmeli ve komparatör saati ile tarak tablasına paralelliği 0.05 mm hassasiyetle ayarlanmalıdır.",
+        "metadata": {"author": "Kalite ve Bakım", "machine": "Dokuma Tarağı", "rev": "1.2"}
+    },
+    {
+        "doc_id": "DOC-007",
+        "title": "Elektronik Jakar Modülü Solenoid Valf Bakımı",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Bonas ve Staubli elektronik jakar başlıklarındaki M5 solenoid valflerin tepki süresi 4.5 milisaniyenin altında kalmalıdır. Toz ve yağ buharı birikimi nedeniyle yapışan valfler, jakar platinlerinin takılı kalmasına ve halı yüzeyinde boydan boya jakar desen kayması kusuruna sebep olur. Valf blokları izopropil alkol ile yıkanmalı ve bobin dirençleri 24 Ohm ± 1 Ohm aralığında ölçülmelidir.",
+        "metadata": {"author": "Elektronik Bakım", "machine": "Bonas Jakar", "rev": "4.1"}
+    },
+    {
+        "doc_id": "DOC-008",
+        "title": "Kumaş Çekme Silindiri (Zımpara Silindiri) Kaplama Değişimi",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Dokunan halının sevk edilmesini sağlayan çekme silindirinin kauçuk veya kumlama kaplaması aşındığında kumaş çekiş hızı homojenliğini kaybeder. Bu durum atkı sıklığında dalgalanmaya ve metrekare ağırlığında sapmaya yol açar. Kaplama yüzeyindeki pürüzlülük Ra 12 mikron seviyesinde olmalı, silindir tahrik redüktöründeki boşluk 1.0 derecenin altında tutulmalıdır.",
+        "metadata": {"author": "Mekanik Bakım", "machine": "Çekme Ünitesi", "rev": "1.1"}
+    },
+    {
+        "doc_id": "DOC-009",
+        "title": "Halı Kesme Bıçağı ve Karşı Bıçak Bileme Standartları",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Yüz yüze dokunan çift kat halıyı ayıran dairesel kesme bıçağının kesici ağız açısı 18 derece olmalıdır. Körlenen bıçaklar hav ipliklerini kesmek yerine yırtarak hav yüksekliği düzensizliğine ve kenar püsküllenmesine yol açar. Otomatik bileme taşının elmas ucu her 100 saatte bir elmas tarakla düzeltilmeli ve bıçak soğutma havası debisi dakikada 120 litreye ayarlanmalıdır.",
+        "metadata": {"author": "Mekanik Bakım", "machine": "Kesme Bıçağı", "rev": "2.5"}
+    },
+    {
+        "doc_id": "DOC-010",
+        "title": "Tezgâh İklimlendirme ve Nem Dağıtım Menfezleri Bakımı",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Dokuma salonu bağıl nemi yüzde 60 ile 68, ortam sıcaklığı 22 ile 25°C aralığında kilitlenmelidir. Nem santrali nozullarında kireç tıkanması sonucu bağıl nemin yüzde 50 altına düşmesi, polipropilen ve akrilik ipliklerde statik elektriklenmeyi tetikleyerek çözgü kopuşlarını 3 katına çıkarır. Nem nozulları ayda bir sitrik asit çözeltisiyle kireçten arındırılmalıdır.",
+        "metadata": {"author": "Tesis Bakım", "machine": "Nem Santrali", "rev": "3.2"}
+    },
+    {
+        "doc_id": "DOC-011",
+        "title": "Çözgü Düğümleme Makinesi (Knotting Machine) Ayar Prosedürü",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Levent değişiminde kullanılan Uster Topmatic çözgü bağlama makinesinin iplik ayırıcı iğnesi iplik numarasına göre (2200 dtex için No: 3 iğne) seçilmelidir. Yanlış iğne seçimi çift düğüm atılmasına veya eksik düğüm nedeniyle dokuma başlangıcında onlarca çözgü kopmasına neden olur. Düğüm kuyruk uzunluğu 4 mm'yi geçmemeli ve düğüm çekme mukavemeti orijinal ipliğin en az yüzde 80'ini karşılamalıdır.",
+        "metadata": {"author": "Hazırlık Bakım", "machine": "Uster Topmatic", "rev": "1.9"}
+    },
+    {
+        "doc_id": "DOC-012",
+        "title": "Kenar Overlok ve Kesici Dikiş Mekanizması Senkronizasyonu",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Tezgâh kenar kesme tertibatında dönen disk bıçaklar kenar bordüründen 12 mm mesafede kesim yapmalıdır. Bıçak baskı yayının gevşemesi kenar dikiş hatası kusurunu tetikler. Kesilen kenar şeritlerinin pnömatik emiş borusu vakum basıncı -180 mbar olmalı, tıkanma durumunda tezgâh dokunmatik ekranına E-402 kenar emiş hatası düşmektedir.",
+        "metadata": {"author": "Mekanik Bakım", "machine": "Kenar Ünitesi", "rev": "2.2"}
+    },
+    {
+        "doc_id": "DOC-013",
+        "title": "Optik ve Lazer Çözgü Stop-Motion Sensörleri Kalibrasyonu",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Protechna lazer çözgü kontrol çubuğu tezgâh eni boyunca 4 metre mesafede milimetrik hassasiyetle iplik kopuşunu tarar. Lazer alıcı lenslerinde toz filmi oluştuğunda sensör yanlış alarm vererek tezgâhı durdurur veya gerçek kopuşu kaçırır. Lensler her vardiyada mikrofiber bez ve optik solüsyonla silinmeli, tetikleme eşik voltajı 3.3V seviyesine kalibre edilmelidir.",
+        "metadata": {"author": "Elektronik Bakım", "machine": "Protechna Laser", "rev": "3.5"}
+    },
+    {
+        "doc_id": "DOC-014",
+        "title": "Dokuma Tezgâhı Yağlama Otomatı ve Dağıtıcı Blok Testi",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Merkezi otomatik yağlama pompası her 20 dakikada bir 15 saniye süreyle 28 bar basınçla gres basmalıdır. Dağıtıcı blok pistonlarındaki tıkanıklık, krank mili yataklarının kuru çalışmasına ve tezgâh devrinde dalgalanmaya (RPM kaybı) yol açar. Piston hareket sviçleri PLC giriş modülünden taranmalı, arızalı dağıtıcı bloklar gecikmeksizin yenilenmelidir.",
+        "metadata": {"author": "Mekanik Bakım", "machine": "Vogel Yağlama", "rev": "1.7"}
+    },
+    {
+        "doc_id": "DOC-015",
+        "title": "Dokuma Tezgâhı Acil Duruş (E-Stop) ve Güvenlik Röleleri Kontrolü",
+        "category": "DOKUMA_TEZGAHI_BAKIM",
+        "content": "Tezgâh çevresindeki 6 adet mantar acil durdurma butonunun mekanik kilitlenme ve çift kontaklı güvenlik rölesi (Pilz PNOZ) tepki süresi 80 milisaniyeden kısa olmalıdır. Güvenlik ışık bariyeri optik perdeleri tezgâh çalışma alanına 300 mm mesafeden yaklaşan cisimleri anında algılamalı ve ana kontaktör bobin enerjisini kesmelidir.",
+        "metadata": {"author": "İş Güvenliği & Bakım", "machine": "Güvenlik Devresi", "rev": "5.0"}
+    },
+
+    # Kategori 2: IPLIK_LABORATUVAR_STANDARTLARI (13 Doküman)
+    {
+        "doc_id": "DOC-016",
+        "title": "Polipropilen (BCF) İplik Kopma Mukavemeti Test Şartnamesi",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "Merinos BCF iplik tesislerinde üretilen 2200 dtex polipropilen halı ipliklerinin kopma mukavemeti ISO 2062 standardına göre Uster Tensorapid cihazında test edilir. Minimum kabul edilebilir kopma mukavemeti 24.0 cN/tex, kopma uzaması ise yüzde 16.0 olmalıdır. Mukavemetin 18.0 cN/tex altına inmesi durumunda iplik partisi karantinaya alınır ve tezgâhlara verilmesi yasaklanır. Düşük mukavemet ekstrüder vida sıcaklığının aşırı yüksek olmasından kaynaklanır.",
+        "metadata": {"author": "Kalite Laboratuvarı", "standard": "ISO 2062", "rev": "4.0"}
+    },
+    {
+        "doc_id": "DOC-017",
+        "title": "Zweigle G566 Cihazı ile İplik Tüylülük Ölçüm Metodolojisi",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "İplik tüylülük indeksi (H indeksi), iplik gövdesinden 1 mm ile 8 mm mesafeye taşan serbest lif uçlarının optik sayımı ile belirlenir. Dokuma kalitesi için H tüylülük değeri maksimum 5.5 olmalıdır. Tüylülüğün 7.0 H üzerine çıkması liflerin dokuma tarağına ve gücülere sürtünerek dökülmesine, armür yağı tutarak leke kusuruna dönüşmesine neden olur. Doffing sarım kafalarındaki kılavuz porselenleri aşındığında tüylülük artar.",
+        "metadata": {"author": "Kalite Laboratuvarı", "machine": "Zweigle G566", "rev": "2.3"}
+    },
+    {
+        "doc_id": "DOC-018",
+        "title": "İplik Büküm Sayısı (Twist Per Meter - TPM) Tayini ve Toleransları",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "Halı ipliğinde S ve Z büküm değerleri ISO 2065 standardına uygun olarak elektronik büküm ölçerde (Twist Tester) 500 mm numune uzunluğunda test edilir. 2200 dtex iplik için standart büküm hedefi 430 TPM ± 15 TPM'dir. Büküm sayısının 350 TPM altına düşmesi halı yüzeyinde iplik açılmasına ve kenar dikiş hatası problemine yol açar. Yüksek büküm ise halıda sert tuşe ve ilme dönmesi oluşturur.",
+        "metadata": {"author": "Kalite Laboratuvarı", "standard": "ISO 2065", "rev": "3.1"}
+    },
+    {
+        "doc_id": "DOC-019",
+        "title": "Doğrusal Yoğunluk (dtex / Denye) Çıkrık ve Hassas Terazi Testi",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "İplik numaralandırmasında 100 metrelik çile numunesi laboratuvar çıkrığında sarılarak 0.001 gram hassasiyetli analitik terazide tartılır. Elde edilen gramaj 100 ile çarpılarak dtex değeri bulunur. Nominal 2400 dtex iplikte tolerans ±%2.5 (2340 - 2460 dtex) aralığındadır. dtex sapması halı gramajını ve jakar desen ilme dolgunluğunu doğrudan etkileyen birincil parametredir.",
+        "metadata": {"author": "Kalite Laboratuvarı", "standard": "TS 244", "rev": "2.0"}
+    },
+    {
+        "doc_id": "DOC-020",
+        "title": "İplik Fiksaj (Heat-Set) Sıcaklığı ve Kıvrım Kararlılığı Kontrolü",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "Superba fiksaj tünelinde polipropilen ipliğin doymuş buhar altındaki işlem sıcaklığı 132°C ± 1°C olmalıdır. Yetersiz buhar sıcaklığında ipliğin kıvrım hafızası (crimp stability) kaybolur ve halıda ezilme direnci yüzde 40 düşer. Aşırı sıcaklıkta ise lif polimer zincirleri kırılarak mukavemet kaybına ve renk tonunda sararmaya yol açar. Fiksaj çıkışı nem oranı yüzde 0.5 altında olmalıdır.",
+        "metadata": {"author": "Fiksaj Şefliği", "machine": "Superba TVP3", "rev": "3.4"}
+    },
+    {
+        "doc_id": "DOC-021",
+        "title": "İplik Yağlama (Spin-Finish) Oranı Ekstraksiyon Testi",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "BCF iplik çekim hattında uygulanan spin-finish antistatik yağ oranı yüzde 0.90 ile 1.20 aralığında tutulmalıdır. Yağ oranının tespiti n-heksan solvent ekstraksiyonu veya NMR cihazı ile yapılır. Yetersiz yağlama statik elektrik ve çözgü kopuşunu artırırken, yüzde 1.50 üzerindeki aşırı yağlama dokuma tezgâhında tarak dişlerini kirletir ve toz çekerek kumaşta siyah lekelere sebep olur.",
+        "metadata": {"author": "Kimya Laboratuvarı", "standard": "ASTM D2257", "rev": "1.6"}
+    },
+    {
+        "doc_id": "DOC-022",
+        "title": "İplik Çekme (Shrinkage) Testi ve Sıcak Hava Büzülme Davranışı",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "Halı ipliklerinin terbiye ve lateks kaplama fırınlarında boyutsal stabilitesini koruması için 130°C sıcak hava fırınında 10 dakika bekletilerek büzülme yüzdesi ölçülür. BCF halı ipliklerinde sıcak hava büzülmesi yüzde 3.5 ± 0.5 sınırında olmalıdır. Yüksek çekme gösteren iplikler dokuma sonrasında halının büzülmesine ve kenar kıvrılmasına sebep olur.",
+        "metadata": {"author": "Kalite Laboratuvarı", "standard": "DIN 53866", "rev": "2.2"}
+    },
+    {
+        "doc_id": "DOC-023",
+        "title": "İplik Düzgünsüzlüğü (Uster CVm%) Kapasitif Ölçüm Şartnamesi",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "Uster Tester 5 cihazında 400 m/dk hızla test edilen halı ipliklerinde kütlesel düzgünsüzlük varyasyon katsayısı (CVm%) maksimum 3.2 olmalıdır. İnce ve kalın yer hataları (thin/thick places) 1000 metrede 10 adedi aşmamalıdır. Periyodik düzgünsüzlük dalgaları ekstrüder dişli pompa arızasını işaret eder ve kumaşta çizgilenme (moire) hatası yaratır.",
+        "metadata": {"author": "Kalite Laboratuvarı", "machine": "Uster Tester 5", "rev": "1.5"}
+    },
+    {
+        "doc_id": "DOC-024",
+        "title": "İplik Renk Sürtünme Haslığı (Crockmeter Testi) Standartları",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "Boyalı ve masterbatch katkılı ipliklerde sürtünme haslığı ISO 105-X12 metoduna göre AATCC Crockmeter cihazında kuru ve yaş olarak ölçülür. Kuru sürtünme haslığı minimum 4-5, yaş sürtünme haslığı minimum 4 gri skala derecesinde olmalıdır. Düşük haslık tezgâh mekik ve taraklarında renk transferine ve beyaz zeminli halılarda leke bulaşmasına yol açar.",
+        "metadata": {"author": "Boya & Terbiye Laboratuvarı", "standard": "ISO 105-X12", "rev": "3.0"}
+    },
+    {
+        "doc_id": "DOC-025",
+        "title": "Akrilik İplik Statik Yüklenme ve Yüzey Direnci Ölçümü",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "Yün tuşeli akrilik ipliklerde statik elektrik birikimini önlemek için yüzey özdirenci 10^9 Ohm seviyesinin altında olmalıdır. İplik laboratuvarında teraohmmetre ile test edilen bobinlerde direnç yüksek çıkarsa antistatik sprey dozu artırılmalıdır. Yüksek statik elektrik jakar gücü tellerinin birbirine yapışmasına neden olur.",
+        "metadata": {"author": "Fizik Laboratuvarı", "standard": "EN 1149", "rev": "1.3"}
+    },
+    {
+        "doc_id": "DOC-026",
+        "title": "İplik Elastik Geri Toplanma (Elastic Recovery) Analizi",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "Halı hav ipliğinin basma sonrası toparlanma yeteneği dinamik yorulma cihazında ölçülür. Yüzde 10 uzatılıp bırakılan ipliğin anlık elastik geri toplanması minimum yüzde 88 olmalıdır. Bu oran polimer çekim oranı (draw ratio) ile doğrudan ilişkilidir ve ezilmeye dayanıklı birinci kalite halı üretiminin anahtar şartıdır.",
+        "metadata": {"author": "Ar-Ge Laboratuvarı", "standard": "ASTM D1774", "rev": "2.1"}
+    },
+    {
+        "doc_id": "DOC-027",
+        "title": "İplik Düğüm Mukavemeti (Knot Strength) ve Ek Güvenilirliği",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "Otomatik bobin makinelerinde atılan hava jeti eklerinin (Air Splicer) çekme mukavemeti ana gövde mukavemetinin en az yüzde 85'ini karşılamalıdır. Ek yerindeki kalınlık artışı yüzde 15'i geçmemelidir. Ek kopuşları tezgâh duruşlarının yüzde 30'unu oluşturduğundan, her vardiyada 20 adet numune ek testi yapılmalıdır.",
+        "metadata": {"author": "Bobin Şefliği", "machine": "Mesdan Splicer", "rev": "1.7"}
+    },
+    {
+        "doc_id": "DOC-028",
+        "title": "Masterbatch Katkı Homojenliği ve Kül Testi Yöntemi",
+        "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+        "content": "İplik üretiminde kullanılan polipropilen granülün inorganik pigment ve kalsiyum karbonat dolgu oranı kül fırınında 600°C'de yakılarak kontrol edilir. Kül kalıntısı yüzde 2.0 ± 0.3 bandında olmalıdır. Kül oranının yüksek çıkması ekstrüder filtrelerini tıkar ve iplik mukavemetini düşürerek kopuşlara neden olur.",
+        "metadata": {"author": "Kimya Laboratuvarı", "standard": "ISO 3451", "rev": "2.4"}
+    },
+
+    # Kategori 3: DESEN_VE_JAKAR_YONETIMI (12 Doküman)
+    {
+        "doc_id": "DOC-029",
+        "title": "Elektronik Jakar Desen Formatı EP Dosyası Yükleme Standartları",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "Halı desen tasarım stüdyosunda hazırlanan piksel tabanlı desenler NedGraphics yazılımından .EP veya .DAT formatında dışa aktarılır. Dokuma tezgâhı bilgisayarına ağ üzerinden veya USB ile aktarılan desen dosyasında çözgü tel sayısı 4800, atkı sıklığı ise desimetrede 60 atkı olarak tanımlanmalıdır. Hatalı renk paleti indekslemesi tezgâhın jakar desen kayması uyarısı vermesine yol açar.",
+        "metadata": {"author": "Desen Tasarım", "software": "NedGraphics", "rev": "5.2"}
+    },
+    {
+        "doc_id": "DOC-030",
+        "title": "Jakar Gücü Teli (Harness Cord) Boyutlandırma ve Gerginlik Ayarı",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "Jakar platinlerinden gücülere inen naylon-kevlar örgü gücü tellerinin statik uzama katsayısı yüzde 0.5 altında olmalıdır. Sıcaklık ve nem etkisiyle esneyen gücü telleri ağızlık yüksekliğini bozarak desen hatası üretir. Gücü kordonu yay tansiyonları 1.8 N kuvvetinde ayarlanmalı ve deforme olan kordonlar derhal değiştirilmelidir.",
+        "metadata": {"author": "Jakar Bakım", "machine": "Staubli LX", "rev": "2.8"}
+    },
+    {
+        "doc_id": "DOC-031",
+        "title": "Çok Renkli Jakarlı Halıda Renk Bobini Besleme Sırası (Creel Layout)",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "8 renkli jakar armür düzeninde cağlık (creel) yerleşim planı desen renk sırasına birebir uymalıdır. Yanlış cağlık gözüne bağlanan renk bobini halı boyunca ters renk çizgilenmesine (yanlış renk ilmesi) neden olur. Operatör cağlık yüklemesi sonrasında barkod okuyucu ile bobin parti numaralarını teyit etmeli ve cağlık fanının çalıştığını kontrol etmelidir.",
+        "metadata": {"author": "Dokuma Hazırlık", "machine": "Cağlık Ünitesi", "rev": "3.1"}
+    },
+    {
+        "doc_id": "DOC-032",
+        "title": "Jakar Bıçak Grubu Hareket Senkronizasyonu ve Kam Açısı",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "Jakar mekanizmasında çift bıçak hareketini sağlayan ana tahrik kam açısı tezgâh krank açısına göre 120 derecede kesişmelidir. Kam aşınması bıçakların platinleri erken veya geç bırakmasına yol açarak çözgü tellerinin birbirine dolanmasına ve jakar desen kayması kusuruna sebebiyet verir. Bıçak kızak boşluğu sentil çakısı ile 0.2 mm olarak ayarlanmalıdır.",
+        "metadata": {"author": "Mekanik Bakım", "machine": "Jakar Bıçak Grubu", "rev": "1.9"}
+    },
+    {
+        "doc_id": "DOC-033",
+        "title": "Gömme Bordür ve Göbek Deseni Geçişlerinde Gerilim Dengeleme",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "Klasik göbekli Merinos halılarında zemin deseninden yoğun madalyon göbek desenine geçişte çözgü tüketim hızı yüzde 25 artar. Elektronik çözgü salma motoru (let-off) desen rapor adımına göre dinamik kompanzasyon yapmalıdır. Kompanzasyon gecikmesi zemin kumaşında potluk ve dalgalanma yaratır.",
+        "metadata": {"author": "Tasarım & Üretim", "software": "NedGraphics Jacquard", "rev": "2.0"}
+    },
+    {
+        "doc_id": "DOC-034",
+        "title": "Jakar Platin Kancaları (Hooks) Aşınma Limitleri ve Testi",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "Elektronik jakarda hareket eden 9600 adet platin kancasından aşınan veya kırılanlar kumaş yüzeyinde boydan boya iplik düşmesine neden olur. Kanca tırnak aşınması optik profil projeksiyonunda 0.1 mm üzerinde tespit edilen kancalar set halinde yenilenmelidir. Platin kutusu çalışma sıcaklığı 35°C'yi geçmemelidir.",
+        "metadata": {"author": "Jakar Bakım", "machine": "Bonas Si", "rev": "2.4"}
+    },
+    {
+        "doc_id": "DOC-035",
+        "title": "Halı Kenar Yazısı ve Barkod Jakar Raport Programlama",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "Halı sırtına dokunan Merinos tescilli logo, kalite kodu ve parti numarası jakar yan çerçeveleri tarafından bağımsız dokunur. Yan raport yazılımında font yüksekliği en az 24 piksel olmalı ve optik barkod okuyucuların çözünürlüğü için zemin ile yazı rengi arasında yüksek kontrast sağlanmalıdır.",
+        "metadata": {"author": "Endüstriyel Kodlama", "standard": "GS1-128", "rev": "1.2"}
+    },
+    {
+        "doc_id": "DOC-036",
+        "title": "Elektronik Jakar Kontrol Kartı Firmware Güncelleme Protokolü",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "Jakar kontrolöründe JC5 ve JC6 kontrol kartlarının firmware sürümü v4.2.1 olmalıdır. İletişim protokolü CAN-Bus üzerinden 500 kbps hızında çalışır. Bus hattındaki elektriksel parazitler desende tekil piksel hatalarına yol açar. Hat sonlandırma direnci 120 Ohm olarak ölçülmelidir.",
+        "metadata": {"author": "Otomasyon Şefliği", "machine": "Staubli JC6", "rev": "4.2"}
+    },
+    {
+        "doc_id": "DOC-037",
+        "title": "Desen Tekrarı (Rapport) ve Rulo Sonu Kesim Çizgisi Ayarları",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "300x400 cm ebatlı halı dokumasında raport boyu 4000 mm ± 2 mm hassasiyetle kontrol edilmelidir. Lazer boy ölçüm enkoderi halı çekme silindiri miline bağlıdır. Enkoder kalibrasyon hatası halı boyunun eksik veya fazla çıkmasına neden olur. Kesim çizgisi 4 sıra beyaz atkı atımıyla işaretlenir.",
+        "metadata": {"author": "Desen Planlama", "machine": "Enkoder Sistemi", "rev": "1.5"}
+    },
+    {
+        "doc_id": "DOC-038",
+        "title": "Düşük Havlı ve Rölyefli Halılarda Doku İğneleme Parametreleri",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "Rölyef efektli modern halılarda hav yüksekliği 7 mm ile 13 mm arasında kademelendirilir. Düşük hav bölgelerinde jakar platin vuruş gücü yüzde 15 azaltılarak çözgü ezilmesi engellenmelidir. Yüksek hav geçişlerinde ise atkı baskı tarağının darbe kuvveti artırılır.",
+        "metadata": {"author": "Ar-Ge Tasarım", "product": "Rölyef Halı", "rev": "2.2"}
+    },
+    {
+        "doc_id": "DOC-039",
+        "title": "Jakar Cağlık İplik Kılavuz Borularında Aşınma Denetimi",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "Cağlıktan tezgâha uzanan antistatik polietilen iplik sevk borularının iç yüzeyi yılda bir kontrol edilmelidir. Boru kıvrım noktalarında sürtünmeyle oluşan kanallar ipliğin tıraşlanmasına ve tüylenmesine neden olur. İç çapı 4 mm'den 5.5 mm'ye genişleyen kılavuz borular yenilenmelidir.",
+        "metadata": {"author": "Dokuma Bakım", "machine": "Cağlık Boruları", "rev": "1.1"}
+    },
+    {
+        "doc_id": "DOC-040",
+        "title": "Sırt İpliği (Jüt ve Pamuk) Bağlantı Örgü Yapısı Seçimi",
+        "category": "DESEN_VE_JAKAR_YONETIMI",
+        "content": "Halı zemin iskeletini oluşturan jüt ve pamuk çözgülerin 1/1 bezayağı veya 2/2 dimi örgü bağlantı parametreleri jakar yazılımında tanımlanır. Dimi örgüde sırt dolgunluğu artarken, bezayağı örgüde tezgâh hızı 650 RPM seviyesine çıkarılabilir. Yanlış örgü seçimi halıda esneme ve boyut kararsızlığı yaratır.",
+        "metadata": {"author": "Dokuma Teknolojisi", "standard": "TS 4331", "rev": "1.8"}
+    },
+
+    # Kategori 4: KALITE_GUVENCE_VE_HATA_TRIAJ (12 Doküman)
+    {
+        "doc_id": "DOC-041",
+        "title": "Halı Üretiminde Yağ Lekesi Kusuru Kök Neden Teşhisi ve Triajı",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "Dokuma salonunda üretilen halılarda görülen yağ lekesi kusuru yüzde 80 oranında armür kutusu keçelerinden veya kıskaç yağlama spreyinin fazla basılmasından kaynaklanır. Kumaş kontrol masasında UV mor ötesi lamba altında incelenen lekeler mineral esaslı makine yağı ise parlak mavi floresan ışıma verir. Bitkisel veya sentetik yağlar ise sarımsı ışıma yapar. Yağ lekesi tespit edilen toplar leke çıkarma ünitesinde perkloretilen solvent ile lokal işleme tabi tutulur.",
+        "metadata": {"author": "Kalite Güvence", "defect": "OIL_STAIN", "rev": "3.3"}
+    },
+    {
+        "doc_id": "DOC-042",
+        "title": "İplik Kopması Arızası Triaj Protokolü ve Otomatik Tezgâh Duruşları",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "Tezgâhta meydana gelen çözgü veya atkı ipliği kopması durumunda lamel veya lazer sensörü 15 milisaniye içinde tezgâh frenini kilitleyerek motoru durdurur. Operatör kopan ipliği tespit ederek mikrosplicer düğümü ile bağlamalı ve gücü telinden doğru sıra ile geçirmelidir. Yanlış gücüden geçirilen iplik halı boyunca boyuna çizgi kusuruna (çözgü kaçığı) sebep olur.",
+        "metadata": {"author": "Üretim Şefliği", "defect": "YARN_BREAKAGE", "rev": "4.2"}
+    },
+    {
+        "doc_id": "DOC-043",
+        "title": "Jakar Desen Kayması ve Senkronizasyon Hatası Sınıflandırması",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "Jakar desen kayması hatası desen piksel koordinatları ile atkı vuruş senkronizasyonunun bozulmasıyla ortaya çıkar. Tezgâh devrinin 700 RPM üzerine çıkması mekanik armürde atlama yaratabilir. Kamera kontrol sistemi halı üzerindeki madalyon motifinin merkez kaçıklığını tespit ettiğinde tezgâhı durdurur ve alarm kodunu SCADA sunucusuna iletir.",
+        "metadata": {"author": "Kalite Güvence", "defect": "JACQUARD_PATTERN_SHIFT", "rev": "2.7"}
+    },
+    {
+        "doc_id": "DOC-044",
+        "title": "Kenar Dikiş ve Overlok Mukavemet Test Standartları",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "Halı kenarlarına uygulanan overlok dikişinin mukavemeti ISO 13936 standardına göre test edilir. Kenar dikiş hatası kusuru dikiş tansiyonunun düşük olması veya iplik bükümünün 340 TPM altına inmesi sonucu dikişin sökülmesiyle oluşur. Overlok dikiş sıklığı desimetrede 45 vuruş olmalı ve dikiş ipliği hav ipliği rengiyle CIEDE2000 renk farkı 1.0 altında uyumlu olmalıdır.",
+        "metadata": {"author": "Kalite Kontrol", "defect": "BORDER_SEWING_DEFECT", "rev": "3.0"}
+    },
+    {
+        "doc_id": "DOC-045",
+        "title": "Halı Yüzey Hav Düzgünsüzlüğü ve Traşlama (Shearing) Hataları",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "Terbiye hattındaki helezon traş bıçakları halı hav yüksekliğini 10.0 mm ± 0.2 mm seviyesine indirmekle görevlidir. Bıçak ağzındaki çapaklar kumaşta enine traş izi (shear mark) oluşturur. Lazer yüzey tarayıcı profilometre hav yüzey pürüzlülüğünü sürekli tarar ve standart dışı dalgalanmalarda sesli ikaz verir.",
+        "metadata": {"author": "Apre & Terbiye", "defect": "SURFACE_ROUGHNESS", "rev": "2.1"}
+    },
+    {
+        "doc_id": "DOC-046",
+        "title": "Lateks Kaplama ve Sırt Yapışma Dayanımı (Delamination Testi)",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "Halı sırtına uygulanan SBR lateks kalsit karışımının kurutma fırını sıcaklığı 140°C olmalıdır. Yetersiz pişme durumunda hav ipliklerinin sırt dokumadan ayrılma kuvveti (tuft withdrawal force) 30 N altına düşer ve ilme sökülmesi kusuru meydana gelir. Test Uster dinamometresinde 50 mm/dk hızla yürütülür.",
+        "metadata": {"author": "Apre Laboratuvarı", "standard": "ISO 4919", "rev": "1.9"}
+    },
+    {
+        "doc_id": "DOC-047",
+        "title": "Online Kamera Denetim Sistemi ve Kusur Koordinat Haritalaması",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "Dokuma tezgâhı çıkışında konumlandırılan 4K çözünürlüklü 4 adet hat tarama (line-scan) kamerası kumaşı saniyede 1.5 metre hızla tarar. Yapay zeka modeli tespit ettiği kusurun x-y koordinatını, kusur sınıfını ve olasılık skorunu XML formatında merkezi ERP kalite veri tabanına kaydeder. Rulo sonunda kusur haritası etiket yazıcıdan basılarak halıya yapıştırılır.",
+        "metadata": {"author": "Yapay Zeka Ekibi", "system": "Merinos Vision AI", "rev": "3.2"}
+    },
+    {
+        "doc_id": "DOC-048",
+        "title": "Parti Bazlı Renk Farkı (Abrasj) ve Spektrofotometre Onayı",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "Farklı bobin partileri arasında boyama tonu sapmaları halı üzerinde enine bant şeklinde abrasj hatası oluşturur. X-Rite küresel spektrofotometre ile D65 gün ışığı altında ölçülen dE* renk sapması 0.8 değerini aşarsa tezgâhta yeni bobin partisine geçiş durdurulur ve laboratuvardan renk onayı talep edilir.",
+        "metadata": {"author": "Renk Kontrol", "device": "X-Rite Ci7800", "rev": "2.6"}
+    },
+    {
+        "doc_id": "DOC-049",
+        "title": "Bitmiş Halı Metrekare Ağırlığı ve Hav Yoğunluğu Standartları",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "TS 2500 standardına göre halıdan alınan 100x100 mm kare numuneler hassas terazide tartılarak metrekare ağırlığı hesaplanır. 2600 g/m² hedefli halıda tolerans ±75 gramdır. Ağırlık fazlalığı hammadde israfına, ağırlık azlığı ise tüketici şikayetlerine ve kalite sınıfının düşürülmesine (2. kalite) sebep olur.",
+        "metadata": {"author": "Kalite Güvence", "standard": "TS 2500", "rev": "1.4"}
+    },
+    {
+        "doc_id": "DOC-050",
+        "title": "Halı Paketleme, Rulo Sarım Gerginliği ve Nem Koruma Standartları",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "Kalite kontrol masasından onay alan 1. kalite halılar otomatik sarım makinesinde 45 N gerginlikle rulo yapılır. Polietilen shrink ambalaj kaynak sıcaklığı 165°C olmalı ve ambalaj içinde nem tutucu silika jel poşeti bulunmalıdır. Hatalı sarım rulo göbeğinde kırışıklık ve kalıcı iz kusuruna yol açar.",
+        "metadata": {"author": "Paketleme & Sevkiyat", "standard": "Merinos Paketleme", "rev": "2.0"}
+    },
+    {
+        "doc_id": "DOC-051",
+        "title": "Kumaş Statik Elektrik Boşaltma Çubukları (İyonizer) Denetimi",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "Kumaş sarım bölgesinde oluşan 15 kV üzeri elektrostatik potansiyeli nötralize etmek için 7 kV AC iyonizer barlar kullanılır. İyonizer iğnelerinde biriken toz her hafta alkolle temizlenmeli ve yüzey voltmetre ile statik yükün 1 kV altına düştüğü doğrulanmalıdır. Statik boşalma operatör çarpmalarına ve toz çekimine neden olur.",
+        "metadata": {"author": "Elektrik Bakım", "device": "Fraser Ionizer", "rev": "1.3"}
+    },
+    {
+        "doc_id": "DOC-052",
+        "title": "İkinci Kalite Halı Ayrım Kriterleri ve Iskarta Yönetim Prosedürü",
+        "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+        "content": "Bir halı parçasında 10 cm² üzerinde yağ lekesi, 5 santimetreden uzun çözgü kopması izi veya 3 santimetreden büyük jakar desen kayması tespit edilirse ürün derhal 2. kalite sınıfına ayrılır. Onarılamaz yapısal kusur sayısı 3 adedi geçerse halı ıskartaya (hurdaya) çıkarılarak geri dönüşüm kırma makinesine sevk edilir.",
+        "metadata": {"author": "Kalite Yönetimi", "standard": "Merinos Kalite Kriterleri", "rev": "5.1"}
+    }
+]
+
+
+def build_and_save_corpus(output_path: Path):
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(DOCUMENTS, f, ensure_ascii=False, indent=2)
+    print(f"[+] Merinos Teknik Külliyatı oluşturuldu: {len(DOCUMENTS)} doküman -> {output_path}")
+
+
+if __name__ == "__main__":
+    out_p = Path(__file__).resolve().parent.parent / "fixtures" / "merinos_technical_corpus.json"
+    build_and_save_corpus(out_p)

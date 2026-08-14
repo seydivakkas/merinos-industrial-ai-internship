@@ -1,0 +1,32 @@
+{
+  "corpus_stats": {
+    "total_documents": 52,
+    "total_tokens": 2978,
+    "vocabulary_size": 1468,
+    "avg_doc_len": 57.27,
+    "min_doc_len": 47,
+    "max_doc_len": 79
+  },
+  "bm25_metrics": {
+    "precision_at_1": 1.0,
+    "precision_at_3": 0.3333,
+    "precision_at_5": 0.2033,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "ndcg_at_5": 1.0,
+    "avg_latency_ms": 0.072,
+    "queries_per_second": 13870.9
+  },
+  "tfidf_metrics": {
+    "precision_at_1": 1.0,
+    "precision_at_3": 0.3333,
+    "precision_at_5": 0.2033,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "ndcg_at_5": 1.0,
+    "avg_latency_ms": 0.072,
+    "queries_per_second": 13980.8
+  },
+  "champion_algorithm": "Okapi BM25",
+  "summary": "Merinos teknik külliyatı (52 doküman, 2978 token) üzerinde yürütülen leksikal benchmarkta; Okapi BM25 doküman uzunluk doygunluğu (b=0.75) ve terim frekansı tavanı (k1=1.5) sayesinde NDCG@5=1.0 ve MRR=1.0 ile daha üstün sıralama başarımı sağlamıştır. Ortalama sorgu gecikmesi Okapi BM25 için 0.072 ms (13870.9 QPS), TF-IDF için 0.072 ms (13980.8 QPS) olarak ölçülmüştür."
+}
