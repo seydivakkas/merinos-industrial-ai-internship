@@ -1,0 +1,39 @@
+{
+  "bi_encoder_metrics": {
+    "precision_at_1": 0.6,
+    "precision_at_3": 0.22222222222222224,
+    "precision_at_5": 0.14666666666666664,
+    "recall_at_5": 0.7333333333333333,
+    "mrr": 0.65,
+    "ndcg_at_5": 0.6707737541096568
+  },
+  "reranked_metrics": {
+    "precision_at_1": 0.8,
+    "precision_at_3": 0.26666666666666666,
+    "precision_at_5": 0.16,
+    "recall_at_5": 0.8,
+    "mrr": 0.8,
+    "ndcg_at_5": 0.8
+  },
+  "bm25_metrics": {
+    "precision_at_1": 1.0,
+    "precision_at_3": 0.33333333333333326,
+    "precision_at_5": 0.20000000000000007,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "ndcg_at_5": 1.0
+  },
+  "bi_encoder_latency_ms": 41.60503999980089,
+  "reranked_latency_ms": 48.81870333192637,
+  "bm25_latency_ms": 0.13171333218148598,
+  "bi_encoder_qps": 24.035549539305475,
+  "reranked_qps": 20.483952496665797,
+  "bm25_qps": 7592.2458526986,
+  "total_documents": 52,
+  "embedding_dimension": 384,
+  "models_info": {
+    "bi_encoder": "all-MiniLM-L6-v2",
+    "cross_encoder": "cross-encoder/ms-marco-TinyBERT-L-2-v2",
+    "vector_db": "Qdrant (In-Memory / HNSW)"
+  }
+}
