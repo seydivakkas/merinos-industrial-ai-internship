@@ -1,0 +1,143 @@
+{
+  "bm25_metrics": {
+    "precision_at_1": 1.0,
+    "precision_at_3": 0.33333333333333326,
+    "precision_at_5": 0.20000000000000007,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "ndcg_at_5": 1.0,
+    "mrr_at_5": 1.0,
+    "hit_rate_at_1": 1.0,
+    "hit_rate_at_3": 0.9999999999999998,
+    "hit_rate_at_5": 1.0
+  },
+  "dense_metrics": {
+    "precision_at_1": 0.6,
+    "precision_at_3": 0.22222222222222224,
+    "precision_at_5": 0.14666666666666664,
+    "recall_at_5": 0.7333333333333333,
+    "mrr": 0.65,
+    "ndcg_at_5": 0.6707737541096568,
+    "mrr_at_5": 0.65,
+    "hit_rate_at_1": 0.6,
+    "hit_rate_at_3": 0.6666666666666667,
+    "hit_rate_at_5": 0.7333333333333333
+  },
+  "rrf_hybrid_metrics": {
+    "precision_at_1": 0.7333333333333333,
+    "precision_at_3": 0.26666666666666666,
+    "precision_at_5": 0.1866666666666667,
+    "recall_at_5": 0.9333333333333333,
+    "mrr": 0.7888888888888889,
+    "ndcg_at_5": 0.824090207743119,
+    "mrr_at_5": 0.7888888888888889,
+    "hit_rate_at_1": 0.7333333333333333,
+    "hit_rate_at_3": 0.8,
+    "hit_rate_at_5": 0.9333333333333333
+  },
+  "weighted_hybrid_metrics": {
+    "precision_at_1": 0.7333333333333333,
+    "precision_at_3": 0.33333333333333326,
+    "precision_at_5": 0.20000000000000007,
+    "recall_at_5": 1.0,
+    "mrr": 0.8666666666666667,
+    "ndcg_at_5": 0.9015812676190554,
+    "mrr_at_5": 0.8666666666666667,
+    "hit_rate_at_1": 0.7333333333333333,
+    "hit_rate_at_3": 0.9999999999999998,
+    "hit_rate_at_5": 1.0
+  },
+  "reranked_hybrid_metrics": {
+    "precision_at_1": 1.0,
+    "precision_at_3": 0.33333333333333326,
+    "precision_at_5": 0.20000000000000007,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "ndcg_at_5": 1.0,
+    "mrr_at_5": 1.0,
+    "hit_rate_at_1": 1.0,
+    "hit_rate_at_3": 0.9999999999999998,
+    "hit_rate_at_5": 1.0
+  },
+  "bm25_latency_ms": 0.6004800001392141,
+  "dense_latency_ms": 50.2703399998912,
+  "rrf_latency_ms": 48.91015999795248,
+  "weighted_latency_ms": 50.5216933330909,
+  "reranked_latency_ms": 123.83651333414794,
+  "bm25_qps": 1665.334398761261,
+  "dense_qps": 19.892445525575603,
+  "rrf_qps": 20.445649739069815,
+  "weighted_qps": 19.793477495043025,
+  "reranked_qps": 8.07516275350632,
+  "total_documents": 52,
+  "rrf_k": 60,
+  "best_alpha": 0.6,
+  "models_info": {
+    "sparse_engine": "Okapi BM25 (k1=1.5, b=0.75)",
+    "dense_engine": "Qdrant Bi-Encoder (all-MiniLM-L6-v2, 384-d)",
+    "fusion": "Reciprocal Rank Fusion (k=60)",
+    "reranker": "Cross-Encoder (ms-marco-TinyBERT-L-2-v2)"
+  },
+  "models": {
+    "BM25_Sparse_Baseline": {
+      "precision_at_1": 1.0,
+      "precision_at_3": 0.33333333333333326,
+      "precision_at_5": 0.20000000000000007,
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "mrr_at_5": 1.0,
+      "hit_rate_at_1": 1.0,
+      "hit_rate_at_3": 0.9999999999999998,
+      "hit_rate_at_5": 1.0
+    },
+    "Qdrant_Dense_Baseline": {
+      "precision_at_1": 0.6,
+      "precision_at_3": 0.22222222222222224,
+      "precision_at_5": 0.14666666666666664,
+      "recall_at_5": 0.7333333333333333,
+      "mrr": 0.65,
+      "ndcg_at_5": 0.6707737541096568,
+      "mrr_at_5": 0.65,
+      "hit_rate_at_1": 0.6,
+      "hit_rate_at_3": 0.6666666666666667,
+      "hit_rate_at_5": 0.7333333333333333
+    },
+    "Hybrid_RRF_Fusion": {
+      "precision_at_1": 0.7333333333333333,
+      "precision_at_3": 0.26666666666666666,
+      "precision_at_5": 0.1866666666666667,
+      "recall_at_5": 0.9333333333333333,
+      "mrr": 0.7888888888888889,
+      "ndcg_at_5": 0.824090207743119,
+      "mrr_at_5": 0.7888888888888889,
+      "hit_rate_at_1": 0.7333333333333333,
+      "hit_rate_at_3": 0.8,
+      "hit_rate_at_5": 0.9333333333333333
+    },
+    "Hybrid_Weighted_Fusion": {
+      "precision_at_1": 0.7333333333333333,
+      "precision_at_3": 0.33333333333333326,
+      "precision_at_5": 0.20000000000000007,
+      "recall_at_5": 1.0,
+      "mrr": 0.8666666666666667,
+      "ndcg_at_5": 0.9015812676190554,
+      "mrr_at_5": 0.8666666666666667,
+      "hit_rate_at_1": 0.7333333333333333,
+      "hit_rate_at_3": 0.9999999999999998,
+      "hit_rate_at_5": 1.0
+    },
+    "Hybrid_RRF_CrossEncoder": {
+      "precision_at_1": 1.0,
+      "precision_at_3": 0.33333333333333326,
+      "precision_at_5": 0.20000000000000007,
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "mrr_at_5": 1.0,
+      "hit_rate_at_1": 1.0,
+      "hit_rate_at_3": 0.9999999999999998,
+      "hit_rate_at_5": 1.0
+    }
+  }
+}
