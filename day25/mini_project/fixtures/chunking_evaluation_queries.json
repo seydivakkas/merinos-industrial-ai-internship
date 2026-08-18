@@ -1,0 +1,92 @@
+[
+  {
+    "id": "Q01",
+    "query": "Van de Wiele çözgü levent fren hidrolik basıncı kaç bar olmalı?",
+    "target_doc_id": "SOP-001",
+    "target_fact": "levent fren hidrolik basıncını 4.2 bar seviyesine ayarlamalıdır"
+  },
+  {
+    "id": "Q02",
+    "query": "Tezgâh ana dişli kutusu ve rapier mekanizması için hangi sentetik dişli yağı kullanılır?",
+    "target_doc_id": "SOP-001",
+    "target_fact": "Klüber Isoflex NBU 15 veya Shell Omala S2 G 220"
+  },
+  {
+    "id": "Q03",
+    "query": "BCF polipropilen ekstrüder kafa ve düze sıcaklığı kaç derecedir?",
+    "target_doc_id": "SOP-002",
+    "target_fact": "5. Zon (Kafa ve Düze): 248°C ± 1°C"
+  },
+  {
+    "id": "Q04",
+    "query": "Superba buhar tüneli doymuş buhar sıcaklığı ve basıncı nedir?",
+    "target_doc_id": "SOP-002",
+    "target_fact": "Buhar tüneli basıncı 3.5 bar, doymuş buhar sıcaklığı 138°C olmalıdır"
+  },
+  {
+    "id": "Q05",
+    "query": "Verici ve alıcı rapier kıskaçlarının karşılaşma noktasındaki merkezleme toleransı nedir?",
+    "target_doc_id": "SOP-003",
+    "target_fact": "dikey ve yatay eksen kaçıklığı en fazla ±0.15 mm olmalıdır"
+  },
+  {
+    "id": "Q06",
+    "query": "Karbon rapier şeritlerinin yağlanmasında hangi sprey kullanılır?",
+    "target_doc_id": "SOP-003",
+    "target_fact": "PTFE teflon sprey kullanılmalıdır. Sıvı yağ kesinlikle kullanılmaz"
+  },
+  {
+    "id": "Q07",
+    "query": "Lazerli optik profilometrede kabul edilebilir halı hav yüksekliği toleransı kaç mm'dir?",
+    "target_doc_id": "SOP-004",
+    "target_fact": "Kabul edilebilir tolerans: ±0.5 mm"
+  },
+  {
+    "id": "Q08",
+    "query": "Halı üzerindeki yağ lekesi UV floresan lamba altında hangi solvent ile temizlenir?",
+    "target_doc_id": "SOP-004",
+    "target_fact": "perkloretilen veya trikloretilen solvent ile lokal emiş yapılarak temizlenir"
+  },
+  {
+    "id": "Q09",
+    "query": "Jakar solenoid valflerinin maksimum açma kapama süresi kaç milisaniyedir?",
+    "target_doc_id": "SOP-005",
+    "target_fact": "Solenoid valflerin açma-kapama süresi 8 milisaniyeyi aşmamalıdır"
+  },
+  {
+    "id": "Q10",
+    "query": "Uster Tensorapid testinde BCF iplik için minimum tenasite mukavemet kabul değeri nedir?",
+    "target_doc_id": "SOP-006",
+    "target_fact": "Tenasite (Mukavemet): Minimum 3.2 cN/dtex"
+  },
+  {
+    "id": "Q11",
+    "query": "Dokuma tarağının gövdeye sabitlenmesinde maksimum paralellik sapması nedir?",
+    "target_doc_id": "SOP-007",
+    "target_fact": "Tarak boyu boyunca paralellik sapması 0.08 mm'yi geçmemelidir"
+  },
+  {
+    "id": "Q12",
+    "query": "X-Rite spektrofotometre ile renk kontrolünde 1. kalite kabul Delta-E değeri nedir?",
+    "target_doc_id": "SOP-008",
+    "target_fact": "Delta-E CMC < 0.60 (Mükemmel eşleşme)"
+  },
+  {
+    "id": "Q13",
+    "query": "Dokuma salonu HVAC santralinde hedef bağıl nem ve sıcaklık değeri nedir?",
+    "target_doc_id": "SOP-009",
+    "target_fact": "Hedef Bağıl Nem: %65 ± %3 RH, Hedef Ortam Sıcaklığı: 24°C ± 2°C"
+  },
+  {
+    "id": "Q14",
+    "query": "Spiral tıraş bıçağı ile alt bıçak arasındaki kalınlık ayarı kaç mm olmalıdır?",
+    "target_doc_id": "SOP-010",
+    "target_fact": "sabit alt bıçak arasındaki boşluk kalınlık mastarı ile 0.03 mm olarak ayarlanır"
+  },
+  {
+    "id": "Q15",
+    "query": "Merkezi kompresör dairesinde basınçlı havanın çiy noktası ve dağıtım hat basıncı nedir?",
+    "target_doc_id": "SOP-011",
+    "target_fact": "Dağıtım Hattı Basıncı: 7.2 bar ± 0.2 bar, Basınçlı Çiy Noktası: -40°C"
+  }
+]

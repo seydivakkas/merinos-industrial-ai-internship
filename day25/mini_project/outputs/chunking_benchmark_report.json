@@ -1,0 +1,169 @@
+{
+  "strategies": {
+    "fixed_size": {
+      "strategy_name": "fixed_size",
+      "stats": {
+        "strategy": "fixed_size",
+        "total_chunks": 61,
+        "mean_char_length": 331.88524590163934,
+        "median_char_length": 350.0,
+        "min_char_length": 94,
+        "max_char_length": 350,
+        "std_char_length": 52.314339431798565,
+        "mean_token_count": 47.9344262295082,
+        "intra_chunk_coherence": 0.7576030606516296,
+        "breadcrumb_coverage_ratio": 0.0,
+        "redundancy_ratio": 1.2026970831105566
+      },
+      "retrieval": {
+        "precision_at_1": 0.7333333333333333,
+        "recall_at_5": 0.9333333333333333,
+        "mrr": 0.8222222222222223,
+        "ndcg_at_5": 0.44146721936761785,
+        "needle_hit_rate_at_1": 0.2,
+        "needle_hit_rate_at_5": 0.5333333333333333
+      },
+      "indexing_latency_ms": 5036.249199998565,
+      "query_latency_ms": 18.553399999897618
+    },
+    "recursive": {
+      "strategy_name": "recursive",
+      "stats": {
+        "strategy": "recursive",
+        "total_chunks": 63,
+        "mean_char_length": 273.14285714285717,
+        "median_char_length": 295.0,
+        "min_char_length": 90,
+        "max_char_length": 418,
+        "std_char_length": 71.52063907753451,
+        "mean_token_count": 39.3968253968254,
+        "intra_chunk_coherence": 0.784536517796417,
+        "breadcrumb_coverage_ratio": 0.0,
+        "redundancy_ratio": 1.02227766886473
+      },
+      "retrieval": {
+        "precision_at_1": 0.8,
+        "recall_at_5": 1.0,
+        "mrr": 0.8688888888888889,
+        "ndcg_at_5": 0.41622458493395353,
+        "needle_hit_rate_at_1": 0.3333333333333333,
+        "needle_hit_rate_at_5": 0.6
+      },
+      "indexing_latency_ms": 3906.824999998207,
+      "query_latency_ms": 22.880093333272573
+    },
+    "semantic": {
+      "strategy_name": "semantic",
+      "stats": {
+        "strategy": "semantic",
+        "total_chunks": 44,
+        "mean_char_length": 380.6136363636364,
+        "median_char_length": 415.0,
+        "min_char_length": 40,
+        "max_char_length": 597,
+        "std_char_length": 174.17300906505824,
+        "mean_token_count": 54.54545454545455,
+        "intra_chunk_coherence": 0.7800188175063917,
+        "breadcrumb_coverage_ratio": 0.0,
+        "redundancy_ratio": 0.9948909879403552
+      },
+      "retrieval": {
+        "precision_at_1": 0.5333333333333333,
+        "recall_at_5": 0.6666666666666666,
+        "mrr": 0.5888888888888889,
+        "ndcg_at_5": 0.3195915608521522,
+        "needle_hit_rate_at_1": 0.26666666666666666,
+        "needle_hit_rate_at_5": 0.4
+      },
+      "indexing_latency_ms": 861.9995999906678,
+      "query_latency_ms": 6.154760000451158
+    },
+    "markdown_aware": {
+      "strategy_name": "markdown_aware",
+      "stats": {
+        "strategy": "markdown_aware",
+        "total_chunks": 66,
+        "mean_char_length": 253.4090909090909,
+        "median_char_length": 261.5,
+        "min_char_length": 51,
+        "max_char_length": 448,
+        "std_char_length": 110.4529211752376,
+        "mean_token_count": 36.36363636363637,
+        "intra_chunk_coherence": 0.7935762153441708,
+        "breadcrumb_coverage_ratio": 1.0,
+        "redundancy_ratio": 0.9935840313669577
+      },
+      "retrieval": {
+        "precision_at_1": 0.6,
+        "recall_at_5": 0.7333333333333333,
+        "mrr": 0.6666666666666666,
+        "ndcg_at_5": 0.4373718813775535,
+        "needle_hit_rate_at_1": 0.26666666666666666,
+        "needle_hit_rate_at_5": 0.4666666666666667
+      },
+      "indexing_latency_ms": 1138.620899990201,
+      "query_latency_ms": 5.106573333614506
+    }
+  },
+  "total_documents": 12,
+  "total_queries": 15,
+  "best_retrieval_strategy": "fixed_size",
+  "best_coherence_strategy": "markdown_aware",
+  "config_summary": {
+    "dataset": {
+      "corpus_path": "mini_project/fixtures/merinos_sop_documents.json",
+      "queries_path": "mini_project/fixtures/chunking_evaluation_queries.json"
+    },
+    "strategies": {
+      "fixed_size": {
+        "chunk_size": 350,
+        "chunk_overlap": 70,
+        "separator": " "
+      },
+      "recursive": {
+        "chunk_size": 350,
+        "chunk_overlap": 70,
+        "separators": [
+          "\n\n",
+          "\n",
+          ". ",
+          " ",
+          ""
+        ]
+      },
+      "semantic": {
+        "model_name": "all-MiniLM-L6-v2",
+        "similarity_threshold_percentile": 85.0,
+        "min_chunk_size": 120,
+        "max_chunk_size": 600
+      },
+      "markdown_aware": {
+        "headers_to_split_on": [
+          [
+            "#",
+            "H1"
+          ],
+          [
+            "##",
+            "H2"
+          ],
+          [
+            "###",
+            "H3"
+          ]
+        ],
+        "max_chunk_size": 450,
+        "chunk_overlap": 50
+      }
+    },
+    "evaluation": {
+      "top_k": 5,
+      "coherence_sample_size": 100,
+      "dense_model_name": "all-MiniLM-L6-v2"
+    },
+    "outputs": {
+      "benchmark_report": "mini_project/outputs/chunking_benchmark_report.json",
+      "diagnostic_panel": "mini_project/outputs/chunking_diagnostic_panel.png"
+    }
+  }
+}

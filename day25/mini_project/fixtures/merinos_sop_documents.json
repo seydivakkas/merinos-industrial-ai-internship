@@ -1,0 +1,138 @@
+[
+  {
+    "doc_id": "SOP-001",
+    "title": "Van de Wiele RCE02 Jakarlı Halı Dokuma Tezgâhı Kapsamlı Bakım ve Çözgü Gerilim Protokolü",
+    "category": "DOKUMA_TEZGAHI_BAKIM",
+    "content": "# Van de Wiele RCE02 Jakarlı Halı Dokuma Tezgâhı Kapsamlı Bakım ve Çözgü Gerilim Protokolü\n\n## 1. Genel Bakış ve Amaç\nBu standart çalışma prosedürü, Gaziantep 4. OSB tesislerimizde çalışan Van de Wiele RCE02 jakarlı halı dokuma tezgâhlarının periyodik mekanik bakımını, çözgü gerilim kontrolünü ve plansız duruşların önlenmesini amaçlar. Tezgâhın yüksek devirde stabil çalışabilmesi için çözgü gerilimi 18 ile 24 cN aralığında tutulmalıdır.\n\n## 2. İş Güvenliği ve LOTO Standartları\nBakım işlemine başlamadan önce tezgâh ana panosu üzerinden LOTO (Lockout/Tagout) kilit prosedürü uygulanmalıdır. Hidrolik levent basıncı tamamen tahliye edilmeli ve ana motor şalteri kilitlenmelidir. Basınç göstergesi sıfırı göstermeden koruyucu kapaklar kesinlikle açılmamalıdır.\n\n## 3. Yağlama ve Tahrik Dişlisi Bakımı\nTezgâh ana dişli kutusu ve rapier tahrik mekanizması her 250 çalışma saatinde bir kontrol edilmelidir. Yağ seviyesi gösterge camının tam ortasında olmalıdır. Yağlama için Klüber Isoflex NBU 15 veya Shell Omala S2 G 220 endüstriyel sentetik dişli yağı kullanılmalıdır. Yağlama sırasında gres tabancası basıncı 2.5 barı geçmemeli ve tahliye kanallarının açık olduğu gözle doğrulanmalıdır.\n\n## 4. Çözgü Levent Freni ve Gerilim Kalibrasyonu\nÇözgü levent fren balatalarında meydana gelen aşınma, gerilim dalgalanmalarına yol açar. Operatör her vardiya başlangıcında yük hücresi (load-cell) sensörlerini kalibre etmelidir. Levent fren hidrolik basıncı 4.2 bar seviyesine ayarlanmalıdır. Gerilim 35 cN üzerine çıktığında tezgâh otomatik emniyet duruşu yapmalıdır.\n\n## 5. Periyodik Kontrol Tablosu\n| Kontrol Noktası | Periyot | Kabul Kriteri | Eylem |\n|---|---|---|---|\n| Yük Hücresi | 8 Saat | 18-24 cN | Yeniden Kalibre Et |\n| Dişli Kutusu Yağı | 250 Saat | ISO VG 220 Seviyesi | Yağ İlavesi Yap |\n| Fren Balatası | 500 Saat | Kalınlık > 4 mm | Aşınmışsa Değiştir |\n| Ana Rulmanlar | 1000 Saat | Titreşim < 2.8 mm/s | Rulman Revizyonu |",
+    "metadata": {
+      "author": "Mekanik Bakım Şefliği",
+      "plant": "Gaziantep 4. OSB",
+      "machine": "Van de Wiele RCE02",
+      "version": "3.2"
+    }
+  },
+  {
+    "doc_id": "SOP-002",
+    "title": "BCF Polipropilen İplik Ekstrüzyon ve Fiksaj Standart Operasyon Kılavuzu",
+    "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+    "content": "# BCF Polipropilen İplik Ekstrüzyon ve Fiksaj Standart Operasyon Kılavuzu\n\n## 1. Proses Tanımı\nMerinos iplik tesislerinde üretilen BCF (Bulked Continuous Filament) polipropilen iplikler, halı hav yüzeyinin temel yapı taşıdır. Ekstrüzyon hattında polimer granülleri eritilerek düze plakalarından lif halinde çekilir ve tekstüre edilerek bobinlenir.\n\n## 2. Ekstrüder Isıtma Zonları ve Sıcaklık Profili\nVidalı ekstrüder 5 bağımsız ısıtma zonundan oluşur. Polipropilen polimerinin homojen erimesi ve MFI (Melt Flow Index) kararlılığı için sıcaklık profili kademeli olmalıdır:\n- 1. Zon (Besleme): 190°C ± 3°C\n- 2. Zon (Sıkıştırma): 215°C ± 2°C\n- 3. Zon (Eritme): 235°C ± 2°C\n- 4. Zon (Ölçüm): 245°C ± 2°C\n- 5. Zon (Kafa ve Düze): 248°C ± 1°C\n\n## 3. Soğutma Bacası ve Çekim Silindirleri\nDüzeden çıkan sıcak filamentler soğutma bacasında 18°C sıcaklık ve 0.5 m/s laminer hava akımı ile katılaştırılır. Katılaşan iplikler godet silindirlerinde 1:3.2 çekim oranına tabi tutularak moleküler zincir yönlenmesi sağlanır. Çekim oranı tenasite değerini doğrudan belirler.\n\n## 4. Superba Buharlı Fiksaj Tüneli\nİpliğin kıvrım (crimp) kalıcılığını artırmak için Superba fiksaj tüneli kullanılır. Buhar tüneli basıncı 3.5 bar, doymuş buhar sıcaklığı 138°C olmalıdır. Yetersiz fiksaj sıcaklığı halı dokunduktan sonra hav dökülmesine ve erken keçeleşmeye yol açar.\n\n## 5. Laboratuvar Kalite Kabul Değerleri\nÜretilen iplik partilerinden alınan numuneler Uster Tensorapid cihazında test edilir:\n- Tenasite (Mukavemet): Minimum 3.2 cN/dtex\n- Kopma Uzaması: %35 ± %4\n- Büküm Katsayısı: 180 TPM ± 5 TPM\n- Dtex Sapması: ±%1.5 sınırları içinde kalmalıdır.",
+    "metadata": {
+      "author": "İplik Üretim Müdürlüğü",
+      "plant": "İplik İşletmesi 2",
+      "machine": "Neumag S+ BCF",
+      "version": "2.4"
+    }
+  },
+  {
+    "doc_id": "SOP-003",
+    "title": "Çift Rapiyerli Tezgâhlarda Atkı Atım Mekanizması ve Kıskaç Kalibrasyonu",
+    "category": "DOKUMA_TEZGAHI_BAKIM",
+    "content": "# Çift Rapiyerli Tezgâhlarda Atkı Atım Mekanizması ve Kıskaç Kalibrasyonu\n\n## 1. Atkı Atım Sistemi Çalışma Prensibi\nÇift rapiyerli sistemde verici rapiyer atkı ipliğini kumaş kenarından alır, kumaş ortasında alıcı rapiyere devreder. Bu devir anı milisaniyelik senkronizasyon ve mikrometrik hizalama gerektirir.\n\n## 2. Kıskaç Merkezleme ve Hizalama Toleransları\nVerici ve alıcı kıskaç uçlarının kumaş merkezindeki karşılaşma noktasında dikey ve yatay eksen kaçıklığı en fazla ±0.15 mm olmalıdır. 0.20 mm üzerindeki kaçıklıklar atkı ipliğinin düşmesine ve yarım atkı arızasına yol açar.\n\n## 3. Karbon Rapiyer Şeritlerinin Bakımı\nKarbon kompozit şeritler yüksek ivmelenme altında çalışır. Her 240 saatlik çalışma sonrasında:\n- Şerit üzerinde delaminasyon veya kılcal çatlak kontrolü yapılmalıdır.\n- Kılavuz raylarındaki aşınma kalınlık kumpası ile ölçülmeli, boşluk 0.4 mm'yi geçerse kızaklar yenilenmelidir.\n- Yağlama için kuru film oluşturan PTFE teflon sprey kullanılmalıdır. Sıvı yağ kesinlikle kullanılmaz, toz yapışmasına yol açar.\n\n## 4. Kıskaç Yay Tansiyonu Ölçümü\nKıskaç çenelerinin tutma kuvveti dijital dinamometre ile ölçülmelidir. Standart BCF iplik için tutma kuvveti 650 g ± 50 g olmalıdır. Yay yorulması durumunda kıskaç pabuçları takım halinde değiştirilmelidir.\n\n## 5. Yarım Atkı Arızası Hızlı Teşhis Adımları\n1. Tezgâhı durdurup kıskaç buluşma noktasını el volanı ile kontrol et.\n2. İplik tutucunun kenar kesme bıçağını incele; körleşmişse jilet değiştir.\n3. Rapiyer kılavuz dişlerinin aşınmasını denetle.\n4. İplik besleyici gerilimini 18 cN değerine yeniden kalibre et.",
+    "metadata": {
+      "author": "Dokuma Bakım Grubu",
+      "plant": "Gaziantep 4. OSB",
+      "machine": "Van de Wiele Carpet & Rug",
+      "version": "1.9"
+    }
+  },
+  {
+    "doc_id": "SOP-004",
+    "title": "Halı Dokuma Kalite Güvence ve Yüzey Kusurları Triyaj Yönergesi",
+    "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+    "content": "# Halı Dokuma Kalite Güvence ve Yüzey Kusurları Triyaj Yönergesi\n\n## 1. Kalite Kontrolün Kapsamı\nDokuma tezgâhından çıkan ham halı ruloları, terbiye ve konfeksiyon öncesinde 100 metrede bir optik tarama ve manuel görsel denetime tabi tutulur. Amaç 1. kalite ürün oranını %98.5 üzerinde tutmaktır.\n\n## 2. Optik Profilometre ile Hav Yüksekliği Kontrolü\nLazerli optik profilometre sensörleri halı yüzeyini enine tarar. Standart shaggy halıda nominal hav yüksekliği 30.0 mm, klasik jakarlı halıda 11.0 mm'dir:\n- Kabul edilebilir tolerans: ±0.5 mm\n- 0.8 mm üzerindeki sapmalar tıraş bıçağı hatası olarak sınıflandırılır.\n- Anlık sapma tespit edildiğinde spiral tıraş ünitesi durdurulup bıçak bileme açısı kontrol edilir.\n\n## 3. Abraj ve Çizgi Hataları Değerlendirmesi\nAtkı veya çözgü yönündeki renk tonu farklılıkları (abraj) halının ticari değerini doğrudan düşürür:\n- Işık kabininde D65 gün ışığı altında 45 derecelik açıyla incelenir.\n- Delta-E renk farkı değeri 0.8 altında ise 1. Kalite kabul edilir.\n- Delta-E 0.8 ile 1.5 arasında ise 2. Kalite (B-Grade) ayrılır.\n- Delta-E 1.5 üzeri ise parti bloke edilir ve iplik laboratuvarına gönderilir.\n\n## 4. Yağ Lekesi ve Kimyasal Solvent Temizliği\nDokuma sırasında tezgâhtan damlayan yağ lekeleri UV floresan lamba altında parlar:\n- Taze mineral yağ lekeleri perkloretilen veya trikloretilen solvent ile lokal emiş yapılarak temizlenir.\n- Sentetik gres lekelerinde ultrasonik leke tabancası kullanılır.\n- Leke çapı 15 mm'den büyükse leke çıkarma işlemi yapılmaz, kumaş iskarta ayrılır.\n\n## 5. Overlok ve Saçak Dikiş Mukavemeti\nKenar overlok dikişinde iplik gerginliği 45 cN ± 5 cN olmalıdır. Çekme testinde dikiş kopma kuvveti minimum 120 N değerini sağlamalıdır.",
+    "metadata": {
+      "author": "Kalite Güvence Direktörlüğü",
+      "plant": "Merinos Entegre Tesisleri",
+      "version": "4.1"
+    }
+  },
+  {
+    "doc_id": "SOP-005",
+    "title": "Jakar Elektronik Modülleri ve Solenoid Valf Bakım Rehberi",
+    "category": "DESEN_VE_JAKAR_YONETIMI",
+    "content": "# Jakar Elektronik Modülleri ve Solenoid Valf Bakım Rehberi\n\n## 1. Elektronik Jakar Sistem Mimarisi\nMerinos jakarlı dokuma tezgâhlarında Staubli ve Bonas elektronik jakar başlıkları kullanılır. Jakar başlığı binlerce platin telini solenoid valfler aracılığıyla milisaniyeler içinde kaldırıp indirerek deseni oluşturur.\n\n## 2. Solenoid Valf Arızaları ve Desen Kayması\nSolenoid valflerin açma-kapama süresi 8 milisaniyeyi aşmamalıdır. Valf gövdesine mikro lif tozu kaçması platin telinin takılı kalmasına (sürekli açık veya sürekli kapalı) neden olur. Bu durum halı üzerinde dikey çizgi halinde desen hatası üretir.\n\n## 3. Periyodik Temizlik ve Solvent Yıkama\nHer 500 saatte bir jakar valf blokları yerinden sökülmeden basınçlı kuru hava ile temizlenir:\n- Yıllık ana revizyonda valf kartları ultrasonik izopropil alkol banyosunda yıkanır.\n- Yıkama sonrası 60°C fırında 4 saat kurutulur.\n- İzolasyon direnci megger cihazıyla test edilir; direnç > 50 Megaohm olmalıdır.\n\n## 4. Platin Yayları ve Gücü İpleri Kontrolü\nPlatin yaylarının elastikiyet modülü her 2 yılda bir test edilir. Kopan veya gerginliğini kaybeden gücü ipleri derhal yenilenmelidir. Gücü iplerinin sürtünme katsayısını düşürmek için antistatik silikon sprey uygulanır.\n\n## 5. İletişim Hatları ve Optik Veri Güvenliği\nDesen kontrol bilgisayarı ile jakar başlığı arasındaki fiber optik veri kablosu bükülme yarıçapı 50 mm altında olmamalıdır. Optik sinyal zayıflaması 2.0 dB/km üzerine çıkarsa veri iletiminde desen atlaması görülür.",
+    "metadata": {
+      "author": "Otomasyon ve Elektronik Bakım",
+      "plant": "Gaziantep 4. OSB",
+      "machine": "Staubli SX Jacquard",
+      "version": "2.0"
+    }
+  },
+  {
+    "doc_id": "SOP-006",
+    "title": "İplik Büküm ve Mukavemet Laboratuvar Test Prosedürü",
+    "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+    "content": "# İplik Büküm ve Mukavemet Laboratuvar Test Prosedürü\n\n## 1. Test Standartları ve Akreditasyon\nLaboratuvarımız ISO 17025 standardına akreditedir. Halı ipliği kalite testleri TS EN ISO 2062 ve ASTM D2256 standartlarına uygun olarak yürütülür. Test odası koşulları 20°C ± 2°C sıcaklık ve %65 ± %4 bağıl nemde sabit tutulmalıdır.\n\n## 2. Numune Alma ve Kondisyonlama\nHer üretim partisinden (lot) rastgele 10 adet bobin seçilir. Bobinler test öncesinde standart laboratuvar atmosferinde en az 24 saat kondisyonlanmalıdır. Kondisyonlanmamış ipliklerde nem sapması mukavemet değerini yanıltır.\n\n## 3. Uster Tensorapid Mukavemet Ölçümü\nOtomatik çekme cihazında 500 mm test uzunluğu ve 5000 mm/dk çekme hızı kullanılır:\n- Her bobinden 20 test olmak üzere toplam 200 koparma testi yapılır.\n- Ortalama kopma mukavemeti (cN) ve tenasite (cN/dtex) kaydedilir.\n- Mukavemet varyasyon katsayısı (CVm) %6.0 altında kalmalıdır.\n\n## 4. Zweigle G566 Tüylülük ve Serbest Lif Testi\nİplik yüzeyindeki serbest lif uçları optoelektronik sensörlerle sayılır:\n- H değeri (Tüylülük indeksi) BCF iplik için 2.8 - 3.4 bandında olmalıdır.\n- 3 mm üzeri uzun lif sayısı 100 metrede 50 adedi aşarsa dokumada boncuklanma (pilling) riski doğar.\n\n## 5. Büküm Sayısı (TPM) Belirleme\nZweigle dijital büküm ölçer ile büküm açma-kapama yöntemi uygulanır:\n- 50 cm numune üzerinde büküm yönü (Z veya S) ve metredeki büküm sayısı (TPM) ölçülür.\n- Hedef TPM: 180 ± 6 TPM. Tolerans dışı bobinler partiden ayrılır.",
+    "metadata": {
+      "author": "Akredite Laboratuvar Sorumlusu",
+      "plant": "Merinos Merkez Lab",
+      "version": "3.5"
+    }
+  },
+  {
+    "doc_id": "SOP-007",
+    "title": "Dokuma Tarak ve Ağızlık Mekanizması Hassas Ayar Yönergesi",
+    "category": "DOKUMA_TEZGAHI_BAKIM",
+    "content": "# Dokuma Tarak ve Ağızlık Mekanizması Hassas Ayar Yönergesi\n\n## 1. Tarak Mekanizmasının Rolü\nDokuma tarağı, atılan atkı ipliğini kumaş çizgisine sıkıştırarak halının çözgü sıklığını ve ilme yoğunluğunu belirler. Tarak dişlerinin kusursuz paralelliği pürüzsüz halı yüzeyi için şarttır.\n\n## 2. Tarak Paralellik ve Düzgünsüzlük Ayarı\nTarak tezgâh gövdesine sabitlenirken mikrometre komparatör ile taranır:\n- Tarak boyu boyunca paralellik sapması 0.08 mm'yi geçmemelidir.\n- Eğilmiş veya çapaklanmış tarak dişleri ultrasonik temizleme sonrası mikroskop altında incelenir.\n- Diş aralıklarındaki pas veya reçine birikintileri 600 kum zımpara ve solvent ile temizlenmelidir.\n\n## 3. Armür Çerçeve Strok ve Zamanlama Ayarları\nAğızlık açılma zamanlaması ana mil açısına göre derece cinsinden ayarlanır:\n- Üst çerçeve açık konumu: 120° krank mili açısı\n- Kapanma ve çaprazlama: 300° krank mili açısı\n- Çerçeve kılavuz pabuçlarının aşınma boşluğu 0.25 mm altında tutulmalıdır.\n\n## 4. Çift Atkı ve Çözgü Kopması Önleme\nTarak dişleri arasına lif yığılması çözgü ipliklerinin aşınarak kopmasına yol açar. Her vardiya değişiminde emişli süpürge ile tarak kökü temizlenmelidir.",
+    "metadata": {
+      "author": "Mekanik Bakım Şefliği",
+      "plant": "Gaziantep 4. OSB",
+      "version": "1.5"
+    }
+  },
+  {
+    "doc_id": "SOP-008",
+    "title": "İplik Boyama ve Fikse Hatlarında Renk Tutarlılığı Protokolü",
+    "category": "IPLIK_LABORATUVAR_STANDARTLARI",
+    "content": "# İplik Boyama ve Fikse Hatlarında Renk Tutarlılığı Protokolü\n\n## 1. Boyama Prosesi ve Parti Yönetimi\nPolipropilen iplikler eriyikten (dope-dyed) boyanırken, poliamid ve yün iplikler bobin veya çile halinde kontinü boyama hatlarında renklendirilir. Renk tutarlılığı halıda desen netliğini doğrudan belirler.\n\n## 2. Masterbatch Dozajlama ve Ekstrüzyon Karışımı\nDope-dyed boyamada granül masterbatch gravimetrik besleyicilerle ekstrüdere iletilir:\n- Dozajlama hassasiyeti: ±%0.05 toleransında olmalıdır.\n- Dozaj vidalarının aşınması renk dalgalanmasına (ton farkı) yol açar.\n- Her 1000 kg üretimde bir gravimetrik kalibrasyon dara kontrolü yapılır.\n\n## 3. Spektrofotometre ile Renk Kontrolü ve Delta-E Kriteri\nÜretilen iplik çileleri X-Rite Datacolor spektrofotometre cihazında taranır:\n- CIELAB renk uzayında L*, a*, b* koordinatları standart master renk kartı ile kıyaslanır.\n- Kabul kriteri: Delta-E CMC < 0.60 (Mükemmel eşleşme).\n- 0.60 ile 1.00 arası: Şef onayı ile sınırlı kullanım.\n- Delta-E > 1.00: Parti ret ve boyahane revizyonu.\n\n## 4. Sürekli Fikse ve Yıkama Hattı Sıcaklık Kontrolü\nFikse banyosu sıcaklığı 98°C ± 1°C, pH değeri 4.5 - 5.0 aralığında tutulmalıdır.",
+    "metadata": {
+      "author": "Boyahane ve Kimya Mühendisliği",
+      "plant": "Merinos Boyahane Tesisi",
+      "version": "2.8"
+    }
+  },
+  {
+    "doc_id": "SOP-009",
+    "title": "Dokuma Salonu İklimlendirme ve Bağıl Nem Yönetimi",
+    "category": "DOKUMA_TEZGAHI_BAKIM",
+    "content": "# Dokuma Salonu İklimlendirme ve Bağıl Nem Yönetimi\n\n## 1. İklimlendirmenin Dokuma Verimine Etkisi\nSentetik polipropilen ve polyester iplikler düşük bağıl nemde yüksek statik elektrik üretir. Statik elektrik ipliklerin birbirine dolanmasına, gücü gözlerinde takılmasına ve tezgâh veriminin %15 düşmesine sebep olur.\n\n## 2. Sıcaklık ve Nem Hedef Parametreleri\nDokuma salonu iklimlendirme santrali (HVAC) 24 saat kesintisiz çalışır:\n- Hedef Bağıl Nem: %65 ± %3 RH\n- Hedef Ortam Sıcaklığı: 24°C ± 2°C\n- Hava Değişim Katsayısı: Saatte minimum 18 defa salon havası filtrelenir.\n\n## 3. Yüksek Basınçlı Nemlendirme Nozullarının Bakımı\nNemlendirme suyu ters osmoz (RO) ünitesinden geçirilerek kireçten arındırılır:\n- Nozulların püskürtme basıncı 70 bar seviyesinde tutulmalıdır.\n- Kireçlenen nozullar ultrasonik sitrik asit banyosunda her ay temizlenir.\n- Damlama yapan nozullar hemen yenilenmelidir; halı üzerine su damlaması leke kusuruna yol açar.\n\n## 4. Statik Elektrik Ölçümü ve İyonizer Barlar\nTezgâh çözgü girişlerinde elektrostatik alan şiddeti ölçülür. Statik yük 3.0 kV üzerine çıktığında antistatik iyonizer barların voltajı kontrol edilmelidir.",
+    "metadata": {
+      "author": "Tesis ve Enerji Müdürlüğü",
+      "plant": "Gaziantep 4. OSB",
+      "version": "1.7"
+    }
+  },
+  {
+    "doc_id": "SOP-010",
+    "title": "Halı Kesim, Tıraşlama ve Kenar Overlok Operasyon Standardı",
+    "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+    "content": "# Halı Kesim, Tıraşlama ve Kenar Overlok Operasyon Standardı\n\n## 1. Terbiye ve Konfeksiyon Hattı Akışı\nDokunan halılar arka kaplama (lateks tutkallama ve jüt laminasyon) sonrasında tıraşlama makinesine gelir. Tıraşlama yüzeydeki düzensiz lif boylarını eşitleyerek homojen hav görünümü sağlar.\n\n## 2. Spiral Tıraş Bıçaklarının Bilenmesi ve Ayarı\nTıraş makinesinde dönen spiral bıçak ile sabit alt bıçak arasındaki boşluk kalınlık mastarı ile 0.03 mm olarak ayarlanır:\n- Bıçak tamburu her 40 saatlik kesimden sonra elmas taşlı otomatik bileme döngüsüne alınır.\n- Kör bıçak lifleri kesmek yerine kopararak yüzeyde tüylenme ve matlaşmaya neden olur.\n\n## 3. Otomatik En Kesim ve Boy Kesim Toleransları\nHalı ebatlama ünitesinde CNC optik sensörler kullanılır:\n- Standart halılarda (örneğin 200x290 cm) boyutsal tolerans maksimum ±%0.5'tir.\n- Çapraz gönyeden sapma 5 mm'yi aşamaz.\n\n## 4. Kenar Overlok Dikiş Standartları\nHalı kenarlarına 3 iplikli ağır hizmet tipi Titan overlok dikişi çekilir:\n- Adım sıklığı: 10 cm'de 28 - 32 dikiş adımı.\n- Overlok ipliği mukavemeti en az 4.5 cN/dtex olmalıdır.\n- Köşe dönüşlerinde dikiş sıklığı iki katına çıkarılarak lif atması engellenir.",
+    "metadata": {
+      "author": "Konfeksiyon ve Terbiye Şefliği",
+      "plant": "Merinos Entegre Tesisleri",
+      "version": "3.1"
+    }
+  },
+  {
+    "doc_id": "SOP-011",
+    "title": "Basınçlı Hava ve Pnömatik Sistemler Periyodik Bakım Kılavuzu",
+    "category": "DOKUMA_TEZGAHI_BAKIM",
+    "content": "# Basınçlı Hava ve Pnömatik Sistemler Periyodik Bakım Kılavuzu\n\n## 1. Pnömatik Sistemin Önemi\nDokuma tezgâhlarındaki rapiyer frenleri, atkı iplik yakalayıcıları, jakar temizlik üfleyicileri ve otomatik levent yükleme kolları basınçlı hava ile çalışır. Havanın kuru, yağsız ve kararlı basınçta olması zorunludur.\n\n## 2. Vidalı Kompresörler ve Kurutucu Çalışma Parametreleri\nMerinos merkezi kompresör dairesinde yağ enjeksiyonlu vidalı kompresörler ve kimyasal desikant kurutucular görev yapar:\n- Dağıtım Hattı Basıncı: 7.2 bar ± 0.2 bar\n- Basınçlı Çiy Noktası (Pressure Dew Point): -40°C\n- Havadaki artık yağ miktarı ISO 8573-1 Class 1 standardında (<0.01 mg/m³) tutulmalıdır.\n\n## 3. Hat Filtreleri ve Otomatik Su Tahliyeleri\nHer dokuma tezgâhının girişinde FRL (Filtre-Regülatör-Yağlayıcı) ünitesi bulunur:\n- 5 mikronluk partikül filtresi her 3 ayda bir değiştirilmelidir.\n- Otomatik su tahliye şamandıraları her hafta test edilir; tıkanma durumunda pnömatik valflere su yürür ve solenoid bobinleri yakar.\n\n## 4. Ultrasonik Hava Kaçağı Taraması\nYıllık periyotta dokuma salonundaki tüm pnömatik rekor ve hortumlar ultrasonik dedektör ile taranır. 1 mm'lik kaçak deliği yıllık yaklaşık 1.200 kWh enerji israfına yol açar.",
+    "metadata": {
+      "author": "Tesis Bakım Müdürlüğü",
+      "plant": "Gaziantep 4. OSB",
+      "version": "2.2"
+    }
+  },
+  {
+    "doc_id": "SOP-012",
+    "title": "Üretim Hattı Güvenlik ve Acil Durum Müdahale Protokolü",
+    "category": "KALITE_GUVENCE_VE_HATA_TRIAJ",
+    "content": "# Üretim Hattı Güvenlik ve Acil Durum Müdahale Protokolü\n\n## 1. Amaç ve Kapsam\nBu protokol, Merinos Gaziantep halı üretim tesislerinde çalışan tüm operatör ve teknik personelin iş sağlığı ve güvenliğini güvence altına almayı, endüstriyel kaza ve yangın risklerini sıfıra indirmeyi hedefler.\n\n## 2. Acil Stop Butonları ve Emniyet Işık Perdeleri\nHer dokuma tezgâhında en az 4 adet acil stop butonu ve operatör müdahale alanında optik emniyet ışık perdesi bulunur:\n- Işık perdesinin tepki süresi maksimum 20 milisaniyedir.\n- Işık demeti kesildiğinde rapiyer ve armür tahriki anında manyetik disk freniyle durdurulmalıdır.\n- Günlük vardiya başında ışık perdesi fonksiyon testi test çubuğuyla yapılmalıdır.\n\n## 3. LOTO (Kilitleme/Etiketleme) Zorunluluğu\nMekanik veya elektriksel herhangi bir müdahalede 'Bir Kişi Bir Kilit' kuralı geçerlidir. Başkasına ait kilit kesinlikle sökülemez veya şifresi paylaşılamaz.\n\n## 4. Kimyasal Solvent Dökülmelerine Müdahale\nLeke temizleme solventleri (perkloretilen vb.) döküldüğünde derhal acil havalandırma çalıştırılır. Solvent emici granül dökülerek alan çevrelenir ve A2 tipi gaz filtreli maske ile müdahale edilir.",
+    "metadata": {
+      "author": "İş Sağlığı ve Güvenliği Kurulu",
+      "plant": "Merinos Tüm Tesisler",
+      "version": "5.0"
+    }
+  }
+]

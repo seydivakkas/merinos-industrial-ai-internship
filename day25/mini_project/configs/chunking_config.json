@@ -1,0 +1,42 @@
+{
+  "dataset": {
+    "corpus_path": "mini_project/fixtures/merinos_sop_documents.json",
+    "queries_path": "mini_project/fixtures/chunking_evaluation_queries.json"
+  },
+  "strategies": {
+    "fixed_size": {
+      "chunk_size": 350,
+      "chunk_overlap": 70,
+      "separator": " "
+    },
+    "recursive": {
+      "chunk_size": 350,
+      "chunk_overlap": 70,
+      "separators": ["\n\n", "\n", ". ", " ", ""]
+    },
+    "semantic": {
+      "model_name": "all-MiniLM-L6-v2",
+      "similarity_threshold_percentile": 85.0,
+      "min_chunk_size": 120,
+      "max_chunk_size": 600
+    },
+    "markdown_aware": {
+      "headers_to_split_on": [
+        ["#", "H1"],
+        ["##", "H2"],
+        ["###", "H3"]
+      ],
+      "max_chunk_size": 450,
+      "chunk_overlap": 50
+    }
+  },
+  "evaluation": {
+    "top_k": 5,
+    "coherence_sample_size": 100,
+    "dense_model_name": "all-MiniLM-L6-v2"
+  },
+  "outputs": {
+    "benchmark_report": "mini_project/outputs/chunking_benchmark_report.json",
+    "diagnostic_panel": "mini_project/outputs/chunking_diagnostic_panel.png"
+  }
+}
