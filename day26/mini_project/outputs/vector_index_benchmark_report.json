@@ -1,0 +1,120 @@
+{
+  "indices": {
+    "exact_flat": {
+      "index_type": "exact_flat",
+      "total_vectors": 66,
+      "dimension": 384,
+      "indexing_time_ms": 0.9931000095093623,
+      "query_latency_ms": 0.061486668225067355,
+      "qps": 16263.688192366753,
+      "memory_bytes": 101376,
+      "memory_kb": 99.0,
+      "recall_at_5": 1.0,
+      "precision_at_1": 1.0,
+      "ndcg_at_5": 1.0,
+      "filtered_recall_at_5": 1.0
+    },
+    "ivf": {
+      "index_type": "ivf",
+      "total_vectors": 66,
+      "dimension": 384,
+      "indexing_time_ms": 1740.5287000001408,
+      "query_latency_ms": 0.06451333562533061,
+      "qps": 15500.671145073431,
+      "memory_bytes": 114192,
+      "memory_kb": 111.515625,
+      "recall_at_5": 0.8533333333333334,
+      "precision_at_1": 1.0,
+      "ndcg_at_5": 0.9802104619832572,
+      "filtered_recall_at_5": 0.6666666666666666
+    },
+    "hnsw": {
+      "index_type": "hnsw",
+      "total_vectors": 66,
+      "dimension": 384,
+      "indexing_time_ms": 108.06039998715278,
+      "query_latency_ms": 0.2106533337306852,
+      "qps": 4747.135885722435,
+      "memory_bytes": 118288,
+      "memory_kb": 115.515625,
+      "recall_at_5": 1.0,
+      "precision_at_1": 1.0,
+      "ndcg_at_5": 1.0,
+      "filtered_recall_at_5": 0.7466666666666667
+    },
+    "quantized_hnsw": {
+      "index_type": "quantized_hnsw",
+      "total_vectors": 66,
+      "dimension": 384,
+      "indexing_time_ms": 56.93339998833835,
+      "query_latency_ms": 0.23647999914828688,
+      "qps": 4228.687430656413,
+      "memory_bytes": 42744,
+      "memory_kb": 41.7421875,
+      "recall_at_5": 1.0,
+      "precision_at_1": 1.0,
+      "ndcg_at_5": 1.0,
+      "filtered_recall_at_5": 0.7466666666666667
+    }
+  },
+  "total_vectors": 66,
+  "dimension": 384,
+  "total_queries": 15,
+  "best_qps_index": "ivf",
+  "best_recall_index": "hnsw",
+  "most_memory_efficient_index": "quantized_hnsw",
+  "config_summary": {
+    "dataset": {
+      "corpus_path": "mini_project/fixtures/merinos_vector_corpus.json",
+      "queries_path": "mini_project/fixtures/filtered_benchmark_queries.json"
+    },
+    "vector_dimension": 384,
+    "distance_metric": "cosine",
+    "indices": {
+      "flat": {
+        "type": "exact_flat"
+      },
+      "ivf": {
+        "type": "inverted_file",
+        "nlist": 8,
+        "nprobe": 3
+      },
+      "hnsw": {
+        "type": "hnsw_graph",
+        "m": 16,
+        "ef_construct": 64,
+        "ef_search": 32
+      },
+      "quantized_hnsw": {
+        "type": "quantized_hnsw",
+        "m": 16,
+        "ef_construct": 64,
+        "ef_search": 32,
+        "quantization": "int8"
+      }
+    },
+    "qdrant": {
+      "collection_name": "merinos_maintenance_vectors",
+      "hnsw_config": {
+        "m": 16,
+        "ef_construct": 64,
+        "full_scan_threshold": 1000
+      },
+      "quantization": {
+        "scalar": {
+          "type": "int8",
+          "quantile": 0.99,
+          "always_ram": true
+        }
+      }
+    },
+    "evaluation": {
+      "top_k": 5,
+      "runs_per_query": 3
+    },
+    "outputs": {
+      "benchmark_report": "mini_project/outputs/vector_index_benchmark_report.json",
+      "diagnostic_panel": "mini_project/outputs/vector_index_diagnostic_panel.png"
+    }
+  }
+}

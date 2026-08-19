@@ -1,0 +1,54 @@
+{
+  "dataset": {
+    "corpus_path": "mini_project/fixtures/merinos_vector_corpus.json",
+    "queries_path": "mini_project/fixtures/filtered_benchmark_queries.json"
+  },
+  "vector_dimension": 384,
+  "distance_metric": "cosine",
+  "indices": {
+    "flat": {
+      "type": "exact_flat"
+    },
+    "ivf": {
+      "type": "inverted_file",
+      "nlist": 8,
+      "nprobe": 3
+    },
+    "hnsw": {
+      "type": "hnsw_graph",
+      "m": 16,
+      "ef_construct": 64,
+      "ef_search": 32
+    },
+    "quantized_hnsw": {
+      "type": "quantized_hnsw",
+      "m": 16,
+      "ef_construct": 64,
+      "ef_search": 32,
+      "quantization": "int8"
+    }
+  },
+  "qdrant": {
+    "collection_name": "merinos_maintenance_vectors",
+    "hnsw_config": {
+      "m": 16,
+      "ef_construct": 64,
+      "full_scan_threshold": 1000
+    },
+    "quantization": {
+      "scalar": {
+        "type": "int8",
+        "quantile": 0.99,
+        "always_ram": true
+      }
+    }
+  },
+  "evaluation": {
+    "top_k": 5,
+    "runs_per_query": 3
+  },
+  "outputs": {
+    "benchmark_report": "mini_project/outputs/vector_index_benchmark_report.json",
+    "diagnostic_panel": "mini_project/outputs/vector_index_diagnostic_panel.png"
+  }
+}
