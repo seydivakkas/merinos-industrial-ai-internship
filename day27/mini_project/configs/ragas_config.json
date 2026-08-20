@@ -1,0 +1,51 @@
+{
+  "project_name": "Merinos RAG Retrieval Evaluation Framework",
+  "version": "1.0.0",
+  "evaluation_engine": {
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "use_gpu": false,
+    "batch_size": 16,
+    "fallback_to_token_similarity": true
+  },
+  "metric_thresholds": {
+    "faithfulness_min": 0.75,
+    "context_precision_min": 0.70,
+    "context_recall_min": 0.70,
+    "answer_relevance_min": 0.70,
+    "ragas_composite_min": 0.72
+  },
+  "metric_weights": {
+    "faithfulness": 0.30,
+    "context_precision": 0.25,
+    "context_recall": 0.25,
+    "answer_relevance": 0.20
+  },
+  "similarity_parameters": {
+    "claim_entailment_threshold": 0.62,
+    "ground_truth_recall_threshold": 0.60,
+    "question_relevance_threshold": 0.55,
+    "n_gram_overlap_threshold": 0.40
+  },
+  "claim_extraction": {
+    "min_claim_words": 3,
+    "split_delimiters": [".", "\n", ";", "!", "?"],
+    "strip_conjunctions": true
+  },
+  "pipelines_to_compare": [
+    {
+      "id": "pipeline_a",
+      "name": "Vanilla BM25 RAG",
+      "description": "Temel anahtar kelime eşleşmeli seyrek getirme ve basit dil modeli cevabı"
+    },
+    {
+      "id": "pipeline_b",
+      "name": "Dense Vector RAG",
+      "description": "Bi-Encoder yoğun vektör benzerliği tabanlı getirme ve standart cevap üretimi"
+    },
+    {
+      "id": "pipeline_c",
+      "name": "Hybrid RRF + Reranked RAG",
+      "description": "BM25 + Qdrant HNSW füzyonu (RRF), Cross-Encoder re-ranking ve ön-filtreli bağlam zenginleştirme"
+    }
+  ]
+}

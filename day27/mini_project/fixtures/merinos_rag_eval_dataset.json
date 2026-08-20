@@ -1,0 +1,502 @@
+[
+  {
+    "question_id": "Q01",
+    "department": "dokuma_salonu_1",
+    "machine": "vdw_rce02",
+    "question": "Van de Wiele RCE02 halı dokuma tezgâhında rapier şeridi merkezleme toleransı nedir ve atkı kopuşunda ilk kontrol adımı nedir?",
+    "ground_truth": "Van de Wiele RCE02 tezgâhında sol ve sağ rapier şeritleri merkezleme kaçıklığı maksimum ±0.08 mm tolerans aralığında olmalıdır. Tekrarlayan atkı kopuşlarında ilk kontrol adımı atkı ipliği fren gerginliğinin kontrol edilmesidir.",
+    "contexts_pipeline_a": [
+      "Genel halı dokuma tezgâhlarında hava basıncı 6 bar seviyesinde tutulmalıdır.",
+      "Tekrarlayan atkı kopuşlarında ilk kontrol adımı atkı ipliği fren gerginliğinin kontrol edilmesidir.",
+      "Tarak dişleri temizliği vardiya başında basınçlı hava ile yapılmalıdır."
+    ],
+    "answer_pipeline_a": "Rapier şeridi merkezleme toleransı genellikle ±0.20 mm civarındadır ve atkı koptuğunda tarak dişleri temizlenmelidir.",
+    "contexts_pipeline_b": [
+      "Van de Wiele RCE02 tezgâhında rapier şeritleri merkezleme kaçıklığı maksimum ±0.08 mm tolerans aralığında olmalıdır.",
+      "Atkı besleme mekanizmasında gerginlik sensörleri periyodik olarak kalibre edilir.",
+      "Dokuma salonu ortam nemi %65 RH olmalıdır."
+    ],
+    "answer_pipeline_b": "Van de Wiele RCE02 tezgâhında rapier merkezleme toleransı ±0.08 mm olmalıdır. Atkı kopuşunda gerginlik sensörleri kontrol edilir.",
+    "contexts_pipeline_c": [
+      "Van de Wiele RCE02 halı dokuma tezgâhında sol ve sağ rapier şeritleri merkezleme kaçıklığı maksimum ±0.08 mm tolerans aralığında olmalıdır. Aşırı sürtünmede teflon kılavuz değiştirilir.",
+      "Tekrarlayan atkı kopuşlarında ilk kontrol adımı atkı ipliği fren gerginliğinin kontrol edilmesidir. Standart gerginlik 18-22 cN aralığında kalmalıdır.",
+      "Rapier tahrik dişli kutusu yağı Mobilgear 600 XP 220 olup 2000 saatte bir yenilenir."
+    ],
+    "answer_pipeline_c": "Van de Wiele RCE02 tezgâhında sol ve sağ rapier şeritleri merkezleme kaçıklığı maksimum ±0.08 mm olmalıdır. Tekrarlayan atkı kopuşlarında ilk kontrol adımı ise atkı ipliği fren gerginliğinin kontrol edilmesidir."
+  },
+  {
+    "question_id": "Q02",
+    "department": "dokuma_salonu_1",
+    "machine": "vdw_rce02",
+    "question": "RCE02 dokuma tezgâhında çözgü levent fren pnomatik basınç çalışma aralığı kaç bar olmalıdır?",
+    "ground_truth": "Van de Wiele RCE02 tezgâhında çözgü levent fren pnömatik basıncı 4.2 bar ile 4.8 bar aralığında stabil tutulmalıdır.",
+    "contexts_pipeline_a": [
+      "Fabrika ana kompresör çıkış basıncı 7.5 bar olarak ayarlanır.",
+      "Pnömatik filtreler her hafta tahliye edilmelidir.",
+      "Dokuma leventleri forklift ile taşınırken emniyet mandalı kilitlenir."
+    ],
+    "answer_pipeline_a": "Levent fren basıncı kompresör çıkışına bağlı olarak 7.5 bar seviyesinde olmalıdır.",
+    "contexts_pipeline_b": [
+      "Çözgü levent freni pnomatik regülatörü 4.2 - 4.8 bar aralığına set edilir. Basınç 4.0 bar altına düşerse tezgâh otomatik durur.",
+      "Çözgü kopuş sensörleri optik lameller ile çalışır.",
+      "Levent motor sürücüsü hata kodları ekranda görüntülenir."
+    ],
+    "answer_pipeline_b": "Çözgü levent fren basıncı 4.2 ile 4.8 bar aralığında olmalıdır.",
+    "contexts_pipeline_c": [
+      "Van de Wiele RCE02 tezgâhında çözgü levent fren pnömatik basıncı 4.2 bar ile 4.8 bar aralığında stabil tutulmalıdır. Eşik değer 4.0 bar altıdır.",
+      "Levent fren balatası aşınma limiti minimum 2.5 mm olup her 500 saatte kontrol edilir.",
+      "Basınç düşümü durumunda elektrovalf bobini kontrol edilmelidir."
+    ],
+    "answer_pipeline_c": "Van de Wiele RCE02 tezgâhında çözgü levent fren pnömatik çalışma basıncı 4.2 bar ile 4.8 bar aralığında stabil tutulmalıdır."
+  },
+  {
+    "question_id": "Q03",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "question": "Schönherr Alpha 500 tezgâhında armür şedding açılma yüksekliği kaç mm olmalı ve şedding zamanlaması krank mili kaç derecesindedir?",
+    "ground_truth": "Schönherr Alpha 500 tezgâhında armür şedding açılma yüksekliği 145 mm (±2 mm) olmalı ve şedding kapanma zamanlaması ana krank mili 310 derece pozisyonunda gerçekleşmelidir.",
+    "contexts_pipeline_a": [
+      "Alpha 500 jakar modülü elektronik servo motor ile tahrik edilir.",
+      "Dokuma tezgahı genel çalışma hızı 180 rpm civarındadır.",
+      "Şedding ayarı dokuma kalitesini doğrudan etkiler."
+    ],
+    "answer_pipeline_a": "Şedding açılma yüksekliği 180 mm civarındadır ve zamanlama 180 derecede gerçekleşir.",
+    "contexts_pipeline_b": [
+      "Schönherr Alpha 500 armür şedding açılma mesafesi 145 mm tolerans ±2 mm olarak ayarlanır.",
+      "Ana krank mili açısı dokuma senkronizasyonu için kritik parametredir.",
+      "Gres yağlama pompası her 4 saatte bir 15 saniye devreye girer."
+    ],
+    "answer_pipeline_b": "Alpha 500 tezgâhında armür şedding açılma yüksekliği 145 mm (±2 mm) olmalıdır.",
+    "contexts_pipeline_c": [
+      "Schönherr Alpha 500 tezgâhında armür şedding açılma yüksekliği 145 mm (±2 mm) olmalıdır.",
+      "Şedding kapanma zamanlaması ana krank mili 310 derece pozisyonunda gerçekleşmelidir. Hatalı ayar rapier çarpışmasına yol açar.",
+      "Çerçeve kılavuz pabuçları sentetik gres ile haftalık yağlanır."
+    ],
+    "answer_pipeline_c": "Schönherr Alpha 500 tezgâhında armür şedding açılma yüksekliği 145 mm (±2 mm) olmalı, şedding kapanma zamanlaması ise ana krank mili 310 derece pozisyonunda gerçekleşmelidir."
+  },
+  {
+    "question_id": "Q04",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "question": "Alpha 500 dokuma tezgâhında jakar kartuşu soğutma fanı arızasında izin verilen maksimum sıcaklık eşiği nedir?",
+    "ground_truth": "Schönherr Alpha 500 elektronik jakar kabininde izin verilen maksimum sıcaklık eşiği 45°C'dir. Bu değer aşıldığında sistem termal koruma moduna geçerek alarm üretir.",
+    "contexts_pipeline_a": [
+      "Elektronik panoların toz filtreleri haftalık basınçlı hava ile temizlenir.",
+      "Tezgâh pano kliması 24°C set değerinde çalıştırılmalıdır.",
+      "Jakar kancaları aşınma kontrolü yılda bir yapılır."
+    ],
+    "answer_pipeline_a": "Maksimum sıcaklık pano kliması ayarı olan 24°C olmalıdır, aşılırsa fan değişir.",
+    "contexts_pipeline_b": [
+      "Jakar kabini dahili sıcaklığı 45°C üzerine çıkmamalıdır. Yüksek sıcaklık mikrodenetleyici modüllerine zarar verir.",
+      "Soğutma fanları devir kontrolü PWM sinyali ile takip edilir.",
+      "UPS güç kaynağı aküleri 2 yılda bir test edilir."
+    ],
+    "answer_pipeline_b": "Jakar kabininde izin verilen maksimum sıcaklık 45°C'dir.",
+    "contexts_pipeline_c": [
+      "Schönherr Alpha 500 elektronik jakar kabininde izin verilen maksimum sıcaklık eşiği 45°C'dir.",
+      "Sıcaklık 45°C eşiğini aştığında sistem termal koruma moduna geçerek acil duruş alarmı üretir.",
+      "Soğutma fanı arızasında fan motoru Rittal SK 3239 modeli ile yenilenmelidir."
+    ],
+    "answer_pipeline_c": "Schönherr Alpha 500 jakar kabininde izin verilen maksimum sıcaklık eşiği 45°C'dir. Bu eşik aşıldığında sistem termal koruma moduna geçerek alarm üretir."
+  },
+  {
+    "question_id": "Q05",
+    "department": "iplik_bcf",
+    "machine": "rieter_bcf",
+    "question": "Rieter BCF iplik çekim hattında polipropilen (PP) ekstrüder kovan sıcaklık profili kaç bölgeden oluşur ve besleme boğazı sıcaklığı kaç °C olmalıdır?",
+    "ground_truth": "Rieter BCF polipropilen ekstrüder kovanı 5 ısıtma bölgesinden oluşur ve besleme boğazı sıcaklığı granül erken erimesini önlemek için 180°C (±5°C) olarak ayarlanmalıdır.",
+    "contexts_pipeline_a": [
+      "Polipropilen hammadde MFI değeri 25-35 g/10min olmalıdır.",
+      "BCF iplik büküm tezgâhında iğ devri 6500 rpm'dir.",
+      "Besleme boğazında soğutma suyu debisi 10 L/dk olmalıdır."
+    ],
+    "answer_pipeline_a": "Ekstrüder sıcaklığı 240°C olmalı ve hammadde erimesi için 10 bölge kullanılır.",
+    "contexts_pipeline_b": [
+      "Rieter BCF ekstrüder kovanı 5 sıcaklık zonuna ayrılmıştır.",
+      "Besleme boğazı (Zone 1) sıcaklığı 180°C olmalı, erken erime engellenmelidir.",
+      "Eriyik pompası çıkış basıncı 120 bar seviyesinde tutulur."
+    ],
+    "answer_pipeline_b": "Rieter BCF ekstrüderi 5 bölgeden oluşur ve besleme boğazı sıcaklığı 180°C olmalıdır.",
+    "contexts_pipeline_c": [
+      "Rieter BCF polipropilen ekstrüder kovanı 5 ısıtma bölgesinden oluşur.",
+      "Besleme boğazı (Zone 1) sıcaklığı granül erken erimesini önlemek için 180°C (±5°C) olarak ayarlanmalıdır.",
+      "Kalıp çıkış memesi (Spinneret) sıcaklığı ise 245°C'de sabit tutulur."
+    ],
+    "answer_pipeline_c": "Rieter BCF PP ekstrüder kovanı 5 ısıtma bölgesinden oluşur ve besleme boğazı sıcaklığı erken erimeyi önlemek için 180°C (±5°C) olmalıdır."
+  },
+  {
+    "question_id": "Q06",
+    "department": "iplik_bcf",
+    "machine": "rieter_bcf",
+    "question": "BCF tekstüre ünitesinde tekstüre jeti hava basıncı kaç bar olmalı ve hava sıcaklığı ne kadar ayarlanmalıdır?",
+    "ground_truth": "Rieter BCF tekstüre ünitesinde tekstüre jeti proses hava basıncı 5.8 bar ile 6.2 bar arasında olmalı, proses hava sıcaklığı ise 195°C'de sabitlenmelidir.",
+    "contexts_pipeline_a": [
+      "Basınçlı hava hattı çiğlenme noktası -40°C olmalıdır.",
+      "İplik çekim silindirleri godet sıcaklıkları kademeli artırılır.",
+      "Sürtünme diskleri seramik kaplamalıdır."
+    ],
+    "answer_pipeline_a": "Hava basıncı -40°C olmalı ve jet sıcaklığı 100°C seviyesine getirilmelidir.",
+    "contexts_pipeline_b": [
+      "Tekstüre jeti hava basıncı 5.8 - 6.2 bar arasında tutulmalıdır.",
+      "Proses hava sıcaklığı rezistansları 195°C sıcaklık üretir.",
+      "Hacimlendirme odası nozulları 24 saatte bir ultrasonik temizlenir."
+    ],
+    "answer_pipeline_b": "Tekstüre jeti basıncı 5.8 - 6.2 bar aralığında, sıcaklık ise 195°C olmalıdır.",
+    "contexts_pipeline_c": [
+      "Rieter BCF tekstüre ünitesinde proses hava basıncı 5.8 bar ile 6.2 bar arasında olmalıdır.",
+      "Proses hava sıcaklığı 195°C'de sabitlenmelidir; ±2°C sapma iplik kıvrım (crimp) stabilitesini bozar.",
+      "Jet nozulu aşınma çapı optik mikroskop ile kontrol edilir."
+    ],
+    "answer_pipeline_c": "Rieter BCF tekstüre ünitesinde tekstüre jeti proses hava basıncı 5.8 - 6.2 bar arasında, proses hava sıcaklığı ise 195°C'de ayarlanmalıdır."
+  },
+  {
+    "question_id": "Q07",
+    "department": "iplik_bcf",
+    "machine": "barmag_extruder",
+    "question": "Barmag ekstrüder eriyik filtresi basınç farkı (delta P) kaç barı geçtiğinde filtre elemanı değişimi zorunludur?",
+    "ground_truth": "Barmag ekstrüder eriyik filtresinde giriş-çıkış diferansiyel basıncı (Delta P) 65 bar değerini aştığında filtre elemanı derhal temizlenmeli veya yenisiyle değiştirilmelidir.",
+    "contexts_pipeline_a": [
+      "Eriyik pompası devri 45 rpm olarak ayarlanır.",
+      "Paket filtre tork sıkma değeri 180 Nm'dir.",
+      "Polimer hattı sızıntı kontrolleri her şarjda yapılır."
+    ],
+    "answer_pipeline_a": "Delta P farkı 180 barı aştığında filtre temizlenir ve devir 45 rpm'e düşürülür.",
+    "contexts_pipeline_b": [
+      "Barmag ekstrüder eriyik filtresi delta P limit değeri 65 bardır. Bu değer aşılırsa pompa aşırı yük alarmı verir.",
+      "Filtre değişimi otomatik hidrolik sürgü ile hattan ayrılmadan yapılabilir.",
+      "Eriyik sıcaklığı 240 derecedir."
+    ],
+    "answer_pipeline_b": "Eriyik filtresi basınç farkı (delta P) 65 barı aştığında filtre değişimi zorunludur.",
+    "contexts_pipeline_c": [
+      "Barmag ekstrüder eriyik filtresinde giriş-çıkış diferansiyel basıncı (Delta P) 65 bar değerini aştığında filtre elemanı derhal temizlenmeli veya yenisiyle değiştirilmelidir.",
+      "65 bar üzerindeki çalışmalarda polimer zincir kırılması (degradasyon) riski oluşur.",
+      "Filtre hidrolik piston conta kiti yılda bir değiştirilir."
+    ],
+    "answer_pipeline_c": "Barmag ekstrüder eriyik filtresinde diferansiyel basınç farkı (Delta P) 65 barı aştığında filtre elemanı değişimi zorunludur."
+  },
+  {
+    "question_id": "Q08",
+    "department": "boyahane",
+    "machine": "boyahane_jet",
+    "question": "Poliamid (PA6) halı ipliği bobin boyama prosesinde boya banyosu pH değeri hangi aralıkta tutulmalı ve hangi asit ile ayarlanmalıdır?",
+    "ground_truth": "Poliamid (PA6) halı ipliği bobin boyama prosesinde boya banyosu pH değeri 4.5 ile 5.0 aralığında tutulmalı ve pH tamponlama işlemi formik asit veya asetik asit kullanılarak gerçekleştirilmelidir.",
+    "contexts_pipeline_a": [
+      "Polyester boyamada dispers boyar maddeler 130°C'de fikse edilir.",
+      "Yumuşatıcı kimyasallar son durulama banyosunda ilave edilir.",
+      "Boya kazanı kapağı emniyet kilidi basınç varken açılamaz."
+    ],
+    "answer_pipeline_a": "pH değeri 7.0 nötr olmalıdır ve sülfürik asit ile ayarlanarak 130°C'ye ısıtılır.",
+    "contexts_pipeline_b": [
+      "PA6 boyama banyosu pH değeri 4.5 - 5.0 aralığında olmalıdır.",
+      "Banyo pH ayarında teknik asetik asit veya formik asit kullanılır.",
+      "Boyama süresi 98°C'de 45 dakikadır."
+    ],
+    "answer_pipeline_b": "PA6 iplik boyama banyosunda pH 4.5 - 5.0 aralığında tutulmalı ve asetik asit veya formik asit ile ayarlanmalıdır.",
+    "contexts_pipeline_c": [
+      "Poliamid (PA6) halı ipliği bobin boyama prosesinde boya banyosu pH değeri 4.5 ile 5.0 aralığında tutulmalıdır.",
+      "pH tamponlama işlemi formik asit veya asetik asit kullanılarak gerçekleştirilmelidir; ani pH düşüşleri abrajlı boyamaya neden olur.",
+      "Sirkülasyon pompası debisi diferansiyel basınç 0.8 bar olacak şekilde frekans konvertöründen ayarlanır."
+    ],
+    "answer_pipeline_c": "Poliamid (PA6) bobin boyama prosesinde boya banyosu pH değeri 4.5 ile 5.0 aralığında tutulmalı ve formik asit veya asetik asit ile ayarlanmalıdır."
+  },
+  {
+    "question_id": "Q09",
+    "department": "boyahane",
+    "machine": "fiksaj_hatti",
+    "question": "Süperba fiksaj hattında halı ipliği termofiksaj buhar kazanı sıcaklığı kaç °C ve buharlama süresi kaç saniye olmalıdır?",
+    "ground_truth": "Süperba termofiksaj hattında doymuş buhar kazanı proses sıcaklığı 130°C (±1.5°C) olmalı ve ipliğin buhar tünelindeki kalış süresi 60 saniye olarak uygulanmalıdır.",
+    "contexts_pipeline_a": [
+      "Kazan emniyet ventili 4 bar basınca ayarlanır.",
+      "Kurutma fırını sirkülasyon fanları 1200 rpm devirde döner.",
+      "Bobin aktarma ünitesi gerginlik sensörü haftalık sıfırlanır."
+    ],
+    "answer_pipeline_a": "Buhar kazanı sıcaklığı 200°C olmalı ve iplik 10 dakika buhar tünelinde bekletilmelidir.",
+    "contexts_pipeline_b": [
+      "Süperba fiksaj buhar tüneli sıcaklığı 130°C seviyesinde doymuş buhar ile çalışır.",
+      "İplik bant hızı buharlama süresini 60 saniye yapacak şekilde ayarlanır.",
+      "Kondens tahliye kapanları her vardiyada kontrol edilir."
+    ],
+    "answer_pipeline_b": "Süperba fiksaj hattında buhar sıcaklığı 130°C ve buharlama süresi 60 saniye olmalıdır.",
+    "contexts_pipeline_c": [
+      "Süperba termofiksaj hattında doymuş buhar kazanı proses sıcaklığı 130°C (±1.5°C) olmalıdır.",
+      "İpliğin buhar tünelindeki kalış süresi 60 saniye olarak uygulanmalıdır; yetersiz fiksaj tüy dökülmesine yol açar.",
+      "Buhar giriş vanası oransal pnömatik aktüatör ile hassas kontrol edilir."
+    ],
+    "answer_pipeline_c": "Süperba fiksaj hattında buhar kazanı proses sıcaklığı 130°C (±1.5°C) ve buharlama süresi 60 saniye olmalıdır."
+  },
+  {
+    "question_id": "Q10",
+    "department": "mekanik_bakim",
+    "machine": "vdw_rce02",
+    "question": "Van de Wiele RCE02 rapier dişli kutusu periyodik yağlama yağı tipi nedir ve yağ değişim periyodu kaç saatte birdir?",
+    "ground_truth": "Van de Wiele RCE02 ana rapier tahrik dişli kutusunda Mobilgear 600 XP 220 sanayi dişli yağı kullanılmalı ve ilk yağ değişimi 500 saatte, sonraki periyodik değişimler ise her 2000 çalışma saatinde bir yapılmalıdır.",
+    "contexts_pipeline_a": [
+      "Genel makine temizliğinde solvent bazlı kimyasal kullanımı yasaktır.",
+      "Rulman greslemelerinde Shell Gadus S2 V220 gres kullanılır.",
+      "Atık yağlar çevre mevzuatına uygun varillerde toplanır."
+    ],
+    "answer_pipeline_a": "Dişli kutusunda Shell Gadus gres kullanılmalı ve her hafta yenilenmelidir.",
+    "contexts_pipeline_b": [
+      "RCE02 rapier dişli kutusu Mobilgear 600 XP 220 yağı ile doldurulur.",
+      "Yağ değişim periyodu 2000 çalışma saatidir.",
+      "Manyetik yağ tahliye tapası metal talaşı yönünden incelenir."
+    ],
+    "answer_pipeline_b": "Mobilgear 600 XP 220 yağı kullanılır ve her 2000 çalışma saatinde bir değiştirilir.",
+    "contexts_pipeline_c": [
+      "Van de Wiele RCE02 ana rapier tahrik dişli kutusunda Mobilgear 600 XP 220 sanayi dişli yağı kullanılmalıdır.",
+      "İlk yağ değişimi 500 saatte, sonraki periyodik değişimler ise her 2000 çalışma saatinde bir yapılmalıdır.",
+      "Karter yağ seviyesi cam gözetleme penceresinin orta çizgisinde olmalıdır."
+    ],
+    "answer_pipeline_c": "Van de Wiele RCE02 ana rapier tahrik dişli kutusunda Mobilgear 600 XP 220 sanayi dişli yağı kullanılır. İlk değişim 500 saatte, periyodik değişimler ise her 2000 saatte bir yapılır."
+  },
+  {
+    "question_id": "Q11",
+    "department": "mekanik_bakim",
+    "machine": "schonherr_alpha500",
+    "question": "Alpha 500 ana tahrik motoru titreşim kontrolünde izin verilen maksimum RMS titreşim hızı sınırı kaç mm/s'dir?",
+    "ground_truth": "Schönherr Alpha 500 ana tahrik motoru ve redüktör rulman yataklarında ISO 10816-3 standardına göre izin verilen maksimum RMS titreşim hızı 2.8 mm/s'dir. 4.5 mm/s üzerinde tezgâh acil bakıma alınmalıdır.",
+    "contexts_pipeline_a": [
+      "Motor kayış gerginliği frekans metre ile ölçülür.",
+      "Elektrik panosu topraklama direnci 2 Ohm altında olmalıdır.",
+      "Rulman montajı indüksiyon ısıtıcı ile 110°C'de yapılır."
+    ],
+    "answer_pipeline_a": "İzin verilen titreşim sınırı 110 mm/s olup kayış gerginliği frekans metreyle sıfırlanmalıdır.",
+    "contexts_pipeline_b": [
+      "Alpha 500 motor rulman yataklarında maksimum RMS titreşim hızı 2.8 mm/s olarak belirlenmiştir.",
+      "Titreşim ölçümü piezoelektrik ivmeölçer sensör ile yapılır.",
+      "4.5 mm/s eşiği alarm seviyesidir."
+    ],
+    "answer_pipeline_b": "Maksimum RMS titreşim hızı sınırı 2.8 mm/s'dir.",
+    "contexts_pipeline_c": [
+      "Schönherr Alpha 500 ana tahrik motoru rulman yataklarında izin verilen maksimum RMS titreşim hızı 2.8 mm/s'dir.",
+      "ISO 10816-3 standardı uyarınca 4.5 mm/s üzerinde tezgâh acil durdurularak rulman değişimi yapılmalıdır.",
+      "Spektrum analizinde 1X dönme frekansı balanssızlığı, harmonikler ise mekanik boşluğu işaret eder."
+    ],
+    "answer_pipeline_c": "Schönherr Alpha 500 ana tahrik motorunda izin verilen maksimum RMS titreşim hızı sınırı 2.8 mm/s'dir. 4.5 mm/s üzerinde acil bakım gerekir."
+  },
+  {
+    "question_id": "Q12",
+    "department": "kalite_kontrol",
+    "machine": "dokuma_salonu_1",
+    "question": "Metrekaresinde 1.200.000 nokta olan akrilik Merinos halısında hav yüksekliği ölçüm toleransı ve standart hav ağırlığı sapma limiti nedir?",
+    "ground_truth": "1.200.000 noktalı Merinos akrilik halılarda standart hav yüksekliği toleransı ±0.5 mm, metrekare hav ipliği ağırlığı sapma limiti ise maksimum ±%3.0 olmalıdır.",
+    "contexts_pipeline_a": [
+      "Halı eni kenar kesim ünitesinde 400 cm net olarak kesilir.",
+      "Arka kaplama lateks miktarı 850 g/m² olarak uygulanır.",
+      "Işık haslığı testi Xenon ark lambası ile ISO 105-B02'ye göre yapılır."
+    ],
+    "answer_pipeline_a": "Hav yüksekliği toleransı 400 mm ve lateks ağırlığı 850 g sapma limitidir.",
+    "contexts_pipeline_b": [
+      "1.200.000 noktalı Merinos halılarda hav yüksekliği toleransı ±0.5 mm'dir.",
+      "Metrekare hav ağırlığı sapması en fazla ±%3.0 sınırında tutulmalıdır.",
+      "Kalite kontrol masasında 1000 lüks aydınlatma altında görsel kontrol yapılır."
+    ],
+    "answer_pipeline_b": "Hav yüksekliği toleransı ±0.5 mm, hav ağırlığı sapma limiti ise ±%3.0 olmalıdır.",
+    "contexts_pipeline_c": [
+      "1.200.000 noktalı Merinos akrilik halılarda standart hav yüksekliği toleransı ±0.5 mm olarak belirlenmiştir.",
+      "Metrekare hav ipliği ağırlığı sapma limiti ise maksimum ±%3.0 olmalıdır; bu limitin aşılması hammadde israfına yol açar.",
+      "Hav yüksekliği dijital kalınlık mikrometresi ile 10 farklı noktadan ölçülerek ortalaması alınır."
+    ],
+    "answer_pipeline_c": "1.200.000 noktalı Merinos akrilik halılarda hav yüksekliği toleransı ±0.5 mm, metrekare hav ipliği ağırlığı sapma limiti ise maksimum ±%3.0'tür."
+  },
+  {
+    "question_id": "Q13",
+    "department": "kalite_kontrol",
+    "machine": "rieter_bcf",
+    "question": "Merinos iplik kalite laboratuvarında BCF polipropilen ipliği için Uster mukavemet (Tenacity) ve kopma uzaması (% Elongation) standart limitleri nedir?",
+    "ground_truth": "BCF polipropilen halı ipliğinde Uster test cihazı ölçümlerine göre minimum mukavemet (Tenacity) 3.2 cN/dtex, kopma uzaması ise %65 ile %75 aralığında olmalıdır.",
+    "contexts_pipeline_a": [
+      "İplik numuneleri standart atmosfer koşullarında (20°C, %65 RH) 24 saat kondisyonlanır.",
+      "BCF iplik puntalama sıklığı metrede 28-32 nokta olmalıdır.",
+      "Dtex numaralandırma kontrolü 100 metre çile tartımı ile yapılır."
+    ],
+    "answer_pipeline_a": "İplik mukavemeti 24 saat olmalı ve uzama 28-32 metre arasında kalmalıdır.",
+    "contexts_pipeline_b": [
+      "BCF PP ipliği kopma mukavemeti minimum 3.2 cN/dtex değerini sağlamalıdır.",
+      "Kopma uzaması tolerans bandı %65 - %75 aralığındadır.",
+      "Uster Tensorapid çekme hızı 5000 mm/dk olarak ayarlanır."
+    ],
+    "answer_pipeline_b": "Minimum mukavemet 3.2 cN/dtex ve kopma uzaması %65 - %75 aralığında olmalıdır.",
+    "contexts_pipeline_c": [
+      "BCF polipropilen halı ipliğinde minimum mukavemet (Tenacity) 3.2 cN/dtex olmalıdır.",
+      "Kopma uzaması değeri %65 ile %75 aralığında kalmalıdır; %65 altı dokumada çözgü kopuşunu artırır.",
+      "Testler Uster Tensorapid 5 cihazında 20 tekrarlı olarak yürütülür."
+    ],
+    "answer_pipeline_c": "BCF PP halı ipliğinde minimum mukavemet 3.2 cN/dtex, kopma uzaması ise %65 ile %75 aralığında olmalıdır."
+  },
+  {
+    "question_id": "Q14",
+    "department": "dokuma_salonu_1",
+    "machine": "neuenhauser_winder",
+    "question": "Neuenhauser otomatik halı sarma makinesinde sarım tansiyonu pnömatik basıncı kaç bar olmalıdır?",
+    "ground_truth": "Neuenhauser otomatik halı sarma ve dokuma çıkış sarıcı ünitesinde pnömatik tansiyon silindiri çalışma basıncı 2.5 bar ile 3.0 bar arasında ayarlanmalıdır.",
+    "contexts_pipeline_a": [
+      "Halı rulo çapı maksimum 120 cm'ye ulaştığında kesim bıçağı tetiklenir.",
+      "Rulo bağlama ünitesinde polietilen gerdirme filmi kullanılır.",
+      "Acil durdurma emniyet teli sarım silindiri boyunca uzanır."
+    ],
+    "answer_pipeline_a": "Sarım basıncı 120 bar olmalıdır ve bıçak kesimi elle yapılmalıdır.",
+    "contexts_pipeline_b": [
+      "Neuenhauser sarıcıda tansiyon kontrolü pnömatik silindir ile 2.5 - 3.0 bar arasında sağlanır.",
+      "Fazla basınç halı tabanında ezilmeye ve kat izine yol açar.",
+      "Sarım motoru tork kontrol modunda çalışır."
+    ],
+    "answer_pipeline_b": "Sarım tansiyonu basıncı 2.5 ile 3.0 bar aralığında ayarlanmalıdır.",
+    "contexts_pipeline_c": [
+      "Neuenhauser otomatik halı sarma ünitesinde pnömatik tansiyon silindiri çalışma basıncı 2.5 bar ile 3.0 bar arasında ayarlanmalıdır.",
+      "2.5 bar altındaki basınçta gevşek rulo oluşurken, 3.0 bar üzerinde hav ezilmesi ve kalıcı iz meydana gelir.",
+      "Oransal basınç valfi analog 0-10V sinyali ile sürücüdür."
+    ],
+    "answer_pipeline_c": "Neuenhauser otomatik halı sarma makinesinde sarım tansiyonu pnömatik basıncı 2.5 bar ile 3.0 bar arasında ayarlanmalıdır."
+  },
+  {
+    "question_id": "Q15",
+    "department": "dokuma_salonu_2",
+    "machine": "schonherr_alpha500",
+    "question": "Schönherr Alpha 500 tezgâhında jakar kancası modülü elektrovalf direnci kaç Ohm olmalıdır?",
+    "ground_truth": "Schönherr Alpha 500 elektronik jakar modüllerinde kullanılan elektrovalf selenoid bobin direnci 20°C ortamda 14.2 Ohm (±0.5 Ohm) olmalıdır.",
+    "contexts_pipeline_a": [
+      "Jakar kancaları karbon fiber kompozit malzemeden üretilmiştir.",
+      "Kablo kanalları ekranlı korumalı olup parazit önleyicidir.",
+      "Elektronik kart besleme gerilimi 24V DC regüleli kaynaktan gelir."
+    ],
+    "answer_pipeline_a": "Direnç değeri 24 Ohm DC regüleli olarak ayarlanmalıdır.",
+    "contexts_pipeline_b": [
+      "Jakar elektrovalf bobin direnci 14.2 Ohm (±0.5 Ohm) sınırlarında ölçülmelidir.",
+      "Direnç 12 Ohm altına düşerse kısa devre akımı sürücü transistörünü yakar.",
+      "Testler dijital multimetre ile 20°C'de yapılır."
+    ],
+    "answer_pipeline_b": "Jakar elektrovalf direnci 14.2 Ohm (±0.5 Ohm) olmalıdır.",
+    "contexts_pipeline_c": [
+      "Schönherr Alpha 500 elektronik jakar modüllerinde elektrovalf selenoid bobin direnci 20°C'de 14.2 Ohm (±0.5 Ohm) olmalıdır.",
+      "Direnç 13.5 Ohm altı veya 15.0 Ohm üstü tespit edilen kancalar arızalı kabul edilerek modül kartı değişir.",
+      "Ölçüm jakar kablo soketi sökülerek doğrudan pinler üzerinden gerçekleştirilir."
+    ],
+    "answer_pipeline_c": "Schönherr Alpha 500 elektronik jakar modüllerinde elektrovalf selenoid bobin direnci 20°C ortamda 14.2 Ohm (±0.5 Ohm) olmalıdır."
+  },
+  {
+    "question_id": "Q16",
+    "department": "iplik_bcf",
+    "machine": "barmag_extruder",
+    "question": "Barmag BCF ekstrüderinde eriyik basınç transmiteri kalibrasyonu kaç bar test basıncında ve hangi sıcaklıkta sıfırlanmalıdır?",
+    "ground_truth": "Barmag ekstrüder Dynisco eriyik basınç transmiteri kalibrasyonu kovan proses sıcaklığı olan 240°C'de ve sıfır polimer basıncı altında (0 bar) offset sıfırlaması ile yapılmalıdır.",
+    "contexts_pipeline_a": [
+      "Basınç transmiteri kablosu yüksek sıcaklığa dayanıklı silikonludur.",
+      "Vida tahrik motoru redüktör oranı 1:18'dir.",
+      "Vida soğutma yağı ısı eşanjöründen geçirilir."
+    ],
+    "answer_pipeline_a": "Kalibrasyon 1:18 oranında ve oda sıcaklığında 50 bar basınca karşı test edilir.",
+    "contexts_pipeline_b": [
+      "Eriyik basınç transmiteri kalibrasyonu proses sıcaklığında (240°C) yapılmalıdır.",
+      "Sıfır basınçta (0 bar) kalibrasyon butonu ile auto-zero uygulanır.",
+      "Maksimum skala 350 bar olarak tanımlanmıştır."
+    ],
+    "answer_pipeline_b": "Basınç transmiteri kalibrasyonu 240°C sıcaklıkta ve 0 bar basınçta yapılmalıdır.",
+    "contexts_pipeline_c": [
+      "Barmag ekstrüder eriyik basınç transmiteri kalibrasyonu kovan proses sıcaklığı olan 240°C'de gerçekleştirilmelidir.",
+      "Kalibrasyon işlemi hatta polimer akışı durdurulup kovan içi sıfır basınç (0 bar) altındayken transmiter offset değeri sıfırlanarak tamamlanır.",
+      "Soğuk kovan üzerinde yapılan kalibrasyon diyafram hasarına neden olur."
+    ],
+    "answer_pipeline_c": "Barmag ekstrüder eriyik basınç transmiteri kalibrasyonu kovan proses sıcaklığı olan 240°C'de ve sıfır polimer basıncı altında (0 bar) yapılmalıdır."
+  },
+  {
+    "question_id": "Q17",
+    "department": "mekanik_bakim",
+    "machine": "vdw_rce02",
+    "question": "RCE02 dokuma tezgâhı rapier kılavuz teflon raylarının aşınma kontrolünde izin verilen maksimum ray kalınlık kaybı kaç mm'dir?",
+    "ground_truth": "Van de Wiele RCE02 rapier kılavuz teflon raylarında izin verilen maksimum aşınma kalınlık kaybı 0.40 mm'dir. Bu limit aşıldığında rapier şeridinde dalgalanma başlar ve raylar yenilenmelidir.",
+    "contexts_pipeline_a": [
+      "Teflon raylar vidalı bağlantılarla kılavuz tablasına sabitlenir.",
+      "Dokuma salonu zemin temizliği günlük mikrofiber paspas ile yapılır.",
+      "Rapier başlığı tırnak boşluğu sentil çakısı ile ayarlanır."
+    ],
+    "answer_pipeline_a": "Aşınma kalınlık kaybı mikrofiber paspas ile silinir ve sentil çakısı 2.0 mm olmalıdır.",
+    "contexts_pipeline_b": [
+      "Rapier kılavuz teflon rayları aşınma limiti 0.40 mm olarak tanımlanmıştır.",
+      "0.40 mm üzerinde aşınma rapierin şedding içine hatalı girmesine yol açar.",
+      "Rayların montaj torku 8 Nm'dir."
+    ],
+    "answer_pipeline_b": "Teflon raylarda izin verilen maksimum aşınma kalınlık kaybı 0.40 mm'dir.",
+    "contexts_pipeline_c": [
+      "Van de Wiele RCE02 rapier kılavuz teflon raylarında izin verilen maksimum aşınma kalınlık kaybı 0.40 mm'dir.",
+      "0.40 mm aşınma sınırını aşan raylar derhal yenilenmelidir; aksi takdirde rapier şeridi dalgalanarak çözgü ipliklerini keser.",
+      "Ölçüm kumpas ile rayın en çok sürtünen orta bölgesinden yapılır."
+    ],
+    "answer_pipeline_c": "Van de Wiele RCE02 tezgâhında rapier kılavuz teflon raylarında izin verilen maksimum aşınma kalınlık kaybı 0.40 mm'dir."
+  },
+  {
+    "question_id": "Q18",
+    "department": "boyahane",
+    "machine": "boyahane_jet",
+    "question": "Halı ipliği boyama jetinde durulama aşamasında banyo sıcaklığı kaç °C'ye düşürülmeli ve durulama suyu pH değeri ne olmalıdır?",
+    "ground_truth": "Boya jeti prosesinde ana boyama sonrası durulama aşamasında banyo sıcaklığı 60°C'ye düşürülmeli ve durulama suyu nötralizasyon sonrası pH 6.5 ile 7.0 aralığına getirilmelidir.",
+    "contexts_pipeline_a": [
+      "Kazan basınç boşaltma vanası 80°C altında manuel açılabilir.",
+      "Boya dozaj tankı mikseri 150 rpm hızında karıştırır.",
+      "Yıkama suyu atık arıtma tesisine deşarj edilir."
+    ],
+    "answer_pipeline_a": "Durulama sıcaklığı 80°C ve pH değeri mikser hızına bağlı olarak 150 olmalıdır.",
+    "contexts_pipeline_b": [
+      "Durulama banyosu sıcaklığı 60°C olmalıdır.",
+      "Durulama suyu pH değeri nötr seviye olan 6.5 - 7.0 aralığında tutulur.",
+      "Son durulamada anti-statik kimyasal ilavesi yapılır."
+    ],
+    "answer_pipeline_b": "Banyo sıcaklığı 60°C'ye düşürülmeli ve durulama suyu pH değeri 6.5 - 7.0 olmalıdır.",
+    "contexts_pipeline_c": [
+      "Boya jeti prosesinde ana boyama sonrası durulama aşamasında banyo sıcaklığı 60°C'ye düşürülmelidir.",
+      "Durulama suyu nötralizasyon sonrası pH 6.5 ile 7.0 aralığına getirilmelidir; yüksek pH lif elastikiyetini azaltır.",
+      "Sıcaklık düşüş hızı termal şoku engellemek için dakikada 2.0°C olmalıdır."
+    ],
+    "answer_pipeline_c": "Halı ipliği boyama jetinde durulama aşamasında banyo sıcaklığı 60°C'ye düşürülmeli ve durulama suyu pH değeri 6.5 ile 7.0 aralığında olmalıdır."
+  },
+  {
+    "question_id": "Q19",
+    "department": "kalite_kontrol",
+    "machine": "dokuma_salonu_2",
+    "question": "Halı dokuma son kontrol masasında atkı sıklığı ve çözgü sıklığı sapma toleransı yüzde kaç olarak belirlenmiştir?",
+    "ground_truth": "Merinos halı dokuma son kalite kontrol standartlarına göre 10 cm uzunluktaki atkı sıklığı ve çözgü sıklığı sapma toleransı maksimum ±%1.5 sınırında olmalıdır.",
+    "contexts_pipeline_a": [
+      "Halı kenar overlok dikiş adımı cm başına 4 vuruştur.",
+      "Etiket yapıştırma konumu halının sağ alt köşesidir.",
+      "Halı rulo ambalajı çift kat naylon ile sarılır."
+    ],
+    "answer_pipeline_a": "Sıklık sapma toleransı cm başına 4 vuruş ve çift kat tolerans uygulanır.",
+    "contexts_pipeline_b": [
+      "Atkı ve çözgü sıklığı sapma toleransı en fazla ±%1.5 olmalıdır.",
+      "Sıklık ölçümü optik büyüteçli sıklık sayacı ile 3 farklı bölgeden kontrol edilir.",
+      "Desende kayma tespit edilirse tezgâh uyarılır."
+    ],
+    "answer_pipeline_b": "Atkı ve çözgü sıklığı sapma toleransı maksimum ±%1.5 olmalıdır.",
+    "contexts_pipeline_c": [
+      "Merinos halı dokuma son kalite kontrol standartlarına göre 10 cm uzunluktaki atkı sıklığı ve çözgü sıklığı sapma toleransı maksimum ±%1.5 sınırında olmalıdır.",
+      "±%1.5 üzerindeki sıklık farkları desende orantı bozukluğuna (boy uzaması veya kısalması) yol açarak halıyı 2. kaliteye düşürür.",
+      "Ölçümler dokuma gerginliği alındıktan 2 saat sonra kondisyonlanmış kumaşta yapılır."
+    ],
+    "answer_pipeline_c": "Halı dokuma son kontrol masasında atkı sıklığı ve çözgü sıklığı sapma toleransı maksimum ±%1.5 sınırında olmalıdır."
+  },
+  {
+    "question_id": "Q20",
+    "department": "mekanik_bakim",
+    "machine": "schonherr_alpha500",
+    "question": "Alpha 500 tezgâhında ana redüktör Sentetik PG dişli yağı viskozite sınıfı nedir ve çalışma sıcaklığı kaç °C'yi geçmemelidir?",
+    "ground_truth": "Schönherr Alpha 500 ana tahrik redüktöründe ISO VG 320 viskozite sınıfında sentetik poligliserol (PG) dişli yağı kullanılmalı ve yağ karteri çalışma sıcaklığı 80°C'yi kesinlikle aşmamalıdır.",
+    "contexts_pipeline_a": [
+      "Redüktör havalandırma tapası toz keçesi yılda bir temizlenir.",
+      "Motor klemens kutusu bağlantı torku 6 Nm'dir.",
+      "Dişli boşluğu komparatör saati ile kontrol edilir."
+    ],
+    "answer_pipeline_a": "Yağ viskozitesi 6 Nm olup çalışma sıcaklığı havalandırma tapası sıcaklığına eşittir.",
+    "contexts_pipeline_b": [
+      "Alpha 500 ana redüktöründe ISO VG 320 sentetik PG yağı kullanılır.",
+      "Karter sıcaklığı 80°C sınırını geçmemelidir.",
+      "Sıcaklık 85°C üzerine çıkarsa PT100 sensörü acil duruş verir."
+    ],
+    "answer_pipeline_b": "Redüktörde ISO VG 320 sentetik PG yağı kullanılır ve çalışma sıcaklığı 80°C'yi geçmemelidir.",
+    "contexts_pipeline_c": [
+      "Schönherr Alpha 500 ana tahrik redüktöründe ISO VG 320 viskozite sınıfında sentetik poligliserol (PG) dişli yağı kullanılmalıdır.",
+      "Yağ karteri çalışma sıcaklığı 80°C'yi kesinlikle aşmamalıdır; 80°C üzeri sıcaklık viskozite kaybına ve dişli aşınmasına yol açar.",
+      "Yağ seviyesi haftalık kontrol edilmeli ve yağ analizi 4000 saatte bir tekrarlanmalıdır."
+    ],
+    "answer_pipeline_c": "Schönherr Alpha 500 ana tahrik redüktöründe ISO VG 320 viskozite sınıfında sentetik PG dişli yağı kullanılmalı ve çalışma sıcaklığı 80°C'yi aşmamalıdır."
+  }
+]

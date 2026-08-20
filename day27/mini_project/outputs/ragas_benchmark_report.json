@@ -1,0 +1,3605 @@
+{
+  "benchmark_name": "Merinos Industrial RAG Retrieval & Generation Assessment",
+  "timestamp": "2026-09-04T18:50:30.650006",
+  "sample_count": 20,
+  "pipelines": [
+    {
+      "pipeline_id": "pipeline_a",
+      "pipeline_name": "Vanilla BM25 RAG",
+      "num_samples": 20,
+      "avg_faithfulness": 0.2,
+      "avg_context_precision": 0.025,
+      "avg_context_recall": 0.025,
+      "avg_answer_relevance": 0.6585,
+      "avg_ragas_composite": 0.0,
+      "per_department_scores": {
+        "dokuma_salonu_1": {
+          "avg_composite": 0.0,
+          "count": 3.0
+        },
+        "dokuma_salonu_2": {
+          "avg_composite": 0.0,
+          "count": 3.0
+        },
+        "iplik_bcf": {
+          "avg_composite": 0.0,
+          "count": 4.0
+        },
+        "boyahane": {
+          "avg_composite": 0.0,
+          "count": 3.0
+        },
+        "mekanik_bakim": {
+          "avg_composite": 0.0,
+          "count": 4.0
+        },
+        "kalite_kontrol": {
+          "avg_composite": 0.0,
+          "count": 3.0
+        }
+      }
+    },
+    {
+      "pipeline_id": "pipeline_b",
+      "pipeline_name": "Dense Vector RAG",
+      "num_samples": 20,
+      "avg_faithfulness": 0.975,
+      "avg_context_precision": 0.875,
+      "avg_context_recall": 0.85,
+      "avg_answer_relevance": 0.9386,
+      "avg_ragas_composite": 0.8413,
+      "per_department_scores": {
+        "dokuma_salonu_1": {
+          "avg_composite": 0.8859,
+          "count": 3.0
+        },
+        "dokuma_salonu_2": {
+          "avg_composite": 0.6667,
+          "count": 3.0
+        },
+        "iplik_bcf": {
+          "avg_composite": 0.9966,
+          "count": 4.0
+        },
+        "boyahane": {
+          "avg_composite": 0.9333,
+          "count": 3.0
+        },
+        "mekanik_bakim": {
+          "avg_composite": 0.8455,
+          "count": 4.0
+        },
+        "kalite_kontrol": {
+          "avg_composite": 0.6667,
+          "count": 3.0
+        }
+      }
+    },
+    {
+      "pipeline_id": "pipeline_c",
+      "pipeline_name": "Hybrid RRF + Reranked RAG",
+      "num_samples": 20,
+      "avg_faithfulness": 0.975,
+      "avg_context_precision": 1.0,
+      "avg_context_recall": 0.975,
+      "avg_answer_relevance": 0.9561,
+      "avg_ragas_composite": 0.9665,
+      "per_department_scores": {
+        "dokuma_salonu_1": {
+          "avg_composite": 0.9877,
+          "count": 3.0
+        },
+        "dokuma_salonu_2": {
+          "avg_composite": 0.9254,
+          "count": 3.0
+        },
+        "iplik_bcf": {
+          "avg_composite": 1.0,
+          "count": 4.0
+        },
+        "boyahane": {
+          "avg_composite": 1.0,
+          "count": 3.0
+        },
+        "mekanik_bakim": {
+          "avg_composite": 0.9364,
+          "count": 4.0
+        },
+        "kalite_kontrol": {
+          "avg_composite": 0.9481,
+          "count": 3.0
+        }
+      }
+    }
+  ],
+  "sample_evaluations": [
+    {
+      "question_id": "Q01",
+      "pipeline_id": "pipeline_a",
+      "department": "dokuma_salonu_1",
+      "machine": "vdw_rce02",
+      "faithfulness": 0.0,
+      "context_precision": 0.5,
+      "context_recall": 0.5,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Rapier şeridi merkezleme toleransı genellikle ±0.20 mm civarındadır ve atkı koptuğunda tarak dişleri temizlenmelidir",
+          "supported": false,
+          "evidence_context_idx": null,
+          "similarity_score": 0.0
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Van de Wiele RCE02 tezgâhında sol ve sağ rapier şeritleri merkezleme kaçıklığı maksimum ±0.08 mm tolerans aralığında olmalıdır",
+            "Tekrarlayan atkı kopuşlarında ilk kontrol adımı atkı ipliği fren gerginliğinin kontrol edilmesidir"
+          ],
+          "supported_flags": [
+            false,
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.333,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.333
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q02",
+      "pipeline_id": "pipeline_a",
+      "department": "dokuma_salonu_1",
+      "machine": "vdw_rce02",
+      "faithfulness": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.9762,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Levent fren basıncı kompresör çıkışına bağlı olarak 7.5 bar seviyesinde olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.3333
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Van de Wiele RCE02 tezgâhında çözgü levent fren pnömatik basıncı 4.2 bar ile 4.8 bar aralığında stabil tutulmalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2733,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.2733
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q03",
+      "pipeline_id": "pipeline_a",
+      "department": "dokuma_salonu_2",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.9184,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Şedding açılma yüksekliği 180 mm civarındadır ve zamanlama 180 derecede gerçekleşir",
+          "supported": false,
+          "evidence_context_idx": null,
+          "similarity_score": 0.0
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Schönherr Alpha 500 tezgâhında armür şedding açılma yüksekliği 145 mm (±2 mm) olmalı ve şedding kapanma zamanlaması ana krank mili 310 derece pozisyonunda gerçekleşmelidir"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2571,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.2571
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q04",
+      "pipeline_id": "pipeline_a",
+      "department": "dokuma_salonu_2",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.4361,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Maksimum sıcaklık pano kliması ayarı olan 24°C olmalıdır, aşılırsa fan değişir",
+          "supported": true,
+          "evidence_context_idx": 1,
+          "similarity_score": 0.2
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Schönherr Alpha 500 elektronik jakar kabininde izin verilen maksimum sıcaklık eşiği 45°C'dir",
+            "Bu değer aşıldığında sistem termal koruma moduna geçerek alarm üretir"
+          ],
+          "supported_flags": [
+            false,
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.1221,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.1221
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q05",
+      "pipeline_id": "pipeline_a",
+      "department": "iplik_bcf",
+      "machine": "rieter_bcf",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.4341,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Ekstrüder sıcaklığı 240°C olmalı ve hammadde erimesi için 10 bölge kullanılır",
+          "supported": false,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.0588
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Rieter BCF polipropilen ekstrüder kovanı 5 ısıtma bölgesinden oluşur ve besleme boğazı sıcaklığı granül erken erimesini önlemek için 180°C (±5°C) olarak ayarlanmalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.1215,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.1215
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q06",
+      "pipeline_id": "pipeline_a",
+      "department": "iplik_bcf",
+      "machine": "rieter_bcf",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Hava basıncı -40°C olmalı ve jet sıcaklığı 100°C seviyesine getirilmelidir",
+          "supported": false,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.1333
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Rieter BCF tekstüre ünitesinde tekstüre jeti proses hava basıncı 5.8 bar ile 6.2 bar arasında olmalı, proses hava sıcaklığı ise 195°C'de sabitlenmelidir"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.3629,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.3629
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q07",
+      "pipeline_id": "pipeline_a",
+      "department": "iplik_bcf",
+      "machine": "barmag_extruder",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.9392,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Delta P farkı 180 barı aştığında filtre temizlenir ve devir 45 rpm'e düşürülür",
+          "supported": false,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.1053
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Barmag ekstrüder eriyik filtresinde giriş-çıkış diferansiyel basıncı (Delta P) 65 bar değerini aştığında filtre elemanı derhal temizlenmeli veya yenisiyle değiştirilmelidir"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.263,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.263
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q08",
+      "pipeline_id": "pipeline_a",
+      "department": "boyahane",
+      "machine": "boyahane_jet",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.5897,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "pH değeri 7.0 nötr olmalıdır ve sülfürik asit ile ayarlanarak 130°C'ye ısıtılır",
+          "supported": false,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.0476
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Poliamid (PA6) halı ipliği bobin boyama prosesinde boya banyosu pH değeri 4.5 ile 5.0 aralığında tutulmalı ve pH tamponlama işlemi formik asit veya asetik asit kullanılarak gerçekleştirilmelidir"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.1651,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.1651
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q09",
+      "pipeline_id": "pipeline_a",
+      "department": "boyahane",
+      "machine": "fiksaj_hatti",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.7328,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Buhar kazanı sıcaklığı 200°C olmalı ve iplik 10 dakika buhar tünelinde bekletilmelidir",
+          "supported": false,
+          "evidence_context_idx": null,
+          "similarity_score": 0.0
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Süperba termofiksaj hattında doymuş buhar kazanı proses sıcaklığı 130°C (±1.5°C) olmalı ve ipliğin buhar tünelindeki kalış süresi 60 saniye olarak uygulanmalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2052,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.2052
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q10",
+      "pipeline_id": "pipeline_a",
+      "department": "mekanik_bakim",
+      "machine": "vdw_rce02",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.2701,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Dişli kutusunda Shell Gadus gres kullanılmalı ve her hafta yenilenmelidir",
+          "supported": false,
+          "evidence_context_idx": 1,
+          "similarity_score": 0.2
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Van de Wiele RCE02 ana rapier tahrik dişli kutusunda Mobilgear 600 XP 220 sanayi dişli yağı kullanılmalı ve ilk yağ değişimi 500 saatte, sonraki periyodik değişimler ise her 2000 çalışma saatinde bir yapılmalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.0756,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.0756
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q11",
+      "pipeline_id": "pipeline_a",
+      "department": "mekanik_bakim",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.8464,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "İzin verilen titreşim sınırı 110 mm/s olup kayış gerginliği frekans metreyle sıfırlanmalıdır",
+          "supported": false,
+          "evidence_context_idx": null,
+          "similarity_score": 0.0
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Schönherr Alpha 500 ana tahrik motoru ve redüktör rulman yataklarında ISO 10816-3 standardına göre izin verilen maksimum RMS titreşim hızı 2.8 mm/s'dir",
+            "4.5 mm/s üzerinde tezgâh acil bakıma alınmalıdır"
+          ],
+          "supported_flags": [
+            false,
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.237,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.237
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q12",
+      "pipeline_id": "pipeline_a",
+      "department": "kalite_kontrol",
+      "machine": "dokuma_salonu_1",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.9805,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Hav yüksekliği toleransı 400 mm ve lateks ağırlığı 850 g sapma limitidir",
+          "supported": false,
+          "evidence_context_idx": 1,
+          "similarity_score": 0.1111
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "1.200.000 noktalı Merinos akrilik halılarda standart hav yüksekliği toleransı ±0.5 mm, metrekare hav ipliği ağırlığı sapma limiti ise maksimum ±%3.0 olmalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2745,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.2745
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q13",
+      "pipeline_id": "pipeline_a",
+      "department": "kalite_kontrol",
+      "machine": "rieter_bcf",
+      "faithfulness": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.0,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "İplik mukavemeti 24 saat olmalı ve uzama 28-32 metre arasında kalmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.2
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "BCF polipropilen halı ipliğinde Uster test cihazı ölçümlerine göre minimum mukavemet (Tenacity) 3.2 cN/dtex, kopma uzaması ise %65 ile %75 aralığında olmalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.015,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.015
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q14",
+      "pipeline_id": "pipeline_a",
+      "department": "dokuma_salonu_1",
+      "machine": "neuenhauser_winder",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.9464,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Sarım basıncı 120 bar olmalıdır ve bıçak kesimi elle yapılmalıdır",
+          "supported": false,
+          "evidence_context_idx": null,
+          "similarity_score": 0.0
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Neuenhauser otomatik halı sarma ve dokuma çıkış sarıcı ünitesinde pnömatik tansiyon silindiri çalışma basıncı 2.5 bar ile 3.0 bar arasında ayarlanmalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.265,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.265
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q15",
+      "pipeline_id": "pipeline_a",
+      "department": "dokuma_salonu_2",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.0,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Direnç değeri 24 Ohm DC regüleli olarak ayarlanmalıdır",
+          "supported": false,
+          "evidence_context_idx": null,
+          "similarity_score": 0.0
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Schönherr Alpha 500 elektronik jakar modüllerinde kullanılan elektrovalf selenoid bobin direnci 20°C ortamda 14.2 Ohm (±0.5 Ohm) olmalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.0237,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.0237
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q16",
+      "pipeline_id": "pipeline_a",
+      "department": "iplik_bcf",
+      "machine": "barmag_extruder",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.3714,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Kalibrasyon 1:18 oranında ve oda sıcaklığında 50 bar basınca karşı test edilir",
+          "supported": false,
+          "evidence_context_idx": 1,
+          "similarity_score": 0.1053
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Barmag ekstrüder Dynisco eriyik basınç transmiteri kalibrasyonu kovan proses sıcaklığı olan 240°C'de ve sıfır polimer basıncı altında (0 bar) offset sıfırlaması ile yapılmalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.104,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.104
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q17",
+      "pipeline_id": "pipeline_a",
+      "department": "mekanik_bakim",
+      "machine": "vdw_rce02",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.7292,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Aşınma kalınlık kaybı mikrofiber paspas ile silinir ve sentil çakısı 2.0 mm olmalıdır",
+          "supported": false,
+          "evidence_context_idx": null,
+          "similarity_score": 0.0
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Van de Wiele RCE02 rapier kılavuz teflon raylarında izin verilen maksimum aşınma kalınlık kaybı 0.40 mm'dir",
+            "Bu limit aşıldığında rapier şeridinde dalgalanma başlar ve raylar yenilenmelidir"
+          ],
+          "supported_flags": [
+            false,
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2042,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.2042
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q18",
+      "pipeline_id": "pipeline_a",
+      "department": "boyahane",
+      "machine": "boyahane_jet",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Durulama sıcaklığı 80°C ve pH değeri mikser hızına bağlı olarak 150 olmalıdır",
+          "supported": false,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.0526
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Boya jeti prosesinde ana boyama sonrası durulama aşamasında banyo sıcaklığı 60°C'ye düşürülmeli ve durulama suyu nötralizasyon sonrası pH 6.5 ile 7.0 aralığına getirilmelidir"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2958,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.2958
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q19",
+      "pipeline_id": "pipeline_a",
+      "department": "kalite_kontrol",
+      "machine": "dokuma_salonu_2",
+      "faithfulness": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.5283,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Sıklık sapma toleransı cm başına 4 vuruş ve çift kat tolerans uygulanır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.1667
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Merinos halı dokuma son kalite kontrol standartlarına göre 10 cm uzunluktaki atkı sıklığı ve çözgü sıklığı sapma toleransı maksimum ±%1.5 sınırında olmalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.1479,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.1479
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q20",
+      "pipeline_id": "pipeline_a",
+      "department": "mekanik_bakim",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.4719,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Yağ viskozitesi 6 Nm olup çalışma sıcaklığı havalandırma tapası sıcaklığına eşittir",
+          "supported": false,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.1176
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Schönherr Alpha 500 ana tahrik redüktöründe ISO VG 320 viskozite sınıfında sentetik poligliserol (PG) dişli yağı kullanılmalı ve yağ karteri çalışma sıcaklığı 80°C'yi kesinlikle aşmamalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.1321,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.1321
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q01",
+      "pipeline_id": "pipeline_b",
+      "department": "dokuma_salonu_1",
+      "machine": "vdw_rce02",
+      "faithfulness": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_relevance": 0.9938,
+      "ragas_composite_score": 0.666,
+      "claims": [
+        {
+          "claim_text": "Van de Wiele RCE02 tezgâhında rapier merkezleme toleransı ±0.08 mm olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.5294
+        },
+        {
+          "claim_text": "Atkı kopuşunda gerginlik sensörleri kontrol edilir",
+          "supported": false,
+          "evidence_context_idx": 1,
+          "similarity_score": 0.25
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Van de Wiele RCE02 tezgâhında sol ve sağ rapier şeritleri merkezleme kaçıklığı maksimum ±0.08 mm tolerans aralığında olmalıdır",
+            "Tekrarlayan atkı kopuşlarında ilk kontrol adımı atkı ipliği fren gerginliğinin kontrol edilmesidir"
+          ],
+          "supported_flags": [
+            true,
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 2,
+          "supported_claims": 1,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2783,
+          "num_claims": 2,
+          "relevance_scores": [
+            0.3548,
+            0.2018
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q02",
+      "pipeline_id": "pipeline_b",
+      "department": "dokuma_salonu_1",
+      "machine": "vdw_rce02",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Çözgü levent fren basıncı 4.2 ile 4.8 bar aralığında olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.2083
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Van de Wiele RCE02 tezgâhında çözgü levent fren pnömatik basıncı 4.2 bar ile 4.8 bar aralığında stabil tutulmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.3694,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.3694
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q03",
+      "pipeline_id": "pipeline_b",
+      "department": "dokuma_salonu_2",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Alpha 500 tezgâhında armür şedding açılma yüksekliği 145 mm (±2 mm) olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.5
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Schönherr Alpha 500 tezgâhında armür şedding açılma yüksekliği 145 mm (±2 mm) olmalı ve şedding kapanma zamanlaması ana krank mili 310 derece pozisyonunda gerçekleşmelidir"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.4395,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.4395
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q04",
+      "pipeline_id": "pipeline_b",
+      "department": "dokuma_salonu_2",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Jakar kabininde izin verilen maksimum sıcaklık 45°C'dir",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.1667
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 0,
+          "claims": [
+            "Schönherr Alpha 500 elektronik jakar kabininde izin verilen maksimum sıcaklık eşiği 45°C'dir",
+            "Bu değer aşıldığında sistem termal koruma moduna geçerek alarm üretir"
+          ],
+          "supported_flags": [
+            false,
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.3365,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.3365
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q05",
+      "pipeline_id": "pipeline_b",
+      "department": "iplik_bcf",
+      "machine": "rieter_bcf",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Rieter BCF ekstrüderi 5 bölgeden oluşur ve besleme boğazı sıcaklığı 180°C olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.1765
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Rieter BCF polipropilen ekstrüder kovanı 5 ısıtma bölgesinden oluşur ve besleme boğazı sıcaklığı granül erken erimesini önlemek için 180°C (±5°C) olarak ayarlanmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.4328,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.4328
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q06",
+      "pipeline_id": "pipeline_b",
+      "department": "iplik_bcf",
+      "machine": "rieter_bcf",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 0.947,
+      "ragas_composite_score": 0.9862,
+      "claims": [
+        {
+          "claim_text": "Tekstüre jeti basıncı 5.8 - 6.2 bar aralığında, sıcaklık ise 195°C olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.4667
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Rieter BCF tekstüre ünitesinde tekstüre jeti proses hava basıncı 5.8 bar ile 6.2 bar arasında olmalı, proses hava sıcaklığı ise 195°C'de sabitlenmelidir"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2652,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.2652
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q07",
+      "pipeline_id": "pipeline_b",
+      "department": "iplik_bcf",
+      "machine": "barmag_extruder",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Eriyik filtresi basınç farkı (delta P) 65 barı aştığında filtre değişimi zorunludur",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.2
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Barmag ekstrüder eriyik filtresinde giriş-çıkış diferansiyel basıncı (Delta P) 65 bar değerini aştığında filtre elemanı derhal temizlenmeli veya yenisiyle değiştirilmelidir"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.6455,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.6455
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q08",
+      "pipeline_id": "pipeline_b",
+      "department": "boyahane",
+      "machine": "boyahane_jet",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "PA6 iplik boyama banyosunda pH 4.5 - 5.0 aralığında tutulmalı ve asetik asit veya formik asit ile ayarlanmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.35
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Poliamid (PA6) halı ipliği bobin boyama prosesinde boya banyosu pH değeri 4.5 ile 5.0 aralığında tutulmalı ve pH tamponlama işlemi formik asit veya asetik asit kullanılarak gerçekleştirilmelidir"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2905,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.2905
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q09",
+      "pipeline_id": "pipeline_b",
+      "department": "boyahane",
+      "machine": "fiksaj_hatti",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Süperba fiksaj hattında buhar sıcaklığı 130°C ve buharlama süresi 60 saniye olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.2941
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Süperba termofiksaj hattında doymuş buhar kazanı proses sıcaklığı 130°C (±1.5°C) olmalı ve ipliğin buhar tünelindeki kalış süresi 60 saniye olarak uygulanmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.6308,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.6308
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q10",
+      "pipeline_id": "pipeline_b",
+      "department": "mekanik_bakim",
+      "machine": "vdw_rce02",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 0.2582,
+      "ragas_composite_score": 0.582,
+      "claims": [
+        {
+          "claim_text": "Mobilgear 600 XP 220 yağı kullanılır ve her 2000 çalışma saatinde bir değiştirilir",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.2632
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Van de Wiele RCE02 ana rapier tahrik dişli kutusunda Mobilgear 600 XP 220 sanayi dişli yağı kullanılmalı ve ilk yağ değişimi 500 saatte, sonraki periyodik değişimler ise her 2000 çalışma saatinde bir yapılmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.0723,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.0723
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q11",
+      "pipeline_id": "pipeline_b",
+      "department": "mekanik_bakim",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Maksimum RMS titreşim hızı sınırı 2.8 mm/s'dir",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.4
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 2,
+          "claims": [
+            "Schönherr Alpha 500 ana tahrik motoru ve redüktör rulman yataklarında ISO 10816-3 standardına göre izin verilen maksimum RMS titreşim hızı 2.8 mm/s'dir",
+            "4.5 mm/s üzerinde tezgâh acil bakıma alınmalıdır"
+          ],
+          "supported_flags": [
+            true,
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.4053,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.4053
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q12",
+      "pipeline_id": "pipeline_b",
+      "department": "kalite_kontrol",
+      "machine": "dokuma_salonu_1",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Hav yüksekliği toleransı ±0.5 mm, hav ağırlığı sapma limiti ise ±%3.0 olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.2353
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "1.200.000 noktalı Merinos akrilik halılarda standart hav yüksekliği toleransı ±0.5 mm, metrekare hav ipliği ağırlığı sapma limiti ise maksimum ±%3.0 olmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.3192,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.3192
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q13",
+      "pipeline_id": "pipeline_b",
+      "department": "kalite_kontrol",
+      "machine": "rieter_bcf",
+      "faithfulness": 1.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "answer_relevance": 0.6064,
+      "ragas_composite_score": 0.0,
+      "claims": [
+        {
+          "claim_text": "Minimum mukavemet 3.2 cN/dtex ve kopma uzaması %65 - %75 aralığında olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.2222
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 0
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 0,
+          "claims": [
+            "BCF polipropilen halı ipliğinde Uster test cihazı ölçümlerine göre minimum mukavemet (Tenacity) 3.2 cN/dtex, kopma uzaması ise %65 ile %75 aralığında olmalıdır"
+          ],
+          "supported_flags": [
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.1698,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.1698
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q14",
+      "pipeline_id": "pipeline_b",
+      "department": "dokuma_salonu_1",
+      "machine": "neuenhauser_winder",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 0.9674,
+      "ragas_composite_score": 0.9917,
+      "claims": [
+        {
+          "claim_text": "Sarım tansiyonu basıncı 2.5 ile 3.0 bar aralığında ayarlanmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.2222
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Neuenhauser otomatik halı sarma ve dokuma çıkış sarıcı ünitesinde pnömatik tansiyon silindiri çalışma basıncı 2.5 bar ile 3.0 bar arasında ayarlanmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2709,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.2709
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q15",
+      "pipeline_id": "pipeline_b",
+      "department": "dokuma_salonu_2",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Jakar elektrovalf direnci 14.2 Ohm (±0.5 Ohm) olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.6
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Schönherr Alpha 500 elektronik jakar modüllerinde kullanılan elektrovalf selenoid bobin direnci 20°C ortamda 14.2 Ohm (±0.5 Ohm) olmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.4357,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.4357
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q16",
+      "pipeline_id": "pipeline_b",
+      "department": "iplik_bcf",
+      "machine": "barmag_extruder",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Basınç transmiteri kalibrasyonu 240°C sıcaklıkta ve 0 bar basınçta yapılmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.2857
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Barmag ekstrüder Dynisco eriyik basınç transmiteri kalibrasyonu kovan proses sıcaklığı olan 240°C'de ve sıfır polimer basıncı altında (0 bar) offset sıfırlaması ile yapılmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.3421,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.3421
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q17",
+      "pipeline_id": "pipeline_b",
+      "department": "mekanik_bakim",
+      "machine": "vdw_rce02",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 0.8,
+      "claims": [
+        {
+          "claim_text": "Teflon raylarda izin verilen maksimum aşınma kalınlık kaybı 0.40 mm'dir",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.2353
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Van de Wiele RCE02 rapier kılavuz teflon raylarında izin verilen maksimum aşınma kalınlık kaybı 0.40 mm'dir",
+            "Bu limit aşıldığında rapier şeridinde dalgalanma başlar ve raylar yenilenmelidir"
+          ],
+          "supported_flags": [
+            true,
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.5233,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.5233
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q18",
+      "pipeline_id": "pipeline_b",
+      "department": "boyahane",
+      "machine": "boyahane_jet",
+      "faithfulness": 1.0,
+      "context_precision": 0.5,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 0.8,
+      "claims": [
+        {
+          "claim_text": "Banyo sıcaklığı 60°C'ye düşürülmeli ve durulama suyu pH değeri 6.5 - 7.0 olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.1875
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            0,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            0.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Boya jeti prosesinde ana boyama sonrası durulama aşamasında banyo sıcaklığı 60°C'ye düşürülmeli ve durulama suyu nötralizasyon sonrası pH 6.5 ile 7.0 aralığına getirilmelidir"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.5254,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.5254
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q19",
+      "pipeline_id": "pipeline_b",
+      "department": "kalite_kontrol",
+      "machine": "dokuma_salonu_2",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Atkı ve çözgü sıklığı sapma toleransı maksimum ±%1.5 olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.5833
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Merinos halı dokuma son kalite kontrol standartlarına göre 10 cm uzunluktaki atkı sıklığı ve çözgü sıklığı sapma toleransı maksimum ±%1.5 sınırında olmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.3792,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.3792
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q20",
+      "pipeline_id": "pipeline_b",
+      "department": "mekanik_bakim",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Redüktörde ISO VG 320 sentetik PG yağı kullanılır ve çalışma sıcaklığı 80°C'yi geçmemelidir",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.3158
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Schönherr Alpha 500 ana tahrik redüktöründe ISO VG 320 viskozite sınıfında sentetik poligliserol (PG) dişli yağı kullanılmalı ve yağ karteri çalışma sıcaklığı 80°C'yi kesinlikle aşmamalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.394,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.394
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q01",
+      "pipeline_id": "pipeline_c",
+      "department": "dokuma_salonu_1",
+      "machine": "vdw_rce02",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 0.8669,
+      "ragas_composite_score": 0.963,
+      "claims": [
+        {
+          "claim_text": "Van de Wiele RCE02 tezgâhında sol ve sağ rapier şeritleri merkezleme kaçıklığı maksimum ±0.08 mm olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.5769
+        },
+        {
+          "claim_text": "Tekrarlayan atkı kopuşlarında ilk kontrol adımı ise atkı ipliği fren gerginliğinin kontrol edilmesidir",
+          "supported": true,
+          "evidence_context_idx": 1,
+          "similarity_score": 0.5
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 2,
+          "claims": [
+            "Van de Wiele RCE02 tezgâhında sol ve sağ rapier şeritleri merkezleme kaçıklığı maksimum ±0.08 mm tolerans aralığında olmalıdır",
+            "Tekrarlayan atkı kopuşlarında ilk kontrol adımı atkı ipliği fren gerginliğinin kontrol edilmesidir"
+          ],
+          "supported_flags": [
+            true,
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 2,
+          "supported_claims": 2,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2427,
+          "num_claims": 2,
+          "relevance_scores": [
+            0.276,
+            0.2095
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q02",
+      "pipeline_id": "pipeline_c",
+      "department": "dokuma_salonu_1",
+      "machine": "vdw_rce02",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Van de Wiele RCE02 tezgâhında çözgü levent fren pnömatik çalışma basıncı 4.2 bar ile 4.8 bar aralığında stabil tutulmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.6957
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Van de Wiele RCE02 tezgâhında çözgü levent fren pnömatik basıncı 4.2 bar ile 4.8 bar aralığında stabil tutulmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.3757,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.3757
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q03",
+      "pipeline_id": "pipeline_c",
+      "department": "dokuma_salonu_2",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Schönherr Alpha 500 tezgâhında armür şedding açılma yüksekliği 145 mm (±2 mm) olmalı, şedding kapanma zamanlaması ise ana krank mili 310 derece pozisyonunda gerçekleşmelidir",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.4783
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Schönherr Alpha 500 tezgâhında armür şedding açılma yüksekliği 145 mm (±2 mm) olmalı ve şedding kapanma zamanlaması ana krank mili 310 derece pozisyonunda gerçekleşmelidir"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.7077,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.7077
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q04",
+      "pipeline_id": "pipeline_c",
+      "department": "dokuma_salonu_2",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 0.5,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 0.8672,
+      "ragas_composite_score": 0.7762,
+      "claims": [
+        {
+          "claim_text": "Schönherr Alpha 500 jakar kabininde izin verilen maksimum sıcaklık eşiği 45°C'dir",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.7857
+        },
+        {
+          "claim_text": "Bu eşik aşıldığında sistem termal koruma moduna geçerek alarm üretir",
+          "supported": false,
+          "evidence_context_idx": 1,
+          "similarity_score": 0.2778
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 2,
+          "claims": [
+            "Schönherr Alpha 500 elektronik jakar kabininde izin verilen maksimum sıcaklık eşiği 45°C'dir",
+            "Bu değer aşıldığında sistem termal koruma moduna geçerek alarm üretir"
+          ],
+          "supported_flags": [
+            true,
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 2,
+          "supported_claims": 1,
+          "unsupported_claims": 1
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2428,
+          "num_claims": 2,
+          "relevance_scores": [
+            0.4856,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q05",
+      "pipeline_id": "pipeline_c",
+      "department": "iplik_bcf",
+      "machine": "rieter_bcf",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Rieter BCF PP ekstrüder kovanı 5 ısıtma bölgesinden oluşur ve besleme boğazı sıcaklığı erken erimeyi önlemek için 180°C (±5°C) olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.3182
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Rieter BCF polipropilen ekstrüder kovanı 5 ısıtma bölgesinden oluşur ve besleme boğazı sıcaklığı granül erken erimesini önlemek için 180°C (±5°C) olarak ayarlanmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.4067,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.4067
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q06",
+      "pipeline_id": "pipeline_c",
+      "department": "iplik_bcf",
+      "machine": "rieter_bcf",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Rieter BCF tekstüre ünitesinde tekstüre jeti proses hava basıncı 5.8 - 6.2 bar arasında, proses hava sıcaklığı ise 195°C'de ayarlanmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.4762
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Rieter BCF tekstüre ünitesinde tekstüre jeti proses hava basıncı 5.8 bar ile 6.2 bar arasında olmalı, proses hava sıcaklığı ise 195°C'de sabitlenmelidir"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.6039,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.6039
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q07",
+      "pipeline_id": "pipeline_c",
+      "department": "iplik_bcf",
+      "machine": "barmag_extruder",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Barmag ekstrüder eriyik filtresinde diferansiyel basınç farkı (Delta P) 65 barı aştığında filtre elemanı değişimi zorunludur",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.44
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Barmag ekstrüder eriyik filtresinde giriş-çıkış diferansiyel basıncı (Delta P) 65 bar değerini aştığında filtre elemanı derhal temizlenmeli veya yenisiyle değiştirilmelidir"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.7496,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.7496
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q08",
+      "pipeline_id": "pipeline_c",
+      "department": "boyahane",
+      "machine": "boyahane_jet",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Poliamid (PA6) bobin boyama prosesinde boya banyosu pH değeri 4.5 ile 5.0 aralığında tutulmalı ve formik asit veya asetik asit ile ayarlanmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.5652
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Poliamid (PA6) halı ipliği bobin boyama prosesinde boya banyosu pH değeri 4.5 ile 5.0 aralığında tutulmalı ve pH tamponlama işlemi formik asit veya asetik asit kullanılarak gerçekleştirilmelidir"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.6554,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.6554
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q09",
+      "pipeline_id": "pipeline_c",
+      "department": "boyahane",
+      "machine": "fiksaj_hatti",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Süperba fiksaj hattında buhar kazanı proses sıcaklığı 130°C (±1.5°C) ve buharlama süresi 60 saniye olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.4444
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Süperba termofiksaj hattında doymuş buhar kazanı proses sıcaklığı 130°C (±1.5°C) olmalı ve ipliğin buhar tünelindeki kalış süresi 60 saniye olarak uygulanmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.6706,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.6706
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q10",
+      "pipeline_id": "pipeline_c",
+      "department": "mekanik_bakim",
+      "machine": "vdw_rce02",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 0.8129,
+      "ragas_composite_score": 0.9456,
+      "claims": [
+        {
+          "claim_text": "Van de Wiele RCE02 ana rapier tahrik dişli kutusunda Mobilgear 600 XP 220 sanayi dişli yağı kullanılır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.8824
+        },
+        {
+          "claim_text": "İlk değişim 500 saatte, periyodik değişimler ise her 2000 saatte bir yapılır",
+          "supported": true,
+          "evidence_context_idx": 1,
+          "similarity_score": 0.5263
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Van de Wiele RCE02 ana rapier tahrik dişli kutusunda Mobilgear 600 XP 220 sanayi dişli yağı kullanılmalı ve ilk yağ değişimi 500 saatte, sonraki periyodik değişimler ise her 2000 çalışma saatinde bir yapılmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 2,
+          "supported_claims": 2,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.2276,
+          "num_claims": 2,
+          "relevance_scores": [
+            0.2817,
+            0.1735
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q11",
+      "pipeline_id": "pipeline_c",
+      "department": "mekanik_bakim",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Schönherr Alpha 500 ana tahrik motorunda izin verilen maksimum RMS titreşim hızı sınırı 2.8 mm/s'dir",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.65
+        },
+        {
+          "claim_text": "4.5 mm/s üzerinde acil bakım gerekir",
+          "supported": true,
+          "evidence_context_idx": 1,
+          "similarity_score": 0.2667
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 2,
+          "claims": [
+            "Schönherr Alpha 500 ana tahrik motoru ve redüktör rulman yataklarında ISO 10816-3 standardına göre izin verilen maksimum RMS titreşim hızı 2.8 mm/s'dir",
+            "4.5 mm/s üzerinde tezgâh acil bakıma alınmalıdır"
+          ],
+          "supported_flags": [
+            true,
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 2,
+          "supported_claims": 2,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.3847,
+          "num_claims": 2,
+          "relevance_scores": [
+            0.7479,
+            0.0214
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q12",
+      "pipeline_id": "pipeline_c",
+      "department": "kalite_kontrol",
+      "machine": "dokuma_salonu_1",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "1.200.000 noktalı Merinos akrilik halılarda hav yüksekliği toleransı ±0.5 mm, metrekare hav ipliği ağırlığı sapma limiti ise maksimum ±%3.0'tür",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.3913
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "1.200.000 noktalı Merinos akrilik halılarda standart hav yüksekliği toleransı ±0.5 mm, metrekare hav ipliği ağırlığı sapma limiti ise maksimum ±%3.0 olmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.425,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.425
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q13",
+      "pipeline_id": "pipeline_c",
+      "department": "kalite_kontrol",
+      "machine": "rieter_bcf",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 0.5757,
+      "ragas_composite_score": 0.8444,
+      "claims": [
+        {
+          "claim_text": "BCF PP halı ipliğinde minimum mukavemet 3.2 cN/dtex, kopma uzaması ise %65 ile %75 aralığında olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.3
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "BCF polipropilen halı ipliğinde Uster test cihazı ölçümlerine göre minimum mukavemet (Tenacity) 3.2 cN/dtex, kopma uzaması ise %65 ile %75 aralığında olmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.1612,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.1612
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q14",
+      "pipeline_id": "pipeline_c",
+      "department": "dokuma_salonu_1",
+      "machine": "neuenhauser_winder",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Neuenhauser otomatik halı sarma makinesinde sarım tansiyonu pnömatik basıncı 2.5 bar ile 3.0 bar arasında ayarlanmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.55
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Neuenhauser otomatik halı sarma ve dokuma çıkış sarıcı ünitesinde pnömatik tansiyon silindiri çalışma basıncı 2.5 bar ile 3.0 bar arasında ayarlanmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.7597,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.7597
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q15",
+      "pipeline_id": "pipeline_c",
+      "department": "dokuma_salonu_2",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Schönherr Alpha 500 elektronik jakar modüllerinde elektrovalf selenoid bobin direnci 20°C ortamda 14.2 Ohm (±0.5 Ohm) olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.7778
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Schönherr Alpha 500 elektronik jakar modüllerinde kullanılan elektrovalf selenoid bobin direnci 20°C ortamda 14.2 Ohm (±0.5 Ohm) olmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.5925,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.5925
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q16",
+      "pipeline_id": "pipeline_c",
+      "department": "iplik_bcf",
+      "machine": "barmag_extruder",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Barmag ekstrüder eriyik basınç transmiteri kalibrasyonu kovan proses sıcaklığı olan 240°C'de ve sıfır polimer basıncı altında (0 bar) yapılmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.5714
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Barmag ekstrüder Dynisco eriyik basınç transmiteri kalibrasyonu kovan proses sıcaklığı olan 240°C'de ve sıfır polimer basıncı altında (0 bar) offset sıfırlaması ile yapılmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.3625,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.3625
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q17",
+      "pipeline_id": "pipeline_c",
+      "department": "mekanik_bakim",
+      "machine": "vdw_rce02",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 0.8,
+      "claims": [
+        {
+          "claim_text": "Van de Wiele RCE02 tezgâhında rapier kılavuz teflon raylarında izin verilen maksimum aşınma kalınlık kaybı 0.40 mm'dir",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.8421
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 2,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Van de Wiele RCE02 rapier kılavuz teflon raylarında izin verilen maksimum aşınma kalınlık kaybı 0.40 mm'dir",
+            "Bu limit aşıldığında rapier şeridinde dalgalanma başlar ve raylar yenilenmelidir"
+          ],
+          "supported_flags": [
+            true,
+            false
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.6375,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.6375
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q18",
+      "pipeline_id": "pipeline_c",
+      "department": "boyahane",
+      "machine": "boyahane_jet",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Halı ipliği boyama jetinde durulama aşamasında banyo sıcaklığı 60°C'ye düşürülmeli ve durulama suyu pH değeri 6.5 ile 7.0 aralığında olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.2692
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Boya jeti prosesinde ana boyama sonrası durulama aşamasında banyo sıcaklığı 60°C'ye düşürülmeli ve durulama suyu nötralizasyon sonrası pH 6.5 ile 7.0 aralığına getirilmelidir"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.8435,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.8435
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q19",
+      "pipeline_id": "pipeline_c",
+      "department": "kalite_kontrol",
+      "machine": "dokuma_salonu_2",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Halı dokuma son kontrol masasında atkı sıklığı ve çözgü sıklığı sapma toleransı maksimum ±%1.5 sınırında olmalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.5652
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            0,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            0.5,
+            0.3333333333333333
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 1
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Merinos halı dokuma son kalite kontrol standartlarına göre 10 cm uzunluktaki atkı sıklığı ve çözgü sıklığı sapma toleransı maksimum ±%1.5 sınırında olmalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.673,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.673
+          ]
+        }
+      }
+    },
+    {
+      "question_id": "Q20",
+      "pipeline_id": "pipeline_c",
+      "department": "mekanik_bakim",
+      "machine": "schonherr_alpha500",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_relevance": 1.0,
+      "ragas_composite_score": 1.0,
+      "claims": [
+        {
+          "claim_text": "Schönherr Alpha 500 ana tahrik redüktöründe ISO VG 320 viskozite sınıfında sentetik PG dişli yağı kullanılmalı ve çalışma sıcaklığı 80°C'yi aşmamalıdır",
+          "supported": true,
+          "evidence_context_idx": 0,
+          "similarity_score": 0.625
+        }
+      ],
+      "details": {
+        "context_precision_details": {
+          "verdicts": [
+            1,
+            1,
+            0
+          ],
+          "precisions_at_k": [
+            1.0,
+            1.0,
+            0.6666666666666666
+          ],
+          "total_contexts": 3,
+          "relevant_contexts": 2
+        },
+        "context_recall_details": {
+          "total_gt_claims": 1,
+          "supported_gt_claims": 1,
+          "claims": [
+            "Schönherr Alpha 500 ana tahrik redüktöründe ISO VG 320 viskozite sınıfında sentetik poligliserol (PG) dişli yağı kullanılmalı ve yağ karteri çalışma sıcaklığı 80°C'yi kesinlikle aşmamalıdır"
+          ],
+          "supported_flags": [
+            true
+          ]
+        },
+        "faithfulness_details": {
+          "total_claims": 1,
+          "supported_claims": 1,
+          "unsupported_claims": 0
+        },
+        "answer_relevance_details": {
+          "raw_average_sim": 0.5362,
+          "num_claims": 1,
+          "relevance_scores": [
+            0.5362
+          ]
+        }
+      }
+    }
+  ],
+  "best_pipeline_id": "pipeline_c",
+  "best_ragas_score": 0.9665,
+  "threshold_compliance": {
+    "faithfulness_met": true,
+    "context_precision_met": true,
+    "context_recall_met": true,
+    "answer_relevance_met": true,
+    "composite_score_met": true
+  }
+}
