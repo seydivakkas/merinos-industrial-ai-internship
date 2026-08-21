@@ -1,0 +1,31 @@
+{
+  "experiments": [
+    {
+      "experiment_id": "EXP-SEED-VAR-01",
+      "type": "SEED_VARIATION",
+      "target_brief_id": "BRF-CLS-01",
+      "description": "Yaprak 55: Sabit prompt ile 4 farklı tohum (42, 108, 256, 777) altında görsel çeşitlilik ve başlangıç rastgele gürültüsünün etkisinin incelenmesi.",
+      "seeds": [42, 108, 256, 777]
+    },
+    {
+      "experiment_id": "EXP-MUT-COLOR-02",
+      "type": "SINGLE_VARIABLE_MUTATION",
+      "target_brief_id": "BRF-CLS-01",
+      "description": "Yaprak 56: Sabit seed (42) altında yalnızca Renk alanının değiştirilmesi (Krem -> Gece Laciverti) ve modelin renk adaptasyonunun incelenmesi.",
+      "fixed_seed": 42,
+      "mutated_field": "color",
+      "original_value": "Krem Fildişi Zemin ve Koyu Bordo Vurgular",
+      "new_value": "Derin Gece Laciverti Zemin ve Varak Altın Vurgular"
+    },
+    {
+      "experiment_id": "EXP-MUT-MOTIF-03",
+      "type": "SINGLE_VARIABLE_MUTATION",
+      "target_brief_id": "BRF-CLS-01",
+      "description": "Yaprak 56: Sabit seed (42) altında yalnızca Motif alanının değiştirilmesi (Madalyon -> Geometrik Yıldız) ve kompozisyon korunumunun incelenmesi.",
+      "fixed_seed": 42,
+      "mutated_field": "motif",
+      "original_value": "Barok Madalyon ve Rumi Sarmalları",
+      "new_value": "Sekiz Köşeli Selçuklu Yıldızı ve Geometrik Geçmeler"
+    }
+  ]
+}

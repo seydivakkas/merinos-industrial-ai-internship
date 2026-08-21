@@ -1,0 +1,54 @@
+[
+  {
+    "brief_id": "BRF-CLS-01",
+    "title": "Merinos Klasik Osmanlı Saray Halısı",
+    "style": "Klasik Osmanlı Saray",
+    "motif": "Barok Madalyon ve Rumi Sarmalları",
+    "color": "Krem Fildişi Zemin ve Koyu Bordo Vurgular",
+    "composition": "Merkezi madalyon etrafında köşe köşebentleri",
+    "border": "Geniş su yolu çiçek ve yaprak bordürü",
+    "symmetry": "Çift yönlü 4-çeyrek simetri (Bilateral and Vertical)",
+    "seed": 42,
+    "steps": 30,
+    "guidance_scale": 7.5
+  },
+  {
+    "brief_id": "BRF-SKD-02",
+    "title": "Merinos İskandinav Doğal Geometrik Halı",
+    "style": "İskandinav Minimalist",
+    "motif": "Yumuşak Üçgen Prizmalar ve Çizgisel Hatlar",
+    "color": "Taş Grisi Zemin ve Adaçayı Yeşili Vurgular",
+    "composition": "Homojen dağınık grid yerleşimi",
+    "border": "Minimal ince saçak çizgisi",
+    "symmetry": "Yalnızca dikey ayna simetrisi (Bilateral)",
+    "seed": 108,
+    "steps": 25,
+    "guidance_scale": 7.0
+  },
+  {
+    "brief_id": "BRF-MOD-03",
+    "title": "Merinos Modern Soyut Prizma Halı",
+    "style": "Modern Soyut",
+    "motif": "Dinamik Asimetrik Prizmalar ve Doku Geçişleri",
+    "color": "Gece Mavisi Zemin ve Bronz Bakır Vurgular",
+    "composition": "Serbest akışkan diagonal yerleşim",
+    "border": "Kenar çerçevesiz serbest bitiş",
+    "symmetry": "Asimetrik serbest tasarım",
+    "seed": 256,
+    "steps": 35,
+    "guidance_scale": 8.0
+  },
+  {
+    "brief_id": "BRF-AVS-04",
+    "title": "Merinos Anadolu Avşar Motifli Halı",
+    "style": "Geleneksel Anadolu Yörük",
+    "motif": "Koçboynuzu ve Eli Belinde Geometrik Sembolleri",
+    "color": "Kök Boya Kırmızı ve İndigo Mavi",
+    "composition": "Sıralı tekrarlayan mihrap ve zemin dolgusu",
+    "border": "Geleneksel çengel su bordürü",
+    "symmetry": "Çift yönlü 4-çeyrek simetri",
+    "seed": 777,
+    "steps": 30,
+    "guidance_scale": 7.5
+  }
+]

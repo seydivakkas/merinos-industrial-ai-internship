@@ -1,0 +1,25 @@
+{
+  "project_name": "Merinos Controlled Carpet Image Generation Suite",
+  "version": "1.0.0",
+  "day": 28,
+  "leaf_refs": ["Yaprak 55", "Yaprak 56"],
+  "model_config": {
+    "base_model": "stabilityai/stable-diffusion-xl-base-1.0",
+    "default_resolution": [512, 512],
+    "default_steps": 30,
+    "default_guidance_scale": 7.5,
+    "default_scheduler": "EulerDiscreteScheduler",
+    "supported_schedulers": [
+      "EulerDiscreteScheduler",
+      "DPMSolverMultistepScheduler",
+      "DDIMScheduler"
+    ]
+  },
+  "default_seeds": [42, 108, 256, 777],
+  "negative_prompt_default": "low quality, distorted borders, blurry, pixelated, asymmetrical medallion, dull colors, broken yarn, text, signature, watermark",
+  "visualizer": {
+    "dpi": 300,
+    "style": "seaborn-v0_8-whitegrid",
+    "grid_figsize": [16, 12]
+  }
+}
