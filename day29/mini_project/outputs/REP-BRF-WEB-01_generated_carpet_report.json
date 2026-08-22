@@ -1,0 +1,166 @@
+{
+  "report_id": "REP-BRF-WEB-01_generated_carpet",
+  "image_path": "C:\\Users\\seydieryilmaz\\Desktop\\Projeler\\Merinos 40 Günlük Staj Deneyimim\\merinos-industrial-ai-internship\\day30\\mini_project\\outputs\\BRF-WEB-01_generated_carpet.png",
+  "color_analysis": {
+    "num_clusters": 5,
+    "dominant_colors": [
+      {
+        "cluster_index": 0,
+        "rgb": [
+          245,
+          241,
+          234
+        ],
+        "hex_code": "#F5F1EA",
+        "lab": [
+          95.29,
+          0.0,
+          4.0
+        ],
+        "percentage": 62.69,
+        "nearest_yarn_name": "İpeksi Krem Madalyon",
+        "delta_e_to_target": 2.21
+      },
+      {
+        "cluster_index": 1,
+        "rgb": [
+          140,
+          29,
+          47
+        ],
+        "hex_code": "#8C1D2F",
+        "lab": [
+          30.98,
+          47.0,
+          18.0
+        ],
+        "percentage": 32.2,
+        "nearest_yarn_name": "Yakut Kırmızı Zemin",
+        "delta_e_to_target": 5.93
+      },
+      {
+        "cluster_index": 2,
+        "rgb": [
+          200,
+          158,
+          94
+        ],
+        "hex_code": "#C89E5E",
+        "lab": [
+          67.84,
+          8.0,
+          39.0
+        ],
+        "percentage": 2.77,
+        "nearest_yarn_name": "Eski Altın Varak",
+        "delta_e_to_target": 9.75
+      },
+      {
+        "cluster_index": 4,
+        "rgb": [
+          176,
+          110,
+          73
+        ],
+        "hex_code": "#B06E49",
+        "lab": [
+          52.94,
+          22.0,
+          31.0
+        ],
+        "percentage": 1.64,
+        "nearest_yarn_name": "Yakut Kırmızı Zemin",
+        "delta_e_to_target": 23.18
+      },
+      {
+        "cluster_index": 3,
+        "rgb": [
+          31,
+          36,
+          51
+        ],
+        "hex_code": "#1F2433",
+        "lab": [
+          14.51,
+          2.0,
+          -11.0
+        ],
+        "percentage": 0.7,
+        "nearest_yarn_name": "Gece Laciverti Bordür",
+        "delta_e_to_target": 5.2
+      }
+    ],
+    "target_palette_name": "Klasik Osmanlı Saray Paleti",
+    "mean_delta_e": 9.25,
+    "min_delta_e": 2.21,
+    "verdict": "BELİRGİN RENK FARKI (Ort. ΔE* = 9.25): Model hedef paletten belirgin biçimde saptı. İstenen renk tonları ile üretilen piksel merkezleri arasında algısal kontrast yüksektir. (Not: K-Means analizi yalnız baskın renklerin varlığını ve oranını ölçer; renklerin desen içindeki geometrik konumunu veya motif yapısını doğrudan açıklamaz - Yaprak 57)."
+  },
+  "symmetry_analysis": {
+    "horizontal_symmetry": 1.0,
+    "vertical_symmetry": 1.0,
+    "four_way_symmetry": 1.0,
+    "repeat_autocorrelation_score": 0.321,
+    "verdict": "TAM DÖRT ÇEYREK SARAY SİMETRİSİ (Yatay: 1.0, Dikey: 1.0): Görsel merkez madalyon ve köşe bordürleri açısından her iki eksende de yüksek yapısal intizama sahiptir. (Not: Simetri ve tekrar incelemeleri yapısal düzen hakkında ipucu verir; tek bir skora aşırı anlam yüklenmemeli, destekleyici bir mühendislik göstergesi olarak değerlendirilmelidir - Yaprak 57)."
+  },
+  "seam_continuity": {
+    "strip_width_pixels": 8,
+    "left_right_mse": 69.43,
+    "top_bottom_mse": 67.07,
+    "continuity_score": 0.873,
+    "has_seam_discontinuity": false,
+    "verdict": "YÜKSEK KENAR SÜREKLİLİĞİ (Skor: 0.873, Sol-Sağ MSE: 69.43, Üst-Alt MSE: 67.07): Desen kenarları arasında ani renk sıçraması veya keskin motif kırılması tespit edilmedi. Görsel yan yana döşenebilirlik (tileability) hissini desteklemektedir. (Not: Buradaki amaç gerçek üretim uygunluğu kararı vermek değildir; yalnızca desenin kenarlarında ani kopukluk ve motif kırılması olup olmadığını gözlemlemektir - Yaprak 58)."
+  },
+  "cnn_embedding": {
+    "backbone": "ResNet18",
+    "embedding_dim": 512,
+    "l2_norm": 1.0,
+    "top_matches": [
+      {
+        "rank": 1,
+        "carpet_id": "CAT-MODERN-101",
+        "title": "Merinos Loft Serisi — İskandinav Geometrik Asimetrik Halı",
+        "style": "Modern Minimalist",
+        "similarity_score": 0.524,
+        "primary_colors": [
+          "Kutup Grisi",
+          "Antrasit",
+          "Hardal"
+        ]
+      },
+      {
+        "rank": 2,
+        "carpet_id": "CAT-MODERN-102",
+        "title": "Merinos Arte Serisi — Sinüzoidal Dalga & Ritmik Çizgili Halı",
+        "style": "Modern Geometrik",
+        "similarity_score": 0.521,
+        "primary_colors": [
+          "Buz Mavisi",
+          "Krem",
+          "Gümüş Grisi"
+        ]
+      },
+      {
+        "rank": 3,
+        "carpet_id": "CAT-SARAY-001",
+        "title": "Merinos Padişah Serisi — Geleneksel Çintemani & Madalyon Halısı",
+        "style": "Klasik Osmanlı",
+        "similarity_score": 0.511,
+        "primary_colors": [
+          "Yakut Kırmızı",
+          "Eski Altın",
+          "Krem"
+        ]
+      }
+    ],
+    "verdict": "TOP-1 EŞLEŞME: 'Merinos Loft Serisi — İskandinav Geometrik Asimetrik Halı' (Skor: 0.524, Stil: Modern Minimalist). Embedding tabanlı benzerlik; modelin öğrendiği renk, motif ve kompozisyon özniteliklerinin tümünü birlikte değerlendirerek referans desenler arasında göreli bir yakınlık sunmuştur. (Not: Yüksek benzerlik skoru 'aynı tasarım' anlamına gelmez. Bu tür bir benzerlik yalnızca göreli bir yakınlık sunar; telif, özgünlük veya üretim kararı gibi daha ileri yorumlar için tek başına yeterli değildir - Yaprak 58)."
+  },
+  "synthesis_verdict": "ÇOK BOYUTLU GÖRSEL ANALİZ TAMAMLANDI (İşlem Süresi: 1.833 sn). K-Means ve CIELAB analizi baskın renk tonlarının hedef palete yakınlığını (Ort. ΔE* = 9.25) doğruladı. Simetri motoru yatayda %100.0, dikeyde %100.0 ayna düzeni tespit etti. Kenar analizi %87.3 süreklilik puanı verdi. CNN embedding ise en yakın referans olarak 'Merinos Loft Serisi — İskandinav Geometrik Asimetrik Halı' desenini buldu. Bu ölçümlerin her biri görüntünün farklı bir mühendislik boyutunu aydınlatmakla birlikte, hiçbiri tek başına 'iyi tasarım' veya 'üretilebilir halı' hükmü vermez (Yaprak 58).",
+  "technical_limitations": [
+    "1. Gerçek Üretilebilirlik Kararı Vermez: Jakar armür kartı, atkı/çözgü sıklığı, cağlık bobin limitlerini doğrulamaz.",
+    "2. Estetik Kaliteyi Kesin Olarak Ölçmez: Yalnızca renk mesafesi ve matematiksel ayna simetrisini sayısallaştırır.",
+    "3. Telif veya Özgünlük Teyidi Sağlamaz: Yüksek CNN benzerliği sadece genel görsel doku yakınlığını ifade eder.",
+    "4. Analiz Değerleri Tek Başına 'İyi Tasarım' Anlamına Gelmez: Tasarımın pazar veya dokuma uygunluğu uzman desinatör onayı gerektirir."
+  ],
+  "diagnostic_panel_path": "C:\\Users\\seydieryilmaz\\Desktop\\Projeler\\Merinos 40 Günlük Staj Deneyimim\\merinos-industrial-ai-internship\\day29\\mini_project\\outputs\\REP-BRF-WEB-01_generated_carpet_diagnostic_panel.png",
+  "execution_time_sec": 1.833
+}

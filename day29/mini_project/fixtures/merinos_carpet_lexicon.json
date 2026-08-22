@@ -1,0 +1,584 @@
+{
+  "company": "Merinos Halı Sanayi ve Ticaret A.Ş.",
+  "facility": "Gaziantep 4. Organize Sanayi Bölgesi",
+  "domain": "Endüstriyel Makine Halısı Üretimi, BCF İplik Ekstrüzyonu, Apre & Terbiye",
+  "departments": [
+    {
+      "code": "DOKUMA",
+      "name": "Dokuma Salonları (Weaving Looms)",
+      "primary_machines": ["Van de Wiele RCE02 / RCE03", "Schönherr Alpha 400 / 500"],
+      "subsystems": [
+        "Rapyer Atkı Atma Sistemi (Rapier Insertion)",
+        "Elektronik Jakar Mekanizması (Bonas / Staubli Electronic Jacquard)",
+        "Çözgü Levent Besleme & Tansiyon Kontrolü (Warp Let-off)",
+        "Tarak & Teve Mekanizması (Reed & Sley)",
+        "Gücü Telleri & Çerçeveler (Heddles & Harness)",
+        "Kumaş Çekme & Sarma Sistemi (Take-up Motion)"
+      ],
+      "common_faults": [
+        {
+          "fault_code": "ERR-ATK-01",
+          "name": "Atkı Kopması (Weft Breakage)",
+          "symptom": "Tezgah aniden durur, sarı ikaz lambası yanar, optik atkı sensörü 3 numaralı kanalda kesinti bildirir.",
+          "root_cause": "Cağlıktan gelen atkı bobini gerginlik yayının aşırı sıkı olması, rapyer kıskacının aşınması veya iplik düğüm hatası.",
+          "maintenance_sop": "1) Tezgahı acil durdurma emniyetine al. 2) 3. kanal rapyer kıskacını temizle ve aşınma mastarıyla ölç (tolerans < 0.05 mm). 3) Tansiyon yayını 18 cN değerine ayarla. 4) İpliği cımbızla kılavuzdan geçirip tezgahı yavaş devirde (inching) test et.",
+          "priority": "CRITICAL"
+        },
+        {
+          "fault_code": "ERR-JAK-04",
+          "name": "Jakar Lingo Düşmesi & Desen Kayması",
+          "symptom": "Halı yüzeyinde enine çizgi veya belirli desen noktalarında hav ipliğinin yukarı çıkmaması.",
+          "root_cause": "Jakar solenoid valf bobininin ısınarak takılı kalması, lingo yayının kopması veya fiber optik veri kablosundaki parazit.",
+          "maintenance_sop": "1) Jakar kontrol panosundan modül arıza adresini (Slot 4 / Modül 12) tespit et. 2) Solenoid direncini ölç (24V DC, 45 Ohm nominal). 3) Kopuk lingo yayını değiştir. 4) Jakar kafa yağlama haznesindeki ISO VG 68 yağ seviyesini doğrula.",
+          "priority": "HIGH"
+        },
+        {
+          "fault_code": "ERR-COZ-02",
+          "name": "Çözgü Gevşemesi ve Hav Boyu Düzensizliği",
+          "symptom": "Halı sırtında potluk oluşması, hav yüksekliğinde ±1.5 mm dalgalanma.",
+          "root_cause": "Levent servo motor sürücüsünün (Lenze) tork geri besleme enkoderinde toz birikmesi veya yük hücresi (load cell) kalibrasyon sapması.",
+          "maintenance_sop": "1) Yük hücresi sıfır noktasını kalibre et (0 kg = 0.00V). 2) Enkoder optik diskini izopropil alkol ile temizle. 3) PLC tork limitini 42 Nm seviyesine sabitle.",
+          "priority": "MEDIUM"
+        },
+        {
+          "fault_code": "ERR-RAP-05",
+          "name": "Sol-Sağ Rapyer Merkez Transfer Kaçırması & Kıskaç Aşınması",
+          "symptom": "180° ana mil açısında atkı ipliğinin sol verici rapyerden sağ alıcı rapyere aktarılamaması, kumaş ortasında atkı boşluğu ve tezgahın acil duruşa geçmesi.",
+          "root_cause": "Rapyer kıskacı mandal baskı yayının yorulması, kılavuz tırnaklarında (guide teeth) 0.08 mm üzeri yanal boşluk veya rapyer giriş kam mekanizması sentresinde 1.5° açısal sapma.",
+          "maintenance_sop": "1) Tezgahı acil durdurma emniyetine alarak ana motor şalterini kapat ve enerji izolasyonu (LOTO) kilidini tak. 2) Sentil çakısı ile sol-sağ kıskaç buluşma eksen açıklığını 0.35 mm'ye ayarla. 3) Kılavuz ray tırnak aşınmasını ölç, aşınan tırnakları değiştir. 4) İğneli mil pozisyonunu yavaş devirde (inching) 180° çizgisine getirip mandal açılma rampasını kalibre et.",
+          "priority": "CRITICAL"
+        },
+        {
+          "fault_code": "ERR-BIC-07",
+          "name": "Hav Kesme Döner Bıçağı Körelmesi & Çift Kumaş Ayrılma Pürüzü",
+          "symptom": "Halı yüzeyinde hav boyu çizgilenmesi (shearing lines), hav köklerinde çekme ve alt/üst halı ayrımında lif saçaklanması.",
+          "root_cause": "Döner hav bıçağının otomatik bileme taşı (grinding stone) aşınması, bıçak bileme motoru kayış gevşemesi veya bıçak kılavuz rayında tekstil tozu sıkışması.",
+          "maintenance_sop": "1) Bıçağın dönüş motorunu ve traverse tahrik zincirini enerjiden izole et, tezgahı acil durdurma konumuna al. 2) Bıçak ağız kalınlığını mikrometre ile ölç (< 0.45 mm olmalı). 3) Bileme taşı temas açısını 15°'ye ayarla ve elmas uçlu bileyiciyi sıfırla. 4) Bıçak rayını kuru PTFE sprey ile yağlayıp traverse hareketini el ile test et.",
+          "priority": "HIGH"
+        },
+        {
+          "fault_code": "ERR-TAR-03",
+          "name": "Teve Kam Mili Boşluğu & Tarak Vuruntu Çizgisi Sapması (Reed Mark)",
+          "symptom": "Kumaş boyunca dikey tarak çizgileri (reed mark), atkı sıklığında yerel dalgalanma ve teve mekanizmasından gelen vuruntulu metalik ses.",
+          "root_cause": "Konjüge kam mili (conjugated cam) ana yatak rulmanlarında radyal boşluk (play > 0.05 mm) veya teve biyel kolu bronz burçlarının aşınması.",
+          "maintenance_sop": "1) Tezgahı acil durdurma butonuna basarak durdur ve motor enerjisini kes. 2) Teve kam haznesindeki ISO VG 220 dişli yağını tahliye edip metal çapak kontrolü yap. 3) Komparatör saati ile teve şaftı radyal salgısını ölç (maks 0.03 mm). 4) Aşınmış bronz burçları hidrolik çektirme ile yenile. 5) Tarak diş paralelliğini kumaş masasına göre mastarla 90.0°'ye hizala.",
+          "priority": "CRITICAL"
+        },
+        {
+          "fault_code": "ERR-LUB-09",
+          "name": "Ana Karter Yağlama Basıncı Düşüklüğü & Karter Sıcaklık Artışı",
+          "symptom": "SCADA'da 'Loom Lubrication Low Pressure (< 1.2 bar)' alarmı, karter sıcaklığının 65°C üzerine fırlaması.",
+          "root_cause": "Karter emiş yağ filtresinin metal tortu ve reçineleşmiş gres ile tıkanması veya mekanik trokoid yağ pompasının aşınması.",
+          "maintenance_sop": "1) Tezgahı acil durdurma butonuna basarak durdur, motor enerjisini kes ve karter soğuma süresini bekle. 2) Metal örgü yağ filtresini söküp ultrasonik solvent banyosunda temizle. 3) Yağ basınç regülatör valfini 2.2 bar seviyesine ayarla. 4) Kartere taze ISO VG 220 sentetik yağ ilave ederek sirkülasyon debisini gözleme camından doğrula.",
+          "priority": "CRITICAL"
+        }
+      ]
+    },
+    {
+      "code": "IPLIK_BCF",
+      "name": "BCF İplik Ekstrüzyon Hattı (Bulk Continuous Filament)",
+      "primary_machines": ["Neumag S5 / S+ BCF", "Rieter Filament Line"],
+      "subsystems": [
+        "Polipropilen (PP) / Polyester Granül Kurutma & Besleme",
+        "Ekstrüder Kovan & Vida Isıtma Bölgeleri (Extruder Barrel 210-245°C)",
+        "Düze Paketi & Eriyik Pompası (Spin Pack & Metering Pump)",
+        "Soğutma Bacası (Quench Air Cabinet 18°C, 0.45 m/s)",
+        "Tekstüre Etme & Sıcak Hava Üfleme (Texturing / Bulking Jet)",
+        "Otomatik Bobin Sarıcı (Automatic Turret Winder)"
+      ],
+      "common_faults": [
+        {
+          "fault_code": "ERR-EXT-11",
+          "name": "Eriyik Basınç Dalgası (Melt Pressure Surge)",
+          "symptom": "Ekstrüder kafa basıncında 140 bar üzerine ani sıçramalar, filament kalınlığında dalgalanma (denye sapması).",
+          "root_cause": "Eriyik filtresi (screen changer) gözeneklerinin karbonlaşmış polimer ile tıkanması veya vida sıcaklık profilinin Bölge 3'te 200°C altına düşmesi.",
+          "maintenance_sop": "1) Hidrolik elek değiştiriciyi aktive et ve filtre paketini yenile. 2) Bölge 3 rezistansını kontrol et (nominal 235°C). 3) Eriyik pompası devrini 32 rpm'e sabitle.",
+          "priority": "CRITICAL"
+        },
+        {
+          "fault_code": "ERR-TXT-03",
+          "name": "Tekstüre Jet Tıkanması & Kıvrım Kaybı",
+          "symptom": "İplikte hacimlilik (bulk) kaybı, halıda sönük hav görünümü.",
+          "root_cause": "Tekstüre nozulu hava basıncının 5.8 bar altına düşmesi veya spin finish yağının nozulda vernikleşmesi.",
+          "maintenance_sop": "1) Sıcak hava jetini ultrasonik banyoda çözücü ile temizle. 2) Basınç regülatörünü 6.2 bar değerine ayarla. 3) Spin finish konsantrasyonunu refraktometreyle ölç (%1.10 - %1.25 aralığı).",
+          "priority": "HIGH"
+        }
+      ]
+    },
+    {
+      "code": "RAMOZ_TERBIYE",
+      "name": "Apre, Terbiye & Fikse Hattı (Finishing & Brückner Stenter)",
+      "primary_machines": ["Brückner Ramöz Fikse Fırını", "Lateks Taban Kaplama Hattı"],
+      "subsystems": [
+        "Giriş Çözücü & En Ayar İğneli Zincirleri (Pin Chain Tenter)",
+        "Gaz Brülörlü Isıtma Kamaraları (140°C - 175°C)",
+        "Sirkülasyon Fanları & Hava Menfezleri",
+        "Lateks / Kalsit Karışımı Köpük Aplikatörü",
+        "Çıkış Kesme, Kenar Kırpma & Rulo Sarıcı"
+      ],
+      "common_faults": [
+        {
+          "fault_code": "ERR-RAM-08",
+          "name": "Kamara Sıcaklık Dengesizliği & Halı En Çekmesi",
+          "symptom": "3. ve 4. kamara sıcaklıklarında ±8°C sapma, halı eninde 5 cm daralma.",
+          "root_cause": "Oransal gaz valfi servo motorunun sıkışması veya PT100 sıcaklık sensörünün kirlenmesi.",
+          "maintenance_sop": "1) PT100 sensörünü söküp temizle ve referans kalibratörle doğrula. 2) Gaz-hava oran valfi klape açıklığını %40 konumunda test et. 3) Zincir gergi açıklığını 402 cm değerine ayarla.",
+          "priority": "CRITICAL"
+        },
+        {
+          "fault_code": "ERR-LAT-05",
+          "name": "Lateks Taban Köpük Ayrılması & Mukavemet Düşüklüğü",
+          "symptom": "Halı sırtı lateks tabakasında gözenek patlaması, elyaf tutunma kuvvetinin (tuft lock) 25 N altına düşmesi.",
+          "root_cause": "Köpük mikseri hava debisinin yüksek olması veya lateks viskozitesinin (Brookfield) 8000 cPs altına düşmesi.",
+          "maintenance_sop": "1) Lateks karıştırıcı tankına kalsit dolgusu ilave ederek viskoziteyi 9500 cPs seviyesine getir. 2) Fırın konveyör hızını 14 m/dk olarak ayarla.",
+          "priority": "HIGH"
+        }
+      ]
+    },
+    {
+      "code": "MEKATRONIK_PLC",
+      "name": "Otomasyon, Sensör & PLC Sistemleri",
+      "primary_machines": ["Siemens S7-1500 PLC", "Lenze 9400 Servo Sürücüler", "Sick Endüstriyel Sensörler"],
+      "subsystems": [
+        "Profinet / Profibus Saha Veri Yolu (Fieldbus Network)",
+        "Dağıtılmış I/O Modülleri (ET 200SP)",
+        "Optik İplik Tarama Kameraları & Fotoseller",
+        "AC Motor Hız Kontrol Cihazları (Inverter)"
+      ],
+      "common_faults": [
+        {
+          "fault_code": "ERR-PLC-22",
+          "name": "Profinet İletişim Zaman Aşımı (Bus Timeout)",
+          "symptom": "SCADA ekranında 'Rack 2 Drop' hatası, tezgahın güvenlik kilidine geçmesi.",
+          "root_cause": "Saha panosundaki blendajlı Ethernet kablosunun motor kablolarına yakın geçmesinden kaynaklanan EMI gürültüsü.",
+          "maintenance_sop": "1) İletişim kablosunu sinyal tavasına al, blendaj topraklamasını kontrol et. 2) Switch port hata paketlerini (CRC error) teşhis et. 3) PLC watchdog süresini 100 ms'ye ayarla.",
+          "priority": "CRITICAL"
+        },
+        {
+          "fault_code": "ERR-SRV-14",
+          "name": "Lenze 9400 Servo Pozisyon Takip Sapması & E-Cam Senkronizasyon Hatası",
+          "symptom": "Çözgü levent servo motorunda 'Lag Error / Following Error' aşımı, desen raportunda 2 mm kayma ve tezgahın acil duruşa geçmesi.",
+          "root_cause": "Ana şaft sanal master ekseni (virtual master axis) ile levent köle ekseni (slave axis) arasındaki E-Cam 5. derece spline enterpolasyonunda aşırı ivmelenme veya resolver kablosunda 10 kHz üzeri faz kayması.",
+          "maintenance_sop": "1) Resolver ve EnDat 2.2 geri besleme kablosu ekranlamasını kontrol et. 2) Lenze Engineer yazılımında hız ileri besleme (velocity feedforward) kazancını %85'ten %95'e çek. 3) Konum döngüsü PID proporsiyonel kazancını (Kp) 45 1/s değerine optimize et. 4) Pozisyon takip penceresi (following error window) eşiğini 0.8 dereceye sabitle.",
+          "priority": "CRITICAL"
+        },
+        {
+          "fault_code": "ERR-SEN-08",
+          "name": "ROJ/Eltex Optik Atkı İplik Algılayıcı Yanıltıcı Tetikleme & Yanıt Gecikmesi",
+          "symptom": "İplik kopmadığı halde 180 d/dk hızda tezgahın 'Atkı Yok' sanarak durması veya kopan atkıyı 45 ms içinde algılayamaması.",
+          "root_cause": "Kızılötesi fotodiyot merceğinde mikro tekstil tozu filmi oluşması, optik eşik geriliminin 1.8V altına düşmesi veya 50 µs darbe filtresinde jitter oluşması.",
+          "maintenance_sop": "1) Sensör merceğini tüy bırakmayan optik mendil ve saf izopropil alkol ile temizle. 2) Sensör kontrol kartı üzerinden amplifikatör eşiğini 2.4V DC seviyesine kalibre et. 3) Sensör yanıt penceresini PLC OB61 IRT döngüsünde 35 ms atkı geçiş fazına kilitle.",
+          "priority": "HIGH"
+        },
+        {
+          "fault_code": "ERR-NET-03",
+          "name": "Profinet IRT Halka Topolojisi (MRP) Jitter Aşımı & CRC Paket Bozulması",
+          "symptom": "Siemens SCADA ekranında 'Media Redundancy Protocol (MRP) Ring Open' ikazı, çevrim süresinin 1 ms'den 4 ms'ye fırlaması.",
+          "root_cause": "Halka yöneticisi (MRP Manager) switch portunda CRC hatalarının artması, fiber-bakır medya dönüştürücüde paket gecikmesi veya endüstriyel switch portunun aşırı ısınması.",
+          "maintenance_sop": "1) TIA Portal Topology View üzerinden kopuk olan yedek ring segmentini (Port 2 - Port 3) izole et. 2) Scalance X-200 switch web arayüzünden FCS/CRC hata sayacını sıfırla. 3) Port fiber optik zayıflamasını dB metre ile ölç (< 2.5 dB). 4) Ring toparlanma süresinin < 200 ms olduğunu doğrula.",
+          "priority": "HIGH"
+        }
+      ]
+    },
+    {
+      "code": "DESEN_TASARIM",
+      "name": "Desen, Jakar CAD & Armür Tasarımı Bölümü",
+      "primary_machines": [
+        "NedGraphics Texcelle CAD İstasyonu",
+        "EAT DesignScope Victor",
+        "Van de Wiele Carpet Studio & Weft Selector",
+        "GretagMacbeth / X-Rite Spektrofotometre"
+      ],
+      "subsystems": [
+        "Piksel-İlme Koordinat Matrisi (Raster-to-Weave Converter)",
+        "Cağlık Renk Bankası & İplik Dağılım Modülü (Creel Matrix Optimization)",
+        "Rölyef (Drop Stitch) ve 3D Hav Efekti Armür Tasarımı",
+        "Otomatik Raportlama & Bordür/Göbek Geometrisi",
+        "Elektronik Jakar EP / Boole Dosya Çıkartıcı"
+      ],
+      "common_faults": [
+        {
+          "fault_code": "ERR-DES-01",
+          "name": "Cağlık Renk Kapasitesi Aşımı & İplik Çakışması",
+          "symptom": "Jakar ön izlemesinde 8 renkli cağlık konfigürasyonunda 9. rengin algılanması ve cağlık doluluk alarmı.",
+          "root_cause": "Desinatörün çizim katmanında palet dışı RGB renk pikseli bırakması veya cağlık kulesi iplik bobin sayısının 8 ana renk sınırını aşması.",
+          "maintenance_sop": "1) NedGraphics Texcelle 'Color Reduction / Palet Azaltma' modülünü çalıştır. 2) Palet dışı renkleri en yakın Pantone iplik koduna remap et (stippling/noktalama ile optik geçiş sağla). 3) Cağlık haritasını (creel plan) kontrol edip tezgaha yükle.",
+          "priority": "HIGH"
+        },
+        {
+          "fault_code": "ERR-DES-02",
+          "name": "En-Boy Piksel Orantısızlığı (Aspect Ratio Geometrik Bozulma)",
+          "symptom": "Tezgahtan çıkan halıda dairesel göbek motifinin elips şeklinde basık veya boyuna uzamış çıkması.",
+          "root_cause": "Çizimin 1:1 kare piksel yapılması, fakat tezgah tarak sıklığı (700'lük tarak) ile atkı sıklığının (1200 atkı/m) farklı piksel en-boy oranına (1:1.714) sahip olması.",
+          "maintenance_sop": "1) CAD ortamında piksel oranını Aspect Ratio = Atkı_Sıklığı / Tarak_Sıklığı formülüyle yeniden boyutlandır (700/1200 için 1:1.714). 2) Göbek dairesini 'Aspect Ratio Corrected' şablonunda yeniden enterpole et. 3) Numune dokuma öncesi raster kontrolü yap.",
+          "priority": "CRITICAL"
+        },
+        {
+          "fault_code": "ERR-DES-03",
+          "name": "Rölyef Hav Çökertme Armür Hatası (İlme Tutunamaması / Tuft Loss)",
+          "symptom": "3D kabartmalı halıda çökertme yapılan derin hav sınırlarında ipliklerin sırt lateksine tutunamayıp yolunması.",
+          "root_cause": "Drop stitch (çökertme) armüründe hav ipliğinin taban atkısına bağlanmadan askıda bırakılması (bağlantısız yüzen iplik / float yarn).",
+          "maintenance_sop": "1) Armür editöründe çökertme sınırlarına 1/3 V tipi zemin kilit armürü (dead pile lock) tanımla. 2) Minimum hav yüksekliği farkını delta h <= 4 mm ile sınırla. 3) Tuft-lock testinde çekme mukavemetinin > 25 N olduğunu doğrula.",
+          "priority": "CRITICAL"
+        },
+        {
+          "fault_code": "ERR-DES-04",
+          "name": "Jakar EP Dosyası Kanca Koordinat Kayması (Raster Offset)",
+          "symptom": "Halı bordür deseninin sol kenarda tam çıkıp sağ kenarda 12 kanca eksik kesilmesi, desen kayması.",
+          "root_cause": "Elektronik Jakar EP formatına aktarırken kenar şeridi (selvedge) kanca ofsetinin (offset hooks) yanlış girilmesi.",
+          "maintenance_sop": "1) Van de Wiele Carpet Studio'da selvedge ofsetini sıfırla. 2) Jakar kanca tahsis tablosunu (hook allocation table) 11,200 kanca için yeniden indeksle. 3) İlk 10 cm test dokuması yaparak bordür simetrisini cetvelle doğrula.",
+          "priority": "HIGH"
+        },
+        {
+          "fault_code": "ERR-DES-05",
+          "name": "Bordür-Zemin Raport Süreksizliği (Musteri Desen Ayrışması)",
+          "symptom": "Halı boyu boyunca tekrarlayan desen birleşim çizgilerinde (raport dikişi) desenin oturmaması, kırık çizgi oluşması.",
+          "root_cause": "Desinatörün dikey raport tekrarını (vertical repeat) atkı sıklığının tam katı olarak ayarlamaması (örneğin 150.3 cm yerine tam 150 cm atkı hesabı yapılmaması).",
+          "maintenance_sop": "1) Desenin dikey piksel sayısını Atkı_Piksel = Raport_cm * (Atkı_cm) kuralına göre tam sayıya yuvarla. 2) Raport birleşim hattında ayna simetrisi ve 'Seamless Pattern Stitching' algoritmasını çalıştır.",
+          "priority": "HIGH"
+        }
+      ]
+    },
+    {
+      "code": "KALITE_LABORATUVAR",
+      "name": "Kalite Güvence & Akredite Test Laboratuvarı",
+      "primary_machines": [
+        "Zwick/Roell Z010 Tuft Lock & Çekme Test Cihazı",
+        "James Heal Martindale Aşınma & Boncuklanma Cihazı",
+        "Datacolor 800 Spektrofotometre & D65 Işık Kabini",
+        "Atlas Q-Sun Xenon Ark Işık Haslığı Test Cihazı",
+        "Crockmeter Sürtünme Haslığı Test Cihazı"
+      ],
+      "subsystems": [
+        "İlme Tutunma & Tuft-Lock Mukavemet Ölçüm Modülü (ISO 4919)",
+        "Metrekare Gramaj (GSM) Hassas Analitik Terazi & Daire Kesici (TSE 2104)",
+        "Kuru ve Yaş Sürtünme Haslığı Test İstasyonu (ISO 105-X12)",
+        "Xenon Ark Işık & Renk Solma Simülasyon Kabini (ISO 105-B02)",
+        "OEKO-TEX Standard 100 & Ekolojik Zararlı Madde Spektrometresi"
+      ],
+      "common_faults": [
+        {
+          "fault_code": "ERR-KAL-01",
+          "name": "Tuft-Lock İlme Çekme Mukavemeti Yetersizliği (<25 N)",
+          "symptom": "ISO 4919 çekme testinde ilme kopma kuvvetinin 18.5 N seviyesine düşmesi, hav ipliğinin sırttan kolayca ayrılması.",
+          "root_cause": "Ramöz fırınında lateks pişirme sıcaklığının 140°C altına düşmesi, kalsit dolgu oranının aşırı yüksek olması veya lateks emülsiyon penetrasyonunun yetersizliği.",
+          "maintenance_sop": "1) Ramöz fırını 3. ve 4. kamara sıcaklığını 165°C seviyesine yükselt. 2) Lateks mikserinde kalsit/lateks oranını optimize ederek viskoziteyi 9500 cPs seviyesine getir. 3) Kürk pres silindir basıncını 3.2 bar'a artırarak lateksin ilme köklerine nüfuz etmesini sağla. 4) Numuneyi 24 saat kondisyonlayıp (20°C, %65 bağıl nem) testi tekrarla.",
+          "priority": "CRITICAL"
+        },
+        {
+          "fault_code": "ERR-KAL-02",
+          "name": "Metrekare Gramaj Sapması (> ±%5 Tolerans Dışı)",
+          "symptom": "Analitik terazi GSM ölçümünde hedef 2400 g/m² olan halının 2610 g/m² (+%8.75) veya 2210 g/m² (-%7.9) çıkması.",
+          "root_cause": "+%5 sapmada: Atkı sıklığının fazla vurulması veya lateks kaplama miktarının fazla olması. -%5 sapmada: Hav ipliği dtex incelmesi, tarak kaçırması veya yetersiz lateks.",
+          "maintenance_sop": "1) 100 cm² daire numune kesici ile halının sol, orta ve sağından 3 numune al. 2) Dokuma tezgahı kumaş çekme regülatörünü (take-up motion) kalibre et. 3) Lateks sıyırıcı bıçak (doctor blade) aralığını mikrometre ile 1.2 mm'ye sabitle. 4) BCF iplik bobin denye ölçümünü 2400 dtex ±%2 olarak doğrula.",
+          "priority": "HIGH"
+        },
+        {
+          "fault_code": "ERR-KAL-03",
+          "name": "Sürtünme ve Yıkama Renk Haslığı Düşüklüğü (ISO 105 < 3)",
+          "symptom": "Crockmeter sürtünme testinde pamuklu beyaz bez üzerinde yoğun boya transferi, gri skala değerinin 2.5 seviyesine inmesi.",
+          "root_cause": "BCF ekstrüzyon hattında masterbatch pigment homojenliğinin bozulması, fikse sıcaklığının yetersiz olması veya iplik yüzeyinde aşırı spin finish yağı kalması.",
+          "maintenance_sop": "1) BCF fikse buhar odası sıcaklığını 132°C'ye ayarla. 2) İplik yıkama ve durulama ünitesindeki surfaktan oranını denetle. 3) Masterbatch dozaj pompasını kalibre et. 4) Gri skala değerlendirmesini D65 ışık kabininde spektrofotometre ile doğrula.",
+          "priority": "HIGH"
+        },
+        {
+          "fault_code": "ERR-KAL-04",
+          "name": "OEKO-TEX Standard 100 / VOC Uçucu Madde Limit Aşımı",
+          "symptom": "Gaz kromatografisi (GC-MS) testinde stiren ve formaldehit salınımının Class II eşik limitini (75 mg/kg) aşması.",
+          "root_cause": "Lateks bileşenindeki serbest monomer kalıntıları veya ramöz bacası egzoz hava tahliye debisinin düşük olması nedeniyle halı üzerinde gaz birikmesi.",
+          "maintenance_sop": "1) Ramöz fırını taze hava emiş ve egzoz fan debisini %25 artır. 2) Lateks tedarikçisinden 'APEO-free' ve düşük VOC sertifikalı hammadde partisini doğrula. 3) Halı fırın çıkışında havalandırma tüneli soğutma fanlarını maksimum devirde çalıştır.",
+          "priority": "CRITICAL"
+        }
+      ]
+    }
+  ],
+  "technical_glossary": {
+    "atki": "Halı eni boyunca rapyer veya mekik aracılığıyla atılan enine iplik sistemi.",
+    "cozgu": "Leventten çözülerek kumaş boyu boyunca uzanan ve halının iskeletini oluşturan boyuna iplikler.",
+    "ilme": "Halı yüzeyinde hav tabakasını oluşturan, jakar kontrolüyle yukarı kaldırılıp kesilen renkli iplik ilmekleri.",
+    "denye": "9000 metre ipliğin gram cinsinden ağırlığı (iplik incelik birimi, örn: 2400 dtex PP).",
+    "fikse": "Sentetik ipliğin yüksek sıcaklıkta ısıl işlemle şekil ve kıvrım hafızasını sabitleme süreci.",
+    "ramoz": "Dokunmuş halının sırt kaplamasını (lateks/kalsit) pişiren ve enini sabitleyen iğneli fırın hattı.",
+    "jakar": "Her bir hav ipliğini bağımsız olarak kontrol ederek karmaşık desenlerin oluşmasını sağlayan elektronik başlık.",
+    "levent": "Yüzlerce çözgü ipliğinin paralel olarak sarıldığı büyük metal tambur/makara.",
+    "apre": "Halıya parlaklık, yumuşaklık, leke tutmazlık ve statik elektrik önleme kazandıran kimyasal terbiye.",
+    "bcf": "Bulked Continuous Filament - Halı dokumada kullanılan hacimli ve kıvrımlı sentetik kesiksiz iplik.",
+    "polipropilen": "PP - Merinos halı üretiminde yüksek leke direnci ve aşınma dayanımı sağlayan birincil termoplastik polimer.",
+    "dtex": "Desiteks - 10,000 metre ipliğin gram cinsinden kütlesi (sentetik iplik kalınlık ölçüsü).",
+    "ekstruzyon": "Polimer granüllerin ısıtılıp eritilerek basınç altında filament deliklerinden geçirilmesi süreci.",
+    "tuft_lock": "Halı hav ipliğinin sırt kaplamaya (lateks) bağlanma ve çekme mukavemeti kuvveti.",
+    "raport": "Desenin halı boyunca periyodik olarak kendini tekrar eden en ve boy birimi (örneğin 100x150 cm raport tekrarı).",
+    "rolyef": "Farklı hav boyları, büzüşen iplikler veya düşürülmüş ilmekler (drop stitch) ile halı yüzeyinde oluşturulan 3 boyutlu derinlik ve kabartma efekti.",
+    "tarak_sikligi": "Dokuma tarağının 1 metresindeki diş veya boşluk sayısı (örneğin 700'lük tarak = 1 metrede 700 çözgü çifti).",
+    "atki_sikligi": "Halının 1 desimetresindeki veya 1 metresindeki enine atkı sayısı (örneğin 120 atkı/dm = 1200 atkı/metre).",
+    "nokta_sayisi": "1 metrekare halıdaki toplam ilme sayısı; Tarak Sıklığı x Atkı Sıklığı x 2 formülüyle hesaplanır (örneğin 700x1200x2 = 1.680.000 nokta/m²).",
+    "gobek": "Klasik, saray veya oymalı neoklasik halıların tam merkezinde yer alan ana dairesel veya oval odak motifi.",
+    "bordur": "Halının dört bir kenarını çerçeve gibi çevreleyen, zemin alanını sınırlandıran desen kuşağı.",
+    "ep_dosyasi": "Jakar kafasının her bir atkı devrinde hangi kancayı kaldıracağını belirten ikili ve elektronik dokuma desen dosyası (Electronic Pattern).",
+    "caglik_dizilimi": "Dokuma tezgahının arkasındaki cağlık kulesinde renklerin bobin yuvalarına ve çerçevelere dağılım planı.",
+    "armur": "Çözgü ve atkı ipliklerinin birbirleriyle yaptıkları kesişim, bağlanma ve hav oluşturma örgü düzeni.",
+    "aspect_ratio": "Desenin piksel en-boy oranı; Atkı Sıklığı / Tarak Sıklığı oranı ile belirlenir (doğru ayarlanmazsa desen basık veya uzamış çıkar).",
+    "tse_2104": "TSE 2104 - Mekanik dokuma halılar standardı; metrekare gramajı toleransı (±%5), ilme çekme direnci ve boyut kararlılığı şartnamesidir.",
+    "tuft_lock_mukavemeti": "ISO 4919 standardına göre tek bir hav ipliğinin halı sırtından sökülmesi için gereken minimum çekme kuvveti (Merinos fabrika standardı: >= 25 N).",
+    "martindale_asinma": "Halının yüzey aşınma direncini ölçen test; dairesel sürtünme devri altında hav dökülme ve incelme analizidir (ticari halıda >= 50.000 devir).",
+    "haslik_derecesi": "ISO 105 standartlarına göre halı renklerinin sürtünme, ışık (Xenon ark), su ve kimyasallara karşı solma ve akma direnci (Gri skala 1-5, Mavi yün 1-8).",
+    "oeko_tex": "OEKO-TEX Standard 100 Class II - Halının insan sağlığına zararlı azo boyar, formaldehit, ağır metal ve fitalat içermediğini belgeleyen uluslararası ekoloji sertifikası.",
+    "gsm_gramaj": "Grams per Square Meter (g/m²) - 1 metrekare halının toplam kütlesi; hav ipliği, atkı, çözgü ve lateks kaplama ağırlıklarının toplamıdır.",
+    "oee_kullanilabilirlik": "Overall Equipment Effectiveness (Toplam Ekipman Etkinliği) - Planlanan üretim süresinde arıza duruşları düşüldükten sonra kalan net çalışma oranı yüzdesi.",
+    "durus_maliyeti": "Arıza süresince kaybedilen halı metrekare cirosu, saatlik fabrika genel gideri (işçilik, amortisman, enerji) ve yedek parça maliyetlerinin toplamıdır.",
+    "mrp_kodlama": "Merinos Material Requirements Planning - Fabrikada kullanılan yedek parçaların departman ve alt sistem bazında tekil kimlikleme ve stok takip kodlamasıdır.",
+    "kritik_stok_seviyesi": "Bir yedek parçanın ambar stok miktarının altına düşmesi halinde tezgahın uzun süreli duruşa geçeceği emniyet eşiğidir.",
+    "kaybedilen_metrekare": "Duruş dakikası x (Devir / Atkı Sıklığı) x Tezgah Eni x 2 (çift parça) formülüyle hesaplanan ve üretilemeyen toplam halı yüzey alanıdır.",
+    "reorder_point": "Yeniden sipariş noktası; tedarik süresi (lead time) boyunca tüketilecek parça adedi ve emniyet stoku toplamı seviyesidir.",
+    "profinet_irt": "Isochronous Real-Time Profinet - 1 mikrosaniyenin altında deterministik jitter sağlayan, motion kontrol ve servo eksen senkronizasyonu için donanımsal zaman dilimlemeli endüstriyel Ethernet protokolü.",
+    "e_cam_senkronizasyon": "Elektronik Kam Mili (E-Camming) - Mekanik dişli ve kam milleri yerine sanal master eksen ile servo eksenler arasında 5. derece spline eğrileriyle sağlanan yazılımsal hareket profili senkronizasyonu.",
+    "following_error": "Takip Hatası (Lag Error) - Servo motorun gerçek enkoder konumu ile PLC hareket kontrolörünün hesapladığı hedef yörünge pozisyonu arasındaki açısal sapma farkı.",
+    "mrp_ring_redundancy": "Media Redundancy Protocol - Endüstriyel Ethernet halka ağında tek bir kablo koptuğunda iletişimin 200 ms altında kesintisiz yedek kanala aktarılmasını sağlayan donanımsal halka yedeklilik protokolü.",
+    "rapiyer_transferi": "Sol ve sağ rapyerlerin tezgah merkezinde 180 derece ana mil açısında atkı ipliğini birbirine aktarma kinematiği.",
+    "teve_mekanizmasi": "Dokuma tarağını ileri-geri hareket ettirerek atkı ipliğini kumaş sınırına (kumaş çizgisine) sıkıştıran kam tahrikli sley sistemi.",
+    "hav_kesme_bicagi": "Üst ve alt kumaş arasında dokunan çift katlı halıyı ortadan keserek iki bağımsız halıya ayıran yüksek devirli döner veya traverse bıçak mekanizması.",
+    "lingo_duzenegi": "Jakar kancalarından gelen hareketin gücü tellerine ve ilme ipliklerine iletilmesini sağlayan askı kordonları ve geri çekme yayları sistemi."
+  },
+  "spare_parts_catalog": [
+    {
+      "part_code": "MRP-RAP-101",
+      "name": "Van de Wiele RCE Sağ Rapyer Kıskacı & Karbon Bant",
+      "machine": "Van de Wiele RCE02 / VTR23",
+      "department": "DOKUMA",
+      "category": "Mekanik Dokuma",
+      "associated_fault": "ERR-ATK-01",
+      "compatible_fault_codes": ["ERR-ATK-01", "ERR-ATK-02"],
+      "current_stock": 2,
+      "critical_threshold": 3,
+      "unit": "Adet",
+      "unit_cost_tl": 18500.0,
+      "unit_price_eur": 420.0,
+      "warehouse_location": "Depo-1 / Raf A-12-04",
+      "shelf_location": "Depo-1 / Raf A-12-04",
+      "supplier": "Van de Wiele Belçika",
+      "supplier_origin": "Belçika",
+      "lead_time_days": 14,
+      "replenishment_status": "CRITICAL_LOW_STOCK"
+    },
+    {
+      "part_code": "MRP-JAK-204",
+      "name": "Bonas Elektronik Jakar Solenoid Valf Bobini 24V DC",
+      "machine": "Bonas Si / CSJ Elektronik Jakar",
+      "department": "MEKATRONIK_PLC",
+      "category": "Jakar Elektroniği",
+      "associated_fault": "ERR-JAK-04",
+      "compatible_fault_codes": ["ERR-JAK-04"],
+      "current_stock": 12,
+      "critical_threshold": 20,
+      "unit": "Adet",
+      "unit_cost_tl": 1980.0,
+      "unit_price_eur": 45.0,
+      "warehouse_location": "Depo-2 / Raf E-03-11",
+      "shelf_location": "Depo-2 / Raf E-03-11",
+      "supplier": "Bonas Technologies UK",
+      "supplier_origin": "İngiltere",
+      "lead_time_days": 7,
+      "replenishment_status": "WARNING_LOW_STOCK"
+    },
+    {
+      "part_code": "MRP-BIC-305",
+      "name": "Schönherr Döner Hav Kesme Bıçağı & Bileme Taşı",
+      "machine": "Schönherr ALPHA 400 / 500",
+      "department": "DOKUMA",
+      "category": "Mekanik Kesim",
+      "associated_fault": "ERR-COZ-02",
+      "compatible_fault_codes": ["ERR-COZ-02"],
+      "current_stock": 5,
+      "critical_threshold": 5,
+      "unit": "Takım",
+      "unit_cost_tl": 9240.0,
+      "unit_price_eur": 210.0,
+      "warehouse_location": "Depo-1 / Raf B-08-02",
+      "shelf_location": "Depo-1 / Raf B-08-02",
+      "supplier": "Groz-Beckert Almanya",
+      "supplier_origin": "Almanya",
+      "lead_time_days": 5,
+      "replenishment_status": "WARNING_LOW_STOCK"
+    },
+    {
+      "part_code": "MRP-EXT-412",
+      "name": "Neumag BCF Eriyik Filtresi / Elek Paketi 40 Mikron",
+      "machine": "Neumag S+ BCF Ekstrüzyon",
+      "department": "IPLIK_BCF",
+      "category": "Ekstrüzyon & Filtrasyon",
+      "associated_fault": "ERR-EXT-11",
+      "compatible_fault_codes": ["ERR-EXT-11"],
+      "current_stock": 3,
+      "critical_threshold": 4,
+      "unit": "Adet",
+      "unit_cost_tl": 7920.0,
+      "unit_price_eur": 180.0,
+      "warehouse_location": "Depo-3 / Raf F-01-09",
+      "shelf_location": "Depo-3 / Raf F-01-09",
+      "supplier": "Oerlikon Neumag Almanya",
+      "supplier_origin": "Almanya",
+      "lead_time_days": 10,
+      "replenishment_status": "CRITICAL_LOW_STOCK"
+    },
+    {
+      "part_code": "MRP-RAM-508",
+      "name": "Brückner Ramöz İğneli Zincir Baklası & Yüksek Sıcaklık Pimi",
+      "machine": "Brückner Power-Frame Ramöz",
+      "department": "RAMOZ_TERBIYE",
+      "category": "Terbiye & Fırın",
+      "associated_fault": "ERR-RAM-08",
+      "compatible_fault_codes": ["ERR-RAM-08"],
+      "current_stock": 12,
+      "critical_threshold": 6,
+      "unit": "Adet",
+      "unit_cost_tl": 1540.0,
+      "unit_price_eur": 35.0,
+      "warehouse_location": "Depo-2 / Raf C-05-14",
+      "shelf_location": "Depo-2 / Raf C-05-14",
+      "supplier": "Brückner Trockentechnik Almanya",
+      "supplier_origin": "Almanya",
+      "lead_time_days": 20,
+      "replenishment_status": "OPTIMAL_STOCK"
+    },
+    {
+      "part_code": "MRP-PLC-622",
+      "name": "Siemens S7-1500 Dağıtılmış I/O ET 200SP Profinet Arayüz Modülü",
+      "machine": "Siemens S7-1500 PLC & SCADA",
+      "department": "MEKATRONIK_PLC",
+      "category": "Otomasyon & PLC",
+      "associated_fault": "ERR-PLC-22",
+      "compatible_fault_codes": ["ERR-PLC-22"],
+      "current_stock": 1,
+      "critical_threshold": 2,
+      "unit": "Adet",
+      "unit_cost_tl": 28600.0,
+      "unit_price_eur": 650.0,
+      "warehouse_location": "Otomasyon Odası / Raf P-02-01",
+      "shelf_location": "Otomasyon Odası / Raf P-02-01",
+      "supplier": "Siemens Türkiye",
+      "supplier_origin": "Türkiye",
+      "lead_time_days": 3,
+      "replenishment_status": "CRITICAL_LOW_STOCK"
+    },
+    {
+      "part_code": "MRP-ZWI-701",
+      "name": "Zwick/Roell Z010 Tuft-Lock Pnömatik Çekme Çenesi & Yük Hücresi",
+      "machine": "Zwick/Roell Z010 Test Cihazı",
+      "department": "KALITE_LABORATUVAR",
+      "category": "Laboratuvar Test Cihazı",
+      "associated_fault": "ERR-KAL-01",
+      "compatible_fault_codes": ["ERR-KAL-01"],
+      "current_stock": 1,
+      "critical_threshold": 1,
+      "unit": "Adet",
+      "unit_cost_tl": 52800.0,
+      "unit_price_eur": 1200.0,
+      "warehouse_location": "Laboratuvar Dolabı / Raf L-01-03",
+      "shelf_location": "Laboratuvar Dolabı / Raf L-01-03",
+      "supplier": "ZwickRoell Almanya",
+      "supplier_origin": "Almanya",
+      "lead_time_days": 30,
+      "replenishment_status": "WARNING_LOW_STOCK"
+    },
+    {
+      "part_code": "MRP-SRV-514",
+      "name": "Lenze 9400 Servo Sürücü Güç Modülü & E-Cam DSP Kartı",
+      "machine": "Lenze 9400 HighLine Servo Sürücüler",
+      "department": "MEKATRONIK_PLC",
+      "category": "Otomasyon & Servo",
+      "associated_fault": "ERR-SRV-14",
+      "compatible_fault_codes": ["ERR-SRV-14"],
+      "current_stock": 2,
+      "critical_threshold": 2,
+      "unit": "Adet",
+      "unit_cost_tl": 48400.0,
+      "unit_price_eur": 1100.0,
+      "warehouse_location": "Otomasyon Odası / Raf P-03-04",
+      "shelf_location": "Otomasyon Odası / Raf P-03-04",
+      "supplier": "Lenze Almanya",
+      "supplier_origin": "Almanya",
+      "lead_time_days": 10,
+      "replenishment_status": "WARNING_LOW_STOCK"
+    },
+    {
+      "part_code": "MRP-SEN-808",
+      "name": "ROJ / Eltex Yüksek Hızlı Optik Atkı İplik Sensörü 24V",
+      "machine": "Van de Wiele RCE02 / Schönherr Alpha 500",
+      "department": "MEKATRONIK_PLC",
+      "category": "Saha Sensörleri",
+      "associated_fault": "ERR-SEN-08",
+      "compatible_fault_codes": ["ERR-SEN-08"],
+      "current_stock": 6,
+      "critical_threshold": 8,
+      "unit": "Adet",
+      "unit_cost_tl": 4840.0,
+      "unit_price_eur": 110.0,
+      "warehouse_location": "Otomasyon Odası / Raf P-01-08",
+      "shelf_location": "Otomasyon Odası / Raf P-01-08",
+      "supplier": "ROJ İtalya",
+      "supplier_origin": "İtalya",
+      "lead_time_days": 5,
+      "replenishment_status": "WARNING_LOW_STOCK"
+    },
+    {
+      "part_code": "MRP-RAY-105",
+      "name": "Van de Wiele Karbon Rapyer Kılavuz Rayı & Tırnak Seti",
+      "machine": "Van de Wiele RCE02 / VTR23",
+      "department": "DOKUMA",
+      "category": "Mekanik Dokuma",
+      "associated_fault": "ERR-RAP-05",
+      "compatible_fault_codes": ["ERR-RAP-05"],
+      "current_stock": 4,
+      "critical_threshold": 4,
+      "unit": "Takım",
+      "unit_cost_tl": 15400.0,
+      "unit_price_eur": 350.0,
+      "warehouse_location": "Depo-1 / Raf A-04-12",
+      "shelf_location": "Depo-1 / Raf A-04-12",
+      "supplier": "Van de Wiele Belçika",
+      "supplier_origin": "Belçika",
+      "lead_time_days": 12,
+      "replenishment_status": "WARNING_LOW_STOCK"
+    },
+    {
+      "part_code": "MRP-YAY-112",
+      "name": "Jakar Lingo Geri Çekme Yayı & Kordon Seti (50'li Paket)",
+      "machine": "Bonas / Stäubli Elektronik Jakar",
+      "department": "DOKUMA",
+      "category": "Jakar Mekaniği",
+      "associated_fault": "ERR-JAK-04",
+      "compatible_fault_codes": ["ERR-JAK-04"],
+      "current_stock": 25,
+      "critical_threshold": 30,
+      "unit": "Paket",
+      "unit_cost_tl": 2200.0,
+      "unit_price_eur": 50.0,
+      "warehouse_location": "Depo-2 / Raf E-02-05",
+      "shelf_location": "Depo-2 / Raf E-02-05",
+      "supplier": "Stäubli İsviçre",
+      "supplier_origin": "İsviçre",
+      "lead_time_days": 8,
+      "replenishment_status": "WARNING_LOW_STOCK"
+    },
+    {
+      "part_code": "MRP-YAG-190",
+      "name": "Sentetik Ağır Hizmet Dokuma Karter Dişli Yağı ISO VG 220 20L",
+      "machine": "Tüm Dokuma Tezgahları (Van de Wiele & Schönherr)",
+      "department": "DOKUMA",
+      "category": "Yağlama & Bakım",
+      "associated_fault": "ERR-LUB-09",
+      "compatible_fault_codes": ["ERR-LUB-09"],
+      "current_stock": 8,
+      "critical_threshold": 5,
+      "unit": "Bidon",
+      "unit_cost_tl": 5280.0,
+      "unit_price_eur": 120.0,
+      "warehouse_location": "Yağ Ambarı / Raf Y-01-02",
+      "shelf_location": "Yağ Ambarı / Raf Y-01-02",
+      "supplier": "Klüber Lubrication",
+      "supplier_origin": "Almanya",
+      "lead_time_days": 4,
+      "replenishment_status": "OPTIMAL_STOCK"
+    }
+  ]
+}

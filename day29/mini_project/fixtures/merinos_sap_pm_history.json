@@ -1,0 +1,3602 @@
+[
+  {
+    "notification_id": "IW21-2021-10114",
+    "work_order_id": "IW32-4500114",
+    "order_id": "IW32-4500114",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2021-01-20 21:30:00",
+    "downtime_minutes": 28.8,
+    "mtbf_hours": 327.5,
+    "mttr_hours": 1.0,
+    "symptom": "Van de Wiele RCF: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.0,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10018",
+    "work_order_id": "IW32-4500018",
+    "order_id": "IW32-4500018",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2021-01-22 07:30:00",
+    "downtime_minutes": 90.0,
+    "mtbf_hours": 301.1,
+    "mttr_hours": 2.5,
+    "symptom": "Schönherr ALPHA 500: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.6,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10098",
+    "work_order_id": "IW32-4500098",
+    "order_id": "IW32-4500098",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2021-03-14 23:30:00",
+    "downtime_minutes": 41.7,
+    "mtbf_hours": 294.5,
+    "mttr_hours": 1.2,
+    "symptom": "Mondomix Lateks Köpük Hattı: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.2,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10051",
+    "work_order_id": "IW32-4500051",
+    "order_id": "IW32-4500051",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2021-03-29 19:30:00",
+    "downtime_minutes": 23.8,
+    "mtbf_hours": 291.8,
+    "mttr_hours": 0.8,
+    "symptom": "Schönherr ALPHA 500: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10049",
+    "work_order_id": "IW32-4500049",
+    "order_id": "IW32-4500049",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2021-04-15 08:30:00",
+    "downtime_minutes": 34.4,
+    "mtbf_hours": 290.5,
+    "mttr_hours": 1.2,
+    "symptom": "Mondomix Lateks Köpük Hattı: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10107",
+    "work_order_id": "IW32-4500107",
+    "order_id": "IW32-4500107",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2021-04-18 09:30:00",
+    "downtime_minutes": 37.5,
+    "mtbf_hours": 335.8,
+    "mttr_hours": 1.2,
+    "symptom": "Schönherr ALPHA 500: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10085",
+    "work_order_id": "IW32-4500085",
+    "order_id": "IW32-4500085",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2021-04-27 16:30:00",
+    "downtime_minutes": 28.0,
+    "mtbf_hours": 296.9,
+    "mttr_hours": 1.0,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.0,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10038",
+    "work_order_id": "IW32-4500038",
+    "order_id": "IW32-4500038",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2021-05-12 09:30:00",
+    "downtime_minutes": 37.9,
+    "mtbf_hours": 320.2,
+    "mttr_hours": 1.2,
+    "symptom": "Van de Wiele RCE2+: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10022",
+    "work_order_id": "IW32-4500022",
+    "order_id": "IW32-4500022",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2021-05-13 15:30:00",
+    "downtime_minutes": 33.6,
+    "mtbf_hours": 355.8,
+    "mttr_hours": 1.0,
+    "symptom": "Saurer Volkmann VTS-08: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10027",
+    "work_order_id": "IW32-4500027",
+    "order_id": "IW32-4500027",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2021-06-10 06:30:00",
+    "downtime_minutes": 46.3,
+    "mtbf_hours": 298.3,
+    "mttr_hours": 1.5,
+    "symptom": "Superba TVP3 Fikse Tüneli: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10117",
+    "work_order_id": "IW32-4500117",
+    "order_id": "IW32-4500117",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2021-06-10 09:30:00",
+    "downtime_minutes": 25.7,
+    "mtbf_hours": 304.6,
+    "mttr_hours": 1.0,
+    "symptom": "Saurer Volkmann VTS-08: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10119",
+    "work_order_id": "IW32-4500119",
+    "order_id": "IW32-4500119",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2021-06-29 03:30:00",
+    "downtime_minutes": 64.9,
+    "mtbf_hours": 314.6,
+    "mttr_hours": 2.5,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.5,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10004",
+    "work_order_id": "IW32-4500004",
+    "order_id": "IW32-4500004",
+    "functional_location": "MER-T01-LN-F01-BRK-01",
+    "machine_name": "Brückner Ramöz Fikse Fırını",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2021-07-23 20:30:00",
+    "downtime_minutes": 37.3,
+    "mtbf_hours": 347.8,
+    "mttr_hours": 1.5,
+    "symptom": "Brückner Ramöz Fikse Fırını: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.6,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10019",
+    "work_order_id": "IW32-4500019",
+    "order_id": "IW32-4500019",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2021-08-21 04:30:00",
+    "downtime_minutes": 21.3,
+    "mtbf_hours": 331.1,
+    "mttr_hours": 0.8,
+    "symptom": "Schönherr ALPHA 500: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10104",
+    "work_order_id": "IW32-4500104",
+    "order_id": "IW32-4500104",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2021-09-17 07:30:00",
+    "downtime_minutes": 37.3,
+    "mtbf_hours": 341.0,
+    "mttr_hours": 1.2,
+    "symptom": "Superba TVP3 Fikse Tüneli: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10040",
+    "work_order_id": "IW32-4500040",
+    "order_id": "IW32-4500040",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2021-09-18 02:30:00",
+    "downtime_minutes": 71.1,
+    "mtbf_hours": 327.6,
+    "mttr_hours": 2.5,
+    "symptom": "Superba TVP3 Fikse Tüneli: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.7,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10118",
+    "work_order_id": "IW32-4500118",
+    "order_id": "IW32-4500118",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2021-09-26 22:30:00",
+    "downtime_minutes": 84.4,
+    "mtbf_hours": 336.0,
+    "mttr_hours": 2.5,
+    "symptom": "Saurer Volkmann VTS-08: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 3.0,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10071",
+    "work_order_id": "IW32-4500071",
+    "order_id": "IW32-4500071",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2021-11-14 04:30:00",
+    "downtime_minutes": 31.5,
+    "mtbf_hours": 351.4,
+    "mttr_hours": 1.0,
+    "symptom": "Mondomix Lateks Köpük Hattı: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.2,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10110",
+    "work_order_id": "IW32-4500110",
+    "order_id": "IW32-4500110",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2021-11-17 02:30:00",
+    "downtime_minutes": 34.4,
+    "mtbf_hours": 286.8,
+    "mttr_hours": 1.0,
+    "symptom": "Van de Wiele RCE2+: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.0,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10047",
+    "work_order_id": "IW32-4500047",
+    "order_id": "IW32-4500047",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2021-11-29 16:30:00",
+    "downtime_minutes": 21.2,
+    "mtbf_hours": 296.9,
+    "mttr_hours": 0.8,
+    "symptom": "Van de Wiele RCF: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10045",
+    "work_order_id": "IW32-4500045",
+    "order_id": "IW32-4500045",
+    "functional_location": "MER-T01-LN-F01-BRK-01",
+    "machine_name": "Brückner Ramöz Fikse Fırını",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2021-12-04 22:30:00",
+    "downtime_minutes": 41.4,
+    "mtbf_hours": 336.3,
+    "mttr_hours": 1.2,
+    "symptom": "Brückner Ramöz Fikse Fırını: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10056",
+    "work_order_id": "IW32-4500056",
+    "order_id": "IW32-4500056",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2021-12-08 06:30:00",
+    "downtime_minutes": 31.3,
+    "mtbf_hours": 349.8,
+    "mttr_hours": 1.2,
+    "symptom": "Superba TVP3 Fikse Tüneli: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2021-10035",
+    "work_order_id": "IW32-4500035",
+    "order_id": "IW32-4500035",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2021-12-18 20:30:00",
+    "downtime_minutes": 35.7,
+    "mtbf_hours": 311.2,
+    "mttr_hours": 1.5,
+    "symptom": "Mondomix Lateks Köpük Hattı: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10037",
+    "work_order_id": "IW32-4500037",
+    "order_id": "IW32-4500037",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2022-02-07 17:30:00",
+    "downtime_minutes": 26.2,
+    "mtbf_hours": 284.7,
+    "mttr_hours": 1.0,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10006",
+    "work_order_id": "IW32-4500006",
+    "order_id": "IW32-4500006",
+    "functional_location": "MER-T01-LN-F01-BRK-01",
+    "machine_name": "Brückner Ramöz Fikse Fırını",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2022-02-13 06:30:00",
+    "downtime_minutes": 19.3,
+    "mtbf_hours": 332.9,
+    "mttr_hours": 0.8,
+    "symptom": "Brückner Ramöz Fikse Fırını: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10002",
+    "work_order_id": "IW32-4500002",
+    "order_id": "IW32-4500002",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2022-02-27 06:30:00",
+    "downtime_minutes": 24.4,
+    "mtbf_hours": 323.6,
+    "mttr_hours": 0.8,
+    "symptom": "Van de Wiele RCE2+: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10088",
+    "work_order_id": "IW32-4500088",
+    "order_id": "IW32-4500088",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2022-02-27 08:30:00",
+    "downtime_minutes": 30.8,
+    "mtbf_hours": 299.1,
+    "mttr_hours": 1.0,
+    "symptom": "Van de Wiele RCE2+: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.0,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10079",
+    "work_order_id": "IW32-4500079",
+    "order_id": "IW32-4500079",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2022-03-14 21:30:00",
+    "downtime_minutes": 42.2,
+    "mtbf_hours": 341.6,
+    "mttr_hours": 1.5,
+    "symptom": "Mondomix Lateks Köpük Hattı: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10089",
+    "work_order_id": "IW32-4500089",
+    "order_id": "IW32-4500089",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2022-04-06 22:30:00",
+    "downtime_minutes": 24.9,
+    "mtbf_hours": 341.4,
+    "mttr_hours": 0.8,
+    "symptom": "Van de Wiele RCF: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10072",
+    "work_order_id": "IW32-4500072",
+    "order_id": "IW32-4500072",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2022-04-08 13:30:00",
+    "downtime_minutes": 87.9,
+    "mtbf_hours": 335.7,
+    "mttr_hours": 2.5,
+    "symptom": "Van de Wiele RCF: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.6,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10014",
+    "work_order_id": "IW32-4500014",
+    "order_id": "IW32-4500014",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2022-04-09 12:30:00",
+    "downtime_minutes": 36.9,
+    "mtbf_hours": 287.3,
+    "mttr_hours": 1.2,
+    "symptom": "Mondomix Lateks Köpük Hattı: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10010",
+    "work_order_id": "IW32-4500010",
+    "order_id": "IW32-4500010",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2022-04-10 05:30:00",
+    "downtime_minutes": 21.6,
+    "mtbf_hours": 341.5,
+    "mttr_hours": 0.8,
+    "symptom": "Saurer Volkmann VTS-08: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.7,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10087",
+    "work_order_id": "IW32-4500087",
+    "order_id": "IW32-4500087",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2022-04-20 04:30:00",
+    "downtime_minutes": 30.7,
+    "mtbf_hours": 356.6,
+    "mttr_hours": 1.2,
+    "symptom": "Van de Wiele RCE2+: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10026",
+    "work_order_id": "IW32-4500026",
+    "order_id": "IW32-4500026",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2022-04-20 10:30:00",
+    "downtime_minutes": 27.6,
+    "mtbf_hours": 327.1,
+    "mttr_hours": 1.0,
+    "symptom": "Van de Wiele RCF: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.0,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10069",
+    "work_order_id": "IW32-4500069",
+    "order_id": "IW32-4500069",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2022-04-20 14:30:00",
+    "downtime_minutes": 31.8,
+    "mtbf_hours": 283.7,
+    "mttr_hours": 1.2,
+    "symptom": "Superba TVP3 Fikse Tüneli: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10100",
+    "work_order_id": "IW32-4500100",
+    "order_id": "IW32-4500100",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2022-05-25 07:30:00",
+    "downtime_minutes": 42.5,
+    "mtbf_hours": 324.4,
+    "mttr_hours": 1.5,
+    "symptom": "Superba TVP3 Fikse Tüneli: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.5,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10013",
+    "work_order_id": "IW32-4500013",
+    "order_id": "IW32-4500013",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2022-06-05 07:30:00",
+    "downtime_minutes": 30.1,
+    "mtbf_hours": 301.0,
+    "mttr_hours": 1.0,
+    "symptom": "Saurer Volkmann VTS-08: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10109",
+    "work_order_id": "IW32-4500109",
+    "order_id": "IW32-4500109",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2022-06-16 23:30:00",
+    "downtime_minutes": 37.6,
+    "mtbf_hours": 285.2,
+    "mttr_hours": 1.5,
+    "symptom": "Schönherr ALPHA 500: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.6,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10044",
+    "work_order_id": "IW32-4500044",
+    "order_id": "IW32-4500044",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2022-07-12 12:30:00",
+    "downtime_minutes": 26.9,
+    "mtbf_hours": 350.5,
+    "mttr_hours": 0.8,
+    "symptom": "Superba TVP3 Fikse Tüneli: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10042",
+    "work_order_id": "IW32-4500042",
+    "order_id": "IW32-4500042",
+    "functional_location": "MER-T01-LN-F01-BRK-01",
+    "machine_name": "Brückner Ramöz Fikse Fırını",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2022-07-12 20:30:00",
+    "downtime_minutes": 25.3,
+    "mtbf_hours": 331.6,
+    "mttr_hours": 1.0,
+    "symptom": "Brückner Ramöz Fikse Fırını: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.0,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10105",
+    "work_order_id": "IW32-4500105",
+    "order_id": "IW32-4500105",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2022-08-05 07:30:00",
+    "downtime_minutes": 81.4,
+    "mtbf_hours": 340.8,
+    "mttr_hours": 2.5,
+    "symptom": "Superba TVP3 Fikse Tüneli: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.7,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10099",
+    "work_order_id": "IW32-4500099",
+    "order_id": "IW32-4500099",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2022-08-11 03:30:00",
+    "downtime_minutes": 39.6,
+    "mtbf_hours": 302.1,
+    "mttr_hours": 1.2,
+    "symptom": "Saurer Volkmann VTS-08: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10068",
+    "work_order_id": "IW32-4500068",
+    "order_id": "IW32-4500068",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2022-08-20 00:30:00",
+    "downtime_minutes": 46.9,
+    "mtbf_hours": 329.5,
+    "mttr_hours": 1.5,
+    "symptom": "Schönherr ALPHA 500: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10106",
+    "work_order_id": "IW32-4500106",
+    "order_id": "IW32-4500106",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2022-09-13 15:30:00",
+    "downtime_minutes": 27.8,
+    "mtbf_hours": 304.2,
+    "mttr_hours": 1.0,
+    "symptom": "Van de Wiele RCF: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10046",
+    "work_order_id": "IW32-4500046",
+    "order_id": "IW32-4500046",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2022-09-21 05:30:00",
+    "downtime_minutes": 19.6,
+    "mtbf_hours": 350.3,
+    "mttr_hours": 0.8,
+    "symptom": "Van de Wiele RCE2+: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10090",
+    "work_order_id": "IW32-4500090",
+    "order_id": "IW32-4500090",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2022-10-14 11:30:00",
+    "downtime_minutes": 30.3,
+    "mtbf_hours": 354.3,
+    "mttr_hours": 1.0,
+    "symptom": "Van de Wiele RCF: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10021",
+    "work_order_id": "IW32-4500021",
+    "order_id": "IW32-4500021",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2022-11-09 23:30:00",
+    "downtime_minutes": 18.9,
+    "mtbf_hours": 354.3,
+    "mttr_hours": 0.8,
+    "symptom": "Van de Wiele RCE2+: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2022-10077",
+    "work_order_id": "IW32-4500077",
+    "order_id": "IW32-4500077",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2022-12-03 18:30:00",
+    "downtime_minutes": 42.3,
+    "mtbf_hours": 286.4,
+    "mttr_hours": 1.2,
+    "symptom": "Superba TVP3 Fikse Tüneli: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10008",
+    "work_order_id": "IW32-4500008",
+    "order_id": "IW32-4500008",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2023-01-12 14:30:00",
+    "downtime_minutes": 39.1,
+    "mtbf_hours": 336.1,
+    "mttr_hours": 1.2,
+    "symptom": "Schönherr ALPHA 500: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10102",
+    "work_order_id": "IW32-4500102",
+    "order_id": "IW32-4500102",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2023-02-09 23:30:00",
+    "downtime_minutes": 23.6,
+    "mtbf_hours": 307.5,
+    "mttr_hours": 0.8,
+    "symptom": "Saurer Volkmann VTS-08: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 1.0,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10080",
+    "work_order_id": "IW32-4500080",
+    "order_id": "IW32-4500080",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2023-03-05 23:30:00",
+    "downtime_minutes": 18.8,
+    "mtbf_hours": 308.1,
+    "mttr_hours": 0.8,
+    "symptom": "Van de Wiele RCE2+: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10025",
+    "work_order_id": "IW32-4500025",
+    "order_id": "IW32-4500025",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2023-04-13 05:30:00",
+    "downtime_minutes": 38.8,
+    "mtbf_hours": 315.0,
+    "mttr_hours": 1.2,
+    "symptom": "Superba TVP3 Fikse Tüneli: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10011",
+    "work_order_id": "IW32-4500011",
+    "order_id": "IW32-4500011",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2023-04-16 16:30:00",
+    "downtime_minutes": 30.7,
+    "mtbf_hours": 353.1,
+    "mttr_hours": 1.2,
+    "symptom": "Van de Wiele RCE2+: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10031",
+    "work_order_id": "IW32-4500031",
+    "order_id": "IW32-4500031",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2023-04-20 07:30:00",
+    "downtime_minutes": 41.4,
+    "mtbf_hours": 348.9,
+    "mttr_hours": 1.5,
+    "symptom": "Van de Wiele RCF: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.5,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10070",
+    "work_order_id": "IW32-4500070",
+    "order_id": "IW32-4500070",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2023-05-14 04:30:00",
+    "downtime_minutes": 81.0,
+    "mtbf_hours": 337.5,
+    "mttr_hours": 2.5,
+    "symptom": "Van de Wiele RCF: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.5,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10065",
+    "work_order_id": "IW32-4500065",
+    "order_id": "IW32-4500065",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2023-05-27 05:30:00",
+    "downtime_minutes": 34.3,
+    "mtbf_hours": 334.2,
+    "mttr_hours": 1.0,
+    "symptom": "Schönherr ALPHA 500: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.2,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10001",
+    "work_order_id": "IW32-4500001",
+    "order_id": "IW32-4500001",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2023-05-29 09:30:00",
+    "downtime_minutes": 19.0,
+    "mtbf_hours": 297.5,
+    "mttr_hours": 0.8,
+    "symptom": "Van de Wiele RCF: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10036",
+    "work_order_id": "IW32-4500036",
+    "order_id": "IW32-4500036",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2023-06-01 06:30:00",
+    "downtime_minutes": 43.2,
+    "mtbf_hours": 359.6,
+    "mttr_hours": 1.2,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10030",
+    "work_order_id": "IW32-4500030",
+    "order_id": "IW32-4500030",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2023-06-01 21:30:00",
+    "downtime_minutes": 36.3,
+    "mtbf_hours": 338.3,
+    "mttr_hours": 1.2,
+    "symptom": "Mondomix Lateks Köpük Hattı: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10063",
+    "work_order_id": "IW32-4500063",
+    "order_id": "IW32-4500063",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2023-06-17 10:30:00",
+    "downtime_minutes": 43.0,
+    "mtbf_hours": 353.7,
+    "mttr_hours": 1.2,
+    "symptom": "Superba TVP3 Fikse Tüneli: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10061",
+    "work_order_id": "IW32-4500061",
+    "order_id": "IW32-4500061",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2023-06-23 19:30:00",
+    "downtime_minutes": 25.1,
+    "mtbf_hours": 305.1,
+    "mttr_hours": 0.8,
+    "symptom": "Van de Wiele RCF: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10095",
+    "work_order_id": "IW32-4500095",
+    "order_id": "IW32-4500095",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2023-06-25 13:30:00",
+    "downtime_minutes": 32.0,
+    "mtbf_hours": 357.2,
+    "mttr_hours": 1.0,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.0,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10082",
+    "work_order_id": "IW32-4500082",
+    "order_id": "IW32-4500082",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2023-06-26 23:30:00",
+    "downtime_minutes": 30.2,
+    "mtbf_hours": 306.9,
+    "mttr_hours": 1.2,
+    "symptom": "Superba TVP3 Fikse Tüneli: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10096",
+    "work_order_id": "IW32-4500096",
+    "order_id": "IW32-4500096",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2023-06-27 07:30:00",
+    "downtime_minutes": 81.5,
+    "mtbf_hours": 305.8,
+    "mttr_hours": 2.5,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10067",
+    "work_order_id": "IW32-4500067",
+    "order_id": "IW32-4500067",
+    "functional_location": "MER-T01-LN-F01-BRK-01",
+    "machine_name": "Brückner Ramöz Fikse Fırını",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2023-07-08 22:30:00",
+    "downtime_minutes": 84.0,
+    "mtbf_hours": 320.9,
+    "mttr_hours": 2.5,
+    "symptom": "Brückner Ramöz Fikse Fırını: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10101",
+    "work_order_id": "IW32-4500101",
+    "order_id": "IW32-4500101",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2023-07-21 08:30:00",
+    "downtime_minutes": 66.5,
+    "mtbf_hours": 297.7,
+    "mttr_hours": 2.5,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10032",
+    "work_order_id": "IW32-4500032",
+    "order_id": "IW32-4500032",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2023-07-22 12:30:00",
+    "downtime_minutes": 22.4,
+    "mtbf_hours": 302.3,
+    "mttr_hours": 0.8,
+    "symptom": "Superba TVP3 Fikse Tüneli: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10073",
+    "work_order_id": "IW32-4500073",
+    "order_id": "IW32-4500073",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2023-08-07 12:30:00",
+    "downtime_minutes": 49.2,
+    "mtbf_hours": 333.4,
+    "mttr_hours": 1.5,
+    "symptom": "Superba TVP3 Fikse Tüneli: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10043",
+    "work_order_id": "IW32-4500043",
+    "order_id": "IW32-4500043",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2023-08-12 03:30:00",
+    "downtime_minutes": 52.5,
+    "mtbf_hours": 359.7,
+    "mttr_hours": 1.5,
+    "symptom": "Van de Wiele RCF: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10016",
+    "work_order_id": "IW32-4500016",
+    "order_id": "IW32-4500016",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2023-09-01 00:30:00",
+    "downtime_minutes": 20.9,
+    "mtbf_hours": 324.3,
+    "mttr_hours": 0.8,
+    "symptom": "Mondomix Lateks Köpük Hattı: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10076",
+    "work_order_id": "IW32-4500076",
+    "order_id": "IW32-4500076",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2023-10-05 04:30:00",
+    "downtime_minutes": 20.8,
+    "mtbf_hours": 315.2,
+    "mttr_hours": 0.8,
+    "symptom": "Saurer Volkmann VTS-08: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10048",
+    "work_order_id": "IW32-4500048",
+    "order_id": "IW32-4500048",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2023-10-12 16:30:00",
+    "downtime_minutes": 26.7,
+    "mtbf_hours": 347.7,
+    "mttr_hours": 0.8,
+    "symptom": "Saurer Volkmann VTS-08: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.7,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10064",
+    "work_order_id": "IW32-4500064",
+    "order_id": "IW32-4500064",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2023-11-19 17:30:00",
+    "downtime_minutes": 39.1,
+    "mtbf_hours": 306.1,
+    "mttr_hours": 1.2,
+    "symptom": "Van de Wiele RCF: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10039",
+    "work_order_id": "IW32-4500039",
+    "order_id": "IW32-4500039",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2023-11-21 10:30:00",
+    "downtime_minutes": 50.0,
+    "mtbf_hours": 285.5,
+    "mttr_hours": 1.5,
+    "symptom": "Schönherr ALPHA 500: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2023-10028",
+    "work_order_id": "IW32-4500028",
+    "order_id": "IW32-4500028",
+    "functional_location": "MER-T01-LN-F01-BRK-01",
+    "machine_name": "Brückner Ramöz Fikse Fırını",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2023-12-03 15:30:00",
+    "downtime_minutes": 40.4,
+    "mtbf_hours": 318.8,
+    "mttr_hours": 1.5,
+    "symptom": "Brückner Ramöz Fikse Fırını: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.6,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10024",
+    "work_order_id": "IW32-4500024",
+    "order_id": "IW32-4500024",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2024-01-01 03:30:00",
+    "downtime_minutes": 35.7,
+    "mtbf_hours": 296.9,
+    "mttr_hours": 1.2,
+    "symptom": "Schönherr ALPHA 500: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10093",
+    "work_order_id": "IW32-4500093",
+    "order_id": "IW32-4500093",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2024-01-11 21:30:00",
+    "downtime_minutes": 39.0,
+    "mtbf_hours": 285.5,
+    "mttr_hours": 1.2,
+    "symptom": "Van de Wiele RCE2+: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10005",
+    "work_order_id": "IW32-4500005",
+    "order_id": "IW32-4500005",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2024-01-18 11:30:00",
+    "downtime_minutes": 92.9,
+    "mtbf_hours": 310.3,
+    "mttr_hours": 2.5,
+    "symptom": "Van de Wiele RCE2+: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.7,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10066",
+    "work_order_id": "IW32-4500066",
+    "order_id": "IW32-4500066",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2024-02-11 08:30:00",
+    "downtime_minutes": 72.9,
+    "mtbf_hours": 296.8,
+    "mttr_hours": 2.5,
+    "symptom": "Saurer Volkmann VTS-08: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10050",
+    "work_order_id": "IW32-4500050",
+    "order_id": "IW32-4500050",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2024-02-19 06:30:00",
+    "downtime_minutes": 76.6,
+    "mtbf_hours": 280.8,
+    "mttr_hours": 2.5,
+    "symptom": "Schönherr ALPHA 500: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10084",
+    "work_order_id": "IW32-4500084",
+    "order_id": "IW32-4500084",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2024-03-16 05:30:00",
+    "downtime_minutes": 18.9,
+    "mtbf_hours": 331.4,
+    "mttr_hours": 0.8,
+    "symptom": "Mondomix Lateks Köpük Hattı: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10041",
+    "work_order_id": "IW32-4500041",
+    "order_id": "IW32-4500041",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2024-03-18 00:30:00",
+    "downtime_minutes": 21.5,
+    "mtbf_hours": 300.9,
+    "mttr_hours": 0.8,
+    "symptom": "Mondomix Lateks Köpük Hattı: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10062",
+    "work_order_id": "IW32-4500062",
+    "order_id": "IW32-4500062",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2024-04-09 14:30:00",
+    "downtime_minutes": 71.4,
+    "mtbf_hours": 336.7,
+    "mttr_hours": 2.5,
+    "symptom": "Van de Wiele RCF: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10111",
+    "work_order_id": "IW32-4500111",
+    "order_id": "IW32-4500111",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2024-05-20 03:30:00",
+    "downtime_minutes": 20.7,
+    "mtbf_hours": 321.8,
+    "mttr_hours": 0.8,
+    "symptom": "Mondomix Lateks Köpük Hattı: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10074",
+    "work_order_id": "IW32-4500074",
+    "order_id": "IW32-4500074",
+    "functional_location": "MER-T01-LN-F01-BRK-01",
+    "machine_name": "Brückner Ramöz Fikse Fırını",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2024-06-23 07:30:00",
+    "downtime_minutes": 90.5,
+    "mtbf_hours": 314.1,
+    "mttr_hours": 2.5,
+    "symptom": "Brückner Ramöz Fikse Fırını: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10113",
+    "work_order_id": "IW32-4500113",
+    "order_id": "IW32-4500113",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2024-07-19 14:30:00",
+    "downtime_minutes": 26.8,
+    "mtbf_hours": 286.5,
+    "mttr_hours": 1.0,
+    "symptom": "Van de Wiele RCF: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.0,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10015",
+    "work_order_id": "IW32-4500015",
+    "order_id": "IW32-4500015",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2024-07-23 13:30:00",
+    "downtime_minutes": 32.7,
+    "mtbf_hours": 313.8,
+    "mttr_hours": 1.0,
+    "symptom": "Van de Wiele RCF: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10009",
+    "work_order_id": "IW32-4500009",
+    "order_id": "IW32-4500009",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2024-08-07 13:30:00",
+    "downtime_minutes": 23.4,
+    "mtbf_hours": 299.6,
+    "mttr_hours": 0.8,
+    "symptom": "Van de Wiele RCF: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10059",
+    "work_order_id": "IW32-4500059",
+    "order_id": "IW32-4500059",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2024-08-21 00:30:00",
+    "downtime_minutes": 35.3,
+    "mtbf_hours": 358.5,
+    "mttr_hours": 1.2,
+    "symptom": "Saurer Volkmann VTS-08: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10012",
+    "work_order_id": "IW32-4500012",
+    "order_id": "IW32-4500012",
+    "functional_location": "MER-T01-LN-F01-BRK-01",
+    "machine_name": "Brückner Ramöz Fikse Fırını",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2024-09-18 23:30:00",
+    "downtime_minutes": 28.2,
+    "mtbf_hours": 353.2,
+    "mttr_hours": 1.0,
+    "symptom": "Brückner Ramöz Fikse Fırını: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.0,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10058",
+    "work_order_id": "IW32-4500058",
+    "order_id": "IW32-4500058",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2024-09-27 14:30:00",
+    "downtime_minutes": 42.4,
+    "mtbf_hours": 302.3,
+    "mttr_hours": 1.5,
+    "symptom": "Superba TVP3 Fikse Tüneli: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10116",
+    "work_order_id": "IW32-4500116",
+    "order_id": "IW32-4500116",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2024-09-30 14:30:00",
+    "downtime_minutes": 22.4,
+    "mtbf_hours": 323.6,
+    "mttr_hours": 0.8,
+    "symptom": "Saurer Volkmann VTS-08: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10103",
+    "work_order_id": "IW32-4500103",
+    "order_id": "IW32-4500103",
+    "functional_location": "MER-T01-LN-F01-BRK-01",
+    "machine_name": "Brückner Ramöz Fikse Fırını",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2024-12-24 22:30:00",
+    "downtime_minutes": 33.5,
+    "mtbf_hours": 300.1,
+    "mttr_hours": 1.2,
+    "symptom": "Brückner Ramöz Fikse Fırını: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2024-10078",
+    "work_order_id": "IW32-4500078",
+    "order_id": "IW32-4500078",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2024-12-31 14:30:00",
+    "downtime_minutes": 24.5,
+    "mtbf_hours": 312.6,
+    "mttr_hours": 1.0,
+    "symptom": "Mondomix Lateks Köpük Hattı: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10115",
+    "work_order_id": "IW32-4500115",
+    "order_id": "IW32-4500115",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2025-01-01 17:30:00",
+    "downtime_minutes": 39.6,
+    "mtbf_hours": 316.3,
+    "mttr_hours": 1.2,
+    "symptom": "Superba TVP3 Fikse Tüneli: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10091",
+    "work_order_id": "IW32-4500091",
+    "order_id": "IW32-4500091",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2025-01-18 14:30:00",
+    "downtime_minutes": 66.0,
+    "mtbf_hours": 335.2,
+    "mttr_hours": 2.5,
+    "symptom": "Mondomix Lateks Köpük Hattı: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.7,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10055",
+    "work_order_id": "IW32-4500055",
+    "order_id": "IW32-4500055",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2025-03-03 18:30:00",
+    "downtime_minutes": 32.6,
+    "mtbf_hours": 312.9,
+    "mttr_hours": 1.0,
+    "symptom": "Van de Wiele RCE2+: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10000",
+    "work_order_id": "IW32-4500000",
+    "order_id": "IW32-4500000",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2025-03-13 16:30:00",
+    "downtime_minutes": 39.8,
+    "mtbf_hours": 291.2,
+    "mttr_hours": 1.5,
+    "symptom": "Van de Wiele RCF: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10075",
+    "work_order_id": "IW32-4500075",
+    "order_id": "IW32-4500075",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2025-03-18 23:30:00",
+    "downtime_minutes": 28.8,
+    "mtbf_hours": 340.1,
+    "mttr_hours": 1.0,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.2,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10081",
+    "work_order_id": "IW32-4500081",
+    "order_id": "IW32-4500081",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2025-03-26 07:30:00",
+    "downtime_minutes": 23.5,
+    "mtbf_hours": 328.3,
+    "mttr_hours": 0.8,
+    "symptom": "Mondomix Lateks Köpük Hattı: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10017",
+    "work_order_id": "IW32-4500017",
+    "order_id": "IW32-4500017",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2025-04-01 16:30:00",
+    "downtime_minutes": 25.5,
+    "mtbf_hours": 307.2,
+    "mttr_hours": 0.8,
+    "symptom": "Van de Wiele RCF: Jakar 4. çerçevede lingo düşmesi ve desen çizgi hatası",
+    "failure_mode_code": "ELC-MOD-SHR",
+    "root_cause_analysis": "Solenoid bobin aşırı ısınması ve lingo geri çekme yayının kopması.",
+    "corrective_action_performed": "Bobin direnci 45 Ohm doğrulandı, kopuk lingo yayı yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-YAY-112",
+        "qty": 4,
+        "name": "Lingo Geri Çekme Yayı"
+      }
+    ],
+    "labor_hours": 0.8,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Jakar kafa yağ seviyesi ISO VG 68 kontrol edildi. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10086",
+    "work_order_id": "IW32-4500086",
+    "order_id": "IW32-4500086",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2025-04-04 21:30:00",
+    "downtime_minutes": 33.3,
+    "mtbf_hours": 286.6,
+    "mttr_hours": 1.2,
+    "symptom": "Mondomix Lateks Köpük Hattı: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10034",
+    "work_order_id": "IW32-4500034",
+    "order_id": "IW32-4500034",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2025-04-07 15:30:00",
+    "downtime_minutes": 38.5,
+    "mtbf_hours": 318.9,
+    "mttr_hours": 1.5,
+    "symptom": "Van de Wiele RCE2+: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10003",
+    "work_order_id": "IW32-4500003",
+    "order_id": "IW32-4500003",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2025-04-18 13:30:00",
+    "downtime_minutes": 47.4,
+    "mtbf_hours": 307.2,
+    "mttr_hours": 1.5,
+    "symptom": "Saurer Volkmann VTS-08: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10023",
+    "work_order_id": "IW32-4500023",
+    "order_id": "IW32-4500023",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2025-04-22 01:30:00",
+    "downtime_minutes": 48.6,
+    "mtbf_hours": 290.3,
+    "mttr_hours": 1.5,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.6,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10020",
+    "work_order_id": "IW32-4500020",
+    "order_id": "IW32-4500020",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2025-04-25 13:30:00",
+    "downtime_minutes": 37.3,
+    "mtbf_hours": 342.3,
+    "mttr_hours": 1.2,
+    "symptom": "Schönherr ALPHA 500: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10053",
+    "work_order_id": "IW32-4500053",
+    "order_id": "IW32-4500053",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2025-06-01 01:30:00",
+    "downtime_minutes": 42.1,
+    "mtbf_hours": 312.5,
+    "mttr_hours": 1.2,
+    "symptom": "Van de Wiele RCF: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10029",
+    "work_order_id": "IW32-4500029",
+    "order_id": "IW32-4500029",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2025-06-09 23:30:00",
+    "downtime_minutes": 32.8,
+    "mtbf_hours": 295.2,
+    "mttr_hours": 1.0,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 0.9,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10052",
+    "work_order_id": "IW32-4500052",
+    "order_id": "IW32-4500052",
+    "functional_location": "MER-T01-LN-Y02-SAU-11",
+    "machine_name": "Saurer Volkmann VTS-08",
+    "department": "IPLIK_BCF",
+    "timestamp": "2025-07-03 09:30:00",
+    "downtime_minutes": 42.3,
+    "mtbf_hours": 296.8,
+    "mttr_hours": 1.2,
+    "symptom": "Saurer Volkmann VTS-08: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.2,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10033",
+    "work_order_id": "IW32-4500033",
+    "order_id": "IW32-4500033",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2025-07-28 01:30:00",
+    "downtime_minutes": 66.7,
+    "mtbf_hours": 332.2,
+    "mttr_hours": 2.5,
+    "symptom": "Van de Wiele RCF: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.7,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10057",
+    "work_order_id": "IW32-4500057",
+    "order_id": "IW32-4500057",
+    "functional_location": "MER-T01-LN-Y01-SUP-02",
+    "machine_name": "Superba TVP3 Fikse Tüneli",
+    "department": "IPLIK_BCF",
+    "timestamp": "2025-08-14 22:30:00",
+    "downtime_minutes": 27.7,
+    "mtbf_hours": 345.6,
+    "mttr_hours": 1.0,
+    "symptom": "Superba TVP3 Fikse Tüneli: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.2,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10094",
+    "work_order_id": "IW32-4500094",
+    "order_id": "IW32-4500094",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2025-08-26 23:30:00",
+    "downtime_minutes": 66.9,
+    "mtbf_hours": 356.9,
+    "mttr_hours": 2.5,
+    "symptom": "Van de Wiele RCE2+: Buhar tüneli giriş kilit contasından yoğun doymuş buhar tahliyesi",
+    "failure_mode_code": "MEC-SEA-LKE",
+    "root_cause_analysis": "140°C buhar altında dudak contasının termal sertleşmesi ve yırtılması.",
+    "corrective_action_performed": "Tünel çift vana ile blöflendi, soğuma beklendi, yeni conta kiti takıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "EE106144",
+        "qty": 2,
+        "name": "Superba Basınç Contası"
+      }
+    ],
+    "labor_hours": 2.7,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Çift blöf körleme ve manometre sıfır basınç testi yapılmadan kapak açılmadı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10083",
+    "work_order_id": "IW32-4500083",
+    "order_id": "IW32-4500083",
+    "functional_location": "MER-T01-LN-F02-MON-04",
+    "machine_name": "Mondomix Lateks Köpük Hattı",
+    "department": "RAMOZ_TERBIYE",
+    "timestamp": "2025-10-02 22:30:00",
+    "downtime_minutes": 34.1,
+    "mtbf_hours": 358.5,
+    "mttr_hours": 1.0,
+    "symptom": "Mondomix Lateks Köpük Hattı: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.1,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10092",
+    "work_order_id": "IW32-4500092",
+    "order_id": "IW32-4500092",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2025-10-23 05:30:00",
+    "downtime_minutes": 38.2,
+    "mtbf_hours": 289.7,
+    "mttr_hours": 1.2,
+    "symptom": "Van de Wiele RCF: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.4,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10112",
+    "work_order_id": "IW32-4500112",
+    "order_id": "IW32-4500112",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2025-11-12 02:30:00",
+    "downtime_minutes": 43.6,
+    "mtbf_hours": 304.4,
+    "mttr_hours": 1.2,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10054",
+    "work_order_id": "IW32-4500054",
+    "order_id": "IW32-4500054",
+    "functional_location": "MER-T01-LN-W03-SCH-07",
+    "machine_name": "Schönherr ALPHA 500",
+    "department": "DOKUMA",
+    "timestamp": "2025-11-20 13:30:00",
+    "downtime_minutes": 34.7,
+    "mtbf_hours": 344.9,
+    "mttr_hours": 1.0,
+    "symptom": "Schönherr ALPHA 500: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.2,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10007",
+    "work_order_id": "IW32-4500007",
+    "order_id": "IW32-4500007",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2025-11-24 11:30:00",
+    "downtime_minutes": 28.1,
+    "mtbf_hours": 316.3,
+    "mttr_hours": 1.0,
+    "symptom": "Van de Wiele RCF: Döner hav bıçağında körelme ve alt-üst halı ayrımında lif saçaklanması",
+    "failure_mode_code": "MEC-CUT-DUL",
+    "root_cause_analysis": "Otomatik elmas bileyici taşının aşınması ve kayış gevşemesi.",
+    "corrective_action_performed": "Bileme taşı 15° açıyla sıfırlandı, traverse rayına kuru PTFE sprey uygulandı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-BIC-305",
+        "qty": 1,
+        "name": "Hav Kesme Döner Bıçağı"
+      }
+    ],
+    "labor_hours": 1.2,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Bıçak dönüş motoru izole edildi, acil durdurma kilidi takıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10108",
+    "work_order_id": "IW32-4500108",
+    "order_id": "IW32-4500108",
+    "functional_location": "MER-T01-LN-K01-VOL-02",
+    "machine_name": "Vollenweider Halı Tıraş Makinesi",
+    "department": "KONFEKSIYON",
+    "timestamp": "2025-12-07 08:30:00",
+    "downtime_minutes": 45.3,
+    "mtbf_hours": 317.6,
+    "mttr_hours": 1.5,
+    "symptom": "Vollenweider Halı Tıraş Makinesi: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.5,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10060",
+    "work_order_id": "IW32-4500060",
+    "order_id": "IW32-4500060",
+    "functional_location": "MER-T01-LN-W02-VDW-14",
+    "machine_name": "Van de Wiele RCE2+",
+    "department": "DOKUMA",
+    "timestamp": "2025-12-16 16:30:00",
+    "downtime_minutes": 38.7,
+    "mtbf_hours": 357.0,
+    "mttr_hours": 1.5,
+    "symptom": "Van de Wiele RCE2+: Sol verici rapyerden sağ alıcı rapyere atkı devir-teslim kaçırması",
+    "failure_mode_code": "MEC-TRN-BRK",
+    "root_cause_analysis": "Kıskaç mandal yayının yorulması ve kılavuz tırnak aşınması (>0.08 mm).",
+    "corrective_action_performed": "Sentil çakısıyla buluşma açıklığı 0.35 mm'ye getirildi; aşınan tırnaklar yenilendi.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-RAP-101",
+        "qty": 1,
+        "name": "Rapyer Kıskacı"
+      }
+    ],
+    "labor_hours": 1.5,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: LOTO uygulandı, ana motor şalteri kilitlendi. 180° ana mil açısı inching ile doğrulandı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  },
+  {
+    "notification_id": "IW21-2025-10097",
+    "work_order_id": "IW32-4500097",
+    "order_id": "IW32-4500097",
+    "functional_location": "MER-T01-LN-W01-VDW-03",
+    "machine_name": "Van de Wiele RCF",
+    "department": "DOKUMA",
+    "timestamp": "2025-12-25 22:30:00",
+    "downtime_minutes": 33.2,
+    "mtbf_hours": 317.2,
+    "mttr_hours": 1.2,
+    "symptom": "Van de Wiele RCF: SCADA ekranında Profinet Rack 2 Drop hatası ve aniden acil duruş",
+    "failure_mode_code": "ELC-NET-TMO",
+    "root_cause_analysis": "ET 200SP panosundaki Ethernet kablosunda motor kablosundan kaynaklı EMI paraziti.",
+    "corrective_action_performed": "Cat6 STP kablo sinyal tavasına alındı, TIA Portal watchdog süresi 100 ms yapıldı.",
+    "parts_consumed": [
+      {
+        "part_code": "MRP-PLC-622",
+        "qty": 1,
+        "name": "ET 200SP Profinet Modülü"
+      }
+    ],
+    "labor_hours": 1.3,
+    "loto_applied": true,
+    "loto_required": true,
+    "teco_technician_notes": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "technician_log": "TECO Kapanış Onayı: Topraklama barası direnci ölçüldü (< 0.1 Ohm), klemensler sıkıldı. Bakım Şefi: K. Özdemir (Sicil: 4108).",
+    "status": "TECO",
+    "teco_status": "TECO_COMPLETED"
+  }
+]

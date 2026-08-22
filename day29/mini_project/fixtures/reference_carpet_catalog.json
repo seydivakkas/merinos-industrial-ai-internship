@@ -1,0 +1,62 @@
+[
+  {
+    "carpet_id": "CAT-SARAY-001",
+    "title": "Merinos Padişah Serisi — Geleneksel Çintemani & Madalyon Halısı",
+    "style": "Klasik Osmanlı",
+    "primary_colors": ["Yakut Kırmızı", "Eski Altın", "Krem"],
+    "symmetry_type": "Bilateral ve Dikey",
+    "density_knots_m2": 1500000,
+    "description": "Merkezde çift katmanlı altın varak madalyon, köşebentlerde rumi kıvrımlar ve geniş bordürlü klasik desen.",
+    "mock_embedding_seed": 42
+  },
+  {
+    "carpet_id": "CAT-SARAY-002",
+    "title": "Merinos Hünkar Serisi — Gece Laciverti Mihraplı İpek Tuşe Halı",
+    "style": "Klasik Osmanlı Sarayı",
+    "primary_colors": ["Gece Laciverti", "Altın Sarısı", "Bordo"],
+    "symmetry_type": "Bilateral Ayna",
+    "density_knots_m2": 1800000,
+    "description": "Derin lacivert zemin üzerine altın simli mihrap kompozisyonu ve ince sarmaşık bordür.",
+    "mock_embedding_seed": 108
+  },
+  {
+    "carpet_id": "CAT-MODERN-101",
+    "title": "Merinos Loft Serisi — İskandinav Geometrik Asimetrik Halı",
+    "style": "Modern Minimalist",
+    "primary_colors": ["Kutup Grisi", "Antrasit", "Hardal"],
+    "symmetry_type": "Asimetrik",
+    "density_knots_m2": 850000,
+    "description": "Farklı boyutlarda üçgen ve çokgenlerin serbest yerleşimiyle oluşturulan minimalist modern desen.",
+    "mock_embedding_seed": 256
+  },
+  {
+    "carpet_id": "CAT-MODERN-102",
+    "title": "Merinos Arte Serisi — Sinüzoidal Dalga & Ritmik Çizgili Halı",
+    "style": "Modern Geometrik",
+    "primary_colors": ["Buz Mavisi", "Krem", "Gümüş Grisi"],
+    "symmetry_type": "Yatay Tekrarlı",
+    "density_knots_m2": 950000,
+    "description": "Yumuşak pastel tonlarda akışkan yatay dalgalar ve periyodik tekrar dokusu.",
+    "mock_embedding_seed": 333
+  },
+  {
+    "carpet_id": "CAT-BOHEM-201",
+    "title": "Merinos Anatolia Serisi — Yörük Kilimi & Baklava Motifli Halı",
+    "style": "Bohem Etnik",
+    "primary_colors": ["Kiremit Terracotta", "Hardal", "Toprak Kahve"],
+    "symmetry_type": "Dikey ve Yatay Periyodik",
+    "density_knots_m2": 1100000,
+    "description": "Etnik baklava dilimleri ve koçboynuzu motiflerinin periyodik tekrarıyla dokunmuş sıcak bohem halı.",
+    "mock_embedding_seed": 512
+  },
+  {
+    "carpet_id": "CAT-NEOCLASSIC-301",
+    "title": "Merinos Elegance Serisi — Damask & Barok Çiçekli Vual Halı",
+    "style": "Neoklasik / Vintage",
+    "primary_colors": ["Vizon", "Gül Kurusu", "Krem"],
+    "symmetry_type": "Bilateral",
+    "density_knots_m2": 1400000,
+    "description": "Açık vizon zemin üzerine kabartmalı damask çiçek desenleri ve eskitme vintage patine.",
+    "mock_embedding_seed": 777
+  }
+]

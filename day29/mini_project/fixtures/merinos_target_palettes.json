@@ -1,0 +1,36 @@
+[
+  {
+    "palette_id": "PAL-OSMANLI-01",
+    "name": "Klasik Osmanlı Saray Paleti",
+    "intended_style": "Klasik Osmanlı Sarayı",
+    "colors": [
+      {"name": "Yakut Kırmızı Zemin", "hex": "#8B1E1E", "rgb": [139, 30, 30], "lab": [32.5, 47.1, 28.6]},
+      {"name": "Eski Altın Varak", "hex": "#D4AF37", "rgb": [212, 175, 55], "lab": [73.2, 3.8, 64.1]},
+      {"name": "İpeksi Krem Madalyon", "hex": "#F5EFEB", "rgb": [245, 239, 235], "lab": [94.5, 1.3, 2.9]},
+      {"name": "Gece Laciverti Bordür", "hex": "#1A243F", "rgb": [26, 36, 63], "lab": [15.2, 4.3, -19.4]},
+      {"name": "Zümrüt Yeşili Rumi Detay", "hex": "#2E5A36", "rgb": [46, 90, 54], "lab": [35.1, -26.1, 16.8]}
+    ]
+  },
+  {
+    "palette_id": "PAL-ISKANDINAV-02",
+    "name": "İskandinav Minimalist Pastel Paleti",
+    "intended_style": "Modern Minimalist",
+    "colors": [
+      {"name": "Kutup Grisi Zemin", "hex": "#D8DEE9", "rgb": [216, 222, 233], "lab": [88.2, -1.2, -5.2]},
+      {"name": "Antrasit Çizgi", "hex": "#2E3440", "rgb": [46, 52, 64], "lab": [22.1, -1.5, -7.1]},
+      {"name": "Somon Vurgu", "hex": "#D08770", "rgb": [208, 135, 112], "lab": [63.4, 25.1, 24.3]},
+      {"name": "Buz Mavisi", "hex": "#88C0D0", "rgb": [136, 192, 208], "lab": [74.5, -13.2, -14.1]}
+    ]
+  },
+  {
+    "palette_id": "PAL-BOHEM-03",
+    "name": "Anadolu Bohem Toprak Paleti",
+    "intended_style": "Bohem Etnik",
+    "colors": [
+      {"name": "Kiremit Terracotta", "hex": "#C85A32", "rgb": [200, 90, 50], "lab": [51.2, 41.5, 42.1]},
+      {"name": "Hardal Sarısı", "hex": "#E5A93C", "rgb": [229, 169, 60], "lab": [72.8, 12.3, 62.4]},
+      {"name": "Toprak Kahvesi", "hex": "#5C4033", "rgb": [92, 64, 51], "lab": [30.4, 11.2, 14.8]},
+      {"name": "Doğal Yün Ekru", "hex": "#FAF0E6", "rgb": [250, 240, 230], "lab": [95.1, 1.8, 6.2]}
+    ]
+  }
+]

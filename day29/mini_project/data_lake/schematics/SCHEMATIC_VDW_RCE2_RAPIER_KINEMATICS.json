@@ -1,0 +1,15 @@
+{
+  "schematic_id": "SCH-VDW-RAP-01",
+  "title": "Vandewiele RCE2+ Rapier Drive Kinematic Linkage & Shed Angle",
+  "source": "Google Patents EP2418312B1 / Vandewiele Kinematics",
+  "parameters": {
+    "stroke_length_mm": 4200.0,
+    "loom_speed_nominal_rpm": 180.0,
+    "gripper_overlap_angle_deg": 180.0,
+    "gripper_clearance_nominal_mm": 0.35,
+    "clearance_tolerance_mm": 0.03,
+    "cam_dwell_angle_deg": 65.0,
+    "rapier_tape_material": "Carbon-Fiber Reinforced Polyepoxide",
+    "pinion_module": 2.5
+  }
+}
