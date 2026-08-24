@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Merinos Halı Sanayi A.Ş. — Day 30 Tümleşik Halı Tasarım & Çok Boyutlu Görsel Analiz Kokpiti. Staj Defteri Yaprak 59 ve 60 müfredatına dayalı endüstriyel yapay zekâ platformu.">
+  <title>Merinos AI - Day 30 Kokpiti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- ÜST NAVİGASYON ŞERİDİ -->
+    <header class="navbar">
+      <div class="nav-left">
+        <div class="brand-logo">
+          <svg class="merinos-logo-svg" viewBox="0 0 40 40" width="34" height="34">
+            <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+            <polygon points="20,6 34,13 34,27 20,34 6,27 6,13" fill="#1E3A8A" opacity="0.35"/>
+            <text x="20" y="26" text-anchor="middle" font-family="'Inter', sans-serif" font-weight="900" font-size="18" fill="#3B82F6">M</text>
+          </svg>
+          <div class="brand-text-col">
+            <span class="brand-title">MERİNOS</span>
+            <span class="brand-sub">INDUSTRIAL AI INTERNSHIP</span>
+          </div>
+        </div>
+        <div class="nav-title-divider"></div>
+        <span class="nav-page-tag">Day 30 Tasarım & Analiz Kokpiti</span>
+      </div>
+
+      <nav class="nav-right">
+        <a href="#home" class="nav-link active">Ana Sayfa</a>
+        <a href="#projects" class="nav-link">Projeler</a>
+        <a href="#docs" class="nav-link">Dokümantasyon</a>
+        <a href="#about" class="nav-link">Hakkında</a>
+        <button id="themeToggleBtn" class="theme-btn" title="Karanlık / Aydınlık Mod">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- KOKPİT HERO BAŞLIĞI -->
+    <div class="cockpit-hero">
+      <h1 class="hero-title">Tümleşik Halı Tasarım & Çok Boyutlu Görsel Analiz Kokpiti</h1>
+      <p class="hero-sub">Metin tabanlı halı deseni üretimi ve çok boyutlu görsel analiz · Day 28 + Day 29 + Day 30</p>
+    </div>
+
+    <!-- 3 KOLONLU ANA KOKPİT IZGARASI (ŞEKİL 60) -->
+    <main class="cockpit-grid">
+      
+      <!-- KOLON 1: TASARIM BİLGİLERİ (INPUT) -->
+      <section class="cockpit-card input-card">
+        <div class="card-title-header">
+          <h2>1. Tasarım Bilgileri (Input)</h2>
+        </div>
+
+        <form id="designForm" class="input-form">
+          <div class="form-item">
+            <label for="briefIdInput">Brief ID</label>
+            <input type="text" id="briefIdInput" value="BRF-CLS-01" class="form-input">
+          </div>
+
+          <div class="form-item">
+            <label for="styleSelect">Stil</label>
+            <select id="styleSelect" class="form-select">
+              <option value="Klasik Osmanlı" selected>Klasik Osmanlı</option>
+              <option value="Modern Minimalist">Modern Minimalist</option>
+              <option value="İskandinav Geometrik">İskandinav Geometrik</option>
+              <option value="Neoklasik Saray">Neoklasik Saray</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label for="motifSelect">Ana Motif</label>
+            <select id="motifSelect" class="form-select">
+              <option value="Barok Madalyon ve Rumi Sarmalları" selected>Barok Madalyon ve Rumi Sarmalları</option>
+              <option value="Geometrik Prizmalar">Geometrik Prizmalar</option>
+              <option value="Çiçek Rozetleri ve Palmet">Çiçek Rozetleri ve Palmet</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label for="primaryColorSelect">Ana Renk</label>
+            <select id="primaryColorSelect" class="form-select">
+              <option value="Krem Fildişi" selected>Krem Fildişi</option>
+              <option value="Taş Grisi">Taş Grisi</option>
+              <option value="Gece Laciverti">Gece Laciverti</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label for="secondaryColorSelect">İkincil Renk</label>
+            <select id="secondaryColorSelect" class="form-select">
+              <option value="Bordo ve Varak Altın" selected>Bordo ve Varak Altın</option>
+              <option value="Antrasit ve Antik Vizon">Antrasit ve Antik Vizon</option>
+              <option value="Gül Kurusu">Gül Kurusu</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label for="compositionSelect">Kompozisyon</label>
+            <select id="compositionSelect" class="form-select">
+              <option value="Merkezi madalyon ve köşe köşebentleri" selected>Merkezi madalyon ve köşe köşebentleri</option>
+              <option value="Serbest geometrik akış">Serbest geometrik akış</option>
+              <option value="Tekrarlı rozet dizilimi">Tekrarlı rozet dizilimi</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label for="borderSelect">Bordür Tipi</label>
+            <select id="borderSelect" class="form-select">
+              <option value="Geniş su yolu çiçek bordürü" selected>Geniş su yolu çiçek bordürü</option>
+              <option value="İnce tek çizgi bordür">İnce tek çizgi bordür</option>
+              <option value="Çok katmanlı klasik su bordürü">Çok katmanlı klasik su bordürü</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label for="symmetrySelect">Simetri Modu</label>
+            <select id="symmetrySelect" class="form-select">
+              <option value="BILATERAL_AND_VERTICAL" selected>BILATERAL_AND_VERTICAL</option>
+              <option value="BILATERAL">BILATERAL</option>
+              <option value="VERTICAL">VERTICAL</option>
+              <option value="RADIAL">RADIAL</option>
+              <option value="ASYMMETRIC">ASYMMETRIC</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label for="seedInput">Seed</label>
+            <input type="number" id="seedInput" value="42" class="form-input">
+          </div>
+
+          <div class="form-item">
+            <label for="creelColorsInput">Çağlık Renk Sayısı</label>
+            <input type="number" id="creelColorsInput" value="8" min="2" max="16" class="form-input">
+          </div>
+
+          <button type="submit" id="runPipelineBtn" class="generate-btn">
+            <span class="btn-play-icon">▶</span> Deseni Üret & Çok Boyutlu Analiz Et
+          </button>
+        </form>
+      </section>
+
+      <!-- KOLON 2: OLUŞTURULAN HALI DESENİ (OUTPUT) -->
+      <section class="cockpit-card output-card">
+        <div class="card-title-header">
+          <h2>2. Oluşturulan Halı Deseni (Output)</h2>
+        </div>
+
+        <div class="carpet-frame">
+          <div class="carpet-img-container" id="carpetImgContainer">
+            <img id="carpetImageDisplay" class="carpet-main-img" src="/assets/sample_carpet.png" alt="Oluşturulan Halı Deseni">
+            <div id="loadingOverlay" class="loading-overlay">
+              <div class="spinner"></div>
+              <span>Halı deseni üretiliyor ve görsel analizler hesaplanıyor...</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-display-card">
+          <div class="prompt-card-header">
+            <h3>Üretim Prompt / İstem</h3>
+            <button type="button" id="copyPromptBtn" class="copy-btn" title="Kopyala">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+          <p id="promptDisplayText" class="prompt-text-content">Klasik Osmanlı stilinde, merkezi madalyon ve köşe köşebentleri kompozisyonuna sahip, Barok Madalyon ve Rumi Sarmalları motifli, krem fildişi zemin üzerine bordo ve varak altın detaylı, geniş su yolu çiçek bordürlü, simetrik halı deseni, high detail, photorealistic, oriental carpet, 8 colors.</p>
+        </div>
+      </section>
+
+      <!-- KOLON 3: GÖRSEL ANALİZ SONUÇLARI -->
+      <section class="cockpit-card analysis-card">
+        <div class="card-title-header">
+          <h2>3. Görsel Analiz Sonuçları</h2>
+        </div>
+
+        <div class="analysis-sections">
+          <!-- 1. K-Means Baskın Renkler & CIEDE2000 İplik Bobin Eşleşmesi -->
+          <div class="analysis-box">
+            <div class="box-header">
+              <span class="box-icon">🎨</span>
+              <h3>K-Means Baskın Renkler & CIEDE2000 İplik Bobin Eşleşmesi</h3>
+            </div>
+            <div id="yarnPaletteList" class="yarn-palette-list">
+              <!-- JS ile dinamik beslenir, başlangıçta Şekil 60 verileriyle doldurulur -->
+              <div class="yarn-row">
+                <div class="color-swatch-box" style="background-color: #F5F2EB;"></div>
+                <span class="yarn-name">Krem / Fildişi</span>
+                <span class="yarn-pct">% 42.3</span>
+                <span class="yarn-arrow">→</span>
+                <span class="yarn-code">MRN-001</span>
+                <img src="/assets/MRN-001.png" class="spool-img" alt="MRN-001 Bobin">
+              </div>
+              <div class="yarn-row">
+                <div class="color-swatch-box" style="background-color: #8C1D2F;"></div>
+                <span class="yarn-name">Bordo</span>
+                <span class="yarn-pct">% 28.7</span>
+                <span class="yarn-arrow">→</span>
+                <span class="yarn-code">MRN-032</span>
+                <img src="/assets/MRN-032.png" class="spool-img" alt="MRN-032 Bobin">
+              </div>
+              <div class="yarn-row">
+                <div class="color-swatch-box" style="background-color: #C9A050;"></div>
+                <span class="yarn-name">Altın / Varak</span>
+                <span class="yarn-pct">% 12.6</span>
+                <span class="yarn-arrow">→</span>
+                <span class="yarn-code">MRN-087</span>
+                <img src="/assets/MRN-087.png" class="spool-img" alt="MRN-087 Bobin">
+              </div>
+              <div class="yarn-row">
+                <div class="color-swatch-box" style="background-color: #D8C7B5;"></div>
+                <span class="yarn-name">Bej</span>
+                <span class="yarn-pct">% 8.1</span>
+                <span class="yarn-arrow">→</span>
+                <span class="yarn-code">MRN-006</span>
+                <img src="/assets/MRN-006.png" class="spool-img" alt="MRN-006 Bobin">
+              </div>
+              <div class="yarn-row">
+                <div class="color-swatch-box" style="background-color: #5A3D28;"></div>
+                <span class="yarn-name">Kahverengi</span>
+                <span class="yarn-pct">% 5.2</span>
+                <span class="yarn-arrow">→</span>
+                <span class="yarn-code">MRN-024</span>
+                <img src="/assets/MRN-024.png" class="spool-img" alt="MRN-024 Bobin">
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Yapısal Simetri ve Kenar/Dikiş Sürekliliği -->
+          <div class="analysis-box">
+            <div class="box-header">
+              <span class="box-icon">📊</span>
+              <h3>Yapısal Simetri ve Kenar/Dikiş Sürekliliği</h3>
+            </div>
+            <div class="metric-bars-container">
+              <div class="metric-row">
+                <span class="metric-lbl">Yatay Simetri Skoru</span>
+                <span class="metric-val" id="horizSymVal">0.972</span>
+                <div class="progress-track">
+                  <div class="progress-bar-fill" id="horizSymFill" style="width: 97.2%;"></div>
+                </div>
+              </div>
+              <div class="metric-row">
+                <span class="metric-lbl">Dikey Simetri Skoru</span>
+                <span class="metric-val" id="vertSymVal">0.965</span>
+                <div class="progress-track">
+                  <div class="progress-bar-fill" id="vertSymFill" style="width: 96.5%;"></div>
+                </div>
+              </div>
+              <div class="metric-row">
+                <span class="metric-lbl">Kenar Sürekliliği Skoru</span>
+                <span class="metric-val" id="seamContVal">0.942</span>
+                <div class="progress-track">
+                  <div class="progress-bar-fill" id="seamContFill" style="width: 94.2%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. CNN Embedding ile En Yakın Referans Halılar -->
+          <div class="analysis-box">
+            <div class="box-header">
+              <span class="box-icon">🔍</span>
+              <h3>CNN Embedding ile En Yakın Referans Halılar</h3>
+            </div>
+            <div id="catalogMatchesList" class="catalog-matches-list">
+              <div class="catalog-match-row">
+                <img src="/assets/REF-TR-1042.png" class="catalog-thumb" alt="REF-TR-1042">
+                <div class="match-info">
+                  <div class="match-top-line">
+                    <span class="match-id">1. REF-TR-1042</span>
+                    <span class="match-score">Benzerlik: 0.921</span>
+                  </div>
+                  <span class="match-name">Klasik Osmanlı - Madalyon</span>
+                </div>
+              </div>
+              <div class="catalog-match-row">
+                <img src="/assets/REF-TR-0876.png" class="catalog-thumb" alt="REF-TR-0876">
+                <div class="match-info">
+                  <div class="match-top-line">
+                    <span class="match-id">2. REF-TR-0876</span>
+                    <span class="match-score">Benzerlik: 0.893</span>
+                  </div>
+                  <span class="match-name">Rumi Sarmalları - Bordürlü</span>
+                </div>
+              </div>
+              <div class="catalog-match-row">
+                <img src="/assets/REF-TR-0651.png" class="catalog-thumb" alt="REF-TR-0651">
+                <div class="match-info">
+                  <div class="match-top-line">
+                    <span class="match-id">3. REF-TR-0651</span>
+                    <span class="match-score">Benzerlik: 0.876</span>
+                  </div>
+                  <span class="match-name">Klasik - Çiçek Desenli</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

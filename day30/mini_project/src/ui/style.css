@@ -1,0 +1,558 @@
+/* ==============================================================================
+   Merinos Industrial AI Internship - Day 30
+   Tümleşik Halı Tasarım & Görsel Analiz Kokpiti — Stil Dosyası (Şekil 60 Uyumlu)
+   Modern Industrial Dark Theme Design System
+   Copyright (c) 2026 Seydi Eryilmaz (@seydivakkas). All Rights Reserved.
+   ============================================================================== */
+
+:root {
+  --bg-main: #0B1120;
+  --bg-card: #131D33;
+  --bg-inner: #0E1628;
+  --border-card: #202D4A;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  --primary-blue: #2563EB;
+  --primary-blue-hover: #1D4ED8;
+  --accent-cyan: #0284C7;
+  --accent-green: #10B981;
+  --accent-green-bright: #34D399;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-dim: #64748B;
+  --text-blue: #38BDF8;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.4;
+  overflow-x: hidden;
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 52px;
+  padding: 0 24px;
+  background-color: #0A0F1D;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-text-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+}
+
+.brand-sub {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #38BDF8;
+  letter-spacing: 0.06em;
+}
+
+.nav-title-divider {
+  width: 1px;
+  height: 18px;
+  background-color: var(--border-subtle);
+}
+
+.nav-page-tag {
+  font-size: 12.5px;
+  color: #CBD5E1;
+  font-weight: 500;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #FFFFFF;
+}
+
+.theme-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #F8FAFC;
+  font-size: 13px;
+  transition: background 0.15s ease;
+}
+
+.theme-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* COCKPIT HERO */
+.cockpit-hero {
+  text-align: center;
+  padding: 18px 20px 14px 20px;
+}
+
+.hero-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.hero-sub {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* 3-KOLONLU GRID */
+.cockpit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1.25fr;
+  gap: 16px;
+  padding: 0 24px 24px 24px;
+  max-width: 1680px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .cockpit-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cockpit-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.card-title-header {
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 8px;
+}
+
+.card-title-header h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #E2E8F0;
+}
+
+/* FORM ELEMENTS (KOLON 1) */
+.input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.form-item label {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-input,
+.form-select {
+  background-color: var(--bg-inner);
+  border: 1px solid #1E293B;
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  padding: 6px 10px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--primary-blue);
+}
+
+.generate-btn {
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.generate-btn:hover {
+  background-color: var(--primary-blue-hover);
+  transform: translateY(-1px);
+}
+
+.btn-play-icon {
+  font-size: 11px;
+}
+
+/* KOLON 2: GÖRSEL & PROMPT */
+.carpet-frame {
+  background-color: #070B14;
+  border: 1px solid #1E293B;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.carpet-img-container {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carpet-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(11, 17, 32, 0.85);
+  backdrop-filter: blur(4px);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 4px;
+  color: #E2E8F0;
+  font-size: 12px;
+  text-align: center;
+  padding: 16px;
+}
+
+.loading-overlay.active {
+  display: flex;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid rgba(56, 189, 248, 0.2);
+  border-top-color: #38BDF8;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.prompt-display-card {
+  background-color: var(--bg-inner);
+  border: 1px solid #1E293B;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.prompt-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.prompt-card-header h3 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #E2E8F0;
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease;
+}
+
+.copy-btn:hover {
+  color: #FFFFFF;
+}
+
+.prompt-text-content {
+  font-size: 11px;
+  color: #CBD5E1;
+  line-height: 1.5;
+}
+
+/* KOLON 3: GÖRSEL ANALİZ SONUÇLARI */
+.analysis-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.analysis-box {
+  background-color: var(--bg-inner);
+  border: 1px solid #1E293B;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.box-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.box-icon {
+  font-size: 13px;
+}
+
+.box-header h3 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #E2E8F0;
+}
+
+/* YARN PALETTE LIST */
+.yarn-palette-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.yarn-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  font-size: 11.5px;
+}
+
+.color-swatch-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.yarn-name {
+  color: #F1F5F9;
+  flex: 1.2;
+}
+
+.yarn-pct {
+  color: var(--text-secondary);
+  width: 44px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.yarn-arrow {
+  color: var(--text-dim);
+  font-size: 11px;
+}
+
+.yarn-code {
+  color: var(--text-blue);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  width: 60px;
+}
+
+.spool-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* METRIC BARS (SIMETRI & SEAM) */
+.metric-bars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.metric-lbl {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  width: 145px;
+  flex-shrink: 0;
+}
+
+.metric-val {
+  font-size: 11.5px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: #F1F5F9;
+  width: 42px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.progress-track {
+  flex: 1;
+  height: 9px;
+  background-color: #1E293B;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10B981, #34D399);
+  border-radius: 5px;
+  transition: width 0.4s ease;
+}
+
+/* CATALOG MATCHES */
+.catalog-matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.catalog-match-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.catalog-thumb {
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid #334155;
+  flex-shrink: 0;
+}
+
+.match-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.match-top-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.match-id {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #F1F5F9;
+}
+
+.match-score {
+  font-size: 11px;
+  color: var(--text-blue);
+  font-family: var(--font-mono);
+}
+
+.match-name {
+  font-size: 10.5px;
+  color: var(--text-secondary);
+}

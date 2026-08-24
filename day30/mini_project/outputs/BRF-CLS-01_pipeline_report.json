@@ -1,0 +1,154 @@
+{
+  "pipeline_version": "1.0.0",
+  "brief_id": "BRF-CLS-01",
+  "status": "SUCCESS",
+  "design_input": {
+    "brief_id": "BRF-CLS-01",
+    "title": "Osmanlı Saray Koleksiyonu Madalyon Halı",
+    "style": "Klasik Osmanlı",
+    "motif": "Merkezi Barok Madalyon ve Kıvrık Rumi Dalları",
+    "primary_color": "Krem",
+    "secondary_color": "Osmanlı Kırmızısı ve Altın Varak",
+    "composition": "Merkezi simetrik madalyon, köşebentler ve geniş bordür",
+    "border_type": "Çok katmanlı çiçekli su bordürü",
+    "symmetry_mode": "BILATERAL_AND_VERTICAL",
+    "seed": 1042,
+    "target_creel_colors": 8
+  },
+  "prompt_result": {
+    "raw_prompt": "Stil: Klasik Osmanlı, Motif: Merkezi Barok Madalyon ve Kıvrık Rumi Dalları, Zemin Rengi: Krem, Vurgu Rengi: Osmanlı Kırmızısı ve Altın Varak, Kompozisyon: Merkezi simetrik madalyon, köşebentler ve geniş bordür, Bordür: Çok katmanlı çiçekli su bordürü, Simetri: BILATERAL_AND_VERTICAL",
+    "enriched_prompt": "[DESEN] [RENK_PALETI] [RAPORT] Klasik Osmanlı tarzında yüksek çözünürlüklü dokuma halı deseni, Merkezi Barok Madalyon ve Kıvrık Rumi Dalları içeren kompozisyon, baskın Krem zemin, Osmanlı Kırmızısı ve Altın Varak detaylar, çevreleyen Çok katmanlı çiçekli su bordürü, BILATERAL_AND_VERTICAL simetri düzeni, 8 renkli jakarlı tezgaha uyumlu cağlık paleti, 300 DPI profesyonel tekstil CAD çizimi.",
+    "domain_tokens": [
+      "[DESEN]",
+      "[RENK_PALETI]",
+      "[RAPORT]"
+    ],
+    "omitted_fields": [],
+    "nanollm_guidance": "Merinos CAD Kuralı: 'Klasik Osmanlı' için BILATERAL_AND_VERTICAL simetri kılavuzu devrede. 8 cağlık bobin sınırı korunmalı; Bordür sürekliliği için kenar pikselleri dairesel raport ile bağlanmalıdır. | Nano-LLM Akıl Yürütme: klasik osmanl<0x2D8><0x2D8><0x1B><0x24B>W<0x198><0x198><0x24B><0x1B><0xC1><0x198><0x1B>rezistans<0x2AC>",
+    "is_valid": true
+  },
+  "analysis_result": {
+    "dominant_colors": [
+      {
+        "cluster_idx": 1,
+        "hex_code": "#8C1C2E",
+        "rgb": [
+          140,
+          28,
+          46
+        ],
+        "percentage": 38.55,
+        "nearest_yarn_id": "MRN-YRN-002",
+        "nearest_yarn_name": "Merinos Osmanlı Kırmızısı",
+        "nearest_pantone": "PANTONE 19-1763 TCX",
+        "delta_e": 1.93
+      },
+      {
+        "cluster_idx": 2,
+        "hex_code": "#F8F1EB",
+        "rgb": [
+          248,
+          241,
+          235
+        ],
+        "percentage": 30.33,
+        "nearest_yarn_id": "MRN-YRN-001",
+        "nearest_yarn_name": "Merinos Klasik Krem",
+        "nearest_pantone": "PANTONE 11-0601 TCX",
+        "delta_e": 2.17
+      },
+      {
+        "cluster_idx": 3,
+        "hex_code": "#EEF0EA",
+        "rgb": [
+          238,
+          240,
+          234
+        ],
+        "percentage": 21.98,
+        "nearest_yarn_id": "MRN-YRN-001",
+        "nearest_yarn_name": "Merinos Klasik Krem",
+        "nearest_pantone": "PANTONE 11-0601 TCX",
+        "delta_e": 2.32
+      },
+      {
+        "cluster_idx": 4,
+        "hex_code": "#C9A04F",
+        "rgb": [
+          201,
+          160,
+          79
+        ],
+        "percentage": 8.38,
+        "nearest_yarn_id": "MRN-YRN-004",
+        "nearest_yarn_name": "Merinos Varak Altın",
+        "nearest_pantone": "PANTONE 16-0836 TCX",
+        "delta_e": 0.8
+      },
+      {
+        "cluster_idx": 5,
+        "hex_code": "#1E2331",
+        "rgb": [
+          30,
+          35,
+          49
+        ],
+        "percentage": 0.75,
+        "nearest_yarn_id": "MRN-YRN-003",
+        "nearest_yarn_name": "Merinos Gece Laciverti",
+        "nearest_pantone": "PANTONE 19-3920 TCX",
+        "delta_e": 4.53
+      }
+    ],
+    "mean_delta_e": 2.35,
+    "max_delta_e": 4.53,
+    "palette_compliance_passed": true,
+    "symmetry_score_horizontal": 1.0,
+    "symmetry_score_vertical": 1.0,
+    "overall_symmetry_score": 1.0,
+    "seam_discontinuity_score": 3.0,
+    "is_seamless_acceptable": true
+  },
+  "similar_carpets": [
+    {
+      "carpet_id": "MRN-CAT-005",
+      "name": "Urban Geo Soyut Çizgiler",
+      "collection": "Modern Living",
+      "style": "Modern Soyut",
+      "similarity_score": 0.04,
+      "rank": 1
+    },
+    {
+      "carpet_id": "MRN-CAT-001",
+      "name": "Padişah İpek Tuşeli Madalyon",
+      "collection": "Saray Serisi",
+      "style": "Klasik Osmanlı",
+      "similarity_score": 0.031,
+      "rank": 2
+    },
+    {
+      "carpet_id": "MRN-CAT-002",
+      "name": "Zeugma Mozaik Dokuma",
+      "collection": "Anadolu Mirası",
+      "style": "Neoklasik",
+      "similarity_score": 0.018,
+      "rank": 3
+    }
+  ],
+  "limitations_report": {
+    "can_guarantee_production": false,
+    "can_guarantee_absolute_aesthetics": false,
+    "copyright_evaluated": false,
+    "quantitative_only_disclaimer": "Bu boru hattı çıktısı, Gaziantep 4. OSB tesislerindeki üretim öncesi sayısal bir ön filtreleme aracıdır; nihai usta/desinatör onayı şarttır.",
+    "limitation_notes": [
+      "1. Üretilebilirlik Sınırı: Sayısal model çıktıları jakar armür örgüsü, cağlık tansiyonu ve çekme firelerini tam hesaba katmaz; doğrudan tezgaha gönderilemez.",
+      "2. Estetik Sınırı: K-Means renk dağılımı ve simetri skoru estetik beğeniyi kesin olarak ölçemez; estetik sübjektiftir.",
+      "3. Hukuki ve Telif Sınırı: Üretilen desenlerin fikri mülkiyet ve ticari telif benzerlik taraması bu boru hattının kapsamı dışındadır.",
+      "4. Ön Filtre Kuralı: Analiz değerleri tek başına başarılı bir desen anlamına gelmez; desinatör için teknik bir ön değerlendirme matrisidir."
+    ]
+  },
+  "output_image_path": "C:\\Users\\seydieryilmaz\\Desktop\\Projeler\\Merinos 40 Günlük Staj Deneyimim\\merinos-industrial-ai-internship\\day30\\mini_project\\outputs\\BRF-CLS-01_generated_carpet.png",
+  "diagnostic_panel_path": "C:\\Users\\seydieryilmaz\\Desktop\\Projeler\\Merinos 40 Günlük Staj Deneyimim\\merinos-industrial-ai-internship\\day30\\mini_project\\outputs\\BRF-CLS-01_diagnostic_panel.png",
+  "execution_time_sec": 3.654,
+  "warnings": []
+}

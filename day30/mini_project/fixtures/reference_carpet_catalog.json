@@ -1,0 +1,57 @@
+[
+  {
+    "carpet_id": "MRN-CAT-001",
+    "name": "Padişah İpek Tuşeli Madalyon",
+    "collection": "Saray Serisi",
+    "style": "Klasik Osmanlı",
+    "primary_color": "Krem / Kırmızı",
+    "reed_pick": "500/1200",
+    "composition": "Merkezi madalyon ve köşe göbekleri",
+    "features_seed": 101,
+    "description": "Klasik Merinos 8 renkli jakarlı saray halısı, simetrik madalyon ve zengin floral bordür."
+  },
+  {
+    "carpet_id": "MRN-CAT-002",
+    "name": "Zeugma Mozaik Dokuma",
+    "collection": "Anadolu Mirası",
+    "style": "Neoklasik",
+    "primary_color": "Antik Vizon / Altın",
+    "reed_pick": "400/900",
+    "composition": "Geometrik bordürlü tekrarlı rozetler",
+    "features_seed": 202,
+    "description": "Gaziantep Zeugma antik mozaik desenlerinden esinlenmiş rölyefli ve patineli dokuma."
+  },
+  {
+    "carpet_id": "MRN-CAT-003",
+    "name": "Nordic Loft Gri Prizma",
+    "collection": "Modern Living",
+    "style": "Modern Minimalist",
+    "primary_color": "Taş Grisi / Antrasit",
+    "reed_pick": "320/700",
+    "composition": "Asimetrik poligonal hatlar",
+    "features_seed": 303,
+    "description": "İskandinav ev konsepti için tasarlanmış düz zeminli, sade bordürlü modern tasarım."
+  },
+  {
+    "carpet_id": "MRN-CAT-004",
+    "name": "Elegance Barok Çiçekli",
+    "collection": "Saray Serisi",
+    "style": "Klasik Barok",
+    "primary_color": "Krem / Gül Kurusu",
+    "reed_pick": "500/1400",
+    "composition": "Geniş bordür ve serbest çiçek serpme",
+    "features_seed": 404,
+    "description": "A-Sınıfı akrilik iplikten dokunmuş Fransız barok esintili saray salon halısı."
+  },
+  {
+    "carpet_id": "MRN-CAT-005",
+    "name": "Urban Geo Soyut Çizgiler",
+    "collection": "Modern Living",
+    "style": "Modern Soyut",
+    "primary_color": "Gece Laciverti / Vizon",
+    "reed_pick": "400/1000",
+    "composition": "Dikey fırça darbeleri ve çizgisel kırılmalar",
+    "features_seed": 505,
+    "description": "Çağdaş mimari mekanlar için kontrast çizgili dokuma halı."
+  }
+]

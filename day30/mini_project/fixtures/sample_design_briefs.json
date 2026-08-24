@@ -1,0 +1,41 @@
+[
+  {
+    "brief_id": "BRF-CLS-01",
+    "title": "Osmanlı Saray Koleksiyonu Madalyon Halı",
+    "style": "Klasik Osmanlı",
+    "motif": "Merkezi Barok Madalyon ve Kıvrık Rumi Dalları",
+    "primary_color": "Krem",
+    "secondary_color": "Osmanlı Kırmızısı ve Altın Varak",
+    "composition": "Merkezi simetrik madalyon, köşebentler ve geniş bordür",
+    "border_type": "Çok katmanlı çiçekli su bordürü",
+    "symmetry_mode": "BILATERAL_AND_VERTICAL",
+    "seed": 1042,
+    "target_creel_colors": 8
+  },
+  {
+    "brief_id": "BRF-MOD-02",
+    "title": "İskandinav Modern Geometrik Halı",
+    "style": "Modern Minimalist",
+    "motif": "İç içe geçmiş asimetrik prizmalar ve yumuşak geçişli gölgeler",
+    "primary_color": "Taş Grisi",
+    "secondary_color": "Antrasit ve Antik Vizon",
+    "composition": "Serbest geometrik akış, minimal dış çerçeve",
+    "border_type": "İnce tek çizgi bordür",
+    "symmetry_mode": "ASYMMETRIC",
+    "seed": 2084,
+    "target_creel_colors": 6
+  },
+  {
+    "brief_id": "BRF-INV-03",
+    "title": "Eksik Alanlı Geçersiz Brif",
+    "style": "",
+    "motif": "",
+    "primary_color": "Krem",
+    "secondary_color": "",
+    "composition": "",
+    "border_type": "",
+    "symmetry_mode": "BILATERAL",
+    "seed": 999,
+    "target_creel_colors": 8
+  }
+]

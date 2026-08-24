@@ -1,0 +1,74 @@
+[
+  {
+    "yarn_id": "MRN-YRN-001",
+    "name": "Merinos Klasik Krem",
+    "pantone_code": "PANTONE 11-0601 TCX",
+    "hex": "#F5F2EB",
+    "rgb": [245, 242, 235],
+    "lab": [95.5, -0.5, 3.8],
+    "creel_slot": 1
+  },
+  {
+    "yarn_id": "MRN-YRN-002",
+    "name": "Merinos Osmanlı Kırmızısı",
+    "pantone_code": "PANTONE 19-1763 TCX",
+    "hex": "#8C1D2F",
+    "rgb": [140, 29, 47],
+    "lab": [32.1, 48.2, 22.4],
+    "creel_slot": 2
+  },
+  {
+    "yarn_id": "MRN-YRN-003",
+    "name": "Merinos Gece Laciverti",
+    "pantone_code": "PANTONE 19-3920 TCX",
+    "hex": "#1B243B",
+    "rgb": [27, 36, 59],
+    "lab": [15.2, 2.1, -16.8],
+    "creel_slot": 3
+  },
+  {
+    "yarn_id": "MRN-YRN-004",
+    "name": "Merinos Varak Altın",
+    "pantone_code": "PANTONE 16-0836 TCX",
+    "hex": "#C9A050",
+    "rgb": [201, 160, 80],
+    "lab": [68.4, 6.2, 49.5],
+    "creel_slot": 4
+  },
+  {
+    "yarn_id": "MRN-YRN-005",
+    "name": "Merinos Fıstık Yeşili",
+    "pantone_code": "PANTONE 17-0133 TCX",
+    "hex": "#587C52",
+    "rgb": [88, 124, 82],
+    "lab": [49.2, -21.5, 19.8],
+    "creel_slot": 5
+  },
+  {
+    "yarn_id": "MRN-YRN-006",
+    "name": "Merinos Antik Vizon",
+    "pantone_code": "PANTONE 16-1315 TCX",
+    "hex": "#A48F7A",
+    "rgb": [164, 143, 122],
+    "lab": [61.0, 4.5, 14.2],
+    "creel_slot": 6
+  },
+  {
+    "yarn_id": "MRN-YRN-007",
+    "name": "Merinos Taş Grisi",
+    "pantone_code": "PANTONE 14-4102 TCX",
+    "hex": "#D1D3D4",
+    "rgb": [209, 211, 212],
+    "lab": [84.5, -0.4, -0.7],
+    "creel_slot": 7
+  },
+  {
+    "yarn_id": "MRN-YRN-008",
+    "name": "Merinos Antrasit",
+    "pantone_code": "PANTONE 19-4007 TCX",
+    "hex": "#2F3136",
+    "rgb": [47, 49, 54],
+    "lab": [20.8, -0.5, -2.1],
+    "creel_slot": 8
+  }
+]
