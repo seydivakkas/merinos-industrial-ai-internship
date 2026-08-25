@@ -1,0 +1,173 @@
+{
+  "total_queries": 10,
+  "rank_alignment_rate": 0.5,
+  "bm25_wins": 3,
+  "dense_wins": 2,
+  "ties": 5,
+  "details": [
+    {
+      "query": "E-401 arıza kodu ana tahrik motoru aşırı ısınması",
+      "query_type": "exact",
+      "bm25_top1": {
+        "doc_id": "merinos_weaving_sop.pdf",
+        "score": 12.50,
+        "rationale": "E-401 arıza kodu dokümanda açık şekilde geçmektedir."
+      },
+      "dense_top1": {
+        "doc_id": "merinos_quality_standards.docx",
+        "score": 0.72,
+        "rationale": "Motor aşırı ısınması ile ilgili benzer prosedür bilgileri içermektedir."
+      },
+      "winner": "bm25"
+    },
+    {
+      "query": "Dokuma makinesinde kalite sorunları nasıl önlenir",
+      "query_type": "semantic",
+      "bm25_top1": {
+        "doc_id": "merinos_weaving_sop.pdf",
+        "score": 8.21,
+        "rationale": "Kalite kontrol ve önleyici bakım adımları dokümanda yer almaktadır."
+      },
+      "dense_top1": {
+        "doc_id": "merinos_quality_standards.docx",
+        "score": 0.81,
+        "rationale": "Kalite güvence ve standartlar belgesi en yüksek anlamsal benzerliğe sahiptir."
+      },
+      "winner": "dense"
+    },
+    {
+      "query": "14 bar tansiyon basıncı altına düşerse vana 3",
+      "query_type": "exact",
+      "bm25_top1": {
+        "doc_id": "merinos_quality_standards.docx",
+        "score": 15.07,
+        "rationale": "14 bar ve vana 3 teknik ifadeleri dokümanda birebir yer almaktadır."
+      },
+      "dense_top1": {
+        "doc_id": "merinos_quality_standards.docx",
+        "score": 0.66,
+        "rationale": "İplik tansiyonu ile ilgili semantik eşleşme sağlanmıştır."
+      },
+      "winner": "tie"
+    },
+    {
+      "query": "60 derece doymuş buharlı fikse işlemi",
+      "query_type": "exact",
+      "bm25_top1": {
+        "doc_id": "merinos_finishing_manual.md",
+        "score": 12.94,
+        "rationale": "60 derece doymuş buharlı fikse ibaresi kılavuzda tam eşleşmektedir."
+      },
+      "dense_top1": {
+        "doc_id": "merinos_finishing_manual.md",
+        "score": 0.64,
+        "rationale": "Buharlı fikse ve finisaj operasyonu ile semantik yakınlık yüksektir."
+      },
+      "winner": "tie"
+    },
+    {
+      "query": "E-108 arıza kodu mekik iplik rezerv sensörü",
+      "query_type": "exact",
+      "bm25_top1": {
+        "doc_id": "merinos_weaving_sop.pdf",
+        "score": 8.61,
+        "rationale": "E-108 sensör arıza kodu doğrudan SOP dokümanında bulunmaktadır."
+      },
+      "dense_top1": {
+        "doc_id": "merinos_weaving_sop.pdf",
+        "score": 0.53,
+        "rationale": "Mekik sensörü arıza kaydı ile anlamsal bağ kurulmuştur."
+      },
+      "winner": "tie"
+    },
+    {
+      "query": "80x80 düğüm atkı sıklığı ve 28 tel tarak ayarı",
+      "query_type": "exact",
+      "bm25_top1": {
+        "doc_id": "merinos_weaving_sop.pdf",
+        "score": 6.59,
+        "rationale": "80x80 ve 28 tel spesifik parametreleri BM25 tarafından eksiksiz yakalandı."
+      },
+      "dense_top1": {
+        "doc_id": "merinos_finishing_manual.md",
+        "score": 0.55,
+        "rationale": "Dense modeli düğüm sıklığı yerine genel üretim parametrelerine dağıldı."
+      },
+      "winner": "bm25"
+    },
+    {
+      "query": "dokuma tezgahının motoru çok aşırı ısındığında operatörün yapması gereken acil müdahale",
+      "query_type": "semantic",
+      "bm25_top1": {
+        "doc_id": "merinos_weaving_sop.pdf",
+        "score": 4.51,
+        "rationale": "Acil durdurma ve motor temizliği anahtar kelimeleri eşleşti."
+      },
+      "dense_top1": {
+        "doc_id": "merinos_finishing_manual.md",
+        "score": 0.61,
+        "rationale": "Sıcaklık tüneli ile motor aşırı ısınması kavramları semantik olarak karıştı."
+      },
+      "winner": "bm25"
+    },
+    {
+      "query": "ipliğin kopmasını engellemek için manometre ve basınç vanası nasıl ayarlanmalıdır",
+      "query_type": "semantic",
+      "bm25_top1": {
+        "doc_id": "merinos_finishing_manual.md",
+        "score": 1.79,
+        "rationale": "Kelimeler tam eşleşmediği için BM25 zayıf kaldı."
+      },
+      "dense_top1": {
+        "doc_id": "merinos_quality_standards.docx",
+        "score": 0.68,
+        "rationale": "Kelimeler farklı olsa dahi anlamsal yakınlık ile hedef dokümanı yakaladı."
+      },
+      "winner": "dense"
+    },
+    {
+      "query": "halının havlarının düzgün ve renklerinin daha canlı kalması için uygulanan sıcaklık tüneli",
+      "query_type": "semantic",
+      "bm25_top1": {
+        "doc_id": "merinos_quality_standards.docx",
+        "score": 2.80,
+        "rationale": "Kalite standartlarındaki ortam sıcaklığı kelimesi ile yanlış eşleşti."
+      },
+      "dense_top1": {
+        "doc_id": "merinos_finishing_manual.md",
+        "score": 0.77,
+        "rationale": "Fikse tüneli ve CIELAB renk canlılığı kavramsal olarak başarıyla eşlendi."
+      },
+      "winner": "dense"
+    },
+    {
+      "query": "dokuma salonunda statik elektriklenmeyi önlemek için iklimlendirme ve rutubet aralığı",
+      "query_type": "semantic",
+      "bm25_top1": {
+        "doc_id": "merinos_quality_standards.docx",
+        "score": 3.03,
+        "rationale": "Nem ve sıcaklık toleransı başlığı BM25 ile doğru bulundu."
+      },
+      "dense_top1": {
+        "doc_id": "merinos_quality_standards.docx",
+        "score": 0.72,
+        "rationale": "İklimlendirme ve rutubet semantiği kalite belgesiyle örtüştü."
+      },
+      "winner": "tie"
+    }
+  ],
+  "win_distribution": {
+    "bm25_wins": 3,
+    "dense_wins": 2,
+    "ties": 5
+  },
+  "performance": {
+    "bm25_avg_latency_ms": 0.11,
+    "dense_avg_latency_ms": 6.77
+  },
+  "query_type_breakdown": {
+    "exact_count": 5,
+    "semantic_count": 5
+  },
+  "staj_defteri_yaprak_62_ozeti": "Karşılaştırmada iki tür sorgu kullanılmıştır: Dokümanda aynen geçen ifadeleri içeren exact sorgularda BM25'in terim sıklığı ve ters doküman frekansı sayesinde ilgili parçayı tepeye taşıdığı; kullanıcı sorusunun farklı kelimelerle aynı anlamı ifade ettiği semantik sorgularda ise Sentence Embedding modelinin anlamsal yakınlık avantajı sağladığı doğrulanmıştır."
+}

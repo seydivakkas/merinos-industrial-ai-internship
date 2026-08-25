@@ -1,0 +1,32 @@
+{
+  "total_documents_processed": 3,
+  "fixed_size_strategy": {
+    "config": {
+      "chunk_size": 256,
+      "chunk_overlap": 32
+    },
+    "stats": {
+      "count": 10,
+      "avg_char_length": 227.3,
+      "min_char_length": 151,
+      "max_char_length": 256,
+      "std_dev": 39.8,
+      "total_tokens_est": 566
+    }
+  },
+  "semantic_structure_strategy": {
+    "config": {
+      "max_chunk_size": 450,
+      "min_chunk_size": 80
+    },
+    "stats": {
+      "count": 10,
+      "avg_char_length": 207.2,
+      "min_char_length": 22,
+      "max_char_length": 386,
+      "std_dev": 141.0,
+      "total_tokens_est": 514
+    }
+  },
+  "engineering_insight": "Sabit boyutlu parçalama (Fixed-Size) düzenli pencere uzunluğu ve overlap sayesinde sınır kayıplarını minimize eder; ancak cümleleri bölebilir. Anlamsal parçalama (Semantic) başlık ve paragraf bütünlüğünü korur; standart sapması daha yüksek fakat bağlam sadakati daha güçlüdür."
+}

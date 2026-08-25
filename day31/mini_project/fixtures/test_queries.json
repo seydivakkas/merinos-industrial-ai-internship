@@ -1,0 +1,72 @@
+[
+  {
+    "id": "Q_EXACT_01",
+    "type": "exact",
+    "query": "E-401 arıza kodu ana tahrik motoru aşırı ısınması",
+    "expected_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "focus_term": "E-401"
+  },
+  {
+    "id": "Q_EXACT_02",
+    "type": "exact",
+    "query": "14 bar tansiyon basıncı altına düşerse vana 3",
+    "expected_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "focus_term": "14 bar"
+  },
+  {
+    "id": "Q_EXACT_03",
+    "type": "exact",
+    "query": "60 derece doymuş buharlı fikse işlemi",
+    "expected_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "focus_term": "60 derece buharlı fikse"
+  },
+  {
+    "id": "Q_EXACT_04",
+    "type": "exact",
+    "query": "E-108 arıza kodu mekik iplik rezerv sensörü",
+    "expected_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "focus_term": "E-108"
+  },
+  {
+    "id": "Q_EXACT_05",
+    "type": "exact",
+    "query": "80x80 düğüm atkı sıklığı ve 28 tel tarak ayarı",
+    "expected_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "focus_term": "80x80"
+  },
+  {
+    "id": "Q_SEMANTIC_01",
+    "type": "semantic",
+    "query": "dokuma tezgahının motoru çok aşırı ısındığında operatörün yapması gereken acil müdahale",
+    "expected_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "focus_term": "aşırı ısınma acil müdahale"
+  },
+  {
+    "id": "Q_SEMANTIC_02",
+    "type": "semantic",
+    "query": "ipliğin kopmasını engellemek için manometre ve basınç vanası nasıl ayarlanmalıdır",
+    "expected_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "focus_term": "kopmayı engelleme basınç"
+  },
+  {
+    "id": "Q_SEMANTIC_03",
+    "type": "semantic",
+    "query": "halının havlarının düzgün ve renklerinin daha canlı kalması için uygulanan sıcaklık tüneli",
+    "expected_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "focus_term": "canlılık sıcaklık tüneli"
+  },
+  {
+    "id": "Q_SEMANTIC_04",
+    "type": "semantic",
+    "query": "dokuma salonunda statik elektriklenmeyi önlemek için iklimlendirme ve rutubet aralığı",
+    "expected_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "focus_term": "statik elektrik rutubet"
+  },
+  {
+    "id": "Q_SEMANTIC_05",
+    "type": "semantic",
+    "query": "halı kenarlarının açılmaması için overlok dikişinde aranan mukavemet ve iplik cinsi",
+    "expected_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "focus_term": "kenar overlok mukavemet"
+  }
+]

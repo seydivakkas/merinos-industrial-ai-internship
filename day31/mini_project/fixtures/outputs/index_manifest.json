@@ -1,0 +1,31 @@
+{
+  "indexed_at": "2026-09-24T22:16:31.142569",
+  "total_documents": 3,
+  "total_chunks": 10,
+  "documents": {
+    "merinos_finishing_manual.md": {
+      "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+      "file_hash": "75d8b6cac0895dff7f062f36f3959abeba02a3fc2b0a1ea7456497022868b5e7",
+      "file_type": "md",
+      "chunk_count": 3,
+      "page_count": 1,
+      "total_char_count": 679
+    },
+    "merinos_quality_standards.docx": {
+      "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+      "file_hash": "e1751f0987004581b74c951c1ba3d33e5f3e1b64e707c5c5076bc8cd3cd72d29",
+      "file_type": "docx",
+      "chunk_count": 3,
+      "page_count": 1,
+      "total_char_count": 619
+    },
+    "merinos_weaving_sop.pdf": {
+      "doc_id": "DOC_MERINOS_WEAVING_SOP",
+      "file_hash": "5b8c33e9339640ae9cd584659d69403978239f060692e3f3f0b2f829017c4f1f",
+      "file_type": "pdf",
+      "chunk_count": 4,
+      "page_count": 2,
+      "total_char_count": 784
+    }
+  }
+}

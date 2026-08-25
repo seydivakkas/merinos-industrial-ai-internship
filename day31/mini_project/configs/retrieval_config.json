@@ -1,0 +1,33 @@
+{
+  "system": {
+    "project": "Merinos Industrial AI Internship - Day 31",
+    "module": "Document Preparation & Dual Retrieval Engine",
+    "version": "1.0.0",
+    "author": "Seydi Eryılmaz (@seydivakkas)"
+  },
+  "chunking": {
+    "fixed_chunk_size": 256,
+    "fixed_chunk_overlap": 50,
+    "semantic_max_chunk_size": 450,
+    "semantic_min_chunk_size": 80,
+    "target_overlap_ratio": 0.20
+  },
+  "bm25": {
+    "k1": 1.5,
+    "b": 0.75,
+    "lowercase": true,
+    "strip_accents": false
+  },
+  "dense": {
+    "model_name": "all-MiniLM-L6-v2",
+    "vector_dim": 384,
+    "normalize_embeddings": true,
+    "similarity_metric": "cosine"
+  },
+  "paths": {
+    "documents_dir": "fixtures/documents",
+    "manifest_file": "outputs/index_manifest.json",
+    "comparison_output": "outputs/retrieval_comparison_results.json",
+    "chunking_output": "outputs/chunking_comparison_report.json"
+  }
+}

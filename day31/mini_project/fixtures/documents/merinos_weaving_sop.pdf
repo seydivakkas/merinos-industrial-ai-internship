@@ -1,0 +1,74 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 7 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 485 >>
+stream
+BT
+/F1 12 Tf
+50 750 Td
+(Sayfa 1: Merinos Weaving SOP) Tj
+0 -20 Td
+(1. Bolum: Tarak ve Atki Sikligi Standartlari) Tj
+0 -15 Td
+(Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir.) Tj
+0 -15 Td
+(Atki sikligi ise 80x80 dugum yapisina gore ayarlanir.) Tj
+0 -15 Td
+(Tarak boslugu 0.45 mm toleransi asarsa jakar guveleri arasinda desen kaymasi olusur.) Tj
+0 -15 Td
+(Bu durumda tezgah otomatik olarak sari ikaz lambasini yakar ve yavas moda gecer.) Tj
+0 -15 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 6 0 R /Resources << /Font << /F1 7 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 519 >>
+stream
+BT
+/F1 12 Tf
+50 750 Td
+(Sayfa 2: Ariza Kodlari) Tj
+0 -20 Td
+(2. Bolum: Ariza Kodlari ve Acil Durdurma) Tj
+0 -15 Td
+(E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir.) Tj
+0 -15 Td
+(E-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir.) Tj
+0 -15 Td
+(E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.) Tj
+0 -15 Td
+(E-256 Ariza Kodu: Cozgu cerceve kilit mekanizmasi basinci 6 bar altina dustugunde olusur.) Tj
+0 -15 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000127 00000 n 
+0000000253 00000 n 
+0000000789 00000 n 
+0000000915 00000 n 
+0000001485 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+1555
+%%EOF
