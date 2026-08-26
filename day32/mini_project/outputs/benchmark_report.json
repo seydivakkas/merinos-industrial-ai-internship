@@ -1,0 +1,1505 @@
+{
+  "generated_at": "2026-09-24T07:48:34.220105",
+  "systems": {
+    "BM25": {
+      "system_name": "BM25",
+      "overall_metrics": {
+        "hit_at_k": {
+          "1": 0.8571,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 0.9286,
+        "precision_at_k": {
+          "1": 0.8571,
+          "3": 0.3333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "recall_at_k": {
+          "1": 0.8571,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "ndcg_at_k": {
+          "1": 0.8571,
+          "3": 0.9473,
+          "5": 0.9473,
+          "10": 0.9473
+        }
+      },
+      "category_breakdown": {
+        "EXACT_CODE": {
+          "count": 5.0,
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "mrr": 1.0
+        },
+        "HYBRID_COMPLEX": {
+          "count": 4.0,
+          "hit@1": 0.75,
+          "hit@3": 1.0,
+          "mrr": 0.875
+        },
+        "SEMANTIC_SYMPTOM": {
+          "count": 5.0,
+          "hit@1": 0.8,
+          "hit@3": 1.0,
+          "mrr": 0.9
+        }
+      },
+      "total_queries": 15,
+      "valid_queries": 14,
+      "results": [
+        {
+          "query_id": "Q01_EXACT",
+          "query": "E-401 arıza kodu ana tahrik motoru aşırı ısınması",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q02_EXACT",
+          "query": "14 bar tansiyon basıncı altına düşerse vana 3 ayarı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q03_EXACT",
+          "query": "60 derece doymuş buharlı fikse işlemi ve renk parlaklığı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q04_EXACT",
+          "query": "E-108 arıza kodu mekik iplik rezerv sensörü",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q05_EXACT",
+          "query": "Hereke serisi klasik jakarlı halı cm başına 28 tel tarak sıklığı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q06_SEMANTIC",
+          "query": "dokuma motoru çok aşırı ısındığında operatörün yapması gereken acil müdahale ve fan temizliği",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q07_SEMANTIC",
+          "query": "iplik kopmalarını önlemek için basınç regülatörü ve manometre nasıl ayarlanır",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 2,
+          "hit_at_k": {
+            "1": false,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 0.5,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "top1_correct": false
+        },
+        {
+          "query_id": "Q08_SEMANTIC",
+          "query": "halının lif yapısını sabitlemek ve renklerin canlı görünmesini sağlamak için sıcaklık tüneli uygulaması",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q09_SEMANTIC",
+          "query": "dokuma salonunda statik elektriklenmeyi önlemek için gereken bağıl nem ve ortam sıcaklığı",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q10_SEMANTIC",
+          "query": "halı traşlama makinesinde döner bıçak hav yüksekliği kaç milimetreye ayarlanır",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q11_HYBRID",
+          "query": "E-256 arıza kodu çözgü çerçeve kilit mekanizması basınç düşüşü",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q12_HYBRID",
+          "query": "jakar güveleri arasında desen kayması olunca tezgahın sarı ikaz lambası yakması ve 0.45 mm tolerans",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q13_HYBRID",
+          "query": "poliamid takviyeli 3 katlı iplik kenar overlok dikiş mukavemeti 45 Newton",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q14_HYBRID",
+          "query": "80x80 düğüm atkı sıklığı Hereke halı dokuma tezgâhı standartları",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 2,
+          "hit_at_k": {
+            "1": false,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 0.5,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+          "top1_correct": false
+        },
+        {
+          "query_id": "Q15_OUT_OF_DOMAIN",
+          "query": "fabrika idari bina personel yemekhanesi haftalık tabildot menüsü",
+          "category": "OUT_OF_DOMAIN",
+          "target_chunk_id": null,
+          "target_doc_id": null,
+          "found_rank": null,
+          "hit_at_k": {
+            "1": false,
+            "3": false,
+            "5": false,
+            "10": false
+          },
+          "reciprocal_rank": 0.0,
+          "top1_retrieved_chunk_id": null,
+          "top1_correct": false
+        }
+      ]
+    },
+    "Dense": {
+      "system_name": "Dense",
+      "overall_metrics": {
+        "hit_at_k": {
+          "1": 0.6429,
+          "3": 0.8571,
+          "5": 0.8571,
+          "10": 1.0
+        },
+        "mrr": 0.7589,
+        "precision_at_k": {
+          "1": 0.6429,
+          "3": 0.2857,
+          "5": 0.1714,
+          "10": 0.1
+        },
+        "recall_at_k": {
+          "1": 0.6429,
+          "3": 0.8571,
+          "5": 0.8571,
+          "10": 1.0
+        },
+        "ndcg_at_k": {
+          "1": 0.6429,
+          "3": 0.7687,
+          "5": 0.7687,
+          "10": 0.8167
+        }
+      },
+      "category_breakdown": {
+        "EXACT_CODE": {
+          "count": 5.0,
+          "hit@1": 0.6,
+          "hit@3": 0.8,
+          "mrr": 0.725
+        },
+        "HYBRID_COMPLEX": {
+          "count": 4.0,
+          "hit@1": 0.5,
+          "hit@3": 0.75,
+          "mrr": 0.625
+        },
+        "SEMANTIC_SYMPTOM": {
+          "count": 5.0,
+          "hit@1": 0.8,
+          "hit@3": 1.0,
+          "mrr": 0.9
+        }
+      },
+      "total_queries": 15,
+      "valid_queries": 14,
+      "results": [
+        {
+          "query_id": "Q01_EXACT",
+          "query": "E-401 arıza kodu ana tahrik motoru aşırı ısınması",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q02_EXACT",
+          "query": "14 bar tansiyon basıncı altına düşerse vana 3 ayarı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q03_EXACT",
+          "query": "60 derece doymuş buharlı fikse işlemi ve renk parlaklığı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 2,
+          "hit_at_k": {
+            "1": false,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 0.5,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+          "top1_correct": false
+        },
+        {
+          "query_id": "Q04_EXACT",
+          "query": "E-108 arıza kodu mekik iplik rezerv sensörü",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q05_EXACT",
+          "query": "Hereke serisi klasik jakarlı halı cm başına 28 tel tarak sıklığı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 8,
+          "hit_at_k": {
+            "1": false,
+            "3": false,
+            "5": false,
+            "10": true
+          },
+          "reciprocal_rank": 0.125,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+          "top1_correct": false
+        },
+        {
+          "query_id": "Q06_SEMANTIC",
+          "query": "dokuma motoru çok aşırı ısındığında operatörün yapması gereken acil müdahale ve fan temizliği",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q07_SEMANTIC",
+          "query": "iplik kopmalarını önlemek için basınç regülatörü ve manometre nasıl ayarlanır",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q08_SEMANTIC",
+          "query": "halının lif yapısını sabitlemek ve renklerin canlı görünmesini sağlamak için sıcaklık tüneli uygulaması",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q09_SEMANTIC",
+          "query": "dokuma salonunda statik elektriklenmeyi önlemek için gereken bağıl nem ve ortam sıcaklığı",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q10_SEMANTIC",
+          "query": "halı traşlama makinesinde döner bıçak hav yüksekliği kaç milimetreye ayarlanır",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 2,
+          "hit_at_k": {
+            "1": false,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 0.5,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+          "top1_correct": false
+        },
+        {
+          "query_id": "Q11_HYBRID",
+          "query": "E-256 arıza kodu çözgü çerçeve kilit mekanizması basınç düşüşü",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 6,
+          "hit_at_k": {
+            "1": false,
+            "3": false,
+            "5": false,
+            "10": true
+          },
+          "reciprocal_rank": 0.1667,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "top1_correct": false
+        },
+        {
+          "query_id": "Q12_HYBRID",
+          "query": "jakar güveleri arasında desen kayması olunca tezgahın sarı ikaz lambası yakması ve 0.45 mm tolerans",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 3,
+          "hit_at_k": {
+            "1": false,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 0.3333,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "top1_correct": false
+        },
+        {
+          "query_id": "Q13_HYBRID",
+          "query": "poliamid takviyeli 3 katlı iplik kenar overlok dikiş mukavemeti 45 Newton",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q14_HYBRID",
+          "query": "80x80 düğüm atkı sıklığı Hereke halı dokuma tezgâhı standartları",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q15_OUT_OF_DOMAIN",
+          "query": "fabrika idari bina personel yemekhanesi haftalık tabildot menüsü",
+          "category": "OUT_OF_DOMAIN",
+          "target_chunk_id": null,
+          "target_doc_id": null,
+          "found_rank": null,
+          "hit_at_k": {
+            "1": false,
+            "3": false,
+            "5": false,
+            "10": false
+          },
+          "reciprocal_rank": 0.0,
+          "top1_retrieved_chunk_id": null,
+          "top1_correct": false
+        }
+      ]
+    },
+    "Linear_0.5": {
+      "system_name": "Linear_0.5",
+      "overall_metrics": {
+        "hit_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 1.0,
+        "precision_at_k": {
+          "1": 1.0,
+          "3": 0.3333,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "recall_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "ndcg_at_k": {
+          "1": 1.0,
+          "3": 1.0,
+          "5": 1.0,
+          "10": 1.0
+        }
+      },
+      "category_breakdown": {
+        "EXACT_CODE": {
+          "count": 5.0,
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "mrr": 1.0
+        },
+        "HYBRID_COMPLEX": {
+          "count": 4.0,
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "mrr": 1.0
+        },
+        "SEMANTIC_SYMPTOM": {
+          "count": 5.0,
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "mrr": 1.0
+        }
+      },
+      "total_queries": 15,
+      "valid_queries": 14,
+      "results": [
+        {
+          "query_id": "Q01_EXACT",
+          "query": "E-401 arıza kodu ana tahrik motoru aşırı ısınması",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q02_EXACT",
+          "query": "14 bar tansiyon basıncı altına düşerse vana 3 ayarı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q03_EXACT",
+          "query": "60 derece doymuş buharlı fikse işlemi ve renk parlaklığı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q04_EXACT",
+          "query": "E-108 arıza kodu mekik iplik rezerv sensörü",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q05_EXACT",
+          "query": "Hereke serisi klasik jakarlı halı cm başına 28 tel tarak sıklığı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q06_SEMANTIC",
+          "query": "dokuma motoru çok aşırı ısındığında operatörün yapması gereken acil müdahale ve fan temizliği",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q07_SEMANTIC",
+          "query": "iplik kopmalarını önlemek için basınç regülatörü ve manometre nasıl ayarlanır",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q08_SEMANTIC",
+          "query": "halının lif yapısını sabitlemek ve renklerin canlı görünmesini sağlamak için sıcaklık tüneli uygulaması",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q09_SEMANTIC",
+          "query": "dokuma salonunda statik elektriklenmeyi önlemek için gereken bağıl nem ve ortam sıcaklığı",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q10_SEMANTIC",
+          "query": "halı traşlama makinesinde döner bıçak hav yüksekliği kaç milimetreye ayarlanır",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q11_HYBRID",
+          "query": "E-256 arıza kodu çözgü çerçeve kilit mekanizması basınç düşüşü",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q12_HYBRID",
+          "query": "jakar güveleri arasında desen kayması olunca tezgahın sarı ikaz lambası yakması ve 0.45 mm tolerans",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q13_HYBRID",
+          "query": "poliamid takviyeli 3 katlı iplik kenar overlok dikiş mukavemeti 45 Newton",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q14_HYBRID",
+          "query": "80x80 düğüm atkı sıklığı Hereke halı dokuma tezgâhı standartları",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q15_OUT_OF_DOMAIN",
+          "query": "fabrika idari bina personel yemekhanesi haftalık tabildot menüsü",
+          "category": "OUT_OF_DOMAIN",
+          "target_chunk_id": null,
+          "target_doc_id": null,
+          "found_rank": null,
+          "hit_at_k": {
+            "1": false,
+            "3": false,
+            "5": false,
+            "10": false
+          },
+          "reciprocal_rank": 0.0,
+          "top1_retrieved_chunk_id": null,
+          "top1_correct": false
+        }
+      ]
+    },
+    "RRF_k60": {
+      "system_name": "RRF_k60",
+      "overall_metrics": {
+        "hit_at_k": {
+          "1": 0.7857,
+          "3": 0.9286,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "mrr": 0.8714,
+        "precision_at_k": {
+          "1": 0.7857,
+          "3": 0.3095,
+          "5": 0.2,
+          "10": 0.1
+        },
+        "recall_at_k": {
+          "1": 0.7857,
+          "3": 0.9286,
+          "5": 1.0,
+          "10": 1.0
+        },
+        "ndcg_at_k": {
+          "1": 0.7857,
+          "3": 0.8758,
+          "5": 0.9035,
+          "10": 0.9035
+        }
+      },
+      "category_breakdown": {
+        "EXACT_CODE": {
+          "count": 5.0,
+          "hit@1": 0.8,
+          "hit@3": 0.8,
+          "mrr": 0.84
+        },
+        "HYBRID_COMPLEX": {
+          "count": 4.0,
+          "hit@1": 0.5,
+          "hit@3": 1.0,
+          "mrr": 0.75
+        },
+        "SEMANTIC_SYMPTOM": {
+          "count": 5.0,
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "mrr": 1.0
+        }
+      },
+      "total_queries": 15,
+      "valid_queries": 14,
+      "results": [
+        {
+          "query_id": "Q01_EXACT",
+          "query": "E-401 arıza kodu ana tahrik motoru aşırı ısınması",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q02_EXACT",
+          "query": "14 bar tansiyon basıncı altına düşerse vana 3 ayarı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q03_EXACT",
+          "query": "60 derece doymuş buharlı fikse işlemi ve renk parlaklığı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q04_EXACT",
+          "query": "E-108 arıza kodu mekik iplik rezerv sensörü",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q05_EXACT",
+          "query": "Hereke serisi klasik jakarlı halı cm başına 28 tel tarak sıklığı",
+          "category": "EXACT_CODE",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 5,
+          "hit_at_k": {
+            "1": false,
+            "3": false,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 0.2,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+          "top1_correct": false
+        },
+        {
+          "query_id": "Q06_SEMANTIC",
+          "query": "dokuma motoru çok aşırı ısındığında operatörün yapması gereken acil müdahale ve fan temizliği",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q07_SEMANTIC",
+          "query": "iplik kopmalarını önlemek için basınç regülatörü ve manometre nasıl ayarlanır",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q08_SEMANTIC",
+          "query": "halının lif yapısını sabitlemek ve renklerin canlı görünmesini sağlamak için sıcaklık tüneli uygulaması",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q09_SEMANTIC",
+          "query": "dokuma salonunda statik elektriklenmeyi önlemek için gereken bağıl nem ve ortam sıcaklığı",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+          "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q10_SEMANTIC",
+          "query": "halı traşlama makinesinde döner bıçak hav yüksekliği kaç milimetreye ayarlanır",
+          "category": "SEMANTIC_SYMPTOM",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q11_HYBRID",
+          "query": "E-256 arıza kodu çözgü çerçeve kilit mekanizması basınç düşüşü",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 2,
+          "hit_at_k": {
+            "1": false,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 0.5,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+          "top1_correct": false
+        },
+        {
+          "query_id": "Q12_HYBRID",
+          "query": "jakar güveleri arasında desen kayması olunca tezgahın sarı ikaz lambası yakması ve 0.45 mm tolerans",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 2,
+          "hit_at_k": {
+            "1": false,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 0.5,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "top1_correct": false
+        },
+        {
+          "query_id": "Q13_HYBRID",
+          "query": "poliamid takviyeli 3 katlı iplik kenar overlok dikiş mukavemeti 45 Newton",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q14_HYBRID",
+          "query": "80x80 düğüm atkı sıklığı Hereke halı dokuma tezgâhı standartları",
+          "category": "HYBRID_COMPLEX",
+          "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+          "found_rank": 1,
+          "hit_at_k": {
+            "1": true,
+            "3": true,
+            "5": true,
+            "10": true
+          },
+          "reciprocal_rank": 1.0,
+          "top1_retrieved_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+          "top1_correct": true
+        },
+        {
+          "query_id": "Q15_OUT_OF_DOMAIN",
+          "query": "fabrika idari bina personel yemekhanesi haftalık tabildot menüsü",
+          "category": "OUT_OF_DOMAIN",
+          "target_chunk_id": null,
+          "target_doc_id": null,
+          "found_rank": null,
+          "hit_at_k": {
+            "1": false,
+            "3": false,
+            "5": false,
+            "10": false
+          },
+          "reciprocal_rank": 0.0,
+          "top1_retrieved_chunk_id": null,
+          "top1_correct": false
+        }
+      ]
+    }
+  },
+  "alpha_sweep": [
+    {
+      "alpha": 0.0,
+      "hit_at_1": 0.6429,
+      "hit_at_3": 0.8571,
+      "hit_at_5": 0.8571,
+      "mrr": 0.7589,
+      "ndcg_at_5": 0.7687
+    },
+    {
+      "alpha": 0.1,
+      "hit_at_1": 0.7857,
+      "hit_at_3": 0.8571,
+      "hit_at_5": 1.0,
+      "mrr": 0.8381,
+      "ndcg_at_5": 0.8767
+    },
+    {
+      "alpha": 0.2,
+      "hit_at_1": 0.8571,
+      "hit_at_3": 0.8571,
+      "hit_at_5": 1.0,
+      "mrr": 0.8929,
+      "ndcg_at_5": 0.9187
+    },
+    {
+      "alpha": 0.3,
+      "hit_at_1": 0.8571,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "mrr": 0.9286,
+      "ndcg_at_5": 0.9473
+    },
+    {
+      "alpha": 0.4,
+      "hit_at_1": 1.0,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0
+    },
+    {
+      "alpha": 0.5,
+      "hit_at_1": 1.0,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0
+    },
+    {
+      "alpha": 0.6,
+      "hit_at_1": 0.9286,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "mrr": 0.9643,
+      "ndcg_at_5": 0.9736
+    },
+    {
+      "alpha": 0.7,
+      "hit_at_1": 0.9286,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "mrr": 0.9643,
+      "ndcg_at_5": 0.9736
+    },
+    {
+      "alpha": 0.8,
+      "hit_at_1": 0.9286,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "mrr": 0.9643,
+      "ndcg_at_5": 0.9736
+    },
+    {
+      "alpha": 0.9,
+      "hit_at_1": 0.9286,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "mrr": 0.9643,
+      "ndcg_at_5": 0.9736
+    },
+    {
+      "alpha": 1.0,
+      "hit_at_1": 0.8571,
+      "hit_at_3": 1.0,
+      "hit_at_5": 1.0,
+      "mrr": 0.9286,
+      "ndcg_at_5": 0.9473
+    }
+  ],
+  "error_records": [
+    {
+      "query_id": "Q07_SEMANTIC",
+      "query": "iplik kopmalarını önlemek için basınç regülatörü ve manometre nasıl ayarlanır",
+      "category": "SEMANTIC_SYMPTOM",
+      "system_name": "BM25",
+      "failure_type": "KEYWORD_MISMATCH",
+      "expected_target": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+      "actual_top1": "DOC_MERINOS_FINISHING_MANUAL_c002",
+      "target_rank": 2,
+      "explanation": "Operatörün kullandığı doğal dil ifadeleri, belgedeki teknik terimlerle birebir örtüşmediği için Okapi BM25 hedefi 1. sıraya getiremedi (Sıra: 2).",
+      "recommendation": "Dense (SentenceTransformer) vektörel anlamsal getirme devreye alınmalı veya eşanlamlılar tablosu (synonym mapping) tanımlanmalıdır."
+    },
+    {
+      "query_id": "Q14_HYBRID",
+      "query": "80x80 düğüm atkı sıklığı Hereke halı dokuma tezgâhı standartları",
+      "category": "HYBRID_COMPLEX",
+      "system_name": "BM25",
+      "failure_type": "KEYWORD_MISMATCH",
+      "expected_target": "DOC_MERINOS_WEAVING_SOP_c002",
+      "actual_top1": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+      "target_rank": 2,
+      "explanation": "Sorgu terimleri ile parça terimleri arasında leksikal uyumsuzluk oluştu (Hedef Sıra: 2).",
+      "recommendation": "Metin temizleme adımında teknik kodların ayrışması engellenmeli veya chunk başlık hiyerarşisi (breadcrumbs) güçlendirilmelidir."
+    },
+    {
+      "query_id": "Q15_OUT_OF_DOMAIN",
+      "query": "fabrika idari bina personel yemekhanesi haftalık tabildot menüsü",
+      "category": "OUT_OF_DOMAIN",
+      "system_name": "BM25",
+      "failure_type": "OUT_OF_DOMAIN",
+      "expected_target": "YOK (Negatif Kontrol)",
+      "actual_top1": null,
+      "target_rank": null,
+      "explanation": "Sorgu, fabrika SOP ve üretim kılavuzları dışında genel idari bir konudur. Korpus bu bilgiyi içermez.",
+      "recommendation": "Arama motoruna minimum benzerlik skoru eşiği (Threshold Gate) eklenerek bu tip sorgular 'Bilgi Bulunamadı' olarak filtrelenmelidir."
+    },
+    {
+      "query_id": "Q03_EXACT",
+      "query": "60 derece doymuş buharlı fikse işlemi ve renk parlaklığı",
+      "category": "EXACT_CODE",
+      "system_name": "Dense",
+      "failure_type": "CODE_DRIFT",
+      "expected_target": "DOC_MERINOS_FINISHING_MANUAL_c002",
+      "actual_top1": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+      "target_rank": 2,
+      "explanation": "Yoğun vektörel embedding, '60 derece, buharlı fikse, renk parlaklığı' gibi kritik teknik kodları genel anlamsal uzayda seyreltti ve 1. sırayı kaçırdı (Sıra: 2).",
+      "recommendation": "BM25 leksikal arama ağırlığı artırılmalı veya RRF füzyonu kullanılarak leksikal kesinlik korunmalıdır."
+    },
+    {
+      "query_id": "Q05_EXACT",
+      "query": "Hereke serisi klasik jakarlı halı cm başına 28 tel tarak sıklığı",
+      "category": "EXACT_CODE",
+      "system_name": "Dense",
+      "failure_type": "CODE_DRIFT",
+      "expected_target": "DOC_MERINOS_WEAVING_SOP_c002",
+      "actual_top1": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+      "target_rank": 8,
+      "explanation": "Yoğun vektörel embedding, 'Hereke, 28 tel, tarak sıklığı' gibi kritik teknik kodları genel anlamsal uzayda seyreltti ve 1. sırayı kaçırdı (Sıra: 8).",
+      "recommendation": "BM25 leksikal arama ağırlığı artırılmalı veya RRF füzyonu kullanılarak leksikal kesinlik korunmalıdır."
+    },
+    {
+      "query_id": "Q10_SEMANTIC",
+      "query": "halı traşlama makinesinde döner bıçak hav yüksekliği kaç milimetreye ayarlanır",
+      "category": "SEMANTIC_SYMPTOM",
+      "system_name": "Dense",
+      "failure_type": "CHUNK_BOUNDARY",
+      "expected_target": "DOC_MERINOS_FINISHING_MANUAL_c003",
+      "actual_top1": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+      "target_rank": 2,
+      "explanation": "Sorgu anlamsal olarak doğru yönlendirildi ancak parça içi bağlam penceresi yetersiz kaldığından hedef geriye düştü (Sıra: 2).",
+      "recommendation": "Chunk boyutu veya parça örtüşme (overlap) oranı artırılmalıdır."
+    },
+    {
+      "query_id": "Q11_HYBRID",
+      "query": "E-256 arıza kodu çözgü çerçeve kilit mekanizması basınç düşüşü",
+      "category": "HYBRID_COMPLEX",
+      "system_name": "Dense",
+      "failure_type": "CODE_DRIFT",
+      "expected_target": "DOC_MERINOS_WEAVING_SOP_c004",
+      "actual_top1": "DOC_MERINOS_FINISHING_MANUAL_c002",
+      "target_rank": 6,
+      "explanation": "Yoğun vektörel embedding, 'E-256, çözgü çerçeve, 6 bar' gibi kritik teknik kodları genel anlamsal uzayda seyreltti ve 1. sırayı kaçırdı (Sıra: 6).",
+      "recommendation": "BM25 leksikal arama ağırlığı artırılmalı veya RRF füzyonu kullanılarak leksikal kesinlik korunmalıdır."
+    },
+    {
+      "query_id": "Q12_HYBRID",
+      "query": "jakar güveleri arasında desen kayması olunca tezgahın sarı ikaz lambası yakması ve 0.45 mm tolerans",
+      "category": "HYBRID_COMPLEX",
+      "system_name": "Dense",
+      "failure_type": "CHUNK_BOUNDARY",
+      "expected_target": "DOC_MERINOS_WEAVING_SOP_c002",
+      "actual_top1": "DOC_MERINOS_FINISHING_MANUAL_c003",
+      "target_rank": 3,
+      "explanation": "Hibrit sorguda hedef bilgi parça sınırları arasında kaldı veya komşu parçalar daha yüksek skor aldı (Sıra: 3).",
+      "recommendation": "Anlamsal yapısal parçalayıcı (SemanticStructureChunker) ile başlık-paragraf bütünlüğü korunmalıdır."
+    },
+    {
+      "query_id": "Q15_OUT_OF_DOMAIN",
+      "query": "fabrika idari bina personel yemekhanesi haftalık tabildot menüsü",
+      "category": "OUT_OF_DOMAIN",
+      "system_name": "Dense",
+      "failure_type": "OUT_OF_DOMAIN",
+      "expected_target": "YOK (Negatif Kontrol)",
+      "actual_top1": null,
+      "target_rank": null,
+      "explanation": "Sorgu, fabrika SOP ve üretim kılavuzları dışında genel idari bir konudur. Korpus bu bilgiyi içermez.",
+      "recommendation": "Arama motoruna minimum benzerlik skoru eşiği (Threshold Gate) eklenerek bu tip sorgular 'Bilgi Bulunamadı' olarak filtrelenmelidir."
+    },
+    {
+      "query_id": "Q15_OUT_OF_DOMAIN",
+      "query": "fabrika idari bina personel yemekhanesi haftalık tabildot menüsü",
+      "category": "OUT_OF_DOMAIN",
+      "system_name": "Linear_0.5",
+      "failure_type": "OUT_OF_DOMAIN",
+      "expected_target": "YOK (Negatif Kontrol)",
+      "actual_top1": null,
+      "target_rank": null,
+      "explanation": "Sorgu, fabrika SOP ve üretim kılavuzları dışında genel idari bir konudur. Korpus bu bilgiyi içermez.",
+      "recommendation": "Arama motoruna minimum benzerlik skoru eşiği (Threshold Gate) eklenerek bu tip sorgular 'Bilgi Bulunamadı' olarak filtrelenmelidir."
+    },
+    {
+      "query_id": "Q05_EXACT",
+      "query": "Hereke serisi klasik jakarlı halı cm başına 28 tel tarak sıklığı",
+      "category": "EXACT_CODE",
+      "system_name": "RRF_k60",
+      "failure_type": "KEYWORD_MISMATCH",
+      "expected_target": "DOC_MERINOS_WEAVING_SOP_c002",
+      "actual_top1": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+      "target_rank": 5,
+      "explanation": "Sorgu terimleri ile parça terimleri arasında leksikal uyumsuzluk oluştu (Hedef Sıra: 5).",
+      "recommendation": "Metin temizleme adımında teknik kodların ayrışması engellenmeli veya chunk başlık hiyerarşisi (breadcrumbs) güçlendirilmelidir."
+    },
+    {
+      "query_id": "Q11_HYBRID",
+      "query": "E-256 arıza kodu çözgü çerçeve kilit mekanizması basınç düşüşü",
+      "category": "HYBRID_COMPLEX",
+      "system_name": "RRF_k60",
+      "failure_type": "KEYWORD_MISMATCH",
+      "expected_target": "DOC_MERINOS_WEAVING_SOP_c004",
+      "actual_top1": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+      "target_rank": 2,
+      "explanation": "Sorgu terimleri ile parça terimleri arasında leksikal uyumsuzluk oluştu (Hedef Sıra: 2).",
+      "recommendation": "Metin temizleme adımında teknik kodların ayrışması engellenmeli veya chunk başlık hiyerarşisi (breadcrumbs) güçlendirilmelidir."
+    },
+    {
+      "query_id": "Q12_HYBRID",
+      "query": "jakar güveleri arasında desen kayması olunca tezgahın sarı ikaz lambası yakması ve 0.45 mm tolerans",
+      "category": "HYBRID_COMPLEX",
+      "system_name": "RRF_k60",
+      "failure_type": "CHUNK_BOUNDARY",
+      "expected_target": "DOC_MERINOS_WEAVING_SOP_c002",
+      "actual_top1": "DOC_MERINOS_FINISHING_MANUAL_c003",
+      "target_rank": 2,
+      "explanation": "Hibrit sorguda hedef bilgi parça sınırları arasında kaldı veya komşu parçalar daha yüksek skor aldı (Sıra: 2).",
+      "recommendation": "Anlamsal yapısal parçalayıcı (SemanticStructureChunker) ile başlık-paragraf bütünlüğü korunmalıdır."
+    },
+    {
+      "query_id": "Q15_OUT_OF_DOMAIN",
+      "query": "fabrika idari bina personel yemekhanesi haftalık tabildot menüsü",
+      "category": "OUT_OF_DOMAIN",
+      "system_name": "RRF_k60",
+      "failure_type": "OUT_OF_DOMAIN",
+      "expected_target": "YOK (Negatif Kontrol)",
+      "actual_top1": null,
+      "target_rank": null,
+      "explanation": "Sorgu, fabrika SOP ve üretim kılavuzları dışında genel idari bir konudur. Korpus bu bilgiyi içermez.",
+      "recommendation": "Arama motoruna minimum benzerlik skoru eşiği (Threshold Gate) eklenerek bu tip sorgular 'Bilgi Bulunamadı' olarak filtrelenmelidir."
+    }
+  ],
+  "best_system_mrr": "Linear_0.5",
+  "best_system_hit1": "Linear_0.5",
+  "best_alpha": 0.4,
+  "executive_summary": "Altın veri seti değerlendirmesinde Linear_0.5 mimarisi MRR=1.0000 ile en yüksek başarıyı elde etmiştir. Lineer birleştirmede optimum ağırlık alpha=0.4 olarak ölçülmüştür. RRF (k=60) sıralama tabanlı füzyon, skor normalizasyonuna ihtiyaç duymaksızın endüstriyel standartta dengeli sonuç sağlamıştır."
+}

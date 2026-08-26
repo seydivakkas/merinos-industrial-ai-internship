@@ -1,0 +1,28 @@
+{
+  "system": {
+    "name": "Merinos Industrial Hybrid Retrieval & Evaluation System",
+    "version": "1.0.0",
+    "internship_day": 32,
+    "logbook_sheet": "Yaprak 63 & 64"
+  },
+  "hybrid_fusion": {
+    "default_method": "rrf",
+    "rrf_k_parameter": 60,
+    "linear_alpha": 0.5,
+    "candidate_pool_depth": 20
+  },
+  "evaluation": {
+    "k_values": [1, 3, 5, 10],
+    "alpha_sweep": {
+      "min_alpha": 0.0,
+      "max_alpha": 1.0,
+      "step": 0.1
+    },
+    "relevance_level": "chunk_or_doc"
+  },
+  "paths": {
+    "documents_dir": "day31/mini_project/fixtures/documents",
+    "golden_dataset_path": "day32/mini_project/fixtures/golden_benchmark_dataset.json",
+    "outputs_dir": "day32/mini_project/outputs"
+  }
+}
