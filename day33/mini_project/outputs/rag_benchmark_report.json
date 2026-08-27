@@ -1,0 +1,1950 @@
+{
+  "generated_at": "2026-09-06T00:45:17.460958",
+  "total_queries": 15,
+  "success_count": 14,
+  "retrieval_failures": 0,
+  "generation_hallucinations": 0,
+  "correct_abstentions": 1,
+  "mean_faithfulness": 1.0,
+  "citation_precision": 1.0,
+  "citation_recall": 1.0,
+  "items": [
+    {
+      "query_id": "RAG_Q01",
+      "query": "E-401 arıza kodu ana tahrik motoru aşırı ısınması durumunda operatör ne yapmalıdır?",
+      "category": "MAINTENANCE_SOP",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "E-401 arıza kodu ana tahrik motoru aşırı ısınması durumunda operatör ne yapmalıdır?",
+        "raw_answer": "2. Bolum: Ariza Kodlari ve Acil Durdurma [S1]. E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir [S1]. E-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir [S1].",
+        "cleaned_answer": "2. Bolum: Ariza Kodlari ve Acil Durdurma. E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir. E-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+              "doc_id": "DOC_MERINOS_WEAVING_SOP",
+              "title": "merinos_weaving_sop.pdf",
+              "section": "2. Bolum: Ariza Kodlari ve Acil Durdurma",
+              "breadcrumbs": "Sayfa 1: Merinos Weaving SOP > Sayfa 2 > 2. Bolum: Ariza Kodlari ve Acil Durdurma",
+              "text": "2. Bolum: Ariza Kodlari ve Acil Durdurma\nE-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir.\nE-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir.\nE-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.\nE-256 Ariza Kodu: Cozgu cerceve kilit mekanizmasi basinci 6 bar altina dustugunde olusur.",
+              "rank": 1,
+              "score": 1.0
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "2. Hav Traşlama (Shearing) ve Kenar Overlok",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 2. Hav Traşlama (Shearing) ve Kenar Overlok",
+              "text": "## 2. Hav Traşlama (Shearing) ve Kenar Overlok\nBuhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir.\nKenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır.\nKenar dikiş çekme mukavemeti en az 45 Newton olmalıdır.",
+              "rank": 2,
+              "score": 0.2743
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "1. Buharlı Fikse ve Renk Sabitleme",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme",
+              "text": "## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.",
+              "rank": 3,
+              "score": 0.2688
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_weaving_sop.pdf | Bölüm: 2. Bolum: Ariza Kodlari ve Acil Durdurma\nHiyerarşi: Sayfa 1: Merinos Weaving SOP > Sayfa 2 > 2. Bolum: Ariza Kodlari ve Acil Durdurma\nMetin:\n2. Bolum: Ariza Kodlari ve Acil Durdurma\nE-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir.\nE-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir.\nE-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.\nE-256 Ariza Kodu: Cozgu cerceve kilit mekanizmasi basinci 6 bar altina dustugunde olusur.\n\n[S2] Doküman: merinos_finishing_manual.md | Bölüm: 2. Hav Traşlama (Shearing) ve Kenar Overlok\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 2. Hav Traşlama (Shearing) ve Kenar Overlok\nMetin:\n## 2. Hav Traşlama (Shearing) ve Kenar Overlok\nBuhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir.\nKenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır.\nKenar dikiş çekme mukavemeti en az 45 Newton olmalıdır.\n\n[S3] Doküman: merinos_finishing_manual.md | Bölüm: 1. Buharlı Fikse ve Renk Sabitleme\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme\nMetin:\n## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 250
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "Bolum: Ariza Kodlari ve Acil Durdurma [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "bolum",
+              "ariza",
+              "kodlari",
+              "acil",
+              "durdurma"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "e-401",
+              "ariza",
+              "kodu",
+              "ana",
+              "tahrik",
+              "motoru",
+              "asinmasi",
+              "asiri",
+              "isinmasi",
+              "durumunda",
+              "verilir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 3,
+              "text": "E-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "e-401",
+              "goruldugunde",
+              "operator",
+              "derhal",
+              "kirmizi",
+              "acil",
+              "durdurma",
+              "butonuna",
+              "basmali",
+              "motor",
+              "fanini",
+              "temizlemelidir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 1.12
+      }
+    },
+    {
+      "query_id": "RAG_Q02",
+      "query": "İplik tansiyon basıncı kaç bar altına düşerse kopuş meydana gelir ve operatör hangi vanayı ayarlamalıdır?",
+      "category": "QUALITY_TOLERANCE",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "İplik tansiyon basıncı kaç bar altına düşerse kopuş meydana gelir ve operatör hangi vanayı ayarlamalıdır?",
+        "raw_answer": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı [S1]. Dokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir [S1]. Tansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur [S1].",
+        "cleaned_answer": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı. Dokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir. Tansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı",
+              "text": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\n\nDokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir.\n\nTansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur.\n\nOperatör manometre üzerinden vana 3'ü sıkarak basıncı 16 bar seviyesine dengelemelidir.",
+              "rank": 1,
+              "score": 1.0
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 2,
+              "score": 0.4223
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "Giriş ve Genel Tanım",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım",
+              "text": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları",
+              "rank": 3,
+              "score": 0.4076
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\nMetin:\nBÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\n\nDokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir.\n\nTansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur.\n\nOperatör manometre üzerinden vana 3'ü sıkarak basıncı 16 bar seviyesine dengelemelidir.\n\n[S2] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n[S3] Doküman: merinos_quality_standards.docx | Bölüm: Giriş ve Genel Tanım\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım\nMetin:\nMerinos Halı Kalite Güvence ve İplik Mukavemet Standartları\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 152
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "bolum",
+              "iplik",
+              "mukavemet",
+              "tansiyon",
+              "basinci"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "Dokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "dokuma",
+              "sirasinda",
+              "akrilik",
+              "polipropilen",
+              "ipliklerin",
+              "gerginlik",
+              "tansiyonu",
+              "14",
+              "bar",
+              "altina",
+              "dusmemelidir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 3,
+              "text": "Tansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "tansiyon",
+              "14",
+              "bar",
+              "altina",
+              "dustugunde",
+              "cozgu",
+              "tellerinde",
+              "anlik",
+              "kopus",
+              "meydana",
+              "gelir",
+              "tezgah",
+              "durur"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.65
+      }
+    },
+    {
+      "query_id": "RAG_Q03",
+      "query": "Finisaj tünelinde uygulanan buharlı fikse işlemi hangi sıcaklıkta yapılır ve lif yapısına ne gibi fayda sağlar?",
+      "category": "FINISHING_PROCESS",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "Finisaj tünelinde uygulanan buharlı fikse işlemi hangi sıcaklıkta yapılır ve lif yapısına ne gibi fayda sağlar?",
+        "raw_answer": "Dokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer [S1]. Finisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır [S1]. Bu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır [S1].",
+        "cleaned_answer": "Dokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer. Finisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır. Bu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "1. Buharlı Fikse ve Renk Sabitleme",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme",
+              "text": "## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.",
+              "rank": 1,
+              "score": 1.0
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c001",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu",
+              "text": "# Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu",
+              "rank": 2,
+              "score": 0.3199
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 3,
+              "score": 0.3
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_finishing_manual.md | Bölüm: 1. Buharlı Fikse ve Renk Sabitleme\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme\nMetin:\n## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.\n\n[S2] Doküman: merinos_finishing_manual.md | Bölüm: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu\nMetin:\n# Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu\n\n[S3] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 149
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "Dokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "dokuma",
+              "tezgahindan",
+              "cikan",
+              "ham",
+              "hali",
+              "hav",
+              "ipliklerinin",
+              "kivrim",
+              "stabilitesini",
+              "kazanmasi",
+              "finisaj",
+              "tuneline",
+              "girer"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "Finisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "finisaj",
+              "tunelinde",
+              "60",
+              "derece",
+              "sicaklikta",
+              "doymus",
+              "buharli",
+              "fikse",
+              "islemi",
+              "uygulanir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 3,
+              "text": "Bu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "islem",
+              "liflerin",
+              "kristal",
+              "yapisini",
+              "kilitler",
+              "cielab",
+              "renk",
+              "parlakligini",
+              "yuzde",
+              "12",
+              "artirir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.66
+      }
+    },
+    {
+      "query_id": "RAG_Q04",
+      "query": "E-108 arıza kodu tezgâhta ne anlama gelir?",
+      "category": "ERROR_CODE",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "E-108 arıza kodu tezgâhta ne anlama gelir?",
+        "raw_answer": "2. Bolum: Ariza Kodlari ve Acil Durdurma [S1]. E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir [S1]. E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir [S1].",
+        "cleaned_answer": "2. Bolum: Ariza Kodlari ve Acil Durdurma. E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir. E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+              "doc_id": "DOC_MERINOS_WEAVING_SOP",
+              "title": "merinos_weaving_sop.pdf",
+              "section": "2. Bolum: Ariza Kodlari ve Acil Durdurma",
+              "breadcrumbs": "Sayfa 1: Merinos Weaving SOP > Sayfa 2 > 2. Bolum: Ariza Kodlari ve Acil Durdurma",
+              "text": "2. Bolum: Ariza Kodlari ve Acil Durdurma\nE-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir.\nE-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir.\nE-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.\nE-256 Ariza Kodu: Cozgu cerceve kilit mekanizmasi basinci 6 bar altina dustugunde olusur.",
+              "rank": 1,
+              "score": 0.7802
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "2. Hav Traşlama (Shearing) ve Kenar Overlok",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 2. Hav Traşlama (Shearing) ve Kenar Overlok",
+              "text": "## 2. Hav Traşlama (Shearing) ve Kenar Overlok\nBuhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir.\nKenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır.\nKenar dikiş çekme mukavemeti en az 45 Newton olmalıdır.",
+              "rank": 2,
+              "score": 0.5
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_WEAVING_SOP_c003",
+              "doc_id": "DOC_MERINOS_WEAVING_SOP",
+              "title": "merinos_weaving_sop.pdf",
+              "section": "Giriş ve Genel Tanım",
+              "breadcrumbs": "Sayfa 1: Merinos Weaving SOP > Sayfa 2 > Giriş ve Genel Tanım",
+              "text": "Sayfa 2: Ariza Kodlari",
+              "rank": 3,
+              "score": 0.451
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_weaving_sop.pdf | Bölüm: 2. Bolum: Ariza Kodlari ve Acil Durdurma\nHiyerarşi: Sayfa 1: Merinos Weaving SOP > Sayfa 2 > 2. Bolum: Ariza Kodlari ve Acil Durdurma\nMetin:\n2. Bolum: Ariza Kodlari ve Acil Durdurma\nE-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir.\nE-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir.\nE-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.\nE-256 Ariza Kodu: Cozgu cerceve kilit mekanizmasi basinci 6 bar altina dustugunde olusur.\n\n[S2] Doküman: merinos_finishing_manual.md | Bölüm: 2. Hav Traşlama (Shearing) ve Kenar Overlok\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 2. Hav Traşlama (Shearing) ve Kenar Overlok\nMetin:\n## 2. Hav Traşlama (Shearing) ve Kenar Overlok\nBuhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir.\nKenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır.\nKenar dikiş çekme mukavemeti en az 45 Newton olmalıdır.\n\n[S3] Doküman: merinos_weaving_sop.pdf | Bölüm: Giriş ve Genel Tanım\nHiyerarşi: Sayfa 1: Merinos Weaving SOP > Sayfa 2 > Giriş ve Genel Tanım\nMetin:\nSayfa 2: Ariza Kodlari\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 176
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "Bolum: Ariza Kodlari ve Acil Durdurma [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "bolum",
+              "ariza",
+              "kodlari",
+              "acil",
+              "durdurma"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "e-401",
+              "ariza",
+              "kodu",
+              "ana",
+              "tahrik",
+              "motoru",
+              "asinmasi",
+              "asiri",
+              "isinmasi",
+              "durumunda",
+              "verilir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 3,
+              "text": "E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "e-108",
+              "ariza",
+              "kodu",
+              "mekik",
+              "iplik",
+              "rezerv",
+              "sensoru",
+              "bos",
+              "kaldi",
+              "hatasidir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.92
+      }
+    },
+    {
+      "query_id": "RAG_Q05",
+      "query": "Hereke serisi klasik jakarlı halılarda çözgü tarak sıklığı ve atkı sıklığı standartları nelerdir?",
+      "category": "WEAVING_SPEC",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "Hereke serisi klasik jakarlı halılarda çözgü tarak sıklığı ve atkı sıklığı standartları nelerdir?",
+        "raw_answer": "1. Bolum: Tarak ve Atki Sikligi Standartlari [S1]. Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir [S1]. Atki sikligi ise 80x80 dugum yapisina gore ayarlanir [S1].",
+        "cleaned_answer": "1. Bolum: Tarak ve Atki Sikligi Standartlari. Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir. Atki sikligi ise 80x80 dugum yapisina gore ayarlanir.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+              "doc_id": "DOC_MERINOS_WEAVING_SOP",
+              "title": "merinos_weaving_sop.pdf",
+              "section": "1. Bolum: Tarak ve Atki Sikligi Standartlari",
+              "breadcrumbs": "Sayfa 1: Merinos Weaving SOP > Sayfa 1 > 1. Bolum: Tarak ve Atki Sikligi Standartlari",
+              "text": "1. Bolum: Tarak ve Atki Sikligi Standartlari\nHereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir.\nAtki sikligi ise 80x80 dugum yapisina gore ayarlanir.\nTarak boslugu 0.45 mm toleransi asarsa jakar guveleri arasinda desen kaymasi olusur.\nBu durumda tezgah otomatik olarak sari ikaz lambasini yakar ve yavas moda gecer.",
+              "rank": 1,
+              "score": 0.7998
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 2,
+              "score": 0.6624
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "Giriş ve Genel Tanım",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım",
+              "text": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları",
+              "rank": 3,
+              "score": 0.6204
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_weaving_sop.pdf | Bölüm: 1. Bolum: Tarak ve Atki Sikligi Standartlari\nHiyerarşi: Sayfa 1: Merinos Weaving SOP > Sayfa 1 > 1. Bolum: Tarak ve Atki Sikligi Standartlari\nMetin:\n1. Bolum: Tarak ve Atki Sikligi Standartlari\nHereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir.\nAtki sikligi ise 80x80 dugum yapisina gore ayarlanir.\nTarak boslugu 0.45 mm toleransi asarsa jakar guveleri arasinda desen kaymasi olusur.\nBu durumda tezgah otomatik olarak sari ikaz lambasini yakar ve yavas moda gecer.\n\n[S2] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n[S3] Doküman: merinos_quality_standards.docx | Bölüm: Giriş ve Genel Tanım\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım\nMetin:\nMerinos Halı Kalite Güvence ve İplik Mukavemet Standartları\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 156
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "Bolum: Tarak ve Atki Sikligi Standartlari [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "bolum",
+              "tarak",
+              "atki",
+              "sikligi",
+              "standartlari"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "hereke",
+              "serisi",
+              "klasik",
+              "jakarli",
+              "halilarda",
+              "cozgude",
+              "tarak",
+              "sikligi",
+              "cm",
+              "basina",
+              "28",
+              "teldir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 3,
+              "text": "Atki sikligi ise 80x80 dugum yapisina gore ayarlanir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "atki",
+              "sikligi",
+              "80x80",
+              "dugum",
+              "yapisina",
+              "gore",
+              "ayarlanir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.58
+      }
+    },
+    {
+      "query_id": "RAG_Q06",
+      "query": "Tarak boşluğu toleransı kaç mm'yi aşarsa desen kayması yaşanır ve tezgâh ne yapar?",
+      "category": "WEAVING_SPEC",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "Tarak boşluğu toleransı kaç mm'yi aşarsa desen kayması yaşanır ve tezgâh ne yapar?",
+        "raw_answer": "1. Bolum: Tarak ve Atki Sikligi Standartlari [S1]. Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir [S1]. Tarak boslugu 0.45 mm toleransi asarsa jakar guveleri arasinda desen kaymasi olusur [S1].",
+        "cleaned_answer": "1. Bolum: Tarak ve Atki Sikligi Standartlari. Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir. Tarak boslugu 0.45 mm toleransi asarsa jakar guveleri arasinda desen kaymasi olusur.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+              "doc_id": "DOC_MERINOS_WEAVING_SOP",
+              "title": "merinos_weaving_sop.pdf",
+              "section": "1. Bolum: Tarak ve Atki Sikligi Standartlari",
+              "breadcrumbs": "Sayfa 1: Merinos Weaving SOP > Sayfa 1 > 1. Bolum: Tarak ve Atki Sikligi Standartlari",
+              "text": "1. Bolum: Tarak ve Atki Sikligi Standartlari\nHereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir.\nAtki sikligi ise 80x80 dugum yapisina gore ayarlanir.\nTarak boslugu 0.45 mm toleransi asarsa jakar guveleri arasinda desen kaymasi olusur.\nBu durumda tezgah otomatik olarak sari ikaz lambasini yakar ve yavas moda gecer.",
+              "rank": 1,
+              "score": 0.8717
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 2,
+              "score": 0.7239
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "Giriş ve Genel Tanım",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım",
+              "text": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları",
+              "rank": 3,
+              "score": 0.3607
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_weaving_sop.pdf | Bölüm: 1. Bolum: Tarak ve Atki Sikligi Standartlari\nHiyerarşi: Sayfa 1: Merinos Weaving SOP > Sayfa 1 > 1. Bolum: Tarak ve Atki Sikligi Standartlari\nMetin:\n1. Bolum: Tarak ve Atki Sikligi Standartlari\nHereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir.\nAtki sikligi ise 80x80 dugum yapisina gore ayarlanir.\nTarak boslugu 0.45 mm toleransi asarsa jakar guveleri arasinda desen kaymasi olusur.\nBu durumda tezgah otomatik olarak sari ikaz lambasini yakar ve yavas moda gecer.\n\n[S2] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n[S3] Doküman: merinos_quality_standards.docx | Bölüm: Giriş ve Genel Tanım\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım\nMetin:\nMerinos Halı Kalite Güvence ve İplik Mukavemet Standartları\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 156
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "Bolum: Tarak ve Atki Sikligi Standartlari [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "bolum",
+              "tarak",
+              "atki",
+              "sikligi",
+              "standartlari"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "hereke",
+              "serisi",
+              "klasik",
+              "jakarli",
+              "halilarda",
+              "cozgude",
+              "tarak",
+              "sikligi",
+              "cm",
+              "basina",
+              "28",
+              "teldir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 3,
+              "text": "Tarak boslugu 0.45 mm toleransi asarsa jakar guveleri arasinda desen kaymasi olusur [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "tarak",
+              "boslugu",
+              "0.45",
+              "mm",
+              "toleransi",
+              "asarsa",
+              "jakar",
+              "guveleri",
+              "arasinda",
+              "desen",
+              "kaymasi",
+              "olusur"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.62
+      }
+    },
+    {
+      "query_id": "RAG_Q07",
+      "query": "E-256 arıza kodu hangi mekanizmadaki basınç düşüşünde aktifleşir ve kritik eşik nedir?",
+      "category": "ERROR_CODE",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "E-256 arıza kodu hangi mekanizmadaki basınç düşüşünde aktifleşir ve kritik eşik nedir?",
+        "raw_answer": "2. Bolum: Ariza Kodlari ve Acil Durdurma [S1]. E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir [S1]. E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir [S1].",
+        "cleaned_answer": "2. Bolum: Ariza Kodlari ve Acil Durdurma. E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir. E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+              "doc_id": "DOC_MERINOS_WEAVING_SOP",
+              "title": "merinos_weaving_sop.pdf",
+              "section": "2. Bolum: Ariza Kodlari ve Acil Durdurma",
+              "breadcrumbs": "Sayfa 1: Merinos Weaving SOP > Sayfa 2 > 2. Bolum: Ariza Kodlari ve Acil Durdurma",
+              "text": "2. Bolum: Ariza Kodlari ve Acil Durdurma\nE-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir.\nE-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir.\nE-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.\nE-256 Ariza Kodu: Cozgu cerceve kilit mekanizmasi basinci 6 bar altina dustugunde olusur.",
+              "rank": 1,
+              "score": 0.8347
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "1. Buharlı Fikse ve Renk Sabitleme",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme",
+              "text": "## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.",
+              "rank": 2,
+              "score": 0.5013
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 3,
+              "score": 0.4487
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_weaving_sop.pdf | Bölüm: 2. Bolum: Ariza Kodlari ve Acil Durdurma\nHiyerarşi: Sayfa 1: Merinos Weaving SOP > Sayfa 2 > 2. Bolum: Ariza Kodlari ve Acil Durdurma\nMetin:\n2. Bolum: Ariza Kodlari ve Acil Durdurma\nE-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir.\nE-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir.\nE-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.\nE-256 Ariza Kodu: Cozgu cerceve kilit mekanizmasi basinci 6 bar altina dustugunde olusur.\n\n[S2] Doküman: merinos_finishing_manual.md | Bölüm: 1. Buharlı Fikse ve Renk Sabitleme\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme\nMetin:\n## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.\n\n[S3] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 231
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "Bolum: Ariza Kodlari ve Acil Durdurma [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "bolum",
+              "ariza",
+              "kodlari",
+              "acil",
+              "durdurma"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "e-401",
+              "ariza",
+              "kodu",
+              "ana",
+              "tahrik",
+              "motoru",
+              "asinmasi",
+              "asiri",
+              "isinmasi",
+              "durumunda",
+              "verilir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 3,
+              "text": "E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "e-108",
+              "ariza",
+              "kodu",
+              "mekik",
+              "iplik",
+              "rezerv",
+              "sensoru",
+              "bos",
+              "kaldi",
+              "hatasidir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.64
+      }
+    },
+    {
+      "query_id": "RAG_Q08",
+      "query": "Dokuma salonunda ipliğin statik elektrik yüklenmemesi için bağıl nem ve sıcaklık limitleri ne olmalıdır?",
+      "category": "QUALITY_TOLERANCE",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "Dokuma salonunda ipliğin statik elektrik yüklenmemesi için bağıl nem ve sıcaklık limitleri ne olmalıdır?",
+        "raw_answer": "BÖLÜM 2: Nem ve Sıcaklık Toleransı [S1]. Dokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır [S1]. Ortam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir [S1].",
+        "cleaned_answer": "BÖLÜM 2: Nem ve Sıcaklık Toleransı. Dokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır. Ortam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 1,
+              "score": 1.0
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı",
+              "text": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\n\nDokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir.\n\nTansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur.\n\nOperatör manometre üzerinden vana 3'ü sıkarak basıncı 16 bar seviyesine dengelemelidir.",
+              "rank": 2,
+              "score": 0.4631
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "Giriş ve Genel Tanım",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım",
+              "text": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları",
+              "rank": 3,
+              "score": 0.4348
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n[S2] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\nMetin:\nBÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\n\nDokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir.\n\nTansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur.\n\nOperatör manometre üzerinden vana 3'ü sıkarak basıncı 16 bar seviyesine dengelemelidir.\n\n[S3] Doküman: merinos_quality_standards.docx | Bölüm: Giriş ve Genel Tanım\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım\nMetin:\nMerinos Halı Kalite Güvence ve İplik Mukavemet Standartları\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 152
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "bolum",
+              "nem",
+              "sicaklik",
+              "toleransi"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "Dokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "dokuma",
+              "salonu",
+              "ortam",
+              "nemi",
+              "yuzde",
+              "65",
+              "70",
+              "bagil",
+              "nem",
+              "araliginda",
+              "sabit",
+              "tutulmalidir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 3,
+              "text": "Ortam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "ortam",
+              "sicakligi",
+              "22",
+              "santigrat",
+              "dereceyi",
+              "astiginda",
+              "iplik",
+              "statik",
+              "elektrik",
+              "yuklenir",
+              "atki",
+              "besleme",
+              "hatasi",
+              "verir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.65
+      }
+    },
+    {
+      "query_id": "RAG_Q09",
+      "query": "Buhar fiksesi sonrasında halı traşlama makinesinde hav yüksekliği kaç mm standardına getirilir?",
+      "category": "FINISHING_PROCESS",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "Buhar fiksesi sonrasında halı traşlama makinesinde hav yüksekliği kaç mm standardına getirilir?",
+        "raw_answer": "Buhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir [S1].",
+        "cleaned_answer": "Buhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "2. Hav Traşlama (Shearing) ve Kenar Overlok",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 2. Hav Traşlama (Shearing) ve Kenar Overlok",
+              "text": "## 2. Hav Traşlama (Shearing) ve Kenar Overlok\nBuhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir.\nKenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır.\nKenar dikiş çekme mukavemeti en az 45 Newton olmalıdır.",
+              "rank": 1,
+              "score": 1.0
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "1. Buharlı Fikse ve Renk Sabitleme",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme",
+              "text": "## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.",
+              "rank": 2,
+              "score": 0.5238
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 3,
+              "score": 0.5009
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_finishing_manual.md | Bölüm: 2. Hav Traşlama (Shearing) ve Kenar Overlok\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 2. Hav Traşlama (Shearing) ve Kenar Overlok\nMetin:\n## 2. Hav Traşlama (Shearing) ve Kenar Overlok\nBuhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir.\nKenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır.\nKenar dikiş çekme mukavemeti en az 45 Newton olmalıdır.\n\n[S2] Doküman: merinos_finishing_manual.md | Bölüm: 1. Buharlı Fikse ve Renk Sabitleme\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme\nMetin:\n## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.\n\n[S3] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 210
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "Buhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "buhar",
+              "fiksesi",
+              "sonrasi",
+              "hali",
+              "yuzeyindeki",
+              "duzensiz",
+              "hav",
+              "yukseklikleri",
+              "doner",
+              "bicakli",
+              "traslama",
+              "makinesinde",
+              "9.5",
+              "mm",
+              "standardina",
+              "getirilir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.54
+      }
+    },
+    {
+      "query_id": "RAG_Q10",
+      "query": "Kenar overlok dikişinde kullanılan ipliğin özellikleri ve çekme mukavemeti eşiği nedir?",
+      "category": "FINISHING_PROCESS",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "Kenar overlok dikişinde kullanılan ipliğin özellikleri ve çekme mukavemeti eşiği nedir?",
+        "raw_answer": "Kenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır [S1]. Kenar dikiş çekme mukavemeti en az 45 Newton olmalıdır [S1].",
+        "cleaned_answer": "Kenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır. Kenar dikiş çekme mukavemeti en az 45 Newton olmalıdır.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "2. Hav Traşlama (Shearing) ve Kenar Overlok",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 2. Hav Traşlama (Shearing) ve Kenar Overlok",
+              "text": "## 2. Hav Traşlama (Shearing) ve Kenar Overlok\nBuhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir.\nKenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır.\nKenar dikiş çekme mukavemeti en az 45 Newton olmalıdır.",
+              "rank": 1,
+              "score": 0.8302
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 2,
+              "score": 0.5006
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "Giriş ve Genel Tanım",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım",
+              "text": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları",
+              "rank": 3,
+              "score": 0.4531
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_finishing_manual.md | Bölüm: 2. Hav Traşlama (Shearing) ve Kenar Overlok\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 2. Hav Traşlama (Shearing) ve Kenar Overlok\nMetin:\n## 2. Hav Traşlama (Shearing) ve Kenar Overlok\nBuhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir.\nKenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır.\nKenar dikiş çekme mukavemeti en az 45 Newton olmalıdır.\n\n[S2] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n[S3] Doküman: merinos_quality_standards.docx | Bölüm: Giriş ve Genel Tanım\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım\nMetin:\nMerinos Halı Kalite Güvence ve İplik Mukavemet Standartları\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 145
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "Kenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "kenar",
+              "overlok",
+              "dikisinde",
+              "poliamid",
+              "takviyeli",
+              "katli",
+              "iplik",
+              "kullanilir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "Kenar dikiş çekme mukavemeti en az 45 Newton olmalıdır [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "kenar",
+              "dikis",
+              "cekme",
+              "mukavemeti",
+              "az",
+              "45",
+              "newton",
+              "olmalidir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.55
+      }
+    },
+    {
+      "query_id": "RAG_Q11",
+      "query": "Hereke jakarlı halıda sarı ikaz lambası yandığında motor tamamen durur mu yoksa yavaşlar mı?",
+      "category": "WEAVING_SPEC",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "Hereke jakarlı halıda sarı ikaz lambası yandığında motor tamamen durur mu yoksa yavaşlar mı?",
+        "raw_answer": "Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir [S1]. Bu durumda tezgah otomatik olarak sari ikaz lambasini yakar ve yavas moda gecer [S1].",
+        "cleaned_answer": "Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir. Bu durumda tezgah otomatik olarak sari ikaz lambasini yakar ve yavas moda gecer.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+              "doc_id": "DOC_MERINOS_WEAVING_SOP",
+              "title": "merinos_weaving_sop.pdf",
+              "section": "1. Bolum: Tarak ve Atki Sikligi Standartlari",
+              "breadcrumbs": "Sayfa 1: Merinos Weaving SOP > Sayfa 1 > 1. Bolum: Tarak ve Atki Sikligi Standartlari",
+              "text": "1. Bolum: Tarak ve Atki Sikligi Standartlari\nHereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir.\nAtki sikligi ise 80x80 dugum yapisina gore ayarlanir.\nTarak boslugu 0.45 mm toleransi asarsa jakar guveleri arasinda desen kaymasi olusur.\nBu durumda tezgah otomatik olarak sari ikaz lambasini yakar ve yavas moda gecer.",
+              "rank": 1,
+              "score": 0.6032
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "Giriş ve Genel Tanım",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım",
+              "text": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları",
+              "rank": 2,
+              "score": 0.5
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "2. Hav Traşlama (Shearing) ve Kenar Overlok",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 2. Hav Traşlama (Shearing) ve Kenar Overlok",
+              "text": "## 2. Hav Traşlama (Shearing) ve Kenar Overlok\nBuhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir.\nKenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır.\nKenar dikiş çekme mukavemeti en az 45 Newton olmalıdır.",
+              "rank": 3,
+              "score": 0.4502
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_weaving_sop.pdf | Bölüm: 1. Bolum: Tarak ve Atki Sikligi Standartlari\nHiyerarşi: Sayfa 1: Merinos Weaving SOP > Sayfa 1 > 1. Bolum: Tarak ve Atki Sikligi Standartlari\nMetin:\n1. Bolum: Tarak ve Atki Sikligi Standartlari\nHereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir.\nAtki sikligi ise 80x80 dugum yapisina gore ayarlanir.\nTarak boslugu 0.45 mm toleransi asarsa jakar guveleri arasinda desen kaymasi olusur.\nBu durumda tezgah otomatik olarak sari ikaz lambasini yakar ve yavas moda gecer.\n\n[S2] Doküman: merinos_quality_standards.docx | Bölüm: Giriş ve Genel Tanım\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım\nMetin:\nMerinos Halı Kalite Güvence ve İplik Mukavemet Standartları\n\n[S3] Doküman: merinos_finishing_manual.md | Bölüm: 2. Hav Traşlama (Shearing) ve Kenar Overlok\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 2. Hav Traşlama (Shearing) ve Kenar Overlok\nMetin:\n## 2. Hav Traşlama (Shearing) ve Kenar Overlok\nBuhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9.5 mm standardına getirilir.\nKenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır.\nKenar dikiş çekme mukavemeti en az 45 Newton olmalıdır.\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 175
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "hereke",
+              "serisi",
+              "klasik",
+              "jakarli",
+              "halilarda",
+              "cozgude",
+              "tarak",
+              "sikligi",
+              "cm",
+              "basina",
+              "28",
+              "teldir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "Bu durumda tezgah otomatik olarak sari ikaz lambasini yakar ve yavas moda gecer [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "durumda",
+              "tezgah",
+              "otomatik",
+              "sari",
+              "ikaz",
+              "lambasini",
+              "yakar",
+              "yavas",
+              "moda",
+              "gecer"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.55
+      }
+    },
+    {
+      "query_id": "RAG_Q12",
+      "query": "Dokuma salonu sıcaklığı 22 santigrat dereceyi aştığında tezgâhta ne tür bir hata gözlenir?",
+      "category": "QUALITY_TOLERANCE",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "Dokuma salonu sıcaklığı 22 santigrat dereceyi aştığında tezgâhta ne tür bir hata gözlenir?",
+        "raw_answer": "BÖLÜM 2: Nem ve Sıcaklık Toleransı [S1]. Dokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır [S1]. Ortam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir [S1].",
+        "cleaned_answer": "BÖLÜM 2: Nem ve Sıcaklık Toleransı. Dokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır. Ortam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 1,
+              "score": 1.0
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı",
+              "text": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\n\nDokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir.\n\nTansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur.\n\nOperatör manometre üzerinden vana 3'ü sıkarak basıncı 16 bar seviyesine dengelemelidir.",
+              "rank": 2,
+              "score": 0.3492
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "1. Buharlı Fikse ve Renk Sabitleme",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme",
+              "text": "## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.",
+              "rank": 3,
+              "score": 0.3068
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n[S2] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\nMetin:\nBÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\n\nDokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir.\n\nTansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur.\n\nOperatör manometre üzerinden vana 3'ü sıkarak basıncı 16 bar seviyesine dengelemelidir.\n\n[S3] Doküman: merinos_finishing_manual.md | Bölüm: 1. Buharlı Fikse ve Renk Sabitleme\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme\nMetin:\n## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 217
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "bolum",
+              "nem",
+              "sicaklik",
+              "toleransi"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "Dokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "dokuma",
+              "salonu",
+              "ortam",
+              "nemi",
+              "yuzde",
+              "65",
+              "70",
+              "bagil",
+              "nem",
+              "araliginda",
+              "sabit",
+              "tutulmalidir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 3,
+              "text": "Ortam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "ortam",
+              "sicakligi",
+              "22",
+              "santigrat",
+              "dereceyi",
+              "astiginda",
+              "iplik",
+              "statik",
+              "elektrik",
+              "yuklenir",
+              "atki",
+              "besleme",
+              "hatasi",
+              "verir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.66
+      }
+    },
+    {
+      "query_id": "RAG_Q13",
+      "query": "Buharlı fikse tüneli işlemi halı renklerinin parlaklığını (CIELAB) ne oranda artırır?",
+      "category": "FINISHING_PROCESS",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "Buharlı fikse tüneli işlemi halı renklerinin parlaklığını (CIELAB) ne oranda artırır?",
+        "raw_answer": "Dokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer [S1]. Finisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır [S1]. Bu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır [S1].",
+        "cleaned_answer": "Dokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer. Finisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır. Bu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "1. Buharlı Fikse ve Renk Sabitleme",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme",
+              "text": "## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.",
+              "rank": 1,
+              "score": 1.0
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 2,
+              "score": 0.4516
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "Giriş ve Genel Tanım",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım",
+              "text": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları",
+              "rank": 3,
+              "score": 0.427
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_finishing_manual.md | Bölüm: 1. Buharlı Fikse ve Renk Sabitleme\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme\nMetin:\n## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.\n\n[S2] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n[S3] Doküman: merinos_quality_standards.docx | Bölüm: Giriş ve Genel Tanım\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım\nMetin:\nMerinos Halı Kalite Güvence ve İplik Mukavemet Standartları\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 149
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "Dokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "dokuma",
+              "tezgahindan",
+              "cikan",
+              "ham",
+              "hali",
+              "hav",
+              "ipliklerinin",
+              "kivrim",
+              "stabilitesini",
+              "kazanmasi",
+              "finisaj",
+              "tuneline",
+              "girer"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "Finisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "finisaj",
+              "tunelinde",
+              "60",
+              "derece",
+              "sicaklikta",
+              "doymus",
+              "buharli",
+              "fikse",
+              "islemi",
+              "uygulanir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 3,
+              "text": "Bu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "islem",
+              "liflerin",
+              "kristal",
+              "yapisini",
+              "kilitler",
+              "cielab",
+              "renk",
+              "parlakligini",
+              "yuzde",
+              "12",
+              "artirir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.65
+      }
+    },
+    {
+      "query_id": "RAG_Q14",
+      "query": "E-256 arıza kodu çözgü çerçeve kilit mekanizması basınç düşüşü",
+      "category": "ERROR_CODE",
+      "expected_behavior": "FAITHFUL_ANSWER",
+      "actual_behavior": "ANSWER_GENERATED",
+      "retrieval_hit": true,
+      "retrieval_target_rank": 1,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "SUCCESS",
+      "rag_response": {
+        "query": "E-256 arıza kodu çözgü çerçeve kilit mekanizması basınç düşüşü",
+        "raw_answer": "2. Bolum: Ariza Kodlari ve Acil Durdurma [S1]. E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir [S1]. E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir [S1].",
+        "cleaned_answer": "2. Bolum: Ariza Kodlari ve Acil Durdurma. E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir. E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+              "doc_id": "DOC_MERINOS_WEAVING_SOP",
+              "title": "merinos_weaving_sop.pdf",
+              "section": "2. Bolum: Ariza Kodlari ve Acil Durdurma",
+              "breadcrumbs": "Sayfa 1: Merinos Weaving SOP > Sayfa 2 > 2. Bolum: Ariza Kodlari ve Acil Durdurma",
+              "text": "2. Bolum: Ariza Kodlari ve Acil Durdurma\nE-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir.\nE-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir.\nE-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.\nE-256 Ariza Kodu: Cozgu cerceve kilit mekanizmasi basinci 6 bar altina dustugunde olusur.",
+              "rank": 1,
+              "score": 0.7852
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+              "doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+              "title": "merinos_finishing_manual.md",
+              "section": "1. Buharlı Fikse ve Renk Sabitleme",
+              "breadcrumbs": "Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme",
+              "text": "## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.",
+              "rank": 2,
+              "score": 0.5
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 3,
+              "score": 0.4864
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_weaving_sop.pdf | Bölüm: 2. Bolum: Ariza Kodlari ve Acil Durdurma\nHiyerarşi: Sayfa 1: Merinos Weaving SOP > Sayfa 2 > 2. Bolum: Ariza Kodlari ve Acil Durdurma\nMetin:\n2. Bolum: Ariza Kodlari ve Acil Durdurma\nE-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir.\nE-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir.\nE-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir.\nE-256 Ariza Kodu: Cozgu cerceve kilit mekanizmasi basinci 6 bar altina dustugunde olusur.\n\n[S2] Doküman: merinos_finishing_manual.md | Bölüm: 1. Buharlı Fikse ve Renk Sabitleme\nHiyerarşi: Merinos Halı Finisaj, Yıkama ve Hav Sabitleme Kılavuzu > Sayfa 1 > 1. Buharlı Fikse ve Renk Sabitleme\nMetin:\n## 1. Buharlı Fikse ve Renk Sabitleme\nDokuma tezgahından çıkan ham halı, hav ipliklerinin kıvrım stabilitesini kazanması için finisaj tüneline girer.\nFinisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır.\nBu işlem liflerin kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır.\n\n[S3] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 231
+        },
+        "claims": [
+          {
+            "claim": {
+              "claim_id": 1,
+              "text": "Bolum: Ariza Kodlari ve Acil Durdurma [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "bolum",
+              "ariza",
+              "kodlari",
+              "acil",
+              "durdurma"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 2,
+              "text": "E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "e-401",
+              "ariza",
+              "kodu",
+              "ana",
+              "tahrik",
+              "motoru",
+              "asinmasi",
+              "asiri",
+              "isinmasi",
+              "durumunda",
+              "verilir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          },
+          {
+            "claim": {
+              "claim_id": 3,
+              "text": "E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir [S1].",
+              "cited_source_ids": [
+                "S1"
+              ],
+              "is_cited": true
+            },
+            "status": "SUPPORTED",
+            "faithfulness_score": 1.0,
+            "matched_keywords": [
+              "e-108",
+              "ariza",
+              "kodu",
+              "mekik",
+              "iplik",
+              "rezerv",
+              "sensoru",
+              "bos",
+              "kaldi",
+              "hatasidir"
+            ],
+            "missing_keywords": [],
+            "explanation": "İddia %100.0 oranında kaynakla örtüşmekte ve doğrulanmaktadır."
+          }
+        ],
+        "is_refusal": false,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.77
+      }
+    },
+    {
+      "query_id": "RAG_Q15",
+      "query": "Fabrika personel servis saatleri ve vardiya güzergahları nelerdir?",
+      "category": "OUT_OF_DOMAIN",
+      "expected_behavior": "REFUSAL",
+      "actual_behavior": "REFUSAL",
+      "retrieval_hit": false,
+      "retrieval_target_rank": null,
+      "generation_faithful": true,
+      "hallucination_detected": false,
+      "error_type": "CORRECT_ABSTENTION",
+      "rag_response": {
+        "query": "Fabrika personel servis saatleri ve vardiya güzergahları nelerdir?",
+        "raw_answer": "Verilen fabrika dokümanlarında bu konuyla ilgili yeterli bilgi bulunmamaktadır.",
+        "cleaned_answer": "Verilen fabrika dokümanlarında bu konuyla ilgili yeterli bilgi bulunmamaktadır.",
+        "context": {
+          "sources": [
+            {
+              "source_id": "S1",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c001",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "Giriş ve Genel Tanım",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım",
+              "text": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları",
+              "rank": 1,
+              "score": 1.0
+            },
+            {
+              "source_id": "S2",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+              "text": "BÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.",
+              "rank": 2,
+              "score": 0.7991
+            },
+            {
+              "source_id": "S3",
+              "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+              "doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+              "title": "merinos_quality_standards.docx",
+              "section": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı",
+              "breadcrumbs": "Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı",
+              "text": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\n\nDokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir.\n\nTansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur.\n\nOperatör manometre üzerinden vana 3'ü sıkarak basıncı 16 bar seviyesine dengelemelidir.",
+              "rank": 3,
+              "score": 0.7707
+            }
+          ],
+          "formatted_text": "--- BAŞLANGIÇ: TEKNİK FABRİKA DOKÜMANLARI (CONTEXT) ---\n\n[S1] Doküman: merinos_quality_standards.docx | Bölüm: Giriş ve Genel Tanım\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > Giriş ve Genel Tanım\nMetin:\nMerinos Halı Kalite Güvence ve İplik Mukavemet Standartları\n\n[S2] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 2: Nem ve Sıcaklık Toleransı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 2: Nem ve Sıcaklık Toleransı\nMetin:\nBÖLÜM 2: Nem ve Sıcaklık Toleransı\n\nDokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır.\n\nOrtam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir.\n\n[S3] Doküman: merinos_quality_standards.docx | Bölüm: BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\nHiyerarşi: Merinos Halı Kalite Güvence ve İplik Mukavemet Standartları > Sayfa 1 > BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\nMetin:\nBÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı\n\nDokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir.\n\nTansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur.\n\nOperatör manometre üzerinden vana 3'ü sıkarak basıncı 16 bar seviyesine dengelemelidir.\n\n--- BİTİŞ: TEKNİK FABRİKA DOKÜMANLARI ---",
+          "total_tokens_estimate": 152
+        },
+        "claims": [],
+        "is_refusal": true,
+        "overall_faithfulness": 1.0,
+        "citation_precision": 1.0,
+        "citation_recall": 1.0,
+        "hallucination_detected": false,
+        "latency_ms": 0.24
+      }
+    }
+  ]
+}

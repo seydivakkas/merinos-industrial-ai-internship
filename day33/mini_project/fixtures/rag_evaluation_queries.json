@@ -1,0 +1,190 @@
+[
+  {
+    "id": "RAG_Q01",
+    "query": "E-401 arıza kodu ana tahrik motoru aşırı ısınması durumunda operatör ne yapmalıdır?",
+    "category": "MAINTENANCE_SOP",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "E-401",
+      "acil durdurma butonu",
+      "motor fanını temizlemeli"
+    ]
+  },
+  {
+    "id": "RAG_Q02",
+    "query": "İplik tansiyon basıncı kaç bar altına düşerse kopuş meydana gelir ve operatör hangi vanayı ayarlamalıdır?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+    "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "14 bar",
+      "çözgü tellerinde kopuş",
+      "vana 3",
+      "16 bar"
+    ]
+  },
+  {
+    "id": "RAG_Q03",
+    "query": "Finisaj tünelinde uygulanan buharlı fikse işlemi hangi sıcaklıkta yapılır ve lif yapısına ne gibi fayda sağlar?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "60 derece",
+      "doymuş buharlı fikse",
+      "kristal yapısını kilitler",
+      "yüzde 12"
+    ]
+  },
+  {
+    "id": "RAG_Q04",
+    "query": "E-108 arıza kodu tezgâhta ne anlama gelir?",
+    "category": "ERROR_CODE",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "E-108",
+      "mekik iplik rezerv sensörü boş kaldı"
+    ]
+  },
+  {
+    "id": "RAG_Q05",
+    "query": "Hereke serisi klasik jakarlı halılarda çözgü tarak sıklığı ve atkı sıklığı standartları nelerdir?",
+    "category": "WEAVING_SPEC",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "28 tel",
+      "80x80 düğüm",
+      "Hereke"
+    ]
+  },
+  {
+    "id": "RAG_Q06",
+    "query": "Tarak boşluğu toleransı kaç mm'yi aşarsa desen kayması yaşanır ve tezgâh ne yapar?",
+    "category": "WEAVING_SPEC",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "0.45 mm",
+      "desen kayması",
+      "sarı ikaz lambası",
+      "yavaş mod"
+    ]
+  },
+  {
+    "id": "RAG_Q07",
+    "query": "E-256 arıza kodu hangi mekanizmadaki basınç düşüşünde aktifleşir ve kritik eşik nedir?",
+    "category": "ERROR_CODE",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "E-256",
+      "çözgü çerçeve kilit mekanizması",
+      "6 bar"
+    ]
+  },
+  {
+    "id": "RAG_Q08",
+    "query": "Dokuma salonunda ipliğin statik elektrik yüklenmemesi için bağıl nem ve sıcaklık limitleri ne olmalıdır?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+    "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "yüzde 65 ile 70",
+      "bağıl nem",
+      "22 santigrat derece",
+      "atkı besleme hatası"
+    ]
+  },
+  {
+    "id": "RAG_Q09",
+    "query": "Buhar fiksesi sonrasında halı traşlama makinesinde hav yüksekliği kaç mm standardına getirilir?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "döner bıçaklı traşlama",
+      "9.5 mm"
+    ]
+  },
+  {
+    "id": "RAG_Q10",
+    "query": "Kenar overlok dikişinde kullanılan ipliğin özellikleri ve çekme mukavemeti eşiği nedir?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "poliamid takviyeli 3 katlı",
+      "en az 45 Newton"
+    ]
+  },
+  {
+    "id": "RAG_Q11",
+    "query": "Hereke jakarlı halıda sarı ikaz lambası yandığında motor tamamen durur mu yoksa yavaşlar mı?",
+    "category": "WEAVING_SPEC",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "sarı ikaz lambası",
+      "yavaş moda geçer"
+    ]
+  },
+  {
+    "id": "RAG_Q12",
+    "query": "Dokuma salonu sıcaklığı 22 santigrat dereceyi aştığında tezgâhta ne tür bir hata gözlenir?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+    "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "statik elektrik",
+      "atkı besleme hatası"
+    ]
+  },
+  {
+    "id": "RAG_Q13",
+    "query": "Buharlı fikse tüneli işlemi halı renklerinin parlaklığını (CIELAB) ne oranda artırır?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "CIELAB renk parlaklığını",
+      "yüzde 12"
+    ]
+  },
+  {
+    "id": "RAG_Q14",
+    "query": "E-256 arıza kodu çözgü çerçeve kilit mekanizması basınç düşüşü",
+    "category": "ERROR_CODE",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_behavior": "FAITHFUL_ANSWER",
+    "expected_key_facts": [
+      "6 bar",
+      "E-256"
+    ]
+  },
+  {
+    "id": "RAG_Q15",
+    "query": "Fabrika personel servis saatleri ve vardiya güzergahları nelerdir?",
+    "category": "OUT_OF_DOMAIN",
+    "target_chunk_id": null,
+    "target_doc_id": null,
+    "expected_behavior": "REFUSAL",
+    "expected_key_facts": []
+  }
+]

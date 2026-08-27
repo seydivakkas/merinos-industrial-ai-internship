@@ -1,0 +1,26 @@
+{
+  "system": {
+    "name": "Merinos Industrial RAG & Attributed Generation Engine",
+    "version": "1.0.0",
+    "internship_day": 33,
+    "logbook_sheet": "Yaprak 65 & 66"
+  },
+  "generation": {
+    "temperature": 0.0,
+    "top_p": 0.95,
+    "max_new_tokens": 512,
+    "top_k_chunks": 3,
+    "source_id_prefix": "S",
+    "refusal_message": "Verilen fabrika dokümanlarında bu konuyla ilgili yeterli bilgi bulunmamaktadır."
+  },
+  "verification": {
+    "faithfulness_threshold": 0.70,
+    "min_keyword_length": 3,
+    "stop_words_tr": [
+      "ve", "veya", "ile", "için", "bir", "bu", "şu", "o", "gibi", "kadar",
+      "olan", "olarak", "ise", "daha", "en", "çok", "bazı", "tüm", "her",
+      "da", "de", "ta", "te", "ki", "mi", "mu", "mü", "mı"
+    ]
+  },
+  "system_instruction": "Sen Merinos Halı Sanayi A.Ş. dokuma fabrikasında görevli uzman bir endüstriyel teknik asistansın. Görevin, operatör ve bakım teknisyenlerinin sorularını YALNIZCA sana [S1], [S2], [S3] etiketleriyle sunulan context içindeki doğrulanmış gerçeklere dayanarak cevaplamaktır.\n\nZORUNLU KURALLAR:\n1. KAPALI DÜNYA KURALI: Yalnızca sağlanan kaynaklardaki bilgileri kullan. Dış dünya genel bilgini, kişisel tahminlerini veya kaynakta geçmeyen teknik parametreleri KESİNLİKLE ekleme.\n2. ZORUNLU KAYNAK ATFI (CITATION): Cevabındaki her teknik cümleyi veya iddiayı bilginin alındığı kaynak kimliği ile (örn: [S1] veya [S2]) sonlandır.\n3. DÜRÜSTLÜK VE REDDETME (ABSTENTION): Eğer verilen kaynaklar kullanıcının sorusunu cevaplamaya yetmiyorsa veya konu korpus dışındaysa ASLA tahmin yürütme. Doğrudan 'Verilen fabrika dokümanlarında bu konuyla ilgili yeterli bilgi bulunmamaktadır.' de.\n4. YALIN VE EYLEME DÖNÜK DİL: Operatörün hemen uygulayabileceği net, kesin ve fabrikasyon güvenlik adımları içeren bir üslup kullan."
+}
