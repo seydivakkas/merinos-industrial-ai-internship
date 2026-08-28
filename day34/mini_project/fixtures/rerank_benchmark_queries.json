@@ -1,0 +1,137 @@
+[
+  {
+    "id": "RERANK_Q01",
+    "query": "E-401 arıza kodu ana tahrik motoru aşırı ısınması durumunda operatör ne yapmalıdır?",
+    "category": "MAINTENANCE_SOP",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_top1_after_rerank": true,
+    "description": "Tahrik motoru sıcaklık eşiği ve aşırı akım sınırları"
+  },
+  {
+    "id": "RERANK_Q02",
+    "query": "İplik tansiyon basıncı kaç bar altına düşerse kopuş meydana gelir ve operatör hangi vanayı ayarlamalıdır?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+    "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "expected_top1_after_rerank": true,
+    "description": "İplik tansiyon basıncı 14 bar eşiği ve vana 3 ayarı"
+  },
+  {
+    "id": "RERANK_Q03",
+    "query": "Finisaj tünelinde uygulanan buharlı fikse işlemi hangi sıcaklıkta yapılır ve lif yapısına ne gibi fayda sağlar?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "expected_top1_after_rerank": true,
+    "description": "Fikse tüneli 60 derece ve lif kristal yapısı sabitleme"
+  },
+  {
+    "id": "RERANK_Q04",
+    "query": "E-108 arıza kodu tezgâhta ne anlama gelir?",
+    "category": "ERROR_CODE",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_top1_after_rerank": true,
+    "description": "E-108 mekik iplik rezerv sensörü arızası"
+  },
+  {
+    "id": "RERANK_Q05",
+    "query": "Hereke serisi klasik jakarlı halılarda çözgü tarak sıklığı ve atkı sıklığı standartları nelerdir?",
+    "category": "WEAVING_SPEC",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_top1_after_rerank": true,
+    "description": "28 tel çözgü tarak sıklığı ve 80x80 düğüm Hereke dokuma"
+  },
+  {
+    "id": "RERANK_Q06",
+    "query": "Tarak boşluğu toleransı kaç mm'yi aşarsa desen kayması yaşanır ve tezgâh ne yapar?",
+    "category": "WEAVING_SPEC",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_top1_after_rerank": true,
+    "description": "0.45 mm tarak toleransı, sarı ikaz lambası ve yavaş mod"
+  },
+  {
+    "id": "RERANK_Q07",
+    "query": "E-256 arıza kodu hangi mekanizmadaki basınç düşüşünde aktifleşir ve kritik eşik nedir?",
+    "category": "ERROR_CODE",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_top1_after_rerank": true,
+    "description": "E-256 çözgü çerçeve kilit mekanizması 6 bar basınç düşüşü"
+  },
+  {
+    "id": "RERANK_Q08",
+    "query": "Dokuma salonunda ipliğin statik elektrik yüklenmemesi için bağıl nem ve sıcaklık limitleri ne olmalıdır?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+    "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "expected_top1_after_rerank": true,
+    "description": "Bağıl nem yüzde 65-70 ve sıcaklık 22 santigrat derece şartlandırması"
+  },
+  {
+    "id": "RERANK_Q09",
+    "query": "Buhar fiksesi sonrasında halı traşlama makinesinde hav yüksekliği kaç mm standardına getirilir?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "expected_top1_after_rerank": true,
+    "description": "Döner bıçaklı traşlama ve 9.5 mm hav yüksekliği standardı"
+  },
+  {
+    "id": "RERANK_Q10",
+    "query": "Kenar overlok dikişinde kullanılan ipliğin özellikleri ve çekme mukavemeti eşiği nedir?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "expected_top1_after_rerank": true,
+    "description": "Poliamid takviyeli 3 katlı iplik ve 45 Newton mukavemet eşiği"
+  },
+  {
+    "id": "RERANK_Q11",
+    "query": "Hereke jakarlı halıda sarı ikaz lambası yandığında motor tamamen durur mu yoksa yavaşlar mı?",
+    "category": "WEAVING_SPEC",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_top1_after_rerank": true,
+    "description": "Sarı ikaz lambasında motorun yavaş moda geçişi"
+  },
+  {
+    "id": "RERANK_Q12",
+    "query": "Dokuma salonu sıcaklığı 22 santigrat dereceyi aştığında tezgâhta ne tür bir hata gözlenir?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+    "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "expected_top1_after_rerank": true,
+    "description": "Yüksek sıcaklık kaynaklı statik elektrik ve atkı besleme hatası"
+  },
+  {
+    "id": "RERANK_Q13",
+    "query": "Buharlı fikse tüneli işlemi halı renklerinin parlaklığını (CIELAB) ne oranda artırır?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "expected_top1_after_rerank": true,
+    "description": "CIELAB renk parlaklığında yüzde 12 artış"
+  },
+  {
+    "id": "RERANK_Q14",
+    "query": "E-256 arıza kodu çözgü çerçeve kilit mekanizması basınç düşüşü",
+    "category": "ERROR_CODE",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "expected_top1_after_rerank": true,
+    "description": "E-256 arıza kodu ve çözgü çerçevesi 6 bar basınç düşüşü"
+  },
+  {
+    "id": "RERANK_Q15",
+    "query": "Fabrika personel servis saatleri ve vardiya güzergahları nelerdir?",
+    "category": "OUT_OF_DOMAIN",
+    "target_chunk_id": null,
+    "target_doc_id": null,
+    "expected_top1_after_rerank": false,
+    "description": "Negatif kontrol korpus dışı sorgu"
+  }
+]

@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+"""
+ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+
+Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
+Day 34 Test Paketi
+"""
