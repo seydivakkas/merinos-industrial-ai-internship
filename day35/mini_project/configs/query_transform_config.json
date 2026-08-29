@@ -1,0 +1,32 @@
+{
+  "system": {
+    "name": "Merinos Industrial Query Transformation & HyDE Engine",
+    "version": "1.0.0",
+    "internship_day": 35,
+    "logbook_sheet": "Yaprak 69 & 70"
+  },
+  "transformation": {
+    "enable_rewriting": true,
+    "enable_multi_query": true,
+    "enable_hyde": true,
+    "num_multi_queries": 3,
+    "hyde_max_tokens": 150,
+    "rrf_k": 60
+  },
+  "slang_dictionary": {
+    "motor ısınıyo": "ana tahrik motoru aşırı ısınması sıcaklık limiti",
+    "motor cok sıcak": "ana tahrik motoru gövde sıcaklığı 85 derece eşiği",
+    "napcam": "operatör müdahale adımları acil durdurma",
+    "sarı lamba": "jakar sarı ikaz lambası yavaş mod",
+    "jakar kaydı": "jakar tarak boşluğu toleransı 0.45 mm desen kayması",
+    "cerceve kilit": "çözgü çerçeve kilit mekanizması",
+    "basinc dustu": "basınç düşüşü 6 bar kritik eşik",
+    "ip koptu": "çözgü teli kopuşu tansiyon basıncı 14 bar",
+    "iplik koptu": "çözgü telleri kopuşu tansiyon basıncı 14 bar vana 3",
+    "traslama": "döner bıçaklı traşlama hav yüksekliği 9.5 mm",
+    "fikse": "buharlı fikse tüneli 60 derece renk parlaklığı",
+    "overlok": "kenar overlok dikişi poliamid 3 kat 45 newton",
+    "nem sıcaklık": "dokuma salonu klima şartlandırma bağıl nem yüzde 65 sıcaklık 22 derece",
+    "rezerv bos": "mekik iplik rezerv sensörü E-108 arıza kodu"
+  }
+}

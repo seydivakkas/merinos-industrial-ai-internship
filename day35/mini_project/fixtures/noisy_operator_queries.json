@@ -1,0 +1,137 @@
+[
+  {
+    "id": "NOISY_Q01",
+    "noisy_query": "motor cok sıcak durdu napcam",
+    "clean_query": "E-401 arıza kodu ana tahrik motoru aşırı ısınması durumunda operatör ne yapmalıdır?",
+    "category": "MAINTENANCE_SOP",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "description": "Argo ifadeli motor ısınması ve acil müdahale sorusu"
+  },
+  {
+    "id": "NOISY_Q02",
+    "noisy_query": "iplik koptu hangi vana basınç kaçtı",
+    "clean_query": "İplik tansiyon basıncı kaç bar altına düşerse kopuş meydana gelir ve operatör hangi vanayı ayarlamalıdır?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+    "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "description": "Eksik parametreli tansiyon basıncı ve vana sorusu"
+  },
+  {
+    "id": "NOISY_Q03",
+    "noisy_query": "kazan buharlı fikse kaç derece yapılıyor",
+    "clean_query": "Finisaj tünelinde uygulanan buharlı fikse işlemi hangi sıcaklıkta yapılır ve lif yapısına ne gibi fayda sağlar?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "description": "Kısaltmalı fikse sıcaklığı sorusu"
+  },
+  {
+    "id": "NOISY_Q04",
+    "noisy_query": "mekik iplik rezerv bos arıza kodu",
+    "clean_query": "E-108 arıza kodu tezgâhta ne anlama gelir?",
+    "category": "ERROR_CODE",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "description": "Kodsuz rezerv sensör arızası sorusu"
+  },
+  {
+    "id": "NOISY_Q05",
+    "noisy_query": "hereke jakar tarak atkı sıklığı kaçtı",
+    "clean_query": "Hereke serisi klasik jakarlı halılarda çözgü tarak sıklığı ve atkı sıklığı standartları nelerdir?",
+    "category": "WEAVING_SPEC",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "description": "Günlük dilde Hereke dokuma parametreleri"
+  },
+  {
+    "id": "NOISY_Q06",
+    "noisy_query": "sarı lamba yanıyo tezgah yavasladı neden",
+    "clean_query": "Tarak boşluğu toleransı kaç mm'yi aşarsa desen kayması yaşanır ve tezgâh ne yapar?",
+    "category": "WEAVING_SPEC",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "description": "Gözlemsel sarı ikaz lambası semptom sorusu"
+  },
+  {
+    "id": "NOISY_Q07",
+    "noisy_query": "cerceve kilit basinc dustu durdu kod ne",
+    "clean_query": "E-256 arıza kodu hangi mekanizmadaki basınç düşüşünde aktifleşir ve kritik eşik nedir?",
+    "category": "ERROR_CODE",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "description": "Kısaltmalı çözgü kilit arıza kodu sorusu"
+  },
+  {
+    "id": "NOISY_Q08",
+    "noisy_query": "dokuma salonu klima nem sıcaklık kac olcak",
+    "clean_query": "Dokuma salonunda ipliğin statik elektrik yüklenmemesi için bağıl nem ve sıcaklık limitleri ne olmalıdır?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+    "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "description": "Bozuk klima şartlandırma tolerans sorusu"
+  },
+  {
+    "id": "NOISY_Q09",
+    "noisy_query": "halı traslama bıcak hav kac mm ayarlanır",
+    "clean_query": "Buhar fiksesi sonrasında halı traşlama makinesinde hav yüksekliği kaç mm standardına getirilir?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "description": "Yazım hatalı traşlama hav yüksekliği sorusu"
+  },
+  {
+    "id": "NOISY_Q10",
+    "noisy_query": "overlok ipi kac newton dayanır kac kat",
+    "clean_query": "Kenar overlok dikişinde kullanılan ipliğin özellikleri ve çekme mukavemeti eşiği nedir?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "description": "Kısa overlok ipliği dayanım sorusu"
+  },
+  {
+    "id": "NOISY_Q11",
+    "noisy_query": "jakar sarı ikazda motor dururmu yavaslarmı",
+    "clean_query": "Hereke jakarlı halıda sarı ikaz lambası yandığında motor tamamen durur mu yoksa yavaşlar mı?",
+    "category": "WEAVING_SPEC",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "description": "Birleşik yazılmış ikaz lambası sorusu"
+  },
+  {
+    "id": "NOISY_Q12",
+    "noisy_query": "dokuma sıcaklık 22yi gecerse ne arıza yapar",
+    "clean_query": "Dokuma salonu sıcaklığı 22 santigrat dereceyi aştığında tezgâhta ne tür bir hata gözlenir?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+    "target_doc_id": "DOC_MERINOS_QUALITY_STANDARDS",
+    "description": "Sayı eki bitişik yazılmış sıcaklık eşiği sorusu"
+  },
+  {
+    "id": "NOISY_Q13",
+    "noisy_query": "buhar fiksesi renk parlaklıgını ne kadar artırır",
+    "clean_query": "Buharlı fikse tüneli işlemi halı renklerinin parlaklığını (CIELAB) ne oranda artırır?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+    "target_doc_id": "DOC_MERINOS_FINISHING_MANUAL",
+    "description": "Yumuşak g harfi yerine g kullanılmış fikse sorusu"
+  },
+  {
+    "id": "NOISY_Q14",
+    "noisy_query": "cerceve kilit mekanizması 6 bar altına duserse",
+    "clean_query": "E-256 arıza kodu çözgü çerçeve kilit mekanizması basınç düşüşü",
+    "category": "ERROR_CODE",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "target_doc_id": "DOC_MERINOS_WEAVING_SOP",
+    "description": "Eksik harfli ve yarım bırakılmış arıza sorusu"
+  },
+  {
+    "id": "NOISY_Q15",
+    "noisy_query": "servis saatleri guzergah yemekhane menusu",
+    "clean_query": "Fabrika personel servis saatleri ve vardiya güzergahları nelerdir?",
+    "category": "OUT_OF_DOMAIN",
+    "target_chunk_id": null,
+    "target_doc_id": null,
+    "description": "Korpus dışı gürültülü negatif kontrol sorgusu"
+  }
+]
