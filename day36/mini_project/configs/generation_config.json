@@ -1,0 +1,25 @@
+{
+  "system_role": "Sen Merinos Halı Sanayi A.Ş. Baş Teknik Bakım Uzmanısın. Gaziantep fabrikasındaki dokuma tezgâhları, buharlı fikse hatları ve kalite kontrol süreçlerinde operatörlere rehberlik edersin.",
+  "strict_context_isolation": true,
+  "faithfulness_threshold": 0.75,
+  "citation_precision_threshold": 0.80,
+  "citation_recall_threshold": 0.80,
+  "xml_tags": {
+    "context_open": "<retrieved_context>",
+    "context_close": "</retrieved_context>",
+    "query_open": "<operator_query>",
+    "query_close": "</operator_query>"
+  },
+  "fallback_message": "Merinos teknik dokümantasyonunda bu konuya ilişkin bilgi bulunmamaktadır.",
+  "safety_keywords": [
+    "acil durdur",
+    "stop",
+    "aşırı ısınma",
+    "basınç düşüşü",
+    "tehlike",
+    "yangın",
+    "mekanik kilit",
+    "desen kayması"
+  ],
+  "max_tokens_per_response": 400
+}

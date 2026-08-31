@@ -1,0 +1,479 @@
+{
+  "timestamp": "2026-09-06T10:55:56.219407",
+  "total_scenarios": 15,
+  "valid_domain_scenarios": 12,
+  "adversarial_scenarios": 3,
+  "mean_faithfulness_rate": 0.9583,
+  "mean_citation_precision": 1.0,
+  "mean_citation_recall": 0.9583,
+  "adversarial_fallback_accuracy": 1.0,
+  "avg_latency_ms": 17.85,
+  "items": [
+    {
+      "scenario_id": "GROUND_01",
+      "query": "E-401 motor sıcaklığı arızasında operatör ne yapmalıdır?",
+      "category": "MAINTENANCE_SOP",
+      "is_adversarial": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": true,
+      "latency_ms": 17.41,
+      "answer": {
+        "query": "E-401 motor sıcaklığı arızasında operatör ne yapmalıdır?",
+        "direct_answer": "E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir",
+        "action_steps": [
+          "E-401 goruldugunde operator derhal kirmizi acil durdurma butonuna basmali ve motor fanini temizlemelidir"
+        ],
+        "technical_parameters": {
+          "arıza_kodu": "E-401"
+        },
+        "citations": [
+          {
+            "source_id": "merinos_weaving_sop.pdf",
+            "chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+            "quote": "E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir",
+            "verified": true
+          }
+        ],
+        "safety_alert": "DİKKAT: Ana tahrik motoru aşırı ısınmıştır (85°C+). Tezgâh derhal durdurulmalı ve en az 15 dakika soğutulmalıdır.",
+        "confidence_score": 0.95,
+        "fallback_triggered": false
+      }
+    },
+    {
+      "scenario_id": "GROUND_02",
+      "query": "İplik tansiyon basıncı kaç bar altına düşerse arıza olur ve operatör hangi vanayı ayarlamalıdır?",
+      "category": "QUALITY_TOLERANCE",
+      "is_adversarial": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": true,
+      "latency_ms": 19.3,
+      "answer": {
+        "query": "İplik tansiyon basıncı kaç bar altına düşerse arıza olur ve operatör hangi vanayı ayarlamalıdır?",
+        "direct_answer": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı",
+        "action_steps": [
+          "Dokuma sırasında akrilik ve polipropilen ipliklerin gerginlik tansiyonu 14 bar altına düşmemelidir",
+          "Tansiyon 14 bar altına düştüğünde çözgü tellerinde anlık kopuş meydana gelir ve tezgah durur",
+          "Operatör manometre üzerinden vana 3'ü sıkarak basıncı 16 bar seviyesine dengelemelidir"
+        ],
+        "technical_parameters": {
+          "basınç_değeri": "14 bar"
+        },
+        "citations": [
+          {
+            "source_id": "merinos_quality_standards.docx",
+            "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+            "quote": "BÖLÜM 1: İplik Mukavemet ve Tansiyon Basıncı",
+            "verified": true
+          }
+        ],
+        "safety_alert": "UYARI: İplik tansiyon basıncı 14 bar altına inmiştir. İplik kopuşlarını önlemek için Vana 3 ayarlanmalıdır.",
+        "confidence_score": 0.95,
+        "fallback_triggered": false
+      }
+    },
+    {
+      "scenario_id": "GROUND_03",
+      "query": "Buharlı fikse işlemi kaç derecede ve kaç saniye süreyle yapılır?",
+      "category": "FINISHING_PROCESS",
+      "is_adversarial": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": false,
+      "latency_ms": 19.64,
+      "answer": {
+        "query": "Buharlı fikse işlemi kaç derecede ve kaç saniye süreyle yapılır?",
+        "direct_answer": "Buharlı Fikse ve Renk Sabitleme",
+        "action_steps": [
+          "Finisaj tünelinde 60 derece sıcaklıkta doymuş buharlı fikse işlemi uygulanır"
+        ],
+        "technical_parameters": {
+          "sıcaklık": "60 derece"
+        },
+        "citations": [
+          {
+            "source_id": "merinos_finishing_manual.md",
+            "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+            "quote": "Buharlı Fikse ve Renk Sabitleme",
+            "verified": true
+          }
+        ],
+        "safety_alert": null,
+        "confidence_score": 0.95,
+        "fallback_triggered": false
+      }
+    },
+    {
+      "scenario_id": "GROUND_04",
+      "query": "E-108 arıza kodu tezgâhta ne anlama gelir ve çözüm adımı nedir?",
+      "category": "ERROR_CODE",
+      "is_adversarial": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": true,
+      "latency_ms": 17.77,
+      "answer": {
+        "query": "E-108 arıza kodu tezgâhta ne anlama gelir ve çözüm adımı nedir?",
+        "direct_answer": "E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir",
+        "action_steps": [
+          "E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir",
+          "E-256 Ariza Kodu: Cozgu cerceve kilit mekanizmasi basinci 6 bar altina dustugunde olusur"
+        ],
+        "technical_parameters": {
+          "arıza_kodu": "E-401",
+          "basınç_değeri": "6 bar"
+        },
+        "citations": [
+          {
+            "source_id": "merinos_weaving_sop.pdf",
+            "chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+            "quote": "E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir",
+            "verified": true
+          }
+        ],
+        "safety_alert": "DİKKAT: Ana tahrik motoru aşırı ısınmıştır (85°C+). Tezgâh derhal durdurulmalı ve en az 15 dakika soğutulmalıdır.",
+        "confidence_score": 0.95,
+        "fallback_triggered": false
+      }
+    },
+    {
+      "scenario_id": "GROUND_05",
+      "query": "Hereke serisi klasik jakarlı halılarda çözgü ve düğüm sıklığı standartları nelerdir?",
+      "category": "WEAVING_SPEC",
+      "is_adversarial": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": false,
+      "latency_ms": 22.88,
+      "answer": {
+        "query": "Hereke serisi klasik jakarlı halılarda çözgü ve düğüm sıklığı standartları nelerdir?",
+        "direct_answer": "Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir",
+        "action_steps": [
+          "Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir"
+        ],
+        "technical_parameters": {},
+        "citations": [
+          {
+            "source_id": "merinos_weaving_sop.pdf",
+            "chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+            "quote": "Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir",
+            "verified": true
+          }
+        ],
+        "safety_alert": null,
+        "confidence_score": 0.95,
+        "fallback_triggered": false
+      }
+    },
+    {
+      "scenario_id": "GROUND_06",
+      "query": "Tarak boşluğu toleransı kaç mm'yi aşarsa tezgâhta sarı lamba yanar ve hız ne olur?",
+      "category": "WEAVING_SPEC",
+      "is_adversarial": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": false,
+      "latency_ms": 16.22,
+      "answer": {
+        "query": "Tarak boşluğu toleransı kaç mm'yi aşarsa tezgâhta sarı lamba yanar ve hız ne olur?",
+        "direct_answer": "Bolum: Tarak ve Atki Sikligi Standartlari",
+        "action_steps": [
+          "Hereke serisi klasik jakarli halilarda cozgude tarak sikligi cm basina 28 teldir"
+        ],
+        "technical_parameters": {},
+        "citations": [
+          {
+            "source_id": "merinos_weaving_sop.pdf",
+            "chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+            "quote": "Bolum: Tarak ve Atki Sikligi Standartlari",
+            "verified": true
+          }
+        ],
+        "safety_alert": null,
+        "confidence_score": 0.95,
+        "fallback_triggered": false
+      }
+    },
+    {
+      "scenario_id": "GROUND_07",
+      "query": "E-256 arıza kodu hangi mekanizma arızasıdır ve kritik basınç eşiği nedir?",
+      "category": "ERROR_CODE",
+      "is_adversarial": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": true,
+      "latency_ms": 13.92,
+      "answer": {
+        "query": "E-256 arıza kodu hangi mekanizma arızasıdır ve kritik basınç eşiği nedir?",
+        "direct_answer": "E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir",
+        "action_steps": [
+          "E-108 Ariza Kodu: Mekik iplik rezerv sensoru bos kaldi hatasidir",
+          "E-256 Ariza Kodu: Cozgu cerceve kilit mekanizmasi basinci 6 bar altina dustugunde olusur"
+        ],
+        "technical_parameters": {
+          "arıza_kodu": "E-401",
+          "basınç_değeri": "6 bar"
+        },
+        "citations": [
+          {
+            "source_id": "merinos_weaving_sop.pdf",
+            "chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+            "quote": "E-401 Ariza Kodu: Ana tahrik motoru asinmasi veya asiri isinmasi durumunda verilir",
+            "verified": true
+          }
+        ],
+        "safety_alert": "DİKKAT: Ana tahrik motoru aşırı ısınmıştır (85°C+). Tezgâh derhal durdurulmalı ve en az 15 dakika soğutulmalıdır.",
+        "confidence_score": 0.95,
+        "fallback_triggered": false
+      }
+    },
+    {
+      "scenario_id": "GROUND_08",
+      "query": "Dokuma salonunda klima nem ve sıcaklık değerleri hangi aralıkta tutulmalıdır?",
+      "category": "QUALITY_TOLERANCE",
+      "is_adversarial": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": false,
+      "latency_ms": 15.93,
+      "answer": {
+        "query": "Dokuma salonunda klima nem ve sıcaklık değerleri hangi aralıkta tutulmalıdır?",
+        "direct_answer": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+        "action_steps": [
+          "Dokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır"
+        ],
+        "technical_parameters": {},
+        "citations": [
+          {
+            "source_id": "merinos_quality_standards.docx",
+            "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+            "quote": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+            "verified": true
+          }
+        ],
+        "safety_alert": null,
+        "confidence_score": 0.95,
+        "fallback_triggered": false
+      }
+    },
+    {
+      "scenario_id": "GROUND_09",
+      "query": "Halı traşlama hattında bıçak hav yüksekliği kaç mm'ye ayarlanır?",
+      "category": "FINISHING_PROCESS",
+      "is_adversarial": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "faithfulness_rate": 0.5,
+      "citation_precision": 1.0,
+      "citation_recall": 0.5,
+      "has_safety_alert": false,
+      "latency_ms": 18.43,
+      "answer": {
+        "query": "Halı traşlama hattında bıçak hav yüksekliği kaç mm'ye ayarlanır?",
+        "direct_answer": "Hav Traşlama (Shearing) ve Kenar Overlok",
+        "action_steps": [
+          "Buhar fiksesi sonrası halı yüzeyindeki düzensiz hav yükseklikleri döner bıçaklı traşlama makinesinde 9"
+        ],
+        "technical_parameters": {},
+        "citations": [
+          {
+            "source_id": "merinos_finishing_manual.md",
+            "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+            "quote": "Hav Traşlama (Shearing) ve Kenar Overlok",
+            "verified": true
+          }
+        ],
+        "safety_alert": null,
+        "confidence_score": 0.95,
+        "fallback_triggered": false
+      }
+    },
+    {
+      "scenario_id": "GROUND_10",
+      "query": "Kenar overlok dikişinde kullanılan ipin özellikleri ve mukavemeti nedir?",
+      "category": "FINISHING_PROCESS",
+      "is_adversarial": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": false,
+      "latency_ms": 15.83,
+      "answer": {
+        "query": "Kenar overlok dikişinde kullanılan ipin özellikleri ve mukavemeti nedir?",
+        "direct_answer": "Hav Traşlama (Shearing) ve Kenar Overlok",
+        "action_steps": [
+          "Kenar overlok dikişinde poliamid takviyeli 3 katlı iplik kullanılır",
+          "Kenar dikiş çekme mukavemeti en az 45 Newton olmalıdır"
+        ],
+        "technical_parameters": {
+          "çekme_mukavemeti": "45 Newton"
+        },
+        "citations": [
+          {
+            "source_id": "merinos_finishing_manual.md",
+            "chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+            "quote": "Hav Traşlama (Shearing) ve Kenar Overlok",
+            "verified": true
+          }
+        ],
+        "safety_alert": null,
+        "confidence_score": 0.95,
+        "fallback_triggered": false
+      }
+    },
+    {
+      "scenario_id": "GROUND_11",
+      "query": "Tezgâh mil yataklarının periyodik yağlaması hangi sıklıkla ve hangi yağ tipiyle yapılır?",
+      "category": "MAINTENANCE_SOP",
+      "is_adversarial": false,
+      "fallback_triggered": true,
+      "fallback_correct": false,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": false,
+      "latency_ms": 18.43,
+      "answer": {
+        "query": "Tezgâh mil yataklarının periyodik yağlaması hangi sıklıkla ve hangi yağ tipiyle yapılır?",
+        "direct_answer": "Merinos teknik dokümantasyonunda bu konuya ilişkin bilgi bulunmamaktadır.",
+        "action_steps": [],
+        "technical_parameters": {},
+        "citations": [],
+        "safety_alert": null,
+        "confidence_score": 0.0,
+        "fallback_triggered": true
+      }
+    },
+    {
+      "scenario_id": "GROUND_12",
+      "query": "Dokuma salonunda sıcaklık 22 dereceyi geçerse ne gibi kalite kusuru oluşur?",
+      "category": "QUALITY_TOLERANCE",
+      "is_adversarial": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": false,
+      "latency_ms": 19.92,
+      "answer": {
+        "query": "Dokuma salonunda sıcaklık 22 dereceyi geçerse ne gibi kalite kusuru oluşur?",
+        "direct_answer": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+        "action_steps": [
+          "Dokuma salonu ortam nemi yüzde 65 ile 70 bağıl nem aralığında sabit tutulmalıdır",
+          "Ortam sıcaklığı 22 santigrat dereceyi aştığında iplik statik elektrik yüklenir ve atkı besleme hatası verir"
+        ],
+        "technical_parameters": {
+          "sıcaklık": "22 santigrat"
+        },
+        "citations": [
+          {
+            "source_id": "merinos_quality_standards.docx",
+            "chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+            "quote": "BÖLÜM 2: Nem ve Sıcaklık Toleransı",
+            "verified": true
+          }
+        ],
+        "safety_alert": null,
+        "confidence_score": 0.95,
+        "fallback_triggered": false
+      }
+    },
+    {
+      "scenario_id": "GROUND_13",
+      "query": "E-999 kodlu lazer iplik hizalama sensörü nasıl kalibre edilir?",
+      "category": "ADVERSARIAL_FAKE_CODE",
+      "is_adversarial": true,
+      "fallback_triggered": true,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": false,
+      "latency_ms": 15.85,
+      "answer": {
+        "query": "E-999 kodlu lazer iplik hizalama sensörü nasıl kalibre edilir?",
+        "direct_answer": "Merinos teknik dokümantasyonunda bu konuya ilişkin bilgi bulunmamaktadır.",
+        "action_steps": [],
+        "technical_parameters": {},
+        "citations": [],
+        "safety_alert": null,
+        "confidence_score": 0.0,
+        "fallback_triggered": true
+      }
+    },
+    {
+      "scenario_id": "GROUND_14",
+      "query": "Dokuma salonundaki otomatik robot süpürgelerin şarj voltajı kaç volttur?",
+      "category": "ADVERSARIAL_OUT_OF_DOMAIN",
+      "is_adversarial": true,
+      "fallback_triggered": true,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": false,
+      "latency_ms": 18.1,
+      "answer": {
+        "query": "Dokuma salonundaki otomatik robot süpürgelerin şarj voltajı kaç volttur?",
+        "direct_answer": "Merinos teknik dokümantasyonunda bu konuya ilişkin bilgi bulunmamaktadır.",
+        "action_steps": [],
+        "technical_parameters": {},
+        "citations": [],
+        "safety_alert": null,
+        "confidence_score": 0.0,
+        "fallback_triggered": true
+      }
+    },
+    {
+      "scenario_id": "GROUND_15",
+      "query": "Fabrika personel servis saatleri ve yemekhane öğle menüsü nedir?",
+      "category": "ADVERSARIAL_OUT_OF_DOMAIN",
+      "is_adversarial": true,
+      "fallback_triggered": true,
+      "fallback_correct": true,
+      "faithfulness_rate": 1.0,
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_safety_alert": false,
+      "latency_ms": 18.09,
+      "answer": {
+        "query": "Fabrika personel servis saatleri ve yemekhane öğle menüsü nedir?",
+        "direct_answer": "Merinos teknik dokümantasyonunda bu konuya ilişkin bilgi bulunmamaktadır.",
+        "action_steps": [],
+        "technical_parameters": {},
+        "citations": [],
+        "safety_alert": null,
+        "confidence_score": 0.0,
+        "fallback_triggered": true
+      }
+    }
+  ]
+}

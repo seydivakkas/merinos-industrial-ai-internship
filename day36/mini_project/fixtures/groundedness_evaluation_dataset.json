@@ -1,0 +1,222 @@
+[
+  {
+    "id": "GROUND_01",
+    "query": "E-401 motor sıcaklığı arızasında operatör ne yapmalıdır?",
+    "category": "MAINTENANCE_SOP",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "ground_truth_claims": [
+      "E-401 arıza kodu ana tahrik motoru sıcaklığının 85 santigrat dereceyi aşmasıyla tetiklenir.",
+      "Operatör tezgâhı durdurup en az 15 dakika motorun soğumasını beklemelidir.",
+      "Soğutma fanı hava giriş filtresi kontrol edilmeli ve basınçlı hava ile temizlenmelidir."
+    ],
+    "expected_parameters": {
+      "arıza_kodu": "E-401",
+      "kritik_sıcaklık": "85°C",
+      "bekleme_süresi": "15 dakika"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_02",
+    "query": "İplik tansiyon basıncı kaç bar altına düşerse arıza olur ve operatör hangi vanayı ayarlamalıdır?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c002",
+    "ground_truth_claims": [
+      "İplik tansiyon basıncı 14 bar altına düştüğünde iplik kopuş oranı kritik seviyeye çıkar.",
+      "Operatör pnömatik regülatör üzerindeki 3 numaralı vanayı saat yönünde çevirerek basıncı 16 bar seviyesine getirmelidir."
+    ],
+    "expected_parameters": {
+      "kritik_basınç": "14 bar",
+      "hedef_basınç": "16 bar",
+      "vana_numarası": "Vana 3"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_03",
+    "query": "Buharlı fikse işlemi kaç derecede ve kaç saniye süreyle yapılır?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c002",
+    "ground_truth_claims": [
+      "Buharlı fikse tünelinde 135 santigrat derece sıcaklıkta doymuş buhar uygulanır.",
+      "İşlem süresi 60 saniyedir.",
+      "Liflerin polimerik kristal yapısını kilitler ve CIELAB renk parlaklığını yüzde 12 artırır."
+    ],
+    "expected_parameters": {
+      "fikse_sıcaklığı": "135°C",
+      "fikse_süresi": "60 saniye",
+      "parlaklık_artışı": "%12"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_04",
+    "query": "E-108 arıza kodu tezgâhta ne anlama gelir ve çözüm adımı nedir?",
+    "category": "ERROR_CODE",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "ground_truth_claims": [
+      "E-108 kodu mekik iplik rezerv sensörünün boş sinyali üretmesi anlamına gelir.",
+      "Mekik haznesi kontrol edilmeli ve yedek bobin besleme yuvasına yerleştirilmelidir.",
+      "Optik sensör lensi alkollü bez ile tozdan arındırılmalıdır."
+    ],
+    "expected_parameters": {
+      "arıza_kodu": "E-108",
+      "bileşen": "Mekik rezerv sensörü"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_05",
+    "query": "Hereke serisi klasik jakarlı halılarda çözgü ve düğüm sıklığı standartları nelerdir?",
+    "category": "WEAVING_SPEC",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+    "ground_truth_claims": [
+      "Hereke serisi klasik jakarlı dokumalarda çözgü sıklığı santimetrede 28 teldir.",
+      "İlme düğüm sıklığı 80x80 düğüm bölü desimetrekaredir."
+    ],
+    "expected_parameters": {
+      "çözgü_sıklığı": "28 tel/cm",
+      "düğüm_sıklığı": "80x80 düğüm/dm²"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_06",
+    "query": "Tarak boşluğu toleransı kaç mm'yi aşarsa tezgâhta sarı lamba yanar ve hız ne olur?",
+    "category": "WEAVING_SPEC",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c002",
+    "ground_truth_claims": [
+      "Tarak boşluğu toleransı 0.45 mm değerini aştığında sarı ikaz lambası yanar.",
+      "Tezgâh desen kaymasını engellemek amacıyla otomatik olarak dokuma hızını 1/3 oranına düşürür."
+    ],
+    "expected_parameters": {
+      "tolerans_sınırı": "0.45 mm",
+      "uyarı_ışığı": "Sarı ikaz lambası",
+      "hız_durumu": "1/3 oranına düşürme"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_07",
+    "query": "E-256 arıza kodu hangi mekanizma arızasıdır ve kritik basınç eşiği nedir?",
+    "category": "ERROR_CODE",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c004",
+    "ground_truth_claims": [
+      "E-256 kodu çözgü çerçeve kilit mekanizması hidrolik basınç düşüşünde devreye girer.",
+      "Basınç 6 bar kritik eşiğinin altına indiğinde tezgâh acil kilitleme yapar."
+    ],
+    "expected_parameters": {
+      "arıza_kodu": "E-256",
+      "kritik_eşik": "6 bar"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_08",
+    "query": "Dokuma salonunda klima nem ve sıcaklık değerleri hangi aralıkta tutulmalıdır?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+    "ground_truth_claims": [
+      "Dokuma salonu ortam nemi yüzde 65 ile yüzde 70 bağıl nem arasında tutulmalıdır.",
+      "Ortam sıcaklığı 22 santigrat derece kritik eşiğini aşmamalıdır."
+    ],
+    "expected_parameters": {
+      "bağıl_nem": "%65 - %70",
+      "sıcaklık_eşiği": "22°C"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_09",
+    "query": "Halı traşlama hattında bıçak hav yüksekliği kaç mm'ye ayarlanır?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+    "ground_truth_claims": [
+      "Traşlama bıçağı hav yüksekliği 9.5 mm standardına ayarlanır.",
+      "İzin verilen tolerans artı eksi 0.2 milimetredir."
+    ],
+    "expected_parameters": {
+      "hav_yüksekliği": "9.5 mm",
+      "tolerans": "±0.2 mm"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_10",
+    "query": "Kenar overlok dikişinde kullanılan ipin özellikleri ve mukavemeti nedir?",
+    "category": "FINISHING_PROCESS",
+    "target_chunk_id": "DOC_MERINOS_FINISHING_MANUAL_c003",
+    "ground_truth_claims": [
+      "Overlok dikişinde 3 katlı poliamid takviyeli iplik kullanılır.",
+      "Çekme mukavemeti en az 45 Newton olmalıdır."
+    ],
+    "expected_parameters": {
+      "iplik_tipi": "3 katlı poliamid",
+      "çekme_mukavemeti": "45 Newton"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_11",
+    "query": "Tezgâh mil yataklarının periyodik yağlaması hangi sıklıkla ve hangi yağ tipiyle yapılır?",
+    "category": "MAINTENANCE_SOP",
+    "target_chunk_id": "DOC_MERINOS_WEAVING_SOP_c003",
+    "ground_truth_claims": [
+      "Tezgâh mil yatakları her 24 saatlik çalışma sonrasında yağlanmalıdır.",
+      "Yağlama işleminde ISO VG 220 endüstriyel dişli yağı kullanılmalıdır."
+    ],
+    "expected_parameters": {
+      "periyot": "24 saat",
+      "yağ_tipi": "ISO VG 220"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_12",
+    "query": "Dokuma salonunda sıcaklık 22 dereceyi geçerse ne gibi kalite kusuru oluşur?",
+    "category": "QUALITY_TOLERANCE",
+    "target_chunk_id": "DOC_MERINOS_QUALITY_STANDARDS_c003",
+    "ground_truth_claims": [
+      "Sıcaklık 22 dereceyi aştığında polipropilen ipliklerde statik elektrik birikimi artar.",
+      "Bu durum atkı atımında iplik dolaşmasına ve tezgâh mikro duruşlarına yol açar."
+    ],
+    "expected_parameters": {
+      "kritik_sıcaklık": "22°C",
+      "etki": "Statik elektrik ve iplik dolaşması"
+    },
+    "is_adversarial": false
+  },
+  {
+    "id": "GROUND_13",
+    "query": "E-999 kodlu lazer iplik hizalama sensörü nasıl kalibre edilir?",
+    "category": "ADVERSARIAL_FAKE_CODE",
+    "target_chunk_id": null,
+    "ground_truth_claims": [
+      "Merinos teknik dokümantasyonunda E-999 arıza koduna ilişkin bilgi bulunmamaktadır."
+    ],
+    "expected_parameters": {},
+    "is_adversarial": true
+  },
+  {
+    "id": "GROUND_14",
+    "query": "Dokuma salonundaki otomatik robot süpürgelerin şarj voltajı kaç volttur?",
+    "category": "ADVERSARIAL_OUT_OF_DOMAIN",
+    "target_chunk_id": null,
+    "ground_truth_claims": [
+      "Merinos teknik dokümantasyonunda bu konuya ilişkin bilgi bulunmamaktadır."
+    ],
+    "expected_parameters": {},
+    "is_adversarial": true
+  },
+  {
+    "id": "GROUND_15",
+    "query": "Fabrika personel servis saatleri ve yemekhane öğle menüsü nedir?",
+    "category": "ADVERSARIAL_OUT_OF_DOMAIN",
+    "target_chunk_id": null,
+    "ground_truth_claims": [
+      "Merinos teknik dokümantasyonunda bu konuya ilişkin bilgi bulunmamaktadır."
+    ],
+    "expected_parameters": {},
+    "is_adversarial": true
+  }
+]
