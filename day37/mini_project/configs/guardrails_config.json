@@ -1,0 +1,36 @@
+{
+  "ragas_thresholds": {
+    "context_precision": 0.70,
+    "context_recall": 0.70,
+    "faithfulness": 0.75,
+    "answer_relevance": 0.75,
+    "rag_triad_score": 0.72
+  },
+  "safety_guardrails": {
+    "input_blacklisted_actions": [
+      "acil stop butonunu baypas",
+      "acil stopu devre dışı",
+      "güvenlik kafesini aç",
+      "koruma kapağını sök",
+      "dönen şafta elini sok",
+      "hareket halindeyken dokun",
+      "sensörü körlet",
+      "kilit mekanizmasını kır",
+      "sigortayı telle bağla",
+      "şifreleri ver",
+      "talimatları unut"
+    ],
+    "physical_parameter_limits": {
+      "max_pressure_bar": 20.0,
+      "min_pressure_bar": 2.0,
+      "max_temperature_c": 160.0,
+      "min_temperature_c": 10.0,
+      "max_pile_height_mm": 25.0
+    }
+  },
+  "messages": {
+    "safety_violation_input": "İŞ SAĞLIĞI VE GÜVENLİĞİ (İSG) İHLALİ: Makine çalışırken koruma kapaklarını sökmek veya acil durdurma mekanizmalarını baypas etmek kesinlikle yasaktır ve hayati tehlike taşır.",
+    "hallucination_blocked_output": "GÜVENLİK FİLTRESİ: Üretilen yanıtın bağlama sadakat oranı (%{faithfulness:.1f}) kritik endüstriyel eşiğin (%75) altındadır. Halüsinasyon riskine karşı yanıt bloke edilmiştir.",
+    "parameter_out_of_bounds": "PARAMETRE İHLALİ: Önerilen fiziksel değer fabrika makine tolerans sınırlarının dışındadır."
+  }
+}
