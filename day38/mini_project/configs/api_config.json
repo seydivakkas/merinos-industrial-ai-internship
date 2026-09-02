@@ -1,0 +1,36 @@
+{
+  "api": {
+    "title": "Merinos Halı Sanayi A.Ş. - Endüstriyel RAG Asistanı API",
+    "version": "1.0.0",
+    "description": "Gaziantep dokuma salonu jakarlı tezgâhları için yapay zekâ destekli bakım, arıza teşhis ve İSG koruma servisi.",
+    "host": "127.0.0.1",
+    "port": 8000,
+    "cors_origins": ["*"]
+  },
+  "ui": {
+    "title": "Merinos Halı - Dokuma Salonu Operatör Konsolu",
+    "port": 8501,
+    "theme": "industrial_dark"
+  },
+  "factory": {
+    "facility": "Merinos Halı Sanayi ve Ticaret A.Ş. - Gaziantep 4. OSB Tesisi",
+    "weaving_hall": "Dokuma Salonu 1-B (Jakarlı Tezgâhlar)",
+    "shifts": [
+      {"id": "VARDIYA-1", "name": "Sabah Vardiyası (08:00 - 16:00)", "supervisor": "Ahmet Usta"},
+      {"id": "VARDIYA-2", "name": "Akşam Vardiyası (16:00 - 24:00)", "supervisor": "Mehmet Şef"},
+      {"id": "VARDIYA-3", "name": "Gece Vardiyası (24:00 - 08:00)", "supervisor": "Mustafa Usta"}
+    ],
+    "looms": [
+      {"id": "TEZGAH-01", "model": "Van de Wiele RCE02", "series": "Hereke Jakarlı", "status": "RUNNING"},
+      {"id": "TEZGAH-02", "model": "Van de Wiele RCE02", "series": "İpek Dokuma", "status": "RUNNING"},
+      {"id": "TEZGAH-03", "model": "Schönherr Alpha 400", "series": "Duble Jakar", "status": "WARNING"},
+      {"id": "TEZGAH-04", "model": "Van de Wiele RCE02", "series": "Hereke Yün", "status": "RUNNING"},
+      {"id": "TEZGAH-05", "model": "Schönherr Alpha 400", "series": "Akrilik Serisi", "status": "STOPPED"},
+      {"id": "TEZGAH-06", "model": "Van de Wiele RCE02", "series": "Hereke Klasik", "status": "RUNNING"},
+      {"id": "TEZGAH-07", "model": "Schönherr Alpha 400", "series": "Rölyefli Hav", "status": "RUNNING"},
+      {"id": "TEZGAH-08", "model": "Van de Wiele RCE02", "series": "Hereke İpek-Yün", "status": "RUNNING"}
+    ]
+  },
+  "default_top_k": 3,
+  "default_alpha": 0.5
+}
