@@ -1,0 +1,47 @@
+{
+  "project_name": "Merinos Industrial Edge Deployment",
+  "version": "1.0.0",
+  "factory_site": "Gaziantep Plant - Weaving Hall Edge IPC Network",
+  "hardware_target": {
+    "device_type": "Industrial Panel PC / Edge IPC (Advantech / Siemens Microbox)",
+    "cpu_architecture": "x86_64 / ARM64",
+    "cooling": "Fanless (Passive - Dust Resistant)",
+    "target_tdp_watts": 15,
+    "max_ram_mb": 4096,
+    "recommended_threads": [1, 2, 4]
+  },
+  "models": {
+    "bi_encoder": {
+      "input_dim": 384,
+      "hidden_dim": 256,
+      "output_dim": 384,
+      "onnx_fp32_filename": "bi_encoder_fp32.onnx",
+      "onnx_int8_filename": "bi_encoder_int8.onnx"
+    },
+    "cross_encoder": {
+      "input_dim": 768,
+      "hidden_dim": 256,
+      "output_dim": 1,
+      "onnx_fp32_filename": "cross_encoder_fp32.onnx",
+      "onnx_int8_filename": "cross_encoder_int8.onnx"
+    }
+  },
+  "quantization": {
+    "algorithm": "Post-Training Dynamic Quantization (PTQ)",
+    "weight_type": "QInt8",
+    "opset_version": 17,
+    "per_channel": true,
+    "reduce_range": false
+  },
+  "tolerances": {
+    "min_cosine_similarity": 0.985,
+    "max_mae": 0.025,
+    "min_compression_ratio": 0.50,
+    "target_compression_ratio": 0.75
+  },
+  "benchmark": {
+    "warmup_iterations": 10,
+    "benchmark_iterations": 100,
+    "percentiles": [50, 95, 99]
+  }
+}
