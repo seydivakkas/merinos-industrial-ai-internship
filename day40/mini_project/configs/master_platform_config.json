@@ -1,0 +1,42 @@
+{
+  "platform_name": "Merinos Industrial AI Master Platform",
+  "version": "1.0.0",
+  "organization": "Merinos Halı Sanayi ve Ticaret A.Ş.",
+  "location": "Gaziantep 4. Organize Sanayi Bölgesi",
+  "author": "Seydi Eryılmaz (@seydivakkas)",
+  "four_pillars": {
+    "pillar_1_vision": {
+      "name": "Endüstriyel Bilgisayarlı Görü ve Renk Analitiği",
+      "scope": "Gün 01 - 15",
+      "components": ["K-Means Palet Ayrıştırma", "CIEDE2000 Renk Farkı", "Morfolojik Doku Segmentasyonu", "Görsel Arama"]
+    },
+    "pillar_2_predictive_maintenance": {
+      "name": "Kestirimci Bakım ve Üretim Optimizasyonu",
+      "scope": "Gün 16 - 30",
+      "components": ["Tezgâh Telemetri Analizi", "E-401 Motor Termik Erken Uyarısı", "Kusur Sınıflandırma", "Çizelgeleme"]
+    },
+    "pillar_3_enterprise_rag": {
+      "name": "Endüstriyel RAG ve Güvenlik Korkulukları",
+      "scope": "Gün 31 - 37",
+      "components": ["BM25 + Dense Hibrit Arama (RRF)", "Cross-Encoder Reranking", "HyDE Genişletme", "Groundedness & Alıntı", "Ragas & İSG Guardrails"]
+    },
+    "pillar_4_edge_deployment": {
+      "name": "Servis Mimarisi, SCADA Konsolu ve Edge Çıkarım",
+      "scope": "Gün 38 - 39",
+      "components": ["FastAPI Asenkron REST Mikroservis", "Streamlit SCADA Operatör Arayüzü", "ONNX Dynamic INT8 Quantization", "Tezgâh Başı IPC Motoru"]
+    }
+  },
+  "facility_parameters": {
+    "total_looms": 120,
+    "loom_models": ["Van de Wiele RCE02", "Schönherr Alpha 400", "Van de Wiele Master"],
+    "operating_shifts": 3,
+    "annual_weaving_hours": 7200
+  },
+  "kpi_targets": {
+    "min_rag_faithfulness": 0.95,
+    "max_edge_latency_ms": 1.0,
+    "target_downtime_reduction_pct": 70.0,
+    "target_scrap_reduction_pct": 4.0,
+    "min_model_compression_pct": 70.0
+  }
+}
