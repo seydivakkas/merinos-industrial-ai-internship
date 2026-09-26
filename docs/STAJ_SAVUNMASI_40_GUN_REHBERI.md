@@ -9,7 +9,7 @@
 ![Verdict: ENTERPRISE_READY_V1](https://img.shields.io/badge/verdict-ENTERPRISE__READY__V1%20PoC-brightgreen?style=flat-square)
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

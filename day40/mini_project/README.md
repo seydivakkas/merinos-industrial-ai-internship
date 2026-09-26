@@ -5,7 +5,7 @@
 ![Status: PoC Completed](https://img.shields.io/badge/status-PoC%20Completed-blue?style=flat-square)
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

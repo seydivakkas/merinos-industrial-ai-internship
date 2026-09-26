@@ -9,7 +9,7 @@
 ![RAG: Evaluation & Guardrails](https://img.shields.io/badge/RAG-Ragas%20Triad%20%26%20Guardrails-green?style=flat-square)
 ![Tests: 6/6 Passed](https://img.shields.io/badge/tests-6%20%2F%206%20passed-brightgreen?style=flat-square)
 
-> **ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR**  
+> **ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR**  
 > **Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)**  
 > Bu yazılım ve ilgili tüm dosyalar ("Yazılım") yalnızca görüntüleme ve eğitim amaçlı olarak paylaşılmıştır.  
 > 

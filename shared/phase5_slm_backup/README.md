@@ -370,7 +370,7 @@ pytest day29/mini_project/tests/test_llm_engineering.py -v
 ## 8. Telif Hakkı ve Özel Lisans
 
 ```text
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

@@ -9,7 +9,7 @@
 ![Tests: 100% Passed](https://img.shields.io/badge/regression-218%20%2F%20218%20passed-brightgreen?style=flat-square)
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

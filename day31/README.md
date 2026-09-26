@@ -10,7 +10,7 @@
 - **Yaprak 61:** Doküman Temizleme, Metadata, Chunking ve Overlap Yapısının Hazırlanması (Şekil 61)  
 - **Yaprak 62:** BM25 ve Sentence Embedding ile İlk Retrieval Karşılaştırmalarının Yapılması (Şekil 62)  
 **Yazar:** Seydi Eryılmaz ([@seydivakkas](https://github.com/seydivakkas))  
-**Lisans:** [ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR](#-özel-li̇sans--tüm-haklar-saklidir)  
+**Lisans:** [ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR](#-özel-li̇sans--tüm-haklar-saklidir)  
 
 ---
 
@@ -210,10 +210,10 @@ python -m pytest day31/mini_project/tests/ -v
 
 ---
 
-## 🔒 ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+## 🔒 ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

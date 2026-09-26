@@ -10,7 +10,7 @@
 ![Status: 100% Tested](https://img.shields.io/badge/tests-8%20%2F%208%20passed-brightgreen?style=flat-square)
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

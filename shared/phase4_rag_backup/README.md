@@ -277,7 +277,7 @@ Faz 4'te inşa edilen güçlü bilgi getirme altyapısı, Faz 5'te doğrudan **a
 ## 17. Lisans & Fikri Mülkiyet
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 
