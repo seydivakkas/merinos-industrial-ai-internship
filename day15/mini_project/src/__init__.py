@@ -1,10 +1,13 @@
-"""Merinos Industrial Vision CLI Toolkit (Day 15).
+"""Merinos Görsel Özellik Çıkarımı ve Boru Hattı Entegrasyonu (Day 15).
 
-Phase 2 Final Production Vision Toolkit aggregating all image processing capabilities
-from Day 07 to Day 14 into an integrated industrial quality inspection package.
+Faz 2 final konsolidasyon ve görsel öznitelik birleştirme paketi.
 """
 
 from day15.mini_project.src.benchmark_suite import Phase2BenchmarkSuite
+from day15.mini_project.src.feature_integrator import (
+    IntegratedFeatureVector,
+    VisualFeatureIntegrator,
+)
 from day15.mini_project.src.generator import VisionToolkitFixtureGenerator
 from day15.mini_project.src.inspect_pipeline import CarpetInspectionPipeline
 from day15.mini_project.src.models import (
@@ -22,6 +25,8 @@ from day15.mini_project.src.toolkit import (
 )
 
 __all__ = [
+    "VisualFeatureIntegrator",
+    "IntegratedFeatureVector",
     "MerinosIndustrialVisionToolkit",
     "CarpetInspectionPipeline",
     "VisionToolkitFixtureGenerator",

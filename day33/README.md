@@ -38,9 +38,9 @@ YAZARIN AÇIK YAZILI İZNİ OLMAKSIZIN HİÇBİR KULLANIM HAKKI TANINMAZ.
 
 ## Goal
 
-Bu çalışmanın temel mühendislik amacı, Merinos Halı Sanayi A.Ş. üretim tesislerinde (dokuma tezgâhları, buharlı fikse hatları, iplik büküm üniteleri ve kalite kontrol istasyonları) görev yapan operatör ve bakım mühendislerinin teknik sorularına **sıfır halüsinasyon garantili**, **kesin kaynak atıflı (`[S1]`, `[S2]`)** ve **bağımsız doğrulayıcı (Citation Verifier)** ile teyit edilmiş cevaplar üreten endüstriyel bir RAG (Retrieval-Augmented Generation) mimarisi kurmaktır.
+Bu çalışmanın temel mühendislik amacı, tekstil ve dokuma süreçlerindeki bakım sorularına yönelik olarak **halüsinasyon riskini minimize eden**, **kesin kaynak atıflı (`[S1]`, `[S2]`)** ve **bağımsız doğrulayıcı (Citation Verifier)** ile teyit edilmiş cevaplar üreten bir RAG (Retrieval-Augmented Generation) PoC mimarisi kurmaktır.
 
-Sistem, **Kapalı Dünya İlkesi (Closed-World Assumption)** gereğince parametrik hafızasından uydurma teknik değerler üretmeyi yasaklar; ilgili teknik doküman bağlamda yoksa model tahminde bulunmayıp dürüstçe reddetme (**Honest Abstention**) mekanizmasını devreye sokar.
+Sistem, **Kapalı Dünya İlkesi (Closed-World Assumption)** gereğince parametrik hafızasından uydurma teknik değerler üretmeyi sınırlandırır; ilgili teknik doküman bağlamda yoksa model tahminde bulunmayıp dürüstçe reddetme (**Honest Abstention**) mekanizmasını devreye sokar.
 
 ---
 

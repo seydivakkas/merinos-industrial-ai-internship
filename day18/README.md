@@ -6,12 +6,12 @@
 ---
 
 ## 1. Yönetici Özeti (Executive Summary)
-Merinos Halı Sanayi ve Ticaret A.Ş. Gaziantep 4. Organize Sanayi Bölgesi tesislerinde, dokuma tezgâhı telemetrisi ile iplik fiziksel parametreleri arasındaki **doğrusal olmayan ve basamaklı (step-function) etkileşimleri** yakalamak amacıyla ağaç tabanlı öğrenme mimarileri devreye alınmıştır. Bu çalışma kapsamında; ham **Budanmamış Karar Ağacı (Unpruned Decision Tree)**, `ccp_alpha` temelli **Minimal Maliyet-Karmaşıklık Budaması (Cost-Complexity Pruned Tree)** ve 100 karar ağacından oluşan **Random Forest (Rastgele Orman)** topluluk modeli uçtan uca inşa edilmiş, karşılaştırılmış ve doğrulanmıştır. 
+Bu çalışma kapsamında, dokuma ve iplik üretim parametreleri arasındaki **doğrusal olmayan ve basamaklı (step-function) etkileşimleri** modellemek amacıyla ağaç tabanlı öğrenme mimarileri sentetik veri üzerinde incelenmiştir. Çalışmada; ham **Budanmamış Karar Ağacı (Unpruned Decision Tree)**, `ccp_alpha` temelli **Minimal Maliyet-Karmaşıklık Budaması (Cost-Complexity Pruned Tree)** ve 100 karar ağacından oluşan **Random Forest (Rastgele Orman)** topluluk modeli uçtan uca inşa edilmiş, karşılaştırılmış ve doğrulanmıştır. 
 
-3.000 partilik endüstriyel telemetri veri kümesi ve 600 test numunesi üzerinde yürütülen kıyaslamada;
-- Budanmamış referans ağaç **22 yaprak** ve **%0.58 overfitting boşluğu** üretirken,
-- Minimal Cost-Complexity Pruning algoritması yaprak sayısını **%22.7 oranında budayarak 17 yaprağa** düşürmüş ve test doğruluğunu **%99.33'e** yükseltmiştir.
-- 100 karar ağacından oluşan **Random Forest şampiyon modeli**, **%99.67 Test Doğruluğu**, **0.9967 Makro F1**, **0.9955 Cohen's Kappa** ve **%99.88 Out-Of-Bag (OOB) genelleme başarısına** ulaşarak canlı üretim hattı sınıflandırma omurgası olarak tescillenmiştir.
+3.000 partilik sentetik telemetri veri kümesi ve 600 test numunesi üzerinde yürütülen kıyaslamada;
+- Budanmamış referans ağaç **22 yaprak** ve küçük bir aşırı öğrenme boşluğu üretirken,
+- Minimal Cost-Complexity Pruning algoritması yaprak sayısını **%22.7 oranında budayarak 17 yaprağa** düşürmüş ve sadeleştirilmiş karar sınırları sağlamıştır.
+- 100 karar ağacından oluşan **Random Forest modeli**, varyans azaltma ve Out-Of-Bag (OOB) genelleme kabiliyetiyle sentetik veri üzerinde en kararlı topluluk yapısını ortaya koymuştur. (Elde edilen yüksek başarımın sentetik veri koşullarına bağlı olduğu, gerçek sahada gürültülü telemetriyle pilot çalışma gerektireceği not edilmiştir.)
 
 ---
 
@@ -234,10 +234,10 @@ python -u -m day18.mini_project.src.cli predict \
 
 ---
 
-## 14. Üretim Hattı & PLC Entegrasyon Mimarisi
-Fabrika katındaki konuşlandırmada iki katmanlı hibrit mimari önerilir:
-1. **Kenar Katmanı (Edge PLC / Gömülü Sistem):** Budanmış Karar Ağacı (`ccp_alpha=0.000414`, 17 yaprak), **0.048 ms** gibi mikro-saniye seviyesindeki çıkarım süresi sayesinde tezgâh üzerindeki PLC veya Raspberry Pi/Jetson cihazlarına C++/ONNX kodu olarak gömülür ve anlık sert durdurma (E-Stop) kararlarında kullanılır.
-2. **Sunucu Katmanı (Merkezi SCADA / MLOps Server):** Random Forest Topluluk Modeli (**%99.67 test doğruluğu** ve **%99.88 OOB güveni**), her 100 metre dokuma partisi sonunda parti kalite raporlama ve bakım iş emri triage'ında kullanılır.
+## 14. Kavramsal Sistem Mimarisi ve Gelecek Senaryosu
+Geliştirilen modellerin endüstriyel bir platformda nasıl konumlandırılabileceğine ilişkin teorik iki katmanlı mimari şöyledir:
+1. **Kenar Katmanı (Edge / Gömülü Sistem Simülasyonu):** Budanmış Karar Ağacı (`ccp_alpha=0.000414`, 17 yaprak), **0.048 ms** gibi düşük çıkarım süresi sayesinde tezgâh yanı mikrodenetleyici veya kompakt donanımlara aktarılmaya uygun, hafif bir kural tabanlı koruma omurgası oluşturur.
+2. **Merkezi Analiz Katmanı (Sunucu / Analitik Modülü):** Random Forest Topluluk Modeli, periyodik kalite kontrol raporları ve parti bazlı bakım yönlendirme simülasyonları için yüksek genelleme güveni sağlar.
 
 ---
 

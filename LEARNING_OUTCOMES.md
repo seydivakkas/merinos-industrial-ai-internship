@@ -15,8 +15,8 @@ Bu doküman, 40 günlük staj boyunca bir Bilgisayar Mühendisi olarak kazanıla
 3. **Veri Modelleri ve Tip Güvenliği:**
    - Veri boru hatlarında ham sözlükler (dictionaries) yerine Pydantic v2 modelleri ve katı tip denetimi kullanılarak çalışma zamanı (runtime) hataları üretim öncesinde elenmiştir.
 
-4. **Konteynerleştirme ve Dağıtık Mimari:**
-   - Ağır derin öğrenme modellerinin senkron HTTP döngülerini kilitlemesini engellemek için Redis/Celery asenkron görev kuyrukları kurgulanmış; ortam bağımlılıkları Docker çok aşamalı imajları ile izole edilmiştir.
+4. **Modüler Tasarım, Tip Güvenliği ve Yerel PoC Servisleştirme:**
+   - Ham veri sözlükleri yerine Pydantic v2 modelleri ile veri sözleşmeleri tanımlanmış; geliştirilen algoritmalar yerel FastAPI REST servisi, Streamlit analiz arayüzü ve ONNX INT8 kuantizasyon benchmarkları ile ölçülebilir ve tekrarlanabilir bir PoC mimarisine dönüştürülmüştür.
 
 ---
 

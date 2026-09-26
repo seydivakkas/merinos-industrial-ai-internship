@@ -1,12 +1,13 @@
 """
 Merinos Halı Sanayi ve Ticaret A.Ş. — Day 14
-Geleneksel Öznitelik Çıkarımı ve Jakarlı Halı Desen Sınıflandırma Paketi
+Klasik Segmentasyon Yöntemleri ve Motif Ayrıştırma Paketi
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 Özel Lisans — Tüm Hakları Saklıdır.
 """
 
 from .benchmark import FeatureBenchmarkEngine
+from .carpet_segmenter import CarpetSegmenter, SegmentedRegion
 from .color_histogram import ColorHistogramEngine
 from .feature_fusion import CarpetPatternClassifierAndMatcher
 from .generator import CarpetPatternFixtureGenerator, _safe_imread, _safe_imwrite
@@ -24,6 +25,8 @@ from .models import (
 )
 
 __all__ = [
+    "CarpetSegmenter",
+    "SegmentedRegion",
     "KeypointFeatureEngine",
     "GLCMFeatureEngine",
     "ColorHistogramEngine",

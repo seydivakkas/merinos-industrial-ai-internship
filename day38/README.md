@@ -34,17 +34,17 @@ YAZARIN AÇIK YAZILI İZNİ OLMAKSIZIN HİÇBİR KULLANIM HAKKI TANINMAZ.
 
 ## Goal
 
-Bu çalışmanın amacı, Merinos Gaziantep Halı Fabrikası dokuma salonlarında (Van de Wiele RCE02 ve Schönherr Alpha 400 jakarlı dokuma tezgâhları) çalışan operatörler ve vardiya mühendisleri için; önceki günlerde geliştirilen bilgi tabanı, hibrit arama (BM25 + Dense Vektör), yapılandırılmış üretim, alıntı doğrulama ve çift katmanlı İSG güvenlik korkuluklarını **örnek bir FastAPI REST API** ve **SCADA esintili dokunmatik ekran uyumlu bir Streamlit Operatör Konsolu** ile yerel ortamda servise sunmaktır.
+Bu çalışmanın amacı, tekstil dokuma ve bakım süreçlerini simüle etmek üzere; önceki günlerde geliştirilen bilgi tabanı, hibrit arama (BM25 + Dense Vektör), yapılandırılmış üretim, alıntı doğrulama ve çift katmanlı İSG güvenlik korkuluklarını **örnek bir FastAPI REST API** ve **koyu temalı, dokunmatik ekran uyumlu bir Streamlit Operatör Konsolu (PoC)** ile yerel ortamda servise sunmaktır.
 
 ---
 
 ## Engineer Research Assignment
 
-Bir bilgisayar ve yapay zekâ mühendisi olarak dokuma fabrikasındaki gerçek zamanlı operasyonel kısıtlar araştırılmıştır:
-1. **Düşük Gecikme ve Asenkron Mimari:** Dokuma salonundaki SCADA terminalleri ve operatör tabletlerinden gelen eşzamanlı sorguların ana üretim hattını kilitlemeden asenkron ASGI mimarisi ile işlenmesi.
-2. **Kritik İSG Erken Kesmesi (Early Termination):** Operatörün acil stop baypas veya koruyucu kapak sökme gibi ölümcül risk barındıran taleplerinde, sistemin pahalı dil modeli veya vektör arama maliyetine girmeden milisaniyeler (0.1 ms) mertebesinde isteği derhal bloke etmesi.
-3. **Doğrulanmış Alıntı Şeffaflığı:** Halı dokuma parametrelerinin (atkı sıklığı, motor sıcaklığı, hava basıncı) uydurma veya halüsinasyon olmaması için her yanıtın kaynak PDF adı, sayfa numarası ve NLI doğruluk etiketiyle operatöre sunulması.
-4. **Kullanıcı Deneyimi:** Gürültülü ve tozlu fabrika zemininde klavye kullanımını en aza indiren hızlı arıza butonları ve renk kodlu durum kartları tasarımı.
+Bir bilgisayar ve yapay zekâ mühendisi olarak yerel servis mimarisi kurgulanırken şu operasyonel kısıtlar araştırılmıştır:
+1. **Düşük Gecikme ve Asenkron Mimari:** Operatör uç noktalarından ve yerel istemcilerden gelen eşzamanlı sorguların ana boru hattını kilitlemeden asenkron ASGI mimarisi ile işlenmesi.
+2. **Kritik İSG Erken Kesmesi (Early Termination):** Operatörün acil stop baypas veya koruyucu kapak sökme gibi risk barındıran taleplerinde, sistemin pahalı dil modeli veya vektör arama maliyetine girmeden milisaniyeler (0.1 ms) mertebesinde isteği derhal bloke etmesi.
+3. **Doğrulanmış Alıntı Şeffaflığı:** Halı dokuma parametrelerinin uydurma veya halüsinasyon olmaması için her yanıtın kaynak doküman adı, sayfa numarası ve NLI doğruluk etiketiyle operatöre sunulması.
+4. **Kullanıcı Deneyimi:** Gürültülü fabrika zemininde klavye kullanımını en aza indiren hızlı arıza butonları ve renk kodlu durum kartları tasarımı.
 
 ---
 
@@ -56,7 +56,7 @@ Bir bilgisayar ve yapay zekâ mühendisi olarak dokuma fabrikasındaki gerçek z
   - *Girdi Korkuluğu (Input Guardrail):* Tehlikeli komut ve İSG ihlallerini arama öncesi yakalama.
   - *Çıktı Korkuluğu (Output Guardrail):* Üretilen yanıtın bağlama sadakatini (faithfulness) denetleme.
 - **Ragas Triad Kalite Takibi:** Context Precision, Context Recall, Faithfulness ve Answer Relevance metriklerinin gerçek zamanlı hesaplanması.
-- **SCADA & Dashboard Mimarisi:** Streamlit ve Matplotlib ile sistem sağlığı, yanıt süresi dağılımı ve tezgâh bazlı istatistik panelleri.
+- **Operatör Konsolu & Dashboard Mimarisi:** Streamlit ve Matplotlib ile sistem sağlığı, yanıt süresi dağılımı ve istatistik panelleri.
 
 ---
 
@@ -247,9 +247,9 @@ Aşağıdaki görselde sol tarafta VS Code içerisinde açılmış `api_system_d
 
 ## Limitations
 
-- **Model Boyutu ve GPU Bağımlılığı:** Gömülü vektörleştirme ve NLI çapraz doğrulama CPU üzerinde çalıştırıldığında ilk sorguda 1-2 saniye ısınma (warm-up) süresi alabilir.
-- **Ağ İzolasyonu:** Fabrika iç ağında (intranet) çalışan SCADA sistemlerinde dış internet bağlantısı bulunmadığından tüm modeller yerel (offline) ağırlıklarla çalıştırılmalıdır.
-- **Canlı Sensör Entegrasyonu:** Gerçek zamanlı motor sıcaklıkları şu anda statik eşik değerleri (85°C, 95°C) üzerinden değerlendirilmektedir; Day 39 ve Day 40'ta OPC-UA / MQTT broker entegrasyonu tamamlanacaktır.
+- **Model Boyutu ve GPU Bağımlılığı:** Gömülü vektörleştirme ve NLI çapraz doğrulama CPU üzerinde çalıştırıldığında ilk sorguda ısınma (warm-up) süresi alabilir.
+- **Ağ İzolasyonu ve Yerellik:** Kapalı fabrika yerel ağlarında dış internet bağlantısı bulunmayabileceğinden tüm modeller yerel (offline) ağırlıklarla çalıştırılmalıdır.
+- **Sentetik Sensör Simülasyonu:** Motor sıcaklıkları bu aşamada statik eşik değerleri (85°C, 95°C) üzerinden sentetik olarak değerlendirilmektedir.
 
 ---
 

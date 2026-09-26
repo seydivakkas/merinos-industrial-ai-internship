@@ -36,23 +36,23 @@ YAZARIN AÇIK YAZILI İZNİ OLMAKSIZIN HİÇBİR KULLANIM HAKKI TANINMAZ.
 ---
 
 ## Goal
-Bu çalışmanın temel amacı; Merinos Halı Sanayi A.Ş. Gaziantep üretim tesislerindeki dokuma tezgâhları, finisaj hatları ve kalite güvence laboratuvarlarında çalışan operatör ve teknisyenler için **katı bağlam izolasyonlu (Strict Context Isolation)**, **Pydantic veri şemalı yapılandırılmış yanıt (Structured Output)** üreten ve **iddia düzeyinde doğrulanmış alıntılar (Groundedness / Faithfulness)** sunan endüstriyel bir RAG yanıt üretim motoru geliştirmektir. Fabrika sahasında klasik serbest metinli sohbet robotlarının (chatbot) yaratacağı halüsinasyon risklerini sıfıra indirmek, sahte arıza kodlarında ve alan dışı sorularda deterministik güvenli ret (fallback) mekanizmasını hayata geçirmektir.
+Bu çalışmanın temel amacı; tekstil ve dokuma teknik dokümanları üzerinde **katı bağlam izolasyonlu (Strict Context Isolation)**, **Pydantic veri şemalı yapılandırılmış yanıt (Structured Output)** üreten ve **iddia düzeyinde doğrulanmış alıntılar (Groundedness / Faithfulness)** sunan bir RAG yanıt üretim motoru PoC'si geliştirmektir. Serbest metinli sohbet yaklaşımlarının yaratabileceği halüsinasyon risklerini en aza indirmek, sahte arıza kodlarında ve alan dışı sorularda deterministik güvenli ret (fallback) mekanizmasını hayata geçirmektir.
 
 ---
 
 ## Engineer Research Assignment
 Bir endüstriyel yapay zekâ mühendisi olarak stajyerden şu mühendislik araştırmaları ve tasarım kararları istenmiştir:
-1. **Chatbot Yaklaşımının İflası ve Yapılandırılmış Çıktı Mimarisi:** Serbest metin üreten modellerin fabrika otomasyon sistemlerine (SCADA, PLC, MES) doğrudan bağlanamaması sebebiyle Pydantic V2 şemalarıyla doğrulanabilir `GeneratedAnswer` nesnesinin tasarlanması.
-2. **Rol Persona ve Prompt İzolasyonu:** LLM'in genel dünya bilgisini ve ezberlerini unutup Merinos Baş Teknik Bakım Uzmanı kimliğine bürünmesini sağlayan `<retrieved_context>` ve `<operator_query>` XML etiketli sistem prompt yapısının kurulması.
+1. **Chatbot Yaklaşımının Yetersizliği ve Yapılandırılmış Çıktı Mimarisi:** Serbest metin üreten modellerin kurumsal ve teknik yazılımlara doğrudan entegre edilememesi sebebiyle Pydantic V2 şemalarıyla doğrulanabilir `GeneratedAnswer` nesnesinin tasarlanması.
+2. **Rol Persona ve Prompt İzolasyonu:** LLM'in genel dünya ezberlerini sınırlandırıp teknik dokümantasyon uzmanı kimliğine odaklanmasını sağlayan `<retrieved_context>` ve `<operator_query>` XML etiketli sistem prompt yapısının kurulması.
 3. **Claim-Level NLI Doğrulama Algoritması:** Yanıttaki her bir cümlenin atomik iddia (claim) olarak ayrıştırılması, ondalıklı sayıların (`0.45 mm`) bölünmesinin engellenmesi, Türkçe morfolojik varyasyonların normalize edilmesi ve kaynak doküman parçası ile NLI mantığıyla örtüşme puanının hesaplanması.
 4. **Alıntı Kalite Metrikleri:** Citation Precision (doğru alıntı oranı) ve Citation Recall (alıntıyla desteklenen iddia oranı) metriklerinin modellenmesi.
-5. **Adversarial Robustness (Tuzak Senaryo Koruması):** Fabrika kılavuzunda yer almayan sahte kodlarda (`E-999`) veya alan dışı sorularda (robot süpürgeler, yemekhane menüsü) sistemin ezberden tahmin yürütmeyip %100 doğrulukla güvenli ret vermesi.
+5. **Adversarial Robustness (Tuzak Senaryo Koruması):** Doküman setinde yer almayan sahte kodlarda (`E-999`) veya alan dışı sorularda (robot süpürgeler, yemekhane menüsü) sistemin ezberden tahmin yürütmeyip güvenli ret vermesi.
 
 ---
 
 ## Concepts
 * **Strict Context Isolation (Katı Bağlam İzolasyonu):** Modelin bilgi getirme aşamasından gelen parçalar dışındaki hiçbir genel bilgiye erişmemesini sağlayan prompt mühendisliği kısıtı.
-* **Structured Output Generation:** SCADA panelleri, PLC logları ve operatör tabletlerine doğrudan JSON veri akışı sağlayan Pydantic şema zorlaması (`direct_answer`, `steps`, `parameters`, `citations`, `safety_alert`).
+* **Structured Output Generation:** Operatör konsolları ve teknik servis yazılımlarına doğrudan JSON veri akışı sağlayan Pydantic şema zorlaması (`direct_answer`, `steps`, `parameters`, `citations`, `safety_alert`).
 * **Claim-Level Groundedness / Faithfulness:** Yanıtın bağlama sadakatini iddia düzeyinde ölçen metrik:
   $$\text{Faithfulness}(A, C) = \frac{\sum_{i=1}^{N} \mathbb{I}(\text{Verify}(c_i, C))}{N}$$
 * **Citation Precision & Recall:**
@@ -139,7 +139,7 @@ day36/mini_project/
 
 ## Architecture
 
-Aşağıdaki Mermaid akış şeması, operatör sorusunun sisteme gelişinden SCADA uyumlu yapılandırılmış çıktının üretilmesine ve NLI tabanlı alıntı doğrulamasına kadar olan uçtan uca mimariyi göstermektedir:
+Aşağıdaki Mermaid akış şeması, operatör sorusunun sisteme gelişinden Pydantic ile yapılandırılmış çıktının üretilmesine ve NLI tabanlı alıntı doğrulamasına kadar olan uçtan uca mimariyi göstermektedir:
 
 ```mermaid
 flowchart TD
@@ -174,7 +174,7 @@ flowchart TD
     end
 
     subgraph OutputLayer ["Çıktı ve Dağıtım"]
-        GEN_ANS --> CLI["CLI Arayüzü & SCADA Logu"]
+        GEN_ANS --> CLI["CLI Arayüzü & Yapılandırılmış Log"]
         METRICS --> DASHBOARD["4 Panelli Teşhis Paneli (300 DPI)"]
     end
 ```

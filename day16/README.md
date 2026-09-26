@@ -6,7 +6,7 @@
 ---
 
 ## 1. Yönetici Özeti (Executive Summary)
-Merinos Halı Sanayi ve Ticaret A.Ş. üretim tesislerinde, iplik eğirme ve jakarlı dokuma tezgâhlarından toplanan çok boyutlu sensör telemetrisi üzerinden üretim partilerinin kalitesini gerçek zamanlı kestiren **İkili Lojistik Regresyon Kalite Sınıflandırma Altyapısı** geliştirilmiştir. Gerçek üretimde kusur oranının yaklaşık **%10** seviyesinde olduğu dengesiz veri koşullarında, standart $\tau = 0.50$ eşik değerinin yarattığı Tip II Hata (False Negative — Kaçırılan Hata) maliyetleri; **sınıf ağırlıklandırması (`class_weight='balanced'`)**, **Youden's J İstatistiği** ve **Maliyete Duyarlı Eşik Optimizasyonu ($Cost = 10 \cdot FN + 1 \cdot FP$)** ile bertaraf edilmiştir. Model, test verisi üzerinde **ROC-AUC = 1.0000**, **PR-AUC = 1.0000** ve **Brier Skoru = 0.0000** ile kusursuz ayrıştırma sağlamış; Odds Oranı (Odds Ratio) analiziyle kök neden teşhis kabiliyeti sunmuştur.
+Bu çalışmada, tekstil ve dokuma üretim süreçlerinde karşılaşılabilecek kalite kontrol ve arıza senaryolarını modellemek amacıyla üretilen sentetik sensör verileri üzerinde **İkili Lojistik Regresyon Kalite Sınıflandırma PoC'si** geliştirilmiştir. Sentetik veri kümesinde kusur oranının yaklaşık **%10** seviyesinde olduğu dengesiz veri koşullarında, standart $\tau = 0.50$ eşik değerinin yarattığı Tip II Hata (False Negative — Kaçırılan Hata) maliyetleri; **sınıf ağırlıklandırması (`class_weight='balanced'`)**, **Youden's J İstatistiği** ve **Maliyete Duyarlı Eşik Optimizasyonu ($Cost = 10 \cdot FN + 1 \cdot FP$)** ile bertaraf edilmiştir. Model, ayrıştırılabilir sentetik test verisi üzerinde yüksek sınıflandırma başarımı göstermiş; Odds Oranı (Odds Ratio) analiziyle değişkenlerin göreli etkilerini inceleme kabiliyeti sunmuştur. (Gerçek üretim ortamlarında sensör gürültüsü ve çevresel sapmalar nedeniyle saha doğrulaması gerekeceği not edilmiştir.)
 
 ---
 
@@ -193,8 +193,8 @@ python -m day16.mini_project.src.cli predict \
 
 ---
 
-## 13. Üretim Hattı Entegrasyon Senaryosu
-Model, Merinos dokuma tezgâhları üzerindeki endüstriyel PLC ve SCADA sistemlerine OPC-UA veya MQTT protokolü üzerinden bağlanabilir. Her iplik bobini tezgâha takılmadan önce sensör istasyonundan geçen ölçümler CLI `predict` API servisine iletilir. Tahmin edilen arıza olasılığı $P(Y=1 \mid \mathbf{x}) \ge \tau$ ise tezgâh uyarı lambası kırmızıya döner ve operatöre iplik değişim uyarısı verilir.
+## 13. Kavramsal Entegrasyon ve Simülasyon Senaryosu
+Bu çalışma sentetik veriler üzerinde yerel bir PoC olarak yürütülmüştür. Gelecekte gerçek bir endüstriyel üretim ortamına aktarılması durumunda; modelin hafif parametrik yapısı sayesinde OPC-UA/MQTT köprüsü üzerinden beslenen bir çıkarım servisi olarak konumlandırılabileceği, eşik değeri $P(Y=1 \mid \mathbf{x}) \ge \tau$ aşıldığında operatör konsoluna uyarı sinyali iletebilecek bir mimariye dönüştürülebileceği değerlendirilmiştir.
 
 ---
 

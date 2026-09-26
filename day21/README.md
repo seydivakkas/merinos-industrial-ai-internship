@@ -6,21 +6,21 @@
 ---
 
 ## 1. Yönetici Özeti (Executive Summary)
-Merinos Halı Sanayi ve Ticaret A.Ş. Gaziantep 4. Organize Sanayi Bölgesi tesislerinde, dokuma salonlarından SCADA sistemlerine kesintisiz akan sensör telemetrisi çoğunlukla etiketlenmemiş (unlabelled) niteliktedir. **Day 21: Faz 3 Final Sürümü**, hem etiket gerektirmeyen gözetimsiz veri madenciliği ve anomali tespiti mimarisini kurmuş hem de Faz 3 boyunca geliştirilen tüm denetimli modelleri ortak bir endüstriyel test platformunda birleştirerek Faz 3'ü zirveye taşımıştır.
+Bu çalışma kapsamında, üretim süreçlerinde ortaya çıkabilecek büyük ölçekli ve etiketsiz telemetri verilerini simüle eden sentetik bir veri kümesi üzerinde **Gözetimsiz Öğrenme, Boyut İndirgeme ve Anomali Tespiti PoC'si** geliştirilmiştir. **Day 21**, hem etiket gerektirmeyen gözetimsiz veri madenciliği ve anomali tespiti mimarisini kurmuş hem de Faz 3 boyunca geliştirilen tüm denetimli modelleri ortak bir kıyaslama çerçevesinde birleştirerek karşılaştırmıştır.
 
 Bu çalışma kapsamında;
-1. **Gözetimsiz Boyut İndirgeme:** 10 boyutlu endüstriyel telemetri uzayı, **Temel Bileşen Analizi (PCA)** ile doğrusal olarak özetlenmiş; ilk 3 bileşenin toplam varyansın **%77.67'sini**, ilk 8 bileşenin ise **%95.45'ini** açıkladığı doğrulanmıştır. **t-SNE (t-Distributed Stochastic Neighbor Embedding)** ile doğrusal olmayan 2D manifold çıkarılmış ve kusur sınıflarının yüksek ayrışma sergilediği kanıtlanmıştır.
-2. **Gözetimsiz Kümeleme ve Ayrışma Doğrulaması:** **K-Means ($k=4$)** kümeleme algoritması ile veri kümesindeki doğal desenler **0.5122 Silhouette Skoru**, **0.7762 Davies-Bouldin İndeksi**, **2325.29 Calinski-Harabasz Skoru** ve gerçek etiketlerle **1.0000 Adjusted Rand Index (ARI)** seviyesinde kusursuz eşleşmeyle gruplandırılmıştır.
-3. **DBSCAN ile Sıfırıncı Gün Anomali Tespiti:** Yoğunluk tabanlı DBSCAN algoritması, eğitimde etiketsiz olarak verilen 60 adet ekstrem üretim arızasını (motor aşırı yükü, çözgü levendi kopması, ani sıcaklık şoku) **%100 yakalama oranıyla** gürültü ($y=-1$) olarak izole etmiştir.
-4. **Faz 3 Büyük Final Master Benchmark Konsolidasyonu:** Faz 3 (Day 16–20) modelleri (**Multinomial Lojistik Regresyon, Pruned Karar Ağacı, Random Forest, XGBoost, LightGBM, Linear SVM, RBF SVM**), 3.060 numunelik ortak Merinos test kümesinde aynı veri bölüşümüyle koşturulmuş; doğruluk, gecikme (ms), throughput (FPS), bellek ve endüstriyel konuşlandırma katmanları bazında eksiksiz konsolide edilmiştir.
+1. **Gözetimsiz Boyut İndirgeme:** 10 boyutlu sentetik telemetri uzayı, **Temel Bileşen Analizi (PCA)** ile doğrusal olarak özetlenmiş; ilk 3 bileşenin toplam varyansın **%77.67'sini**, ilk 8 bileşenin ise **%95.45'ini** açıkladığı doğrulanmıştır. **t-SNE** ile doğrusal olmayan 2D manifold çıkarılmış ve sentetik kusur sınıflarının ayrışma örüntüleri incelenmiştir.
+2. **Gözetimsiz Kümeleme:** **K-Means ($k=4$)** kümeleme algoritması ile veri kümesindeki doğal desenler Silhouette ve Davies-Bouldin indeksleri üzerinden doğrulanmıştır.
+3. **DBSCAN ile Sıfırıncı Gün Anomali Tespiti:** Yoğunluk tabanlı DBSCAN algoritması, eğitimde etiketsiz olarak verilen 60 adet sentetik ekstrem arıza örneğini (motor aşırı yükü, levend kopması, ani sıcaklık şoku) gürültü ($y=-1$) olarak izole etmiştir.
+4. **Faz 3 Master Benchmark Konsolidasyonu:** Faz 3 (Day 16–20) modelleri (**Multinomial Lojistik Regresyon, Pruned Karar Ağacı, Random Forest, XGBoost, LightGBM, Linear SVM, RBF SVM**), 3.060 numunelik ortak sentetik test kümesinde aynı veri bölüşümüyle koşturulmuş; doğruluk, gecikme (ms), throughput (FPS) ve bellek ayak izi bazında karşılaştırılmıştır.
 
 ---
 
 ## 2. Endüstriyel Problem Tanımı & Motivasyon
-Gaziantep 4. OSB Merinos fabrikalarında yüzlerce Van de Wiele jakarlı dokuma tezgâhı üç vardiya kesintisiz çalışır. Bu endüstriyel ortamda:
-- **Etiketleme Maliyeti:** Her dokunan halı partisinin telemetri verisine operatörlerce anlık etiket girilmesi imkânsızdır. Sistem, etiket olmadan da kumaş kalitesindeki kaymaları ve yeni kusur paternlerini kümeleme yoluyla fark edebilmelidir.
-- **Bilinmeyen / Sıfırıncı Gün Anomalileri:** Önceden tanımlanmış 4 kusur sınıfının (`YARN_BREAKAGE`, `OIL_STAIN`, `JACQUARD_PATTERN_SHIFT`, `BORDER_SEWING_DEFECT`) haricinde mekanik arızalar veya ekstrem ortam koşulları nedeniyle ortaya çıkan sıra dışı sapmalar, denetimli sınıflandırıcıları yanıltabilir. Bu durum yoğunluk tabanlı anomali tespitiyle çözülmelidir.
-- **Model Seçim Kararsızlığı:** Fabrikada her görev için aynı model kullanılamaz. Kenar PLC için mikrodenetleyici düzeyinde ultra-düşük gecikmeli modeller (Pruned DT, Logistic Regression, Linear SVM) gerekirken; merkezi MLOps kalite sunucusunda yüksek genelleme ve gürültü direnci sunan ensemble veya boosting modelleri (Random Forest, XGBoost, LightGBM) gereklidir. Bu nedenle tüm modellerin tek bir nesnel raporda kıyaslanması zorunludur.
+Tekstil ve dokuma tesislerinde çok sayıda sensör ve tezgâh kesintisiz çalışır. Bu endüstriyel bağlamda:
+- **Etiketleme Maliyeti:** Her üretim partisinin telemetri verisine operatörlerce anlık etiket girilmesi zordur. Sistem, etiket olmadan da kumaş kalitesindeki kaymaları ve yeni kusur paternlerini kümeleme yoluyla fark edebilmelidir.
+- **Bilinmeyen / Sıfırıncı Gün Anomalileri:** Önceden tanımlanmış 4 kusur sınıfının haricinde mekanik arızalar veya ekstrem ortam koşulları nedeniyle ortaya çıkan sıra dışı sapmalar, denetimli sınıflandırıcıları yanıltabilir. Bu durum yoğunluk tabanlı anomali tespitiyle çözülmelidir.
+- **Model Seçim Kararsızlığı:** Farklı görevler için farklı modeller gerekir. Yerel uç birimler için ultra-düşük gecikmeli hafif modeller (Pruned DT, Lojistik Regresyon, Linear SVM) uygunken; merkezi analiz katmanında yüksek genelleme sunan topluluk modelleri (Random Forest, XGBoost, LightGBM) tercih edilir. Bu nedenle modellerin tek bir nesnel raporda kıyaslanması zorunludur.
 
 ---
 
@@ -145,13 +145,13 @@ flowchart TD
 
 | Model Adı | Gün Tagı | Algoritmik Paradigma | Test Doğruluğu | Makro F1 | Tekil Çıkarım Gecikmesi | İşlem Kapasitesi (FPS) | Bellek Ayak İzi | Önerilen Endüstriyel Konuşlandırma Katmanı |
 | :--- | :---: | :--- | :---: | :---: | :---: | :---: | :--- | :--- |
-| **Multinomial Logistic Regression** | Day 17 | Doğrusal Hiper-Düzlem (Softmax) | **%100.00** | **1.0000** | **0.0417 ms** | **23,971.2 FPS** | Orta (Düşük Parametre) | SCADA İkincil Denetim & İstatistiksel Raporlama |
-| **Cost-Complexity Pruned Decision Tree** | Day 18 | Eksene Dik Karar Ağacı (Pruned) | %99.50 | 0.9950 | 0.0556 ms | 17,991.4 FPS | En Düşük (Kural Ağacı) | **Kenar PLC / Mikrodenetleyici (Ultra Düşük Gecikme)** |
-| **Random Forest Classifier** | Day 18 | Topluluk Öğrenmesi (Bagging) | %100.00 | 1.0000 | 30.1605 ms | 33.2 FPS | Yüksek (100 Ağaç) | Sunucu / MLOps Kalite Triage Katmanı |
-| **XGBoost Classifier** | Day 19 | Gradient Boosting (Taylor 2. Derece) | %100.00 | 1.0000 | 0.4533 ms | 2,205.8 FPS | Orta-Yüksek | Yüksek Hızlı Kamera Denetim Hattı |
-| **LightGBM Classifier** | Day 19 | Gradient Boosting (Leaf-wise Hist) | %100.00 | 1.0000 | 0.9735 ms | 1,027.2 FPS | Orta (Histogram Sıkıştırma) | Sürekli Yeniden Eğitim (Continuous Retraining) |
-| **Linear Support Vector Machine** | Day 20 | Maksimum Marjin Hiper-Düzlem | %100.00 | 1.0000 | 0.1259 ms | 7,944.9 FPS | En Düşük (Sadece w ve b) | Kenar PLC & Donanımsal FPGA / DSP |
-| **RBF Support Vector Machine** | Day 20 | Çekirdek Hilesi (Sonsuz Hilbert) | %100.00 | 1.0000 | 0.1353 ms | 7,390.8 FPS | Düşük (Destek Vektörleri) | Laboratuvar İplik & Halı Test Cihazları |
+| **Multinomial Logistic Regression** | Day 17 | Doğrusal Hiper-Düzlem (Softmax) | **%100.00** | **1.0000** | **0.0417 ms** | **23,971.2 FPS** | Düşük (Basit Parametre) | Hafif Çıkarım / İstatistiksel Raporlama |
+| **Cost-Complexity Pruned Decision Tree** | Day 18 | Eksene Dik Karar Ağacı (Pruned) | %99.50 | 0.9950 | 0.0556 ms | 17,991.4 FPS | En Düşük (Kural Ağacı) | **Uç Cihaz / Hafif Gömülü Simülasyonu** |
+| **Random Forest Classifier** | Day 18 | Topluluk Öğrenmesi (Bagging) | %100.00 | 1.0000 | 30.1605 ms | 33.2 FPS | Yüksek (100 Ağaç) | Merkezi Analitik ve Kalite Triage Katmanı |
+| **XGBoost Classifier** | Day 19 | Gradient Boosting (Taylor 2. Derece) | %100.00 | 1.0000 | 0.4533 ms | 2,205.8 FPS | Orta-Yüksek | Hızlı Görsel ve Sayısal Denetim Hattı |
+| **LightGBM Classifier** | Day 19 | Gradient Boosting (Leaf-wise Hist) | %100.00 | 1.0000 | 0.9735 ms | 1,027.2 FPS | Orta (Histogram Sıkıştırma) | Hızlı Yeniden Eğitim ve Periyodik Güncelleme |
+| **Linear Support Vector Machine** | Day 20 | Maksimum Marjin Hiper-Düzlem | %100.00 | 1.0000 | 0.1259 ms | 7,944.9 FPS | En Düşük (Sadece w ve b) | Uç Birimler / Donanımsal Hızlandırıcılar |
+| **RBF Support Vector Machine** | Day 20 | Çekirdek Hilesi (Sonsuz Hilbert) | %100.00 | 1.0000 | 0.1353 ms | 7,390.8 FPS | Düşük (Destek Vektörleri) | Doğrusal Olmayan Kalite Denetim Modülü |
 
 ---
 
@@ -274,9 +274,9 @@ Faz 3 kıyaslama bulgularına dayanarak Merinos fabrikasında 4 katmanlı hibrit
 │ Görev: Yüksek Hızlı Optik Kusur Ayrımı, Jakar & Yağ Lekesi Sınıflama  │
 └────────────────────────────────────────────────────────────────────────┘
          │
-         ▼ (Periyodik SCADA Akışı)
+         ▼ (Periyodik Telemetri Akışı)
 ┌────────────────────────────────────────────────────────────────────────┐
-│ KATMAN 3: Gözetimsiz Anomali & Triage Katmanı (SCADA Gateway)          │
+│ KATMAN 3: Gözetimsiz Anomali & Triage Katmanı (Analitik Gateway)       │
 │ Model: DBSCAN & K-Means Canlı Mesafe Denetimi                          │
 │ Görev: Sıfırıncı Gün Mekanik Arızalarının ve Sensör Kopmalarının İkazı│
 └────────────────────────────────────────────────────────────────────────┘

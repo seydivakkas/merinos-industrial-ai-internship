@@ -6,18 +6,18 @@
 ---
 
 ## 1. Yönetici Özeti (Executive Summary)
-Merinos Halı Sanayi ve Ticaret A.Ş. Gaziantep 4. Organize Sanayi Bölgesi tesislerinde, dokuma tezgahı sensör telemetrisi ve iplik kalite test verileri arasındaki arıza sınırlarını en yüksek genelleme başarısı ve geometrik emniyet şeridi ile ayırmak amacıyla **Destek Vektör Makineleri (Support Vector Machines - SVM)** mimarisi devreye alınmıştır.
+Bu çalışma kapsamında, dokuma tezgâhı parametreleri ve arıza sınırlarını geniş marjinli hiper-düzlemlerle ayırmak amacıyla **Destek Vektör Makineleri (Support Vector Machines - SVM)** mimarisi sentetik telemetri verileri üzerinde incelenmiştir.
 
 Bu çalışma kapsamında;
 1. **Maksimum Marjin Ayrımı:** Sınıflar arası ayrım çizgisini rastgele bir hiper-düzlem yerine, en yakın sınır örneklemlerine (Destek Vektörlerine) olan mesafeyi ($\frac{2}{\|\mathbf{w}\|_2}$) maksimize eden optimal geometrik hiper-düzlem olarak kuran SVM sınıflandırıcısı geliştirilmiştir.
-2. **StandardScaler Standartlaştırması:** SVM modellerinin Öklid mesafesi hesaplama hassasiyeti göz önüne alınarak, büyük ölçekli tezgâh devri ($600\text{ RPM}$) ve iplik kalınlığı ($2200\text{ dtex}$) değişkenlerinin küçük ölçekli iplik tüylülüğü ($5.0\text{ H}$) ve sıcaklık ($24^\circ\text{C}$) değişkenlerini ezmesini engelleyen data-leakage korumalı ölçekleme mimarisi kurulmuştur.
+2. **StandardScaler Standartlaştırması:** SVM modellerinin Öklid mesafesi hesaplama hassasiyeti göz önüne alınarak, farklı ölçeklerdeki değişkenlerin birbirini ezmesini engelleyen data-leakage korumalı ölçekleme mimarisi kurulmuştur.
 3. **Çekirdek Hilesi (Kernel Trick) Kıyaslaması:** Doğrusal (Linear), 3. Derece Polinomial (Cubic) ve Sonsuz Boyutlu Gauss (RBF) çekirdekleri uçtan uca eğitilmiş, karşılaştırılmış ve doğrulanmıştır.
-4. **Destek Vektörü ve Seyreklik Analizi:** Karar fonksiyonunu belirleyen aktif örneklem sayıları (`n_support_`) çıkarılmış; Linear SVM'in yalnızca **41 destek vektörü (%1.7 veri seyrekleşmesi)** ile tüm veri kümesini mükemmel özetlediği kanıtlanmıştır.
+4. **Destek Vektörü ve Seyreklik Analizi:** Karar fonksiyonunu belirleyen aktif örneklem sayıları (`n_support_`) incelenmiş; Linear SVM'in yalnızca **41 destek vektörü (%1.7 veri seyrekleşmesi)** ile sentetik veri kümesini etkili biçimde özetlediği gözlemlenmiştir.
 
-3.000 partilik endüstriyel telemetri veri kümesinde ve 600 test numunesinde yürütülen testlerde:
-- Tüm çekirdekler (Linear, Poly, RBF) **%100.00 Test Doğruluğu** ve **1.0000 Makro F1 Skoru** elde etmiştir.
-- **En Sade ve Hızlı Model:** Linear SVM, yalnızca **41 destek vektörü**, **17.3 ms eğitim süresi** ve **0.0589 ms (16.980 FPS)** çıkarım gecikmesiyle gömülü PLC ve yüksek hızlı kamera denetiminde şampiyon model seçilmiştir.
-- **RBF SVM:** $C=10.0$ ve $\gamma='scale'$ parametreleri ile doğrusal olmayan karmaşık sınırları **95 destek vektörü (%4.0)** ile modellemiştir.
+3.000 partilik sentetik telemetri veri kümesinde ve 600 test numunesinde yürütülen testlerde:
+- Tüm çekirdekler (Linear, Poly, RBF) ayrıştırılabilir sentetik test verisi üzerinde yüksek sınıflandırma başarımı elde etmiştir.
+- **Hafif ve Hızlı Model:** Linear SVM, az sayıda destek vektörü ve düşük çıkarım gecikmesiyle gömülü / hafif çıkarım senaryoları için uygun bir aday olduğunu göstermiştir.
+- **RBF SVM:** Doğrusal olmayan karmaşık sınırları esnek biçimde modelleme kabiliyetini ortaya koymuştur. (Sentetik verideki kusursuz ayrımın gerçek fabrika koşullarında gürültülü ve örtüşen sınıflarla test edilmesi gerektiği not edilmiştir.)
 
 ---
 
@@ -261,10 +261,10 @@ python -u -m day20.mini_project.src.cli predict \
 
 ---
 
-## 15. Üretim Hattı & PLC / SCADA Entegrasyon Mimarisi
-Fabrika katındaki konuşlandırmada SVM modelleri benzersiz avantajlar sunar:
-1. **Kenar PLC / Mikrodenetleyici Katmanı (Ultra-Low Latency Edge):** Linear SVM, karar fonksiyonunda yalnızca $\mathbf{w}^T \mathbf{x} + b$ iç çarpımı hesapladığı için **0.058 ms** çıkarım süresi ve sıfır çekirdek matrisi maliyeti ile Yerel C simülasyon ortamı'lere doğrudan C kodu olarak gömülür; tezgâhın milisaniyelik acil durdurma (E-Stop) kararlarında kullanılır.
-2. **Merkezi SCADA / Kalite Denetim Katmanı (Vision & Complex Telemetry):** RBF SVM modeli, daha karmaşık veya çok modlu sensör füzyonu durumlarında yüksek boyutlu ayrım gücü ile parti bazlı kalite sınıflandırması sağlar.
+## 15. Kavramsal Sistem Mimarisi ve Gelecek Entegrasyon Senaryosu
+Geliştirilen modellerin ileride endüstriyel ortama entegrasyonu senaryosunda şu iki katmanlı yapı değerlendirilebilir:
+1. **Kenar / Hafif Çıkarım Katmanı (Edge Simülasyonu):** Linear SVM, karar fonksiyonunda yalnızca $\mathbf{w}^T \mathbf{x} + b$ iç çarpımı hesapladığı için düşük çıkarım süresi ve sıfır çekirdek matrisi maliyeti ile yerel uç cihazlarda hızlı karar desteği sağlamaya uygundur.
+2. **Merkezi Analiz Katmanı (Central Analytics Simülasyonu):** RBF SVM modeli, daha karmaşık veya çok değişkenli sensör füzyonu durumlarında yüksek boyutlu ayrım gücü ile parti bazlı kalite sınıflandırması senaryolarına hizmet edebilir.
 
 ---
 

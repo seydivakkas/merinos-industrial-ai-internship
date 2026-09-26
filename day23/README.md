@@ -69,7 +69,7 @@ flowchart TD
     
     I -->|Tam Çapraz Dikkat & Sigmoid Puanlama| J[2. Aşama: Top-3 Yeniden Sıralı Doküman\nGecikme: +7 ms / Toplam: 48 ms]
     
-    J --> K[Saha Teknisyeni & SCADA Ekranı\nAdım Adım Bakım Protokolü]
+    J --> K[Saha Teknisyeni & Operatör Arayüzü (PoC)\nAdım Adım Bakım Protokolü]
     J --> L[DenseRetrievalEvaluator\n15 Sorguluk Benchmark & Master Panel]
 ```
 
@@ -231,7 +231,7 @@ day23/mini_project/tests/test_dense_retrieval.py::test_dense_retrieval_benchmark
 ## 15. Üretim Hattı & Çok Katmanlı Konuşlandırma Mimarisi
 
 ```
-[Saha Operatör Tableti / SCADA Terminali]
+[Saha Operatör Konsolu / Bakım Ekranı (PoC)]
                    │
                    ▼ (Teknik Arıza Bildirimi)
 ┌─────────────────────────────────────────────────────────────┐

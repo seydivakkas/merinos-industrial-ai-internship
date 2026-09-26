@@ -34,14 +34,14 @@ YAZARIN AÇIK YAZILI İZNİ OLMAKSIZIN HİÇBİR KULLANIM HAKKI TANINMAZ.
 
 ## Goal
 
-Bu çalışmanın amacı, 40 günlük staj boyunca geliştirilen örnek yapay zekâ modüllerini (**Bilgisayarlı Görü**, **Kestirimci Analiz**, **Endüstriyel RAG & Guardrails**, **Yerel Optimizasyon & Servis**) tek bir merkezi orkestrasyon motoru olan **Industrial AI Master Platform** çatısı altında birleştirmektir. Geliştirilen örnek modüllerin kontrolünü sağlamak, iki ana PoC'yi (Görsel Üretim/Analiz ve Doküman RAG) kümülatif olarak değerlendirmek, sistem sağlığı ve İSG güvenlik korkuluklarını yerel ortamda doğrulamak ve staj maratonunun tüm teknik kazanımlarını, sınırlamalarını ve gerçek veriyle ileride yapılabilecek pilotlar için gereksinimleri belgelemektir.
+Bu çalışmanın amacı, 40 günlük staj boyunca geliştirilen örnek yapay zekâ modüllerini (**Bilgisayarlı Görü**, **Klasik Makine Öğrenmesi & Analitik**, **Endüstriyel RAG & Guardrails**, **Yerel Optimizasyon & Servis**) tek bir merkezi konsolidasyon çatısı altında birleştirmektir. Geliştirilen örnek modüllerin doğrulamalarını yapmak, iki ana PoC'yi (Görsel Üretim/Analiz ve Doküman RAG) kümülatif olarak değerlendirmek, sistem sağlığı ve İSG güvenlik korkuluklarını yerel ortamda test etmek ve staj maratonunun tüm teknik kazanımlarını, sınırlamalarını ve gerçek veriyle ileride yapılabilecek pilotlar için gereksinimleri belgelemektir.
 
 ## Engineer Research Assignment
 
-Bir Bilgisayar Mühendisi ve Endüstriyel Yapay Zekâ Stajyeri olarak üstlenilen araştırma ve mühendislik görevleri:
-1. **Çok Modlu Veri Füzyonu (Multimodal Industrial Fusion)**: Heterojen fabrika veri kaynaklarının (zaman serisi sıcaklık/basınç telemetrisi, görüntü işleme tabanlı dokuma kusuru etiketleri, tezgâh PLC hata kodları ve doğal dil operatör sorguları) mikro-saniyeler içinde normalize edilmesi ve birleşik bir semantik bağlamda sentezlenmesi.
-2. **Çift Katmanlı İSG Güvenlik Mimarisi (Guardrail Orchestration)**: Operatörün tehlikeli bir talepte bulunması durumunda (örneğin acil stop butonunu baypas etme veya koruma kapağını devreden çıkarma), talebi pahalı merkezi LLM katmanına göndermeden yerel seviyede < 1 ms gecikmeyle engelleyen girdi güvenlik korkuluğunun (Input Guardrail) ve kılavuz dışı teknik parametreleri filtreleyen çıktı korkuluğunun (Output Guardrail) canlı doğrulanması.
-3. **Edge-to-Cloud Hiyerarşik Çıkarım Mimarisi**: Tezgâh yanı fansız endüstriyel IPC'lerde 0.63 ms gecikmeyle çalışan yerel ONNX INT8 çıkarımı ile merkezi SCADA sunucusunda çalışan BM25+Vektör RAG ve kök neden analizinin uyum içinde koordine edilmesi.
+Bir Bilgisayar Mühendisi olarak staj kapanışında üstlenilen araştırma ve mühendislik görevleri:
+1. **Çok Modlu Veri Füzyonu Simülasyonu (Multimodal Fusion PoC)**: Heterojen veri kaynaklarının (sentetik zaman serisi sıcaklık/basınç telemetrisi, görüntü işleme kusur etiketleri, sentetik arıza kodları ve doğal dil operatör sorguları) normalize edilmesi ve birleşik bir bağlamda sentezlenmesi.
+2. **Çift Katmanlı İSG Güvenlik Mimarisi (Guardrail Orchestration)**: Operatörün tehlikeli bir talepte bulunması durumunda (örneğin acil stop butonunu baypas etme veya koruma kapağını devreden çıkarma), talebi merkezi LLM katmanına göndermeden yerel seviyede engelleyen girdi güvenlik korkuluğunun (Input Guardrail) ve kılavuz dışı teknik parametreleri filtreleyen çıktı korkuluğunun (Output Guardrail) yerel doğrulanması.
+3. **Kavramsal Dağıtım ve Optimizasyon Mimarisi**: Yerel ONNX INT8 çıkarım modülü ile BM25+Vektör hibrit RAG sisteminin uyum içinde koordine edilmesi.
 4. **Parametrik Değerlendirme ve Teorik Senaryo Analitiği**: Varsayımsal fabrika ölçekleri üzerinden olası duruş sürelerinin, verimlilik senaryolarının ve yazılım başarım metriklerinin matematiksel olarak modellenmesi.
 
 ---
@@ -121,10 +121,10 @@ Bir Bilgisayar Mühendisi ve Endüstriyel Yapay Zekâ Stajyeri olarak üstlenile
                                                │
                        ┌───────────────────────┴───────────────────────┐
                        ▼                                               ▼
-         [CANLI TEZGÂH VERİ KAYNAKLARI]                   [GÜVENLİK VE UYUMLULUK KATMANI]
-         • PLC Telemetri (Temp, Pressure)                 • Input Guardrail (İSG Kara Liste)
+         [ÖRNEK SENTETİK VERİ GİRDİLERİ]                   [GÜVENLİK VE UYUMLULUK KATMANI]
+         • Sentetik Telemetri (Temp, Pressure)                 • Input Guardrail (İSG Kara Liste)
          • Hat Üstü Kalite Kamerası (Defects)             • Output Guardrail (Kılavuz Doğrulama)
-         • Operatör SCADA Doğal Dil Soruları              • Rol Tabanlı Yetkilendirme (RBAC)
+         • Operatör Doğal Dil Soruları (Simülasyon)              • Rol Tabanlı Yetkilendirme (RBAC)
                        │                                               │
                        └───────────────────────┬───────────────────────┘
                                                ▼
@@ -134,9 +134,9 @@ Bir Bilgisayar Mühendisi ve Endüstriyel Yapay Zekâ Stajyeri olarak üstlenile
         ┌───────────────────────────────┬──────┴────────────────────────┬──────────────────────┐
         ▼                               ▼                               ▼                      ▼
   [PILLAR 1: VISION]           [PILLAR 2: PREDICTIVE]          [PILLAR 3: RAG & ISG]    [PILLAR 4: EDGE & API]
-  • Renk Uzayı & ΔE00          • Titreşim & Termik Analiz      • Hibrit Arama (BM25+Dense)• ONNX INT8 IPC (<1 ms)
+  • Renk Uzayı & ΔE00          • Titreşim & Termik Analiz      • Hibrit Arama (BM25+Dense)• ONNX INT8 Benchmarks
   • Morfolojik Hata Tespiti    • E-401 Erken Teşhis (ML)       • Cross-Encoder Reranker • FastAPI REST Ağ Geçidi
-  • Halı Görsel Arama          • Üretim Çizelgeleme            • SOP Alıntı Doğrulama   • Streamlit SCADA Paneli
+  • Halı Görsel Arama          • Üretim Çizelgeleme            • SOP Alıntı Doğrulama   • Streamlit Operatör Paneli
   (Gün 01 - 15)                (Gün 16 - 30)                   (Gün 31 - 37)            (Gün 38 - 39)
                                                │
                                                ▼

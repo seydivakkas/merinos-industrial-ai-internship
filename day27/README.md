@@ -18,7 +18,7 @@
 ---
 
 ## Goal
-Bu çalışmanın temel amacı; Merinos Halı Sanayi ve Ticaret A.Ş. bünyesinde devreye alınan teknik standart operasyon prosedürü (SOP), arıza bakım el kitapları ve kalite kontrol kılavuzlarına dayalı Retrieval-Augmented Generation (RAG) mimarilerinin doğruluğunu, getirme kalitesini ve halüsinasyon riskini nesnel biçimde denetlemektir. Dışa bağımlı ve maliyetli bulut API'lerine gerek kalmaksızın çalışan yerel **Ragas Değerlendirme Çerçevesi (Ragas Framework)** ve **RAG Triad** metodolojisiyle, 3 farklı arama yaklaşımı (Vanilla BM25, Dense Vector, Hybrid RRF + Reranked) 20 endüstriyel senaryo üzerinde kapsamlı benchmark testine tabi tutulmuştur.
+Bu çalışmanın temel amacı; tekstil ve dokuma alanındaki sentetik teknik standart operasyon prosedürleri (SOP), arıza bakım kılavuzları ve kalite yönergeleri üzerinde geliştirilen yerel Retrieval-Augmented Generation (RAG) mimarilerinin doğruluğunu, getirme kalitesini ve halüsinasyon riskini nesnel biçimde denetlemektir. Dışa bağımlı ve maliyetli bulut API'lerine gerek kalmaksızın çalışan yerel **Ragas Değerlendirme Çerçevesi (Ragas Framework)** ve **RAG Triad** metodolojisiyle, 3 farklı arama yaklaşımı (Vanilla BM25, Dense Vector, Hybrid RRF + Reranked) 20 sentetik senaryo üzerinde kapsamlı benchmark testine tabi tutulmuştur.
 
 ---
 

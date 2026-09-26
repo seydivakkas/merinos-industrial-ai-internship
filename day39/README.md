@@ -35,16 +35,16 @@ YAZARIN AÇIK YAZILI İZNİ OLMAKSIZIN HİÇBİR KULLANIM HAKKI TANINMAZ.
 
 ## Goal
 
-Gaziantep Merinos Halı Fabrikası dokuma salonundaki yüksek tempolu üretim ortamında, jakarlı halı dokuma tezgâhlarının (Van de Wiele RCE02 ve Schönherr Alpha 400) yanında bulunan fansız Endüstriyel Panel PC (Edge IPC) donanımlarında RAG (Retrieval-Augmented Generation) altyapısının sinir ağı modellerini (Bi-Encoder ve Cross-Encoder) minimum RAM, sıfır harici GPU ve sıfır bulut bağımlılığı ile yerel olarak koşturmaktır. PyTorch modellerini ONNX biçimine derleyerek C++ tabanlı ONNX Runtime yürütme motoruna aktarmak, Post-Training Dynamic INT8 Kuantizasyon (PTQ) ile model boyutlarını %74 oranında sıkıştırmak ve mikro-saniye (< 0.1 ms) gecikmeyle deterministik tezgâh yanı çıkarım sağlamaktır.
+Bu çalışmanın amacı, uç bilişim (edge computing) ve kısıtlı kaynak senaryolarını simüle etmek üzere; RAG altyapısında kullanılan sinir ağı modellerinin (Bi-Encoder ve Cross-Encoder) yerel CPU üzerinde minimum RAM ve harici GPU gereksinimi olmadan koşturulabilirliğini incelemektir. PyTorch modellerinin ONNX biçimine derlenmesi, C++ tabanlı ONNX Runtime yürütme motoruna aktarılması, Post-Training Dynamic INT8 Kuantizasyon (PTQ) ile model boyutlarının yaklaşık %74 oranında sıkıştırılması ve yerel CPU çıkarım gecikmelerinin sentetik benchmark protokolüyle ölçülmesi hedeflenmiştir.
 
 ---
 
 ## Engineer Research Assignment
 
-Bir Bilgisayar Mühendisi ve Endüstriyel Yapay Zekâ Stajyeri olarak üstlenilen araştırma ve geliştirme görevleri:
-1. **Çalışma Zamanı ve Framework Ek Yükünün Bertaraf Edilmesi**: Python yorumlayıcısının (GIL) ve PyTorch çalışma zamanının endüstriyel IPC'lerde yarattığı 300+ MB bellek ve gecikme yükünün incelenmesi; platform bağımsız C++ ONNX motoruna geçiş fizibilitesi.
+Bir Bilgisayar Mühendisi olarak kısıtlı donanımlarda model çalıştırma pratikleri kapsamında üstlenilen araştırma ve geliştirme görevleri:
+1. **Çalışma Zamanı ve Framework Ek Yükünün Bertaraf Edilmesi**: Python yorumlayıcısının (GIL) ve PyTorch çalışma zamanının yarattığı bellek ve gecikme yükünün incelenmesi; platform bağımsız C++ ONNX motoruna geçiş fizibilitesi.
 2. **Kuantizasyon Matematiksel Analizi**: Kayan noktalı (FP32) ağırlık ve dinamik aktivasyonların 8-bitlik işaretli tamsayı ($W_q \in [-128, 127]$) uzayına eşlenirken meydana gelebilecek bilgi kaybı, ölçek ($S$) ve sıfır noktası ($Z$) denklemlerinin simetrik ve asimetrik modlarının analizi.
-3. **Endüstriyel Fansız IPC Kısıtları**: Tekstil tozlarına karşı fansız (fanless) tasarlanan, düşük ısıl tasarım gücüne (TDP < 15W) ve sınırlı çekirdeğe (2-4 thread) sahip gömülü işlemcilerde `intra_op_num_threads` parametresinin gecikme ve işlem hacmi (Throughput) üzerindeki etkisinin modellenmesi.
+3. **Uç Donanım / Fansız IPC Kısıtları Simülasyonu**: Düşük ısıl tasarım gücüne ve sınırlı çekirdeğe sahip gömülü/uç işlemcileri modellemek üzere `intra_op_num_threads` parametresinin gecikme ve işlem hacmi (Throughput) üzerindeki etkisinin yerel CPU'da benchmark edilmesi.
 4. **Semantik Doğruluk ve Kosinüs Sadakati**: INT8 kuantizasyonun doküman getirme ve yeniden sıralama (reranking) adımlarındaki semantik tutarlılık kaybının Kosinüs Benzerliği (Cosine Similarity $\ge \%95$) ve Ortalama Mutlak Hata (MAE) metrikleriyle doğrulanması.
 
 ---

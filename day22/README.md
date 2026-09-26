@@ -6,14 +6,12 @@
 ---
 
 ## 1. Yönetici Özeti (Executive Summary)
-Merinos Halı Sanayi ve Ticaret A.Ş. Gaziantep 4. Organize Sanayi Bölgesi tesislerinde, dokuma tezgâhları, BCF iplik ekstrüzyon hatları, büküm-fikse makineleri ve boyahanelerden oluşan devasa makine parkuru 7/24 kesintisiz üretim yapmaktadır. Üretim hattındaki arızalarda (örn. `ERR-W-204 Atkı Kopması`, `ERR-J-108 Jakar Desen Kayması`) operatörlerin yüzlerce sayfalık teknik el kitapçıkları ve bakım talimatları arasında zaman kaybetmeden doğru müdahale protokolüne ulaşması kritik önem taşır.
-
-**Day 22**, Faz 4 (Retrieval & Hibrit Arama) aşamasının temelini oluşturan **Seyrek Getirme Motoru (Sparse Retrieval Engine)** mimarisini başarıyla devreye almıştır:
-1. **52 Dokümanlık Merinos Teknik Külliyatı:** Van de Wiele jakarlı dokuma tezgâhları, IRO Stella atkı besleyicileri, Bonas elektronik jakar kafaları ve Schlafhorst büküm makinelerine ait 52 adet kapsamlı kurumsal bakım dokümanı hazırlanmıştır.
+Bu çalışma kapsamında, tekstil ve dokuma alanındaki teknik el kitapçıkları, arıza kodları ve bakım talimatları üzerinden bilgi getirme süreçlerini simüle etmek amacıyla **Seyrek Getirme Motoru (Sparse Retrieval Engine) PoC'si** geliştirilmiştir:
+1. **52 Dokümanlık Sentetik Teknik Bakım Doküman Seti:** Halı dokuma ve iplik hazırlık süreçlerini temsil etmek üzere kurgulanmış, sentetik ve açık kaynaklardan esinlenilmiş 52 adet örnek bakım ve arıza talimatı oluşturulmuştur.
 2. **Türkçe Karakter Duyarlı Tokenizasyon & Ters İndeks (Inverted Index):** Türkçe karakter eşleme kurallarını ($I \to \text{ı}, \dot{I} \to \text{i}$) koruyan, noktalama temizleyen, kurumsal durak sözcükleri (stopwords) ayıklayan ve 2-gram destekli tokenizasyon motoru kurulmuştur. Külliyattan 2.978 toplam token ve 1.468 tekil sözlük terimi içeren ters indeks başarıyla inşa edilmiştir.
 3. **Alt Doğrusal TF-IDF ve Okapi BM25:** Terim sıklığı patlamalarını önleyen **Sublinear TF-IDF** (L2 kosinüs normalizasyonlu) ve terim doygunluğu ($k_1=1.5$) ile doküman uzunluk normalizasyonu ($b=0.75$) sağlayan **Okapi BM25** algoritmaları sıfırdan NumPy ile optimize edilerek kodlanmıştır.
-4. **Kapsamlı Bilgi Getirme Kıyaslaması:** 15 standart kurumsal arıza sorgusu üzerinde yapılan testlerde Okapi BM25; **%100.0 Precision@1**, **%100.0 Recall@5**, **1.0000 MRR** ve **1.0000 NDCG@5** skorlarına ulaşmış; TF-IDF'e (MRR: 0.9667, NDCG@5: 0.9742) kıyasla açık bir sıralama üstünlüğü sağlamıştır.
-5. **Ultra Düşük Gecikme:** Okapi BM25 sorgu başına ortalama **0.072 ms** gecikme ve **13.870 QPS (Sorgu/sn)** kapasitesiyle SCADA ve arıza teşhis terminalleri için milisaniyenin altında yanıt üretebilen bir omurga oluşturmuştur.
+4. **Kapsamlı Bilgi Getirme Kıyaslaması:** 15 standart teknik arıza sorgusu üzerinde yapılan testlerde Okapi BM25; **Precision@1**, **Recall@5**, **MRR** ve **NDCG@5** skorlarında TF-IDF'e kıyasla belirgin bir sıralama üstünlüğü sağlamıştır.
+5. **Düşük Gecikme:** Okapi BM25 sorgu başına ortalama **0.072 ms** gibi düşük gecikme ve yüksek sorgu işleme kapasitesiyle yerel bilgi getirme senaryoları için güçlü bir leksikal omurga oluşturmuştur.
 
 ---
 
@@ -79,7 +77,7 @@ flowchart TD
     D --> E1[TFIDFRetrievalEngine\nSublinear TF + Smooth IDF + L2]
     D --> E2[OkapiBM25Engine\nk1=1.5, b=0.75 Probabilistik Sıralama]
     
-    F[Kullanıcı / SCADA Teknik Arıza Sorgusu\nÖrn: Atkı İpliği Kopması IRO Stella] --> B
+    F[Kullanıcı / Operatör Teknik Arıza Sorgusu\nÖrn: Atkı İpliği Kopması IRO Stella] --> B
     B --> G[Query Tokens]
     
     G --> E1
@@ -251,7 +249,7 @@ python -m day22.mini_project.src.cli plot
 Faz 4 boyunca inşa edilecek **Merinos Hibrit RAG Arama Platformu** mimarisi:
 
 ```
-[Kullanıcı Arayüzü / SCADA Arıza Ekranı / El Terminali]
+[Kullanıcı Arayüzü / Operatör Terminali (PoC)]
                          │
                          ▼ (Teknik Arıza Metni)
 ┌────────────────────────────────────────────────────────────────────────┐

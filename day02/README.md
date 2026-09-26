@@ -1,159 +1,156 @@
 # Day 02 — Veri Türleri ve Temel Veri Modelleme
 
-> **Aşama:** Faz 1 — Problem, Veri ve Geliştirme Temelleri (Day 01–08)
+> **Aşama:** Faz 1 — Problem, Veri ve Geliştirme Temelleri (Day 01–08)  
 > **Resmi Staj Defteri Konusu:** Veri Türleri ve Temel Veri Modelleme (Yaprak 3 & 4)
-> **Müfredat Hizalama Durumu:** Bu klasörün mevcut uygulama içeriği yeni müfredatla ayrıca hizalanmalıdır.
 
-[![License: All Rights Reserved](https://img.shields.io/badge/license-All%20Rights%20Reserved-red?style=flat-square)](file:///C:/Users/seydieryilmaz/Desktop/Projeler/Merinos%2040%20G%C3%BCnl%C3%BCk%20Staj%20Deneyimim/merinos-industrial-ai-internship/LICENSE)
-[![Python 3.14+](https://img.shields.io/badge/python-3.14+-blue.svg?style=flat-square)](https://www.python.org/)
-[![Pydantic v2](https://img.shields.io/badge/pydantic-v2.13.3-green.svg?style=flat-square)](https://docs.pydantic.dev/)
-[![Tests](https://img.shields.io/badge/tests-8%20passed-brightgreen.svg?style=flat-square)](file:///C:/Users/seydieryilmaz/Desktop/Projeler/Merinos%2040%20G%C3%BCnl%C3%BCk%20Staj%20Deneyimim/merinos-industrial-ai-internship/day02/mini_project/tests/test_models.py)
+## Goal
+Bu günün amacı, halı tasarım ve üretim süreçlerinde ortaya çıkan heterojen veri yapılarını; yapılandırılmış (structured - tabular CSV katalog kayıtları), yarı yapılandırılmış (semi-structured - hiyerarşik JSON dokümanları) ve yapılandırılmamış (unstructured - görsel piksel matrisleri ve teknik çizimler) veri modelleri olarak kurgulamaktır. Ürünler ile çoklu görseller arasındaki 1-N ilişkilerde referans bütünlüğü (referential integrity) doğrulayıcısı geliştirmek ve Pydantic v2 ile tip denetimli veri sözleşmeleri inşa etmektir.
 
 ---
 
-## 1. Başlık ve Üstveri
-Bu modül, Merinos halı ve iplik fabrikasyon hatlarındaki görsel veri tabanları, ürün katalogları, teknik şartnameler ve multimodal yapay zeka çıkarım (inference) boru hatları için tip güvenli, doğrulanabilir veri modellerinin tasarlanmasını ve JSON Schema dışa aktarımını ele alır.
+## Engineer Research Assignment
+- Tekstil işletmesinde düz tablo (CSV) yapısının değişken sayıda fotoğraf ve etiket içeren halı desenlerini saklamadaki yetersizliklerini ve veri tekrarı risklerini analiz etmek.
+- Hiyerarşik doküman modelinin (JSON) zengin görsel metadata ve tasarım özniteliklerini saklamadaki avantajlarını değerlendirmek.
+- Tabular ürün kayıtları ile görsel varlıklar arasındaki ilişkisel bütünlüğü (referential integrity) çalışma zamanında denetleyen bir algoritma tasarlamak; yetim (orphan) görsel veya var olmayan ürün referanslarını yakalamak.
+- Pydantic v2 ile veri modellerinin JSON Schema (`model_json_schema()`) standartlarına uygun serileştirilmesini sağlamak.
 
-## 2. Günün Hedefi ve Kapsamı
-- **Temel Hedef:** Heterojen üretim ve optik tarama verilerini yapılandırmak; gevşek tipteki Python sözlükleri yerine derleme ve çalışma zamanında sıkı kurallarla doğrulanan Pydantic v2 modelleri inşa etmek.
-- **Kapsam:**
-  - Halı fiziksel geometrisi (`CarpetDimensions`), optik kamera metadata'sı (`IndustrialImageMetadata`), kurumsal ürün kimliği (`CarpetProduct`), teknik şartname dokümanları (`TechnicalDocument`) ve multimodal AI çıkarım kontratları (`InferenceRequest`, `InferenceResponse`).
-  - Regex tabanlı kimlik (ID) ve hex renk paleti denetimleri.
-  - Rust tabanlı `pydantic-core` ile yüksek hızlı serileştirme ve OpenAPI/JSON Schema dışa aktarımı.
+---
 
-## 3. Mühendislik Araştırma Görevi
-Endüstriyel yapay zeka sistemlerinde "Garbage In, Garbage Out" (GIGO) prensibi doğrudan maliyet ve kalite kaybı demektir. Bir fabrikasyon ortamında kamera tarayıcısından gelen görüntünün kanalları (RGB/BGR/Grayscale), çözünürlüğü, piksel/inç yoğunluğu (DPI) veya en-boy oranı yanlış parse edilirse:
-1. Derin öğrenme modeli tensör boyut uyuşmazlığı (`DimensionMismatch`) ile çöker.
-2. Otomatik dokuma tezgâhına hatalı kesim parametreleri aktarılır.
-3. RAG tabanlı teknik arama motoru yanlış halı serisine yönlenir.
+## Concepts
+- **Yapılandırılmış Veri (Structured Data):** Sabit kolonlu, tip tanımlı düz veri yapıları (halı en, boy, koleksiyon, ana renk bilgisi).
+- **Yarı Yapılandırılmış Veri (Semi-Structured Data):** Esnek, iç içe geçebilen, değişken sayıda alt nesne barındıran hiyerarşik yapılar (JSON katalog formatı).
+- **Yapılandırılmamış Veri (Unstructured Data):** Piksel dizileri, tarayıcı/kamera ham çıktıları veya teknik serbest metinler.
+- **Referans Bütünlüğü (Referential Integrity):** Bir ürünün referans verdiği görsel kimliklerinin gerçekte var olup olmadığını garanti eden bütünlük kuralı.
+- **Şema Dönüşümü (Schema Transformation):** Düz tabular satırların ve ilişkili görsel metadata nesnelerinin birleşik bir doküman modeline dönüştürülmesi.
 
-Bu nedenle mühendislik araştırmamız:
-- Standart `dataclasses`, `NamedTuple` ve Pydantic v2 arasındaki bellek kullanımı, doğrulama overhead'i ve serileştirme hızı farklarını analiz etmeye odaklanmıştır.
+---
 
-## 4. Teorik ve Kavramsal Altyapı
-### Geometrik ve Optik Kısıtlar
-1. **En-Boy Oranı Sınırları (Aspect Ratio, $\alpha$):**
-   $$\alpha = \frac{\text{length\_cm}}{\text{width\_cm}}$$
-   Endüstriyel üretim hattında rulo ve standart dokuma halılar için geçerli fiziksel oran: $0.3 \le \alpha \le 5.0$.
-2. **Optik Çözünürlük ve Örnekleme Teoremi:**
-   Halı ilmek sıklığı (knot density) $\ge 10 \text{ dm}^2$ ve tarama çözünürlüğü $\ge 72 \text{ DPI}$ olmalıdır.
-3. **Hex Renk Paleti:**
-   $$C \in \{\#RRGGBB \mid R, G, B \in [00, FF]\}$$
-   Her renk 7 karakter uzunluğunda olmalı ve geçerli onaltılık karakterlerden oluşmalıdır.
+## Libraries
+- `pydantic` (v2): Tip güvenliği, model validatörleri ve JSON Schema dışa aktarımı.
+- `typing`, `enum`: Tip ipuçları ve ayrık durum kümeleri (ColorSpace, Material, StructureType).
+- `pathlib`: Dosya ve dizin yolu soyutlaması.
+- `json`: JSON serileştirme ve standart veri alışverişi.
+- `pytest`: Doğrulama ve model sınır testleri.
 
-## 5. Kullanılan Kütüphaneler ve Seçim Gerekçeleri
-- **Pydantic (v2.13.3):** Rust ile yazılmış `pydantic-core` motoru sayesinde Python seviyesinde döngü çalıştırmadan C-hızında doğrulama sağlar. OpenAPI 3.1 uyumlu JSON Schema üretir.
-- **pytest (9.0.3):** Katı sınır ve geçersiz veri testlerini doğrulamak için kullanıldı.
-- **Python dataclasses / timeit:** Benchmark karşılaştırmaları için referans olarak kullanıldı.
+---
 
-## 6. Temel Fonksiyonlar ve Sınıflar
-- `IndustrialImageMetadata`: Görüntü boyutu, renk uzayı, DPI ve ilmek yoğunluğunu denetler.
-- `CarpetDimensions`: En, boy, hav yüksekliği ve en-boy oranını doğrular.
-- `CarpetProduct`: Regex şablonlu ürün kodu (`MER-XXX-XXXX`), koleksiyon, malzeme ve hex renk paletini yönetir.
-- `TechnicalDocument`: `frozen=True` ile değiştirilemez (immutable) teknik şartname modeli.
-- `InferenceRequest` & `InferenceResponse`: Multimodal model çıkarım API sözleşmeleri.
-- `create_sample_models()`: Örnek geçerli endüstriyel modeller üretir.
-- `export_all_schemas()`: Tüm modellerin JSON Schema tanımlarını tek bir JSON dosyasında toplar.
+## Functions / Classes Studied
+- `pydantic.BaseModel`, `pydantic.Field`, `pydantic.ConfigDict`
+- `pydantic.field_validator`, `pydantic.model_validator`
+- `BaseModel.model_dump()`, `BaseModel.model_dump_json()`, `BaseModel.model_json_schema()`
+- `SchemaTransformer.add_product()`, `SchemaTransformer.add_asset()`
+- `SchemaTransformer.link_product_to_images()`, `SchemaTransformer.validate_referential_integrity()`
+- `SchemaTransformer.build_composite_catalog()`
 
-## 7. Notebook İncelemesi
-`day02_pydantic_data_models.ipynb` 10 standart bölümden oluşmaktadır:
-1. Problem Tanımı ve Mühendislik Motivasyonu
-2. Neden Önemli? (Endüstriyel Etki & İş Değeri)
-3. Matematiksel ve Kavramsal Temeller
-4. Kütüphane ve Araç İncelemesi (Pydantic v2 vs Alternatives)
-5. Minimal Çalışır Kod
-6. Deneyler ve Performans Analizi (20,000 nesne ile dict vs dataclass vs Pydantic)
-7. Görselleştirme ve JSON Schema Yapısı
-8. Doğrulama ve Testler (Roundtrip serileştirme)
-9. Hata Durumları ve Uç Senaryolar (Anormal oranlar, geçersiz hex kodları)
-10. Mühendislik Çıkarımları ve Sonraki Adım
+---
 
-## 8. Mini Proje Mimarisi ve Kod Açıklaması
-Mini proje `day02/mini_project/` dizininde modüler bir kütüphane ve CLI aracı olarak yapılandırılmıştır:
-- `configs/models_config.json`: Kabul edilebilir en-boy aralıkları, çözünürlük alt/üst limitleri ve regex desenlerini içerir.
-- `src/models.py`: Tüm Pydantic modellerini, custom validator'ları ve istisnaları barındırır.
-- `src/serializer.py`: Örnek nesneleri serileştirir ve şemaları dışa aktarır.
-- `tests/test_models.py`: 8 birim test ile sınır ve hata durumlarını garanti eder.
+## Notebook
+- **Dosya:** [`day02_veri_turleri_ve_modelleme.ipynb`](day02_veri_turleri_ve_modelleme.ipynb)
+- **Kapsam:** 10 standart bölüm (Problem, Neden Önemli, Mühendislik Kavramları, Kütüphane İncelemesi, Minimal Uygulama, Deney, Görselleştirme, Doğrulama, Hata Senaryoları, Sonuç). Düz CSV, ilişkisel bağlantılar ve hiyerarşik JSON dönüşümünü adım adım inceler.
 
-## 9. Sistem Mimarisi ve Veri Akışı Diyagramı
+---
 
-```mermaid
-flowchart TD
-    A["Ham Endüstriyel Veri (Kamera / MES / JSON)"] --> B["Pydantic Doğrulama Katmanı (Rust Core)"]
-    B -->|Hatalı Veri| C["ValidationError / ModelValidationError (Log & Alert)"]
-    B -->|Geçerli Veri| D["Tip Güvenli Python Nesnesi (Immutable / Validated)"]
-    D --> E["Vektör Veritabanı (Qdrant Metadata Payload)"]
-    D --> F["AI Çıkarım Servisi (Inference Pipeline)"]
-    D --> G["OpenAPI / JSON Schema (Swagger & Frontend)"]
+## Mini Project
+- **Dizin:** [`mini_project/`](mini_project/)
+- **Adı:** `data-types-and-modeling`
+- **Modüller:**
+  - `src/models.py`: `ProductTabularRecord`, `VisualAssetMetadata`, `ProductVisualRelationship`, `ProductCompositeCatalog`, `CarpetProduct`, `IndustrialImageMetadata`, `InferenceRequest`, `InferenceResponse`.
+  - `src/schema_transformer.py`: Tabular veriler ile görsel varlıkları birleştiren ve referans bütünlüğünü denetleyen dönüştürücü sınıf.
+  - `src/serializer.py`: Pydantic modellerinden JSON şema ve örnek veri üreten serileştirme aracı.
+  - `tests/test_data_models.py`: Veri türleri dönüşümü ve referans bütünlüğü testleri.
+  - `tests/test_models.py`: Pydantic model sınır ve validasyon testleri.
+  - `outputs/`: Üretilen JSON şemalar ve örnek katalog dosyaları.
+
+---
+
+## Architecture
 ```
-
-## 10. Deneyler, Parametreler ve Karşılaştırmalar
-Notebook üzerinde 20.000 nesne üretilerek yapılan mikro-benchmark sonuçları:
-- **Standart `dict`:** ~1.5 - 2.0 ms (Doğrulama ve tip denetimi yok)
-- **Standart `dataclass`:** ~4.0 - 5.0 ms (Sadece alan ataması, kural denetimi yok)
-- **Pydantic v2:** ~25.0 - 35.0 ms (Tüm regex, sınır ve tip kontrolleri aktif halde saniyede >600.000 işlem kapasitesi)
-
-## 11. Doğrulama, Testler ve Kalite Metrikleri
-8 birim test çalıştırılmış ve tamamı geçmiştir:
-```bash
-python -m pytest day02/mini_project/tests/ -v
-```
-Test kapsamı:
-- `test_valid_image_metadata`: Geçerli görüntü metadata oluşturma
-- `test_invalid_image_metadata_channels_and_resolution`: Hatalı kanal sayısı ve sıfır çözünürlük reddi
-- `test_carpet_dimensions_and_aspect_sanity`: Negatif boyut ve uç en-boy oranı reddi
-- `test_valid_carpet_product`: Geçerli ürün modeli ve nested dimension doğrulama
-- `test_invalid_carpet_product_id_and_hex_palette`: Yanlış ID formatı ve hatalı hex rengi reddi
-- `test_technical_document_immutability`: İmmutable nesnede alan değiştirme teşebbüsünün engellenmesi
-- `test_inference_request_validation`: `top_k` ve `min_confidence` sınır kontrolleri
-- `test_sample_models_and_json_schemas`: Serileştirme ve JSON Schema üretimi
-
-## 12. Çıktılar ve Sonuçlar
-- `day02/mini_project/outputs/sample_models.json`: Serileştirilmiş tam doğrulanmış örnek nesneler.
-- `day02/mini_project/outputs/schemas.json`: Tüm sistem modellerinin JSON Schema spesifikasyonları.
-
-## 13. Karşılaşılan Zorluklar, Limitler ve Çözümler
-- **Zorluk:** Pydantic v1'den v2'ye geçerken `@validator` yerine `@field_validator` ve `@root_validator` yerine `@model_validator(mode="after")` kullanılması gerekliliği.
-- **Çözüm:** Modern Pydantic v2 standardı ve `ConfigDict` sözdizimi kullanılarak uyumluluk ve performans sağlandı.
-
-## 14. Dosya Ağacı ve Dizin Yapısı
-```bash
 day02/
 ├── README.md
-├── day02_pydantic_data_models.ipynb
+├── day02_veri_turleri_ve_modelleme.ipynb
 └── mini_project/
     ├── README.md
     ├── configs/
-    │   └── models_config.json
     ├── src/
     │   ├── __init__.py
     │   ├── models.py
+    │   ├── schema_transformer.py
     │   └── serializer.py
     ├── tests/
     │   ├── __init__.py
+    │   ├── test_data_models.py
     │   └── test_models.py
     └── outputs/
-        ├── sample_models.json
-        └── schemas.json
+        ├── composite_catalog.json
+        └── schemas/
 ```
 
-## 15. Nasıl Çalıştırılır?
+---
+
+## Experiments
+1. **Referans Bütünlüğü ve Yetim Kayıt Tespiti:**
+   - Var olan bir ürüne sistemde bulunmayan `IMG-999` görsel ID'si bağlandığında `validate_referential_integrity()` metodu hatayı yakaladı ve `False` döndürdü.
+2. **Tabular $\to$ Hiyerarşik JSON Dönüşümü:**
+   - 1 satırlık `ProductTabularRecord` ile 2 adet `VisualAssetMetadata` nesnesi, tek bir `ProductCompositeCatalog` JSON hiyerarşisinde başarıyla birleştirildi.
+3. **Pydantic Model Doğrulama:**
+   - Negatif piksel boyutları, geçersiz renk uzayları ve sınır dışı en-boy oranları çalışma zamanında engellendi.
+
+---
+
+## Validation
+- Pytest ile 11 adet birim test icra edildi:
+  - `test_product_tabular_and_visual_asset_creation`
+  - `test_referential_integrity_success`
+  - `test_referential_integrity_missing_image`
+  - `test_composite_catalog_generation_and_export`
+  - `test_image_metadata_validation`
+  - `test_carpet_dimensions_validation`
+  - `test_carpet_product_validation`
+  - `test_inference_request_validation`
+  - `test_inference_response_validation`
+  - `test_model_json_schema_export`
+  - `test_invalid_inputs_raise_errors`
+- Tüm testler **%100 başarıyla (11 passed)** geçti.
+
+---
+
+## Results
+- Heterojen veri türleri tekilleştirilmiş, referans bütünlüğü garanti altına alınmış ve hiyerarşik JSON doküman dönüşümü doğrulanmıştır.
+- JSON şemaları `mini_project/outputs/schemas/` altına dışa aktarılmıştır.
+
+---
+
+## Limitations
+- Bu aşamada veriler yerel bellek (in-memory) üzerinde ve JSON dosyalarında işlenmiştir; kalıcı SQL/NoSQL veritabanı sürücüsü entegrasyonu sonraki aşamalara bırakılmıştır.
+- Tüm veri tipleri ve şemalar sentetik halı üretim modelleriyle test edilmiştir.
+
+---
+
+## Files
+- `day02/README.md`
+- `day02/day02_veri_turleri_ve_modelleme.ipynb`
+- `day02/mini_project/README.md`
+- `day02/mini_project/src/__init__.py`
+- `day02/mini_project/src/models.py`
+- `day02/mini_project/src/schema_transformer.py`
+- `day02/mini_project/src/serializer.py`
+- `day02/mini_project/tests/__init__.py`
+- `day02/mini_project/tests/test_data_models.py`
+- `day02/mini_project/tests/test_models.py`
+- `day02/mini_project/outputs/composite_catalog.json`
+
+---
+
+## How to Run
 ```bash
-# Testleri koşturmak için:
-python -m pytest day02/mini_project/tests/ -v
-
-# Örnek modelleri ve şemaları üretmek için:
+# JSON şemalarını ve örnek modelleri üretme
 python day02/mini_project/src/serializer.py
+
+# Birim testleri koşma
+pytest day02/mini_project/tests/ -v
 ```
 
-## 16. Bir Sonraki Güne Bağlantı
-Day 03 — Problemin Bilgisayar Mühendisliği Açısından Tanımlanması), bu Pydantic modelleri temel alınarak fabrikasyon logları, CSV ve JSON dosyalarından gelen kirli üretim verilerini normalize eden ve temizleyen bir ETL boru hattı inşa edilecektir.
+---
 
-## 17. AI Coding Agent Prompt Şablonu
-```markdown
-Day 02 bağlamında bir veri doğrulama bileşeni geliştirmek için:
-"Merinos endüstriyel halı desenleri için Pydantic v2 kullanarak; en [20, 1200] cm,
-boy [20, 1200] cm, hav yüksekliği [1, 50] mm, en-boy oranı [0.3, 5.0] kısıtlarını
-doğrulayan ve MER-XXX-XXXX formatındaki ürün kimliğini regex ile denetleyen katı
-bir CarpetProduct modeli ve JSON Schema dışa aktarıcısı oluştur."
-```
+## Next Day
+- **Day 03:** Problemin Bilgisayar Mühendisliği Açısından Tanımlanması — Girdi, çıktı, başarı ölçütü ve sezgisel baseline karşılaştırmaları.

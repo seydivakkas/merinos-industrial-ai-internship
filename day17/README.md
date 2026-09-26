@@ -6,7 +6,7 @@
 ---
 
 ## 1. Yönetici Özeti (Executive Summary)
-Merinos Halı Sanayi ve Ticaret A.Ş. üretim tesislerinde, ikili kalite sınıflandırmasının ötesine geçilerek dokuma tezgâhlarında oluşan arızaları **kök nedenlerine göre 4 ana sınıfa** (İplik Kopması, Yağ Lekesi, Jakar Desen Kayması, Kenar Dikiş Hatası) anında ayrıştıran **Çok Sınıflı Kusur Sınıflandırma ve Triage Motoru** geliştirilmiştir. Sistem kapsamında **Softmax Multinomial Lojistik Regresyon** ve **One-vs-Rest (OvR)** mimarileri başarım, çıkarım gecikmesi ve olasılık kalibrasyonu açılarından kıyaslanmıştır. Model, test kümesi üzerinde **%100.0 Genel Doğruluk**, **1.0000 Makro F1-Skoru**, **1.0000 Cohen's Kappa** ve **1.0000 Makro OvR ROC-AUC** başarımına ulaşmış; Softmax mimarisi tekil çıkarımda **0.0001 ms (9.7M FPS)** gecikmeyle canlı hat için optimum omurga olarak seçilmiştir.
+Bu çalışmada, tekstil ve dokuma süreçlerinde karşılaşılabilecek arıza tiplerini simüle etmek üzere üretilen sentetik bir veri kümesi üzerinde **Çok Sınıflı Kusur Sınıflandırma ve Triage PoC'si** geliştirilmiştir. Sistem kapsamında 4 sentetik kusur sınıfı (İplik Kopması, Yağ Lekesi, Jakar Desen Kayması, Kenar Dikiş Hatası) üzerinde **Softmax Multinomial Lojistik Regresyon** ve **One-vs-Rest (OvR)** mimarileri başarım, çıkarım gecikmesi ve olasılık kalibrasyonu açılarından kıyaslanmıştır. Sentetik ve ayrışabilir nitelikteki test kümesi üzerinde Softmax mimarisi yüksek doğruluk ve ihmal edilebilir hesaplama yükü sergileyerek hafif parametre yapısıyla gerçek zamanlı senaryolar için uygun bir baseline oluşturmuştur. (Sentetik veri kümesindeki yüksek ayrımın gerçek fabrika ortamlarındaki sensör sapmaları ve çevresel gürültüler altında yeniden test edilmesi gerektiği bir kısıt olarak belgelenmiştir.)
 
 ---
 
@@ -119,7 +119,7 @@ Dengesiz çok sınıflı problemlerde modelin sadece baskın sınıflarda değil
 | **Makro ROC-AUC (OvR)** | **1.0000** | **1.0000** | Eşit |
 | **Model Eğitim Süresi** | **8.08 ms** | **14.15 ms** | 🏆 **Softmax (%42.9 Daha Hızlı)** |
 | **Tekil Çıkarım Gecikmesi** | **0.0001 ms** | **0.0004 ms** | 🏆 **Softmax (4 Kat Daha Düşük Gecikme)** |
-| **Çıkarım Kapasitesi (Throughput)**| **9,751,974 FPS** | **2,568,493 FPS** | 🏆 **Softmax (Canlı Hat İçin İdeal)** |
+| **Çıkarım Kapasitesi (Throughput)**| **9,751,974 FPS** | **2,568,493 FPS** | 🏆 **Softmax (Hafif Çıkarım İçin İdeal)** |
 
 ---
 
@@ -188,8 +188,8 @@ python -m day17.mini_project.src.cli predict \
 
 ---
 
-## 13. Üretim Hattı & PLC Entegrasyon Mimarisi
-Fabrikadaki tezgâh kontrol panellerine OPC-UA üzerinden bağlanan model, her dokuma partisinin sensör ölçümlerini alır. Softmax modelinden çıkan sınıf olasılıkları $\mathbf{p} = [p_0, p_1, p_2, p_3]$ değerlendirilir. En yüksek olasılığa sahip sınıf için ilgili bakım birimine (Mekanik Bakım, İplik Tedarik, Elektrik-Otomasyon) otomatik iş emri (triage ticket) açılır.
+## 13. Kavramsal Entegrasyon ve Simülasyon Mimarisi
+Geliştirilen model yerel bir PoC olarak test edilmiştir. Teorik bir entegrasyon senaryosunda; tezgâh kontrol panellerinden OPC-UA gibi endüstriyel protokollerle iletilen telemetri ölçümleri model servisine aktarılabilir, Softmax olasılıkları $\mathbf{p} = [p_0, p_1, p_2, p_3]$ üzerinden en olası kusur türüne göre ilgili bakım birimine (Mekanik Bakım, İplik Hazırlık, Elektrik-Otomasyon) simüle edilmiş triage kaydı açılabilir.
 
 ---
 

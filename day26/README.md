@@ -73,7 +73,7 @@ Geliştirilen ve tüm hücre çıktıları eksiksiz üretilen [`day26_vector_dat
 7. **Görselleştirme:** 2x2 Master Tanı Panelinin çizdirilmesi ve kaydedilmesi.
 8. **Doğrulama:** HNSW'nin %100.0 Recall@5 başarımı ve SQ8'in %64 bellek tasarrufunun teyit edilmesi.
 9. **Başarısızlık Durumları:** Düşük filtre seçiciliğinde Post-filtering kaynaklı boş sonuç hataları ve persentil kırpma ihtiyacı.
-10. **Sonuçlar:** Üretim hattı SCADA ve RAG mikroservisleri için en uygun indeks mimarisinin seçimi.
+10. **Sonuçlar:** Teknik doküman RAG mikroservisi ve yerel arama mimarisi için en uygun indeks yapısının seçimi.
 
 ---
 

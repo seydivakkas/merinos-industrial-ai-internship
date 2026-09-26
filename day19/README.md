@@ -6,18 +6,18 @@
 ---
 
 ## 1. Yönetici Özeti (Executive Summary)
-Merinos Halı Sanayi ve Ticaret A.Ş. Gaziantep 4. Organize Sanayi Bölgesi tesislerinde, dokuma tezgahı sensör telemetrisi ve iplik laboratuvar parametreleri arasındaki karmaşık ve doğrusal olmayan arıza dinamiklerini milisaniye mertebesinde sınıflandırmak amacıyla dünyanın en güçlü iki **Gradient Tree Boosting** mimarisi (**XGBoost** ve **LightGBM**) uçtan uca devreye alınmıştır.
+Bu çalışma kapsamında, dokuma ve tekstil süreçlerindeki parametre etkileşimlerini modellemek amacıyla popüler **Gradient Tree Boosting** mimarileri (**XGBoost** ve **LightGBM**) sentetik veri üzerinde incelenmiş ve karşılaştırılmıştır.
 
 Bu çalışma kapsamında;
 1. **Sıralı Artık Öğrenmesi (Additive Boosting):** Bağımsız ağaçların ortalamasını alan Random Forest'tan (Bagging) farklı olarak, her yeni karar ağacının önceki modellerin negatif gradyanlarını (artıklarını) hedef aldığı boosting mimarisi kurulmuştur.
 2. **2. Derece Taylor Optimizasyonu (XGBoost):** Kayıp fonksiyonunu 1. derece (gradyan $g_i$) ve 2. derece (Hessian $h_i$) türevleriyle yaklaşıkleyen ve L2 yaprak ağırlık regülarizasyonu ($\lambda, \gamma$) uygulayan XGBoost sınıflandırıcısı geliştirilmiştir.
-3. **Yaprak Odaklı Histogram Büyümesi (LightGBM):** Geleneksel seviye odaklı (level-wise) büyüme yerine kayıp azaltımını maksimize eden yaprak odaklı (leaf-wise) büyüme ve 256 kutulu histogram algoritması kullanan LightGBM sınıflandırıcısı entegre edilmiştir.
-4. **Erken Durdurma (Early Stopping):** 3 yönlü tabakalı bölme (%70 Eğitim, %15 Doğrulama, %15 Test) üzerinde doğrulama kaybı (multi-class log-loss) anlık izlenmiş; aşırı öğrenme engellenerek optimal iterasyonda model dondurulmuştur.
+3. **Yaprak Odaklı Histogram Büyümesi (LightGBM):** Geleneksel seviye odaklı (level-wise) büyüme yerine kayıp azaltımını maksimize eden yaprak odaklı (leaf-wise) büyüme ve histogram algoritması kullanan LightGBM sınıflandırıcısı entegre edilmiştir.
+4. **Erken Durdurma (Early Stopping):** 3 yönlü tabakalı bölme (%70 Eğitim, %15 Doğrulama, %15 Test) üzerinde doğrulama kaybı (multi-class log-loss) anlık izlenmiş; aşırı öğrenme engellenerek optimal iterasyonda model durdurulmuştur.
 
-3.000 partilik endüstriyel telemetri veri kümesinde yürütülen testlerde:
-- Hem XGBoost hem de LightGBM **%100.00 Test Doğruluğu** ve **1.0000 Makro F1 Skoru** elde etmiştir.
-- **Eğitim Hızı:** LightGBM, histogram binleme avantajıyla XGBoost'a göre **1.13 kat daha hızlı (408.5 ms vs 460.4 ms)** eğitilmiştir.
-- **Çıkarım Gecikmesi:** XGBoost, tekil örneklem çıkarımında **1.09 ms (917.4 FPS)** gecikmeyle LightGBM'e (1.49 ms / 671.2 FPS) göre **1.36 kat daha düşük gecikme** sunmuştur.
+3.000 partilik sentetik telemetri veri kümesinde yürütülen testlerde:
+- Hem XGBoost hem de LightGBM ayrıştırılabilir sentetik test verisi üzerinde yüksek doğruluk sergilemiştir.
+- **Eğitim Hızı:** LightGBM, histogram tabanlı ayrım avantajıyla XGBoost'a göre daha hızlı bir eğitim süresi ortaya koymuştur.
+- **Çıkarım Gecikmesi:** Her iki model de yerel ortamda tekil çıkarımlarda milisaniye seviyesinde yanıt süreleri sunmuştur. (Elde edilen yüksek başarımların sentetik veri koşullarına bağlı olduğu, gerçek sahada gürültülü telemetriyle pilot çalışma gerektireceği not edilmiştir.)
 
 ---
 
@@ -265,10 +265,10 @@ python -u -m day19.mini_project.src.cli predict \
 
 ---
 
-## 15. Üretim Hattı & PLC / SCADA Entegrasyon Mimarisi
-Fabrika katında çift katmanlı MLOps dağıtım stratejisi:
-1. **Kenar Çıkarım Katmanı (Edge Line Worker):** XGBoost modeli, **1.09 ms** tekil gecikmesi ve **917 FPS** throughput değeri sayesinde tezgâh üstü endüstriyel PC'lere (IPC) veya Jetson modüllerine yerleştirilir; tezgâh 1 tur dönmeden önce ($100\text{ ms}$) kararı üreterek acil durdurma (E-Stop) sinyali üretir.
-2. **Merkezi SCADA / Model Yeniden Eğitim Katmanı (Central Cloud / On-Prem MLOps):** LightGBM modeli, **408 ms** gibi rekor eğitim hızı ve düşük bellek ayak izi sayesinde her vardiya sonunda biriken telemetri verileriyle otomatik yeniden eğitilir (Continuous Retraining).
+## 15. Kavramsal Sistem Mimarisi ve Gelecek Dağıtım Senaryosu
+Geliştirilen modellerin gelecekte endüstriyel ortama entegrasyonu senaryosunda şu iki katmanlı yaklaşım değerlendirilebilir:
+1. **Kenar Çıkarım Katmanı (Edge Worker Simülasyonu):** XGBoost modeli, düşük tekil çıkarım gecikmesi sayesinde yerel endüstriyel uç cihazlarda veya tezgâh yanı denetleyicilerde hızlı karar desteği için aday bir mimaridir.
+2. **Merkezi Analiz ve Yeniden Eğitim Katmanı (Central Analytics Simülasyonu):** LightGBM modeli, hızlı eğitim süresi ve düşük bellek tüketimi sayesinde yeni veri biriktikçe periyodik model tazeleme (retraining) senaryoları için uygun bir seçenek sunar.
 
 ---
 

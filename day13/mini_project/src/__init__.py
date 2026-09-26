@@ -1,6 +1,6 @@
 """
 Merinos Halı Sanayi ve Ticaret A.Ş. — Day 13
-Klasik Segmentasyon Kıyaslaması Paketi (Otsu, Watershed, GrabCut)
+Morfolojik İşlemler, Kenar ve Çizgi Tespiti Paketi
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 Özel Lisans — Tüm Hakları Saklıdır.
@@ -17,10 +17,12 @@ from .models import (
     SegmentationClass,
     SegmentationMethod,
 )
+from .morphology_lines import MorphologyEdgeEngine
 from .otsu_segmenter import OtsuSegmenter
 from .watershed_segmenter import WatershedSegmenter
 
 __all__ = [
+    "MorphologyEdgeEngine",
     "OtsuSegmenter",
     "WatershedSegmenter",
     "GrabCutSegmenter",
