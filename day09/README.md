@@ -50,12 +50,19 @@ Bu günün amacı, Merinos halı üretim hatlarındaki optik muayene kameraları
 
 ## Mini Project
 - **Dizin:** [`mini_project/`](mini_project/)
-- **Adı:** `opencv-image-preprocessing`
+- **Adı:** `opencv-image-analytics-toolkit`
 - **Modüller:**
   - `src/image_preprocessor.py`: `ImagePreprocessor` sınıfı (Resize, Grayscale, Gauss Blur, CLAHE).
-  - `src/kmeans_palette.py`, `src/ciede2000.py`, `src/color_models.py`: Destekleyici renk analiz bileşenleri.
+  - `src/io_validator.py`: `ImageIOValidator` Unicode güvenli okuma/yazma ve meta veri çıkarıcı.
+  - `src/color_spaces.py`: `ColorSpaceConverter` renk uzayı dönüşümleri ve kanal istatistikleri.
+  - `src/filters.py`: `IndustrialFilterPipeline` Gauss, Medyan, Bilateral ve Unsharp Mask filtreleri.
+  - `src/equalization.py`: `HistogramEqualizer` Global HE ve CLAHE (CIELAB L* ve YCrCb Y).
+  - `src/resizer.py`: `AspectPreservingResizer` en-boy oranı koruyarak letterbox boyutlandırma.
+  - `src/analytics.py`: `ImageAnalyticsEngine` RMS kontrast, Shannon entropi ve Laplacian keskinlik analizi.
+  - `src/generator.py`: `SyntheticCarpetGenerator` sentetik benchmark halı fikstürleri üretici.
+  - `src/cli.py`: Terminal arayüzü ve uçtan uca kıyaslama benchmark orkestratörü.
   - `tests/test_image_preprocessor.py`: Ön işleme boru hattı birim testleri.
-  - `tests/test_palette_and_ciede2000.py`: Renk ve palet hesaplama testleri.
+  - `tests/test_toolkit.py`: Araç kiti kapsamlı birim testleri (10 test).
 
 ---
 
@@ -67,19 +74,32 @@ day09/
 └── mini_project/
     ├── README.md
     ├── configs/
+    │   └── toolkit_config.json
+    ├── fixtures/
+    │   └── synthetic_carpets/
+    │       ├── carpet_normal.png
+    │       ├── carpet_low_contrast.png
+    │       ├── carpet_noisy.png
+    │       └── carpet_uneven_illumination.png
     ├── src/
     │   ├── __init__.py
+    │   ├── analytics.py
+    │   ├── color_spaces.py
+    │   ├── equalization.py
+    │   ├── filters.py
+    │   ├── generator.py
     │   ├── image_preprocessor.py
-    │   ├── kmeans_palette.py
-    │   ├── ciede2000.py
-    │   ├── color_models.py
-    │   ├── quantizer.py
-    │   └── yarn_matcher.py
+    │   ├── io_validator.py
+    │   ├── resizer.py
+    │   └── cli.py
     ├── tests/
     │   ├── __init__.py
     │   ├── test_image_preprocessor.py
-    │   └── test_palette_and_ciede2000.py
+    │   └── test_toolkit.py
     └── outputs/
+        ├── sample_analysis_report.json
+        ├── image_enhancement_benchmark.json
+        └── toolkit_summary.md
 ```
 
 ---
@@ -89,13 +109,24 @@ day09/
    - $400 \times 600 \times 3$ boyutundaki sentetik BGR görüntü, hedef çözünürlük olan $256 \times 256$ boyutuna dönüştürüldü.
    - Gri seviyeye çevrilip $5 \times 5$ Gauss çekirdeği ile filtrelendi ve CLAHE uygulanarak kontrastı dengelendi.
    - Çıktının $256 \times 256$ tek kanallı `uint8` formatında olduğu doğrulandı.
+2. **Kapsamlı Filtreleme ve Kontrast Kıyaslama Benchmark'ı:**
+   - Gauss, Medyan ($k=5$), Bilateral ($d=9$), Unsharp Mask, CLAHE (CIELAB $L^*$) ve Letterbox (512x512) operasyonlarının ortalama gecikme ve throughput (FPS) değerleri ölçüldü; RMS kontrast kazancı ve Laplacian keskinlik değişimleri raporlandı.
 
 ---
 
 ## Validation
 - Pytest ile 11 adet birim test icra edildi:
   - `test_image_preprocessing_pipeline`
-  - `test_palette_and_ciede2000_*` (destekleyici palet testleri)
+  - `test_image_io_unicode_safe_read_write`
+  - `test_image_io_metadata_extraction`
+  - `test_color_space_conversions`
+  - `test_aspect_preserving_resizer_letterbox`
+  - `test_median_filter_salt_pepper_removal`
+  - `test_bilateral_filter_edge_preservation`
+  - `test_unsharp_masking_laplacian_variance`
+  - `test_clahe_vs_global_equalization_luminance`
+  - `test_image_analytics_entropy_and_contrast`
+  - `test_cli_pipeline_execution_and_reports`
 - Tüm testler **%100 başarıyla (11 passed)** geçti.
 
 ---
@@ -116,11 +147,21 @@ day09/
 - `day09/README.md`
 - `day09/day09_opencv_temelleri.ipynb`
 - `day09/mini_project/README.md`
+- `day09/mini_project/configs/toolkit_config.json`
+- `day09/mini_project/fixtures/synthetic_carpets/`
 - `day09/mini_project/src/__init__.py`
+- `day09/mini_project/src/analytics.py`
+- `day09/mini_project/src/color_spaces.py`
+- `day09/mini_project/src/equalization.py`
+- `day09/mini_project/src/filters.py`
+- `day09/mini_project/src/generator.py`
 - `day09/mini_project/src/image_preprocessor.py`
+- `day09/mini_project/src/io_validator.py`
+- `day09/mini_project/src/resizer.py`
+- `day09/mini_project/src/cli.py`
 - `day09/mini_project/tests/__init__.py`
 - `day09/mini_project/tests/test_image_preprocessor.py`
-- `day09/mini_project/tests/test_palette_and_ciede2000.py`
+- `day09/mini_project/tests/test_toolkit.py`
 
 ---
 
@@ -128,9 +169,12 @@ day09/
 ```bash
 # Birim testleri koşma
 pytest day09/mini_project/tests/ -v
+
+# Uçtan uca kıyaslama benchmark'ını çalıştırma
+python -m day09.mini_project.src.cli benchmark
 ```
 
 ---
 
 ## Next Day
-- **Day 10:** Renk Uzayları ve Renk Farkı — BGR, HSV, CIE Lab uzayları ve algısal renk farkı ($\Delta E$).
+- **Day 10:** Renk Uzayları ve Renk Farkı Analizi — RGB, HSV, CIE Lab uzayları ve algısal renk farkı ($\Delta E_{00}$, CIEDE2000).

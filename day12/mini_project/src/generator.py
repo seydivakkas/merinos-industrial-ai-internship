@@ -1,205 +1,150 @@
 """
-Merinos Halı Sanayi ve Ticaret A.Ş. — Day 12
-Sentetik Halı Bordür Fikstür Üretici (CarpetBorderFixtureGenerator)
-
-Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
-Özel Lisans — Tüm Hakları Saklıdır.
+generator.py - Synthetic Perspective-Distorted Carpet Fixture Generator.
 """
 
 from pathlib import Path
 from typing import Dict, Tuple
-import cv2
 import numpy as np
+import cv2
 
 
-def _safe_imwrite(filepath: Path, image: np.ndarray) -> bool:
-    """Windows Türkçe karakterli dosya yollarını destekleyen güvenli imwrite."""
-    try:
-        filepath.parent.mkdir(parents=True, exist_ok=True)
-        ext = filepath.suffix if filepath.suffix else ".png"
-        success, encoded = cv2.imencode(ext, image)
-        if not success:
-            return False
-        with open(filepath, "wb") as f:
-            f.write(encoded.tobytes())
-        return True
-    except Exception as e:
-        print(f"Hata: Görsel yazılamadı ({filepath}): {e}")
-        return False
+def _safe_imwrite(path: Path, img: np.ndarray) -> None:
+    """Safely write image on Windows when path contains non-ASCII characters."""
+    success, enc = cv2.imencode(".png", img)
+    if not success:
+        raise RuntimeError(f"Failed to encode image for {path}")
+    enc.tofile(str(path))
 
 
-def _safe_imread(filepath: Path, flags: int = cv2.IMREAD_COLOR) -> Optional[np.ndarray]:
-    """Windows Türkçe karakterli dosya yollarını destekleyen güvenli imread."""
-    try:
-        if not filepath.exists():
-            return None
-        with open(filepath, "rb") as f:
-            data = f.read()
-        arr = np.frombuffer(data, dtype=np.uint8)
-        img = cv2.imdecode(arr, flags)
-        return img
-    except Exception as e:
-        print(f"Hata: Görsel okunamadı ({filepath}): {e}")
-        return None
+def create_flat_carpet_patch(width: int = 400, height: int = 600) -> np.ndarray:
+    """Create a crisp, high-contrast rectangular carpet pattern (400x600)."""
+    carpet = np.zeros((height, width, 3), dtype=np.uint8)
+
+    # Base field: Silk Cream (BGR)
+    carpet[:] = (233, 243, 246)
+
+    c_navy = (72, 38, 24)
+    c_red = (45, 28, 152)
+    c_gold = (52, 156, 198)
+
+    # Outer border (Navy)
+    border_w = 32
+    cv2.rectangle(carpet, (0, 0), (width - 1, height - 1), c_navy, border_w)
+
+    # Secondary inner border (Red)
+    cv2.rectangle(carpet, (border_w, border_w), (width - border_w - 1, height - border_w - 1), c_red, 12)
+
+    # Thin Gold guard stripe
+    g_offset = border_w + 12
+    cv2.rectangle(carpet, (g_offset, g_offset), (width - g_offset - 1, height - g_offset - 1), c_gold, 4)
+
+    # Central Medallion (Ellipse & concentric rings)
+    cx, cy = width // 2, height // 2
+    cv2.ellipse(carpet, (cx, cy), (100, 150), 0, 0, 360, c_navy, -1)
+    cv2.ellipse(carpet, (cx, cy), (80, 120), 0, 0, 360, c_red, -1)
+    cv2.ellipse(carpet, (cx, cy), (60, 90), 0, 0, 360, c_gold, -1)
+    cv2.ellipse(carpet, (cx, cy), (35, 55), 0, 0, 360, c_navy, -1)
+
+    # Corner spandrels
+    c_r = 60
+    c_off = border_w + 16
+    cv2.circle(carpet, (c_off, c_off), c_r, c_navy, -1)
+    cv2.circle(carpet, (width - c_off, c_off), c_r, c_navy, -1)
+    cv2.circle(carpet, (c_off, height - c_off), c_r, c_navy, -1)
+    cv2.circle(carpet, (width - c_off, height - c_off), c_r, c_navy, -1)
+
+    return carpet
 
 
-class CarpetBorderFixtureGenerator:
-    """Endüstriyel bordür analizi ve kalite testleri için sentetik jakarlı halı fikstürleri üretir."""
+def apply_synthetic_homography(
+    carpet: np.ndarray,
+    canvas_size: Tuple[int, int],
+    src_corners: np.ndarray,
+    dst_corners: np.ndarray,
+    bg_color: Tuple[int, int, int] = (20, 20, 22),
+) -> Tuple[np.ndarray, np.ndarray]:
+    """Warp carpet onto a background canvas using perspective transformation."""
+    cw, ch = canvas_size
+    canvas = np.zeros((ch, cw, 3), dtype=np.uint8)
+    canvas[:] = bg_color
 
-    def __init__(self, seed: int = 42):
-        self.rng = np.random.RandomState(seed)
+    # Add subtle concrete / conveyor belt texture to background
+    rng = np.random.default_rng(42)
+    noise = rng.integers(-5, 6, size=(ch, cw, 3), dtype=np.int16)
+    canvas = np.clip(canvas.astype(np.int16) + noise, 0, 255).astype(np.uint8)
 
-    def generate_base_carpet(
-        self,
-        width: int = 800,
-        height: int = 800,
-        bg_color: Tuple[int, int, int] = (195, 210, 220),  # Bej/Krem (BGR)
-    ) -> np.ndarray:
-        """Jakarlı doku ve madalyon desenli temel halı zemini oluşturur."""
-        carpet = np.full((height, width, 3), bg_color, dtype=np.uint8)
+    H = cv2.getPerspectiveTransform(src_corners.astype(np.float32), dst_corners.astype(np.float32))
 
-        # 1. Periyodik jakarlı atkı ve çözgü dokusu
-        y_grid, x_grid = np.ogrid[:height, :width]
-        weave = ((x_grid % 4 == 0) | (y_grid % 4 == 0)).astype(np.uint8) * 15
-        carpet = cv2.subtract(carpet, cv2.merge([weave, weave, weave]))
+    # Warp carpet with black border
+    warped_carpet = cv2.warpPerspective(carpet, H, (cw, ch), flags=cv2.INTER_LINEAR)
 
-        # 2. İç Madalyon ve Geometrik Desen
-        center = (width // 2, height // 2)
-        cv2.circle(carpet, center, 140, (30, 40, 140), -1)  # Kırmızı madalyon
-        cv2.circle(carpet, center, 110, (140, 60, 30), -1)  # Lacivert iç daire
-        cv2.circle(carpet, center, 80, (40, 160, 220), -1)  # Altın sarısı göbek
-        cv2.circle(carpet, center, 30, (220, 220, 230), -1)  # Krem çiçek
+    # Create mask of warped carpet
+    mask = cv2.warpPerspective(
+        np.ones(carpet.shape[:2], dtype=np.uint8) * 255,
+        H,
+        (cw, ch),
+        flags=cv2.INTER_NEAREST,
+    )
 
-        # Hafif Gauss gürültüsü
-        noise = self.rng.normal(0, 3, carpet.shape).astype(np.int16)
-        carpet = np.clip(carpet.astype(np.int16) + noise, 0, 255).astype(np.uint8)
+    # Blend onto background
+    inv_mask = cv2.bitwise_not(mask)
+    bg_part = cv2.bitwise_and(canvas, canvas, mask=inv_mask)
+    fg_part = cv2.bitwise_and(warped_carpet, warped_carpet, mask=mask)
+    composite = cv2.add(bg_part, fg_part)
 
-        return carpet
+    return composite, dst_corners
 
-    def generate_clean_parallel_carpet(
-        self,
-        width: int = 800,
-        height: int = 800,
-        margin: int = 60,
-        border_thickness: int = 16,
-    ) -> np.ndarray:
-        """Kusursuz paralel kenarlara sahip 1. kalite referans Merinos halısı üretir."""
-        carpet = self.generate_base_carpet(width, height)
 
-        # Dış Koyu Lacivert Bordür Çerçevesi
-        x1, y1 = margin, margin
-        x2, y2 = width - margin, height - margin
+def generate_all_synthetic_rectification_fixtures(output_dir: Path) -> Dict[str, str]:
+    """Generate 3 perspective-distorted carpet fixtures: 25 deg, 35 deg, 45 deg."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    carpet = create_flat_carpet_patch(width=400, height=600)
+    h_c, w_c = carpet.shape[:2]
+    src_quad = np.array([[0, 0], [w_c - 1, 0], [w_c - 1, h_c - 1], [0, h_c - 1]], dtype=np.float32)
 
-        # Kalın dış bordür çizgisi (Lacivert: 130, 50, 25 BGR)
-        cv2.rectangle(carpet, (x1, y1), (x2, y2), (130, 50, 25), border_thickness)
+    canvas_w, canvas_h = 700, 700
 
-        # İnce iç altın bordür çizgisi (Altın: 30, 180, 220 BGR)
-        in_margin = margin + border_thickness + 10
-        cv2.rectangle(carpet, (in_margin, in_margin), (width - in_margin, height - in_margin), (30, 180, 220), 4)
+    # 1. 25 deg moderate oblique pitch
+    dst_25 = np.array([
+        [150.0, 100.0],  # TL
+        [550.0, 120.0],  # TR
+        [590.0, 620.0],  # BR
+        [90.0,  590.0],  # BL
+    ], dtype=np.float32)
+    img_25, _ = apply_synthetic_homography(
+        carpet, (canvas_w, canvas_h), src_quad, dst_25, bg_color=(20, 20, 24)
+    )
+    p_25 = output_dir / "carpet_skewed_oblique_25deg.png"
+    _safe_imwrite(p_25, img_25)
 
-        return carpet
+    # 2. 35 deg conveyor perspective
+    dst_35 = np.array([
+        [200.0, 80.0],   # TL (converging)
+        [500.0, 85.0],   # TR (converging)
+        [620.0, 640.0],  # BR (wide foreground)
+        [70.0,  630.0],  # BL (wide foreground)
+    ], dtype=np.float32)
+    img_35, _ = apply_synthetic_homography(
+        carpet, (canvas_w, canvas_h), src_quad, dst_35, bg_color=(18, 18, 22)
+    )
+    p_35 = output_dir / "carpet_skewed_conveyor_35deg.png"
+    _safe_imwrite(p_35, img_35)
 
-    def generate_skewed_angular_carpet(
-        self,
-        width: int = 800,
-        height: int = 800,
-        margin: int = 60,
-        border_thickness: int = 16,
-        skew_angle_deg: float = 1.85,
-    ) -> np.ndarray:
-        """Alt bordürün açılı eğrildiği (dokuma çekme/gerginlik hatası) halı üretir."""
-        carpet = self.generate_base_carpet(width, height)
+    # 3. 45 deg severe keystone angle
+    dst_45 = np.array([
+        [240.0, 90.0],   # TL
+        [470.0, 110.0],  # TR
+        [640.0, 610.0],  # BR
+        [50.0,  580.0],  # BL
+    ], dtype=np.float32)
+    img_45, _ = apply_synthetic_homography(
+        carpet, (canvas_w, canvas_h), src_quad, dst_45, bg_color=(16, 16, 20)
+    )
+    p_45 = output_dir / "carpet_skewed_severe_45deg.png"
+    _safe_imwrite(p_45, img_45)
 
-        x1, y1 = margin, margin
-        x2, y2 = width - margin, height - margin
-
-        # Üst, Sol ve Sağ bordürler düzgün
-        # Üst bordür (y1 sabit)
-        cv2.line(carpet, (x1, y1), (x2, y1), (130, 50, 25), border_thickness, cv2.LINE_AA)
-        # Sol bordür
-        cv2.line(carpet, (x1, y1), (x1, y2), (130, 50, 25), border_thickness, cv2.LINE_AA)
-        # Sağ bordür
-        cv2.line(carpet, (x2, y1), (x2, y2), (130, 50, 25), border_thickness, cv2.LINE_AA)
-
-        # Alt bordür: skew_angle_deg açısıyla eğik çizilir
-        # dy = tan(theta) * dx
-        rad = np.deg2rad(skew_angle_deg)
-        dy = int(round(np.tan(rad) * (x2 - x1)))
-        y2_skewed = y2 + dy
-
-        cv2.line(carpet, (x1, y2), (x2, y2_skewed), (130, 50, 25), border_thickness, cv2.LINE_AA)
-
-        # İnce iç bordür de benzer şekilde alt kenarda eğrilir
-        in_m = margin + border_thickness + 10
-        cv2.line(carpet, (in_m, in_m), (width - in_m, in_m), (30, 180, 220), 4, cv2.LINE_AA)
-        cv2.line(carpet, (in_m, in_m), (in_m, height - in_m), (30, 180, 220), 4, cv2.LINE_AA)
-        cv2.line(carpet, (width - in_m, in_m), (width - in_m, height - in_m), (30, 180, 220), 4, cv2.LINE_AA)
-        cv2.line(carpet, (in_m, height - in_m), (width - in_m, height - in_m + dy), (30, 180, 220), 4, cv2.LINE_AA)
-
-        return carpet
-
-    def generate_wavy_carpet(
-        self,
-        width: int = 800,
-        height: int = 800,
-        margin: int = 60,
-        wave_amplitude: float = 6.0,
-        wave_cycles: int = 3,
-    ) -> np.ndarray:
-        """Alt bordürde dalgalanma (overlok büzülmesi / wavy distortion) olan halı üretir."""
-        carpet = self.generate_clean_parallel_carpet(width, height, margin=margin)
-
-        # Alt bordür bölgesini sinüzoidal dalgayla modifiye et
-        xs = np.arange(margin, width - margin)
-        # y = y_base + A * sin(2*pi * f * x / L)
-        y_base = height - margin
-        ys = y_base + wave_amplitude * np.sin(2.0 * np.pi * wave_cycles * (xs - margin) / (width - 2 * margin))
-
-        # Orijinal düz alt bordürü arka plan rengiyle kapatıp dalgalı bordürü çiz
-        cv2.line(carpet, (margin - 5, y_base), (width - margin + 5, y_base), (195, 210, 220), 22)
-
-        pts = np.column_stack((xs, ys.astype(np.int32)))
-        cv2.polylines(carpet, [pts], False, (130, 50, 25), 16, cv2.LINE_AA)
-
-        return carpet
-
-    def generate_broken_border_carpet(
-        self,
-        width: int = 800,
-        height: int = 800,
-        margin: int = 60,
-        gap_start_x: int = 350,
-        gap_size: int = 80,
-    ) -> np.ndarray:
-        """Bordür çizgisi üzerinde dikiş kaçığı / kesinti (broken edge) olan halı üretir."""
-        carpet = self.generate_clean_parallel_carpet(width, height, margin=margin)
-
-        # Üst bordür üzerinde bir kısmı sil (kesinti simülasyonu)
-        cv2.line(
-            carpet,
-            (gap_start_x, margin),
-            (gap_start_x + gap_size, margin),
-            (195, 210, 220),
-            24,
-        )
-        return carpet
-
-    def generate_all_fixtures(self, output_dir: Path) -> Dict[str, Path]:
-        """Tüm sentetik senaryo fikstürlerini üretir ve kaydeder."""
-        output_dir.mkdir(parents=True, exist_ok=True)
-        paths: Dict[str, Path] = {}
-
-        fixtures = {
-            "carpet_border_clean_parallel.png": self.generate_clean_parallel_carpet(),
-            "carpet_border_skewed_angular.png": self.generate_skewed_angular_carpet(skew_angle_deg=1.85),
-            "carpet_border_wavy_distortion.png": self.generate_wavy_carpet(wave_amplitude=6.5),
-            "carpet_border_broken_edge.png": self.generate_broken_border_carpet(gap_size=90),
-        }
-
-        for filename, img in fixtures.items():
-            path = output_dir / filename
-            success = _safe_imwrite(path, img)
-            if success:
-                paths[filename] = path
-
-        return paths
+    return {
+        "oblique_25deg": str(p_25),
+        "conveyor_35deg": str(p_35),
+        "severe_45deg": str(p_45),
+    }

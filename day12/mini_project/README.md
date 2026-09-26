@@ -1,6 +1,6 @@
-# Day 12 Mini Proje: Kenar ve Çizgi Tespiti & Jakarlı Halı Bordür Paralellik Analizi
+# Day 12 Mini Proje: Halı Perspektif Düzeltme ve Homografi Motoru
 
-Bu paket, **Merinos Halı Sanayi ve Ticaret A.Ş.** üretim hatlarında (jakarlı dokuma çıkışı, traşlama, apre ve overlok konfeksiyon hatları) halı dış ve iç bordür kenarlarının paralelliğini, doğrusallığını ve ortogonalitesini (90° diklik) gerçek zamanlı analiz eden endüstriyel makine görüşü modülüdür.
+Bu paket, **Merinos Halı Sanayi ve Ticaret A.Ş.** üretim ve kalite muayene hatlarında konveyör veya kontrol masası kameralarının montaj açılarından kaynaklanan perspektif bozulmalarını (trapezoidal / projective distortion) gidermek, dört köşe koordinatını sıralamak ve görüntüyü kuşbakışı (top-down / orthorectified) düzleme dönüştürmek için tasarlanmış endüstriyel bilgisayarlı görü modülüdür.
 
 ---
 
@@ -9,29 +9,30 @@ Bu paket, **Merinos Halı Sanayi ve Ticaret A.Ş.** üretim hatlarında (jakarl�
 ```
 day12/mini_project/
 ├── configs/
-│   └── border_config.json                 # Kenar operatörü ve paralellik tolerans parametreleri
+│   └── rectification_config.json          # Rektifikasyon ve QA tolerans parametreleri
 ├── fixtures/
-│   └── synthetic_carpets/                 # Sentetik referans ve kusurlu halı bordür görselleri
-│       ├── carpet_border_clean_parallel.png
-│       ├── carpet_border_skewed_angular.png
-│       ├── carpet_border_wavy_distortion.png
-│       └── carpet_border_broken_edge.png
-├── outputs/                               # Üretilen kenar haritaları, overlay ve benchmark raporları
-│   ├── edge_line_benchmark.json
-│   ├── border_summary.md
-│   ├── sample_border_report.json
-│   └── sample_border_analysis_overlay.png
+│   └── synthetic_carpets/                 # Sentetik açılı halı fikstürleri
+│       ├── carpet_skewed_oblique_25deg.png
+│       ├── carpet_skewed_conveyor_35deg.png
+│       └── carpet_skewed_severe_45deg.png
+├── outputs/                               # Rektifiye edilmiş görüntüler ve raporlar
 ├── src/
 │   ├── __init__.py
-│   ├── models.py                          # Pydantic veri modelleri (LineSegment, BorderEdge, Report)
-│   ├── edge_operators.py                  # Sobel, Scharr, Laplacian ve Canny motoru
-│   ├── hough_engine.py                    # Olasılıksal Hough Çizgi Dönüşümü ve bordür fit motoru
-│   ├── border_analyzer.py                 # Uçtan uca CarpetBorderAnalyzer
-│   ├── generator.py                       # Sentetik jakarlı halı bordür fikstür jeneratörü
+│   ├── models.py                          # Point2D, QuadCorners, HomographyResult, RectificationReport
+│   ├── corner_detector.py                 # Köşe tespiti ve [TL, TR, BR, BL] sıralama algoritması
+│   ├── homography.py                      # 3x3 homografi matris hesaplama ve nokta projeksiyonu
+│   ├── homography_rectifier.py            # Hızlı HomographyRectifier sınıfı
+│   ├── rectifier.py                       # CarpetPerspectiveRectifier pipeline motoru
+│   ├── generator.py                       # Sentetik açılı halı fikstür jeneratörü
 │   └── cli.py                             # CLI arayüzü
 └── tests/
     ├── __init__.py
-    └── test_edge_lines.py                 # 10 adet kapsamlı birim ve entegrasyon testi
+    ├── test_corner_detector.py            # Köşe tespit ve sıralama testleri
+    ├── test_homography.py                 # Homografi ve nokta izdüşüm testleri
+    ├── test_homography_cli.py             # CLI çalışma testleri
+    ├── test_homography_rectifier.py       # Temel rektifikasyon testleri
+    ├── test_order_points.py               # Sıralama matematik testleri
+    └── test_rectification.py              # Uçtan uca rektifikasyon entegrasyon testleri
 ```
 
 ---
@@ -43,25 +44,22 @@ day12/mini_project/
 python -m day12.mini_project.src.cli generate-fixtures
 ```
 
-### 2. Kenar Operatörlerini Çalıştırma ve Görselleştirme
+### 2. Perspektif Düzeltme (Adaptive Mod)
 ```bash
-python -m day12.mini_project.src.cli detect-edges \
-    --image day12/mini_project/fixtures/synthetic_carpets/carpet_border_clean_parallel.png \
-    --operator ALL \
-    --output-dir day12/mini_project/outputs
+python -m day12.mini_project.src.cli rectify \
+    --input day12/mini_project/fixtures/synthetic_carpets/carpet_skewed_conveyor_35deg.png \
+    --mode adaptive \
+    --output day12/mini_project/outputs/rectified_conveyor.png \
+    --report day12/mini_project/outputs/rectified_conveyor_report.json
 ```
 
-### 3. Halı Bordür Paralellik ve Ortogonalite Analizi
+### 3. Standart Katalog Oranına Göre Rektifikasyon (160x230)
 ```bash
-python -m day12.mini_project.src.cli analyze-borders \
-    --image day12/mini_project/fixtures/synthetic_carpets/carpet_border_skewed_angular.png \
-    --output-image day12/mini_project/outputs/sample_border_analysis_overlay.png \
-    --output-report day12/mini_project/outputs/sample_border_report.json
-```
-
-### 4. Benchmark Laboratuvarını Çalıştırma
-```bash
-python -m day12.mini_project.src.cli benchmark
+python -m day12.mini_project.src.cli rectify \
+    --input day12/mini_project/fixtures/synthetic_carpets/carpet_skewed_oblique_25deg.png \
+    --mode standard \
+    --standard-ratio 160x230 \
+    --output day12/mini_project/outputs/rectified_160x230.png
 ```
 
 ---

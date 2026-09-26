@@ -53,10 +53,17 @@ Bu günün amacı, Merinos boyahane ve dokuma tesislerinde iplik ve halı yüzey
 - **Dizin:** [`mini_project/`](mini_project/)
 - **Adı:** `color-spaces-and-delta-e-grading`
 - **Modüller:**
-  - `src/color_difference.py`: Renk uzayı dönüşümleri, $\Delta E$ hesaplayıcı ve `ColorDifferenceAnalyzer`.
-  - `src/corner_detector.py`, `src/homography.py`, `src/rectifier.py`: Destekleyici geometrik analitik araçları.
-  - `tests/test_color_difference.py`: Renk uzayı ve $\Delta E$ tolerans testleri.
-  - `tests/test_corner_detector.py`, `tests/test_rectification.py`: Geometrik yardımcı testler.
+  - `src/color_difference.py`: Temel renk uzayı dönüşümleri, $\Delta E$ (CIE76) hesaplayıcı ve `ColorDifferenceAnalyzer`.
+  - `src/conversions.py`: BGR, RGB, CIELAB, HSV renk uzayı dönüşüm motoru (`ColorConverter`).
+  - `src/delta_e.py`: Endüstriyel boya partisi kalite derecelendirmesi yapan `DeltaECalculator` (PASS, WARNING, REJECT).
+  - `src/ciede2000.py`: ISO/CIE 11664-6:2014 CIEDE2000 algısal renk farkı motoru (`ciede2000_scalar`, `ciede2000_vectorized`).
+  - `src/thresholding.py`: `HSVColorThresholder`, `MaskMorphologyCleaner`, `PerceptualDeltaEThresholder`.
+  - `src/analyzer.py`: Uçtan uca boya partisi drift denetimi ve renk kompozisyonu (`CarpetColorAnalyzer`).
+  - `src/generator.py`: Sentetik boya partisi halı fikstürleri üretici (`SyntheticCarpetPaletteGenerator`).
+  - `src/yarn_matcher.py` & `src/yarn_catalog_models.py`: Sertifikalı iplik kataloğu eşleştirme ve bobin atama.
+  - `src/cli.py`: Terminal komut arayüzü ve benchmark orkestratörü.
+  - `tests/test_color_analysis.py`: 10 birim test (dönüşümler, eşikleme, drift, CLI benchmark).
+  - `tests/test_color_difference.py`: 3 birim test (dönüşüm, özdeşlik, tolerans grading).
 
 ---
 
@@ -68,19 +75,35 @@ day10/
 └── mini_project/
     ├── README.md
     ├── configs/
+    │   └── color_config.json
+    ├── fixtures/
+    │   └── synthetic_carpets/
+    │       ├── carpet_palette_master.png
+    │       ├── carpet_lot_drift_pass.png
+    │       ├── carpet_lot_drift_warning.png
+    │       └── carpet_lot_drift_reject.png
     ├── src/
     │   ├── __init__.py
+    │   ├── analyzer.py
+    │   ├── ciede2000.py
     │   ├── color_difference.py
-    │   ├── corner_detector.py
-    │   ├── homography.py
-    │   ├── rectifier.py
-    │   └── models.py
+    │   ├── color_models.py
+    │   ├── conversions.py
+    │   ├── delta_e.py
+    │   ├── generator.py
+    │   ├── thresholding.py
+    │   ├── yarn_catalog_models.py
+    │   ├── yarn_matcher.py
+    │   └── cli.py
     ├── tests/
     │   ├── __init__.py
-    │   ├── test_color_difference.py
-    │   ├── test_corner_detector.py
-    │   └── test_rectification.py
+    │   ├── conftest.py
+    │   ├── test_color_analysis.py
+    │   └── test_color_difference.py
     └── outputs/
+        ├── dye_lot_inspection_report.json
+        ├── color_analysis_benchmark.json
+        └── color_analysis_summary.md
 ```
 
 ---
@@ -91,28 +114,39 @@ day10/
 2. **Endüstriyel Boya Toleransı Kabul/Red Deneyi:**
    - Referans BGR $[200, 100, 50]$ ile yakın numune $[202, 101, 51]$ kıyaslandığında $\Delta E < 3.0$ bulundu ve `is_acceptable: True` ("ACCEPTABLE") kararı verildi.
    - Uzak numune $[50, 200, 200]$ kıyaslandığında $\Delta E > 10.0$ çıktı ve `is_acceptable: False` ("REJECTED") kararıyla elendi.
+3. **Boya Partisi (Dye Lot) Drift Denetimi Deneyi:**
+   - Master palete kıyasla Pass partisinde $\Delta E < 2.0$, Warning partisinde $2.0 < \Delta E \le 5.0$, Reject partisinde $\Delta E > 5.0$ tespit edilerek otomatik kalite kararları üretildi.
 
 ---
 
 ## Validation
 - Pytest ile 13 adet birim test icra edildi:
+  - `test_color_conversions_accuracy`
+  - `test_delta_e_cie76_identical_and_known`
+  - `test_delta_e_tolerance_grading`
+  - `test_hsv_thresholding_hue_wraparound`
+  - `test_hsv_illumination_invariance`
+  - `test_cielab_delta_e_thresholding_mask`
+  - `test_mask_morphological_cleanup`
+  - `test_carpet_color_composition_sum`
+  - `test_dye_lot_drift_detection`
+  - `test_cli_color_analysis_pipeline_and_artifacts`
   - `test_color_space_conversions`
   - `test_delta_e_identical`
   - `test_color_difference_grading`
-  - `test_corner_detector_*`, `test_rectification_*`
 - Tüm testler **%100 başarıyla (13 passed)** geçti.
 
 ---
 
 ## Results
-- Boya partisi sapmalarını insan gözü algısıyla tam uyumlu olarak denetleyen $\Delta E$ kalite kontrol modülü geliştirilmiştir.
-- BGR kanalının yanıltıcı etkileri giderilerek CIE $L^*a^*b^*$ standardına geçilmiştir.
+- Boya partisi sapmalarını insan gözü algısıyla tam uyumlu olarak denetleyen $\Delta E$ (CIE76) ve CIEDE2000 kalite kontrol modülü geliştirilmiştir.
+- BGR kanalının yanıltıcı etkileri giderilerek CIE $L^*a^*b^*$ standardına geçilmiş; aydınlatma değişimlerine karşı HSV ve morfolojik segmentasyon temizliği sağlanmıştır.
 
 ---
 
 ## Limitations
-- Bu aşamada klasik CIE76 Öklid formülü kullanılmıştır; kroma ve ton asimetrilerini düzelten daha gelişmiş CIEDE2000 formülü ileri aşamalarda karşılaştırma amaçlı değerlendirilebilir.
-- Ölçümler standart sentetik BGR pikselleri üzerinden simüle edilmiştir.
+- Ölçümler standart sentetik ve kalibre edilmiş halı modelleri üzerinden simüle edilmiştir.
+- Geometrik distorsiyon ve kamera açısı düzeltmeleri homografi aşamasında (Day 12) devreye alınacaktır.
 
 ---
 
@@ -120,9 +154,23 @@ day10/
 - `day10/README.md`
 - `day10/day10_renk_uzaylari_ve_farki.ipynb`
 - `day10/mini_project/README.md`
+- `day10/mini_project/configs/color_config.json`
+- `day10/mini_project/fixtures/synthetic_carpets/`
 - `day10/mini_project/src/__init__.py`
+- `day10/mini_project/src/analyzer.py`
+- `day10/mini_project/src/ciede2000.py`
 - `day10/mini_project/src/color_difference.py`
+- `day10/mini_project/src/color_models.py`
+- `day10/mini_project/src/conversions.py`
+- `day10/mini_project/src/delta_e.py`
+- `day10/mini_project/src/generator.py`
+- `day10/mini_project/src/thresholding.py`
+- `day10/mini_project/src/yarn_catalog_models.py`
+- `day10/mini_project/src/yarn_matcher.py`
+- `day10/mini_project/src/cli.py`
 - `day10/mini_project/tests/__init__.py`
+- `day10/mini_project/tests/conftest.py`
+- `day10/mini_project/tests/test_color_analysis.py`
 - `day10/mini_project/tests/test_color_difference.py`
 
 ---
@@ -131,9 +179,12 @@ day10/
 ```bash
 # Birim testleri koşma
 pytest day10/mini_project/tests/ -v
+
+# Boya partisi analiz benchmark'ını çalıştırma
+python -m day10.mini_project.src.cli benchmark
 ```
 
 ---
 
 ## Next Day
-- **Day 11:** K-Means ile Baskın Renk ve Palet Çıkarımı — Piksel kümeleme, iplik bobini (creel) tahsisi ve renk kuantizasyonu.
+- **Day 11:** Renk Kuantizasyonu ve Palet Çıkarma — K-Means ile renk kümeleme, renk paletleri ve renk indirgeme.

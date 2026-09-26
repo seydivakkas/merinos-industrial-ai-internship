@@ -30,3 +30,10 @@ Bu doküman, 40 günlük staj boyunca bir Bilgisayar Mühendisi olarak kazanıla
 | **Faz 4: Retrieval ve RAG Temelleri (Day 22–27)** | TF-IDF, BM25 leksikal arama, Bi-Encoder semantik arama, RRF sıralama füzyonu, doküman chunking, vektör indeksleme, Ragas değerlendirme | Metinlerin sayısal temsili, hibrit arama mekanizmaları ve RAG sistemlerinin nesnel değerlendirilmesi |
 | **Faz 5: Görsel Üretim ve Analiz PoC (Day 28–30)** | Yapılandırılmış prompt mühendisliği (SDXL), K-Means renk analitiği, CIELAB $\Delta E^*$, simetri/otokorelasyon, kenar sürekliliği, CNN embedding benzerliği | Sentetik desen varyasyonları üretimi ve üretilen çıktıların çok boyutlu sayısal analizi (yerel PoC) |
 | **Faz 6: Doküman RAG, Servisleştirme ve Kapanış (Day 31–40)** | Çoklu doküman işleme (PDF/DOCX/MD), Cross-Encoder reranking, Query Rewrite & HyDE, Pydantic groundedness, İSG guardrails, FastAPI, Streamlit, ONNX INT8 CPU benchmark, final test & raporlama | Uçtan uca doküman RAG boru hattı, yerel REST servisi ve kullanıcı arayüzü, model sıkıştırma ve staj kapanış değerlendirmesi |
+
+---
+
+## 3. Kapsam ve Gerçeklik Sınırı (Scope & Reality Distinction)
+
+- **Doğrulanmış Yerel PoC Kapsamı:** Bu staj portföyünde listelenen tüm kazanımlar, yerel Python sanal ortamında (NumPy, Pandas, Scikit-learn, OpenCV, PyTorch, FastAPI, Starlette TestClient) sentetik veya açık verilerle birim/entegrasyon testlerinden geçirilerek doğrulanmış akademik ve mühendislik kazanımlarıdır.
+- **Gelecekteki Entegrasyon Senaryoları (Opsiyonel / Future Work):** Dağıtık Docker/Kubernetes orkestrasyonu, Celery kuyrukları, Redis önbellekleri, canlı fabrika SCADA/PLC entegrasyonları veya endüstriyel IPC saha konuşlandırmaları günlük temel müfredat kapsamında çalıştırılmış üretim sistemleri değil; mimari dokümanlarda kurumsal ölçekleme için tartışılan gelecekteki tasarım olasılıklarıdır. Bu ayrım staj savunmasında ve teknik değerlendirmede şeffaflıkla korunur.

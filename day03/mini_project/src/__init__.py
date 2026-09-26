@@ -1,11 +1,13 @@
-"""
-day03.mini_project.src
-Problem tanımlama, başarı ölçütü sözleşmesi, baseline değerlendirici ve veri hattı modülü.
+"""Day 03 - Mini Project: Problem Specification, Baselines, and Success Metrics.
+
+Defines formal problem contracts, baseline heuristics (majority class, thresholding),
+and empirical evaluation utilities.
 """
 
-from day03.mini_project.src.normalizer import DataNormalizer
-from day03.mini_project.src.parsers import CsvDataSourceParser, JsonDataSourceParser
-from day03.mini_project.src.pipeline import DataIngestionPipeline
+from day03.mini_project.src.baseline import (
+    MajorityClassBaseline,
+    MeanThresholdBaseline,
+)
 from day03.mini_project.src.problem_spec import (
     BaselineEvaluator,
     EvaluationComparison,
@@ -16,8 +18,6 @@ __all__ = [
     "ProblemSpecification",
     "EvaluationComparison",
     "BaselineEvaluator",
-    "DataIngestionPipeline",
-    "DataNormalizer",
-    "CsvDataSourceParser",
-    "JsonDataSourceParser",
+    "MajorityClassBaseline",
+    "MeanThresholdBaseline",
 ]

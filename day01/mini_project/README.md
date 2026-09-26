@@ -1,47 +1,17 @@
-# Day 01 Mini Project — Environment Bootstrap
+# Day 01 — Mini Project: Industrial Observation Catalog
 
-Bu mini proje, endüstriyel yapay zeka projelerinde tekrarlanabilirlik (reproducibility) ve bağımlılık izolasyonunu sağlamak amacıyla geliştirilmiş ortam denetleme ve repository bootstrap motorudur.
+## Genel Bakış
+Bu mini proje, Merinos halı üretim tesisinde karşılaşılan heterojen veri türlerini (sayısal telemetri, görsel desen/kamera görüntüleri ve metinsel teknik dokümantasyon) sınıflandıran, özetleyen ve serileştiren yerel bir veri taksonomisi ve gözlem kataloğudur.
 
----
+> **Veri Güvenliği ve Sentetik Kuralı:** Bu projede gerçek şirket verisi veya canlı telemetri kullanılmamaktadır. Tüm varlıklar ve açıklamalar sentetiktir ([`docs/DATA_REALITY_POLICY.md`](../../docs/DATA_REALITY_POLICY.md)).
 
-## Mimari ve Bileşenler
+## Modüller
+- `src/models.py`: Pydantic v2 `DataModality` ve `DataAsset` veri sınıfları.
+- `src/observation_catalog.py`: Varlık kayıt, filtreleme, özet istatistik ve JSON aktarım yöneticisi.
+- `configs/catalog_config.json`: Problem alanları ve desteklenen veri modaliteleri tanımı.
+- `tests/test_observation_catalog.py`: Tip doğrulama ve katalog operasyonları testleri.
 
-```
-mini_project/
-├── configs/
-│   └── env_spec.json       # Asgari sistem ve paket gereksinimleri spesifikasyonu
-├── src/
-│   ├── env_checker.py      # Python, işletim sistemi, CUDA/GPU ve paket denetleyicisi
-│   └── repo_bootstrap.py   # Depo hiyerarşisi doğrulama motoru
-├── tests/
-│   └── test_env_checker.py # Otomatik pytest birim testleri
-└── outputs/
-    └── env_report.json     # Gerçek donanım ve ortam analiz çıktısı
-```
-
----
-
-## Nasıl Çalıştırılır?
-
-### 1. Ortam Raporunu Üretme
+## Çalıştırma ve Test
 ```bash
-python src/env_checker.py
-```
-Bu komut, sistem donanımını (CUDA, VRAM, CPU mimarisi) ve Python paketlerini tarayarak `outputs/env_report.json` dosyasına kaydeder.
-
-### 2. Birim Testleri Koşma
-```bash
-pytest tests/ -v
-```
-
----
-
-## Test Sonuçları (Gerçekleştirilmiş)
-```
-day01/mini_project/tests/test_env_checker.py::test_python_version_check PASSED
-day01/mini_project/tests/test_env_checker.py::test_hardware_check PASSED
-day01/mini_project/tests/test_env_checker.py::test_package_check_installed_and_missing PASSED
-day01/mini_project/tests/test_env_checker.py::test_full_check_and_report_serialization PASSED
-day01/mini_project/tests/test_env_checker.py::test_repository_bootstrap_validation PASSED
-5 passed in 13.67s
+pytest tests/ -q
 ```

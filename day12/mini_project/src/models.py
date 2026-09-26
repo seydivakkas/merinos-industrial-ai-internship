@@ -1,84 +1,128 @@
 """
-Merinos Halı Sanayi ve Ticaret A.Ş. — Day 12
-Kenar ve Çizgi Tespiti & Jakarlı Halı Bordür Paralellik Analizi Veri Modelleri
-
-Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
-Özel Lisans — Tüm Hakları Saklıdır.
+models.py - Pydantic Data Models for Perspective Rectification & Homography Engine.
 """
 
 from enum import Enum
-from typing import Dict, List, Optional, Tuple
-from pydantic import BaseModel, Field
+from typing import List, Dict, Tuple, Any
+import numpy as np
+from pydantic import BaseModel, Field, field_validator
 
 
-class EdgeOperatorType(str, Enum):
-    """Desteklenen kenar operatörü türleri."""
-    SOBEL = "SOBEL"
-    SCHARR = "SCHARR"
-    LAPLACIAN = "LAPLACIAN"
-    CANNY = "CANNY"
+class Point2D(BaseModel):
+    """2D floating-point subpixel image coordinate [x, y]."""
+    x: float = Field(..., description="Horizontal pixel coordinate (column)")
+    y: float = Field(..., description="Vertical pixel coordinate (row)")
+
+    def to_tuple(self) -> Tuple[float, float]:
+        return (self.x, self.y)
+
+    def to_int_tuple(self) -> Tuple[int, int]:
+        return (int(round(self.x)), int(round(self.y)))
 
 
-class BorderSide(str, Enum):
-    """Halı bordür kenarı yönü."""
-    TOP = "TOP"
-    BOTTOM = "BOTTOM"
-    LEFT = "LEFT"
-    RIGHT = "RIGHT"
+class QuadCorners(BaseModel):
+    """Oriented 4 exterior corner coordinates of a quadrilateral in standard order:
+    [Top-Left, Top-Right, Bottom-Right, Bottom-Left].
+    """
+    top_left: Point2D
+    top_right: Point2D
+    bottom_right: Point2D
+    bottom_left: Point2D
+
+    def to_numpy(self) -> np.ndarray:
+        """Return corners as a (4, 2) float32 NumPy array."""
+        return np.array([
+            [self.top_left.x, self.top_left.y],
+            [self.top_right.x, self.top_right.y],
+            [self.bottom_right.x, self.bottom_right.y],
+            [self.bottom_left.x, self.bottom_left.y],
+        ], dtype=np.float32)
+
+    @classmethod
+    def from_numpy(cls, pts: np.ndarray) -> "QuadCorners":
+        """Create QuadCorners from an ordered (4, 2) NumPy array."""
+        p = pts.reshape(4, 2).astype(np.float64)
+        return cls(
+            top_left=Point2D(x=float(p[0, 0]), y=float(p[0, 1])),
+            top_right=Point2D(x=float(p[1, 0]), y=float(p[1, 1])),
+            bottom_right=Point2D(x=float(p[2, 0]), y=float(p[2, 1])),
+            bottom_left=Point2D(x=float(p[3, 0]), y=float(p[3, 1])),
+        )
+
+    def edge_lengths(self) -> Dict[str, float]:
+        """Compute Euclidean lengths of the four edges (top, right, bottom, left)."""
+        pts = self.to_numpy()
+        return {
+            "top": float(np.linalg.norm(pts[1] - pts[0])),
+            "right": float(np.linalg.norm(pts[2] - pts[1])),
+            "bottom": float(np.linalg.norm(pts[2] - pts[3])),
+            "left": float(np.linalg.norm(pts[3] - pts[0])),
+        }
+
+    def corner_angles(self) -> List[float]:
+        """Compute internal corner angles in degrees [TL, TR, BR, BL]."""
+        pts = self.to_numpy()
+        angles = []
+        for i in range(4):
+            prev_pt = pts[(i - 1) % 4]
+            curr_pt = pts[i]
+            next_pt = pts[(i + 1) % 4]
+
+            v1 = prev_pt - curr_pt
+            v2 = next_pt - curr_pt
+
+            norm1 = np.linalg.norm(v1)
+            norm2 = np.linalg.norm(v2)
+
+            if norm1 < 1e-6 or norm2 < 1e-6:
+                angles.append(0.0)
+                continue
+
+            cos_theta = np.dot(v1, v2) / (norm1 * norm2)
+            cos_theta = np.clip(cos_theta, -1.0, 1.0)
+            angle_deg = float(np.degrees(np.arccos(cos_theta)))
+            angles.append(round(angle_deg, 2))
+
+        return angles
 
 
-class QualityDecision(str, Enum):
-    """Üretim kalite güvence kabul/red kararı."""
-    ACCEPT = "ACCEPT"
-    WARNING = "WARNING"
-    REJECT = "REJECT"
+class StandardCarpetRatio(str, Enum):
+    """Standard physical catalog carpet dimensions manufactured by Merinos."""
+    STANDARD_160_230 = "160x230"
+    STANDARD_200_290 = "200x290"
+    RUNNER_80_150 = "80x150"
+    SQUARE_100_100 = "100x100"
 
 
-class LineSegment(BaseModel):
-    """PPHT ile tespit edilen tekil çizgi parçası modeli."""
-    x1: float = Field(..., description="Başlangıç x koordinatı")
-    y1: float = Field(..., description="Başlangıç y koordinatı")
-    x2: float = Field(..., description="Bitiş x koordinatı")
-    y2: float = Field(..., description="Bitiş y koordinatı")
-    length: float = Field(..., ge=0.0, description="Çizgi parçasının Öklid uzunluğu (px)")
-    angle_deg: float = Field(..., description="Yatay eksene göre açısı [-90, +90] derece")
-    slope: Optional[float] = Field(None, description="Doğru eğimi (dy / dx, dikey ise None)")
-    intercept: Optional[float] = Field(None, description="Y-kesişim değeri (y = m*x + b)")
+class HomographyResult(BaseModel):
+    """Mathematical properties of the estimated 3x3 homography perspective matrix."""
+    matrix: List[List[float]] = Field(..., description="3x3 Homography projection matrix H")
+    determinant: float = Field(..., description="Determinant of matrix H (det(H))")
+    condition_number: float = Field(..., description="Numerical stability condition number cond(H)")
+    inverse_frobenius_error: float = Field(
+        ...,
+        description="Residual Frobenius error ||H * H^-1 - I||_F verifying numerical invertibility"
+    )
+
+    def to_numpy(self) -> np.ndarray:
+        return np.array(self.matrix, dtype=np.float64)
 
 
-class BorderEdge(BaseModel):
-    """Halı kenarını temsil eden nihai bordür doğrusu."""
-    side: BorderSide = Field(..., description="Bordür yönü (TOP, BOTTOM, LEFT, RIGHT)")
-    x1: float = Field(..., description="Temsilci doğru başlangıç x")
-    y1: float = Field(..., description="Temsilci doğru başlangıç y")
-    x2: float = Field(..., description="Temsilci doğru bitiş x")
-    y2: float = Field(..., description="Temsilci doğru bitiş y")
-    angle_deg: float = Field(..., description="Bordürün yatay/dikey eksene göre açısı (derece)")
-    segment_count: int = Field(..., ge=0, description="Bordürü oluşturan destekleyici Hough segmenti sayısı")
-    straightness_rms: float = Field(..., ge=0.0, description="Doğrudan sapma karekök ortalama hatası (RMS, px)")
-    mean_coordinate: float = Field(..., description="Kenarın ortalama konumu (yatay için y, dikey için x)")
+class QAGrade(str, Enum):
+    """Quality assurance assessment of geometric rectification."""
+    PASS = "pass"        # Deviation <= 1.5 deg
+    WARNING = "warning"  # 1.5 deg < Deviation <= 4.0 deg
+    REJECT = "reject"    # Deviation > 4.0 deg or ill-conditioned H
 
 
-class ParallelismMetric(BaseModel):
-    """Karşılıklı iki bordür arasındaki paralellik ve mesafe metrikleri."""
-    pair_name: str = Field(..., description="Bordür çifti adı (örn. 'TOP-BOTTOM' veya 'LEFT-RIGHT')")
-    angle_difference_deg: float = Field(..., ge=0.0, description="İki kenar arasındaki açısal fark (derece)")
-    is_parallel: bool = Field(..., description="Tolerans dahilinde paralel mi?")
-    distance_min_px: float = Field(..., ge=0.0, description="Kenarlar arası minimum dik mesafe (px)")
-    distance_max_px: float = Field(..., ge=0.0, description="Kenarlar arası maksimum dik mesafe (px)")
-    distance_mean_px: float = Field(..., ge=0.0, description="Kenarlar arası ortalama dik mesafe (px)")
-    distance_std_px: float = Field(..., ge=0.0, description="Kenarlar arası mesafe standart sapması (px)")
-
-
-class BorderParallelismReport(BaseModel):
-    """Uçtan uca halı bordür analizi ve kalite değerlendirme raporu."""
-    image_shape: Tuple[int, int] = Field(..., description="Görüntü boyutları (Yükseklik, Genişlik)")
-    total_lines_detected: int = Field(..., ge=0, description="Hough dönüşümüyle bulunan toplam çizgi sayısı")
-    borders: Dict[str, Optional[BorderEdge]] = Field(..., description="Tespit edilen 4 bordür kenarı")
-    horizontal_parallelism: Optional[ParallelismMetric] = Field(None, description="Üst ve Alt bordür paralellik analizi")
-    vertical_parallelism: Optional[ParallelismMetric] = Field(None, description="Sol ve Sağ bordür paralellik analizi")
-    orthogonality_angle_deg: Optional[float] = Field(None, description="Yatay ve dikey bordürler arasındaki köşe açısı (90° olmalı)")
-    orthogonality_deviation_deg: Optional[float] = Field(None, description="90 dereceden sapma mutlak değeri")
-    decision: QualityDecision = Field(..., description="Genel rulo kalite kararı")
-    decision_notes: List[str] = Field(default_factory=list, description="Karar gerekçeleri ve açıklamaları")
-    processing_time_ms: float = Field(..., ge=0.0, description="Analiz toplam işlem süresi (ms)")
+class RectificationReport(BaseModel):
+    """End-to-end perspective rectification quality and metric report."""
+    source_corners: QuadCorners
+    target_dimensions: List[int] = Field(..., description="Target image resolution [width, height]")
+    rectification_mode: str = Field(..., description="'adaptive' or 'standard'")
+    aspect_ratio: float = Field(..., description="Output aspect ratio (width / height)")
+    corner_angles: List[float] = Field(..., description="Interior angles of rectified corners in degrees")
+    max_angle_deviation: float = Field(..., description="Maximum deviation from 90.0 degrees")
+    homography: HomographyResult
+    qa_grade: QAGrade
+    message: str

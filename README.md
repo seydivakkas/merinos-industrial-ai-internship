@@ -40,10 +40,10 @@ Her gün klasörü (`dayXX/`) kesinlikle aşağıdaki hiyerarşiyi uygular:
 ```
 dayXX/
 ├── README.md                     # Kurumsal mühendislik raporu standardı
-├── dayXX_<topic>.ipynb           # 10 bölümlü teorik/deneysel eğitim notebook'u
-└── mini_project/                 # Üretime hazır, modüler Python paketi
+├── dayXX_<topic>.ipynb           # 10 bölümlü teorik/deneysel bağımsız eğitim notebook'u
+└── mini_project/                 # Yerel, testli, modüler PoC Python paketi
     ├── README.md                 # Mini proje mimarisi ve çalıştırma rehberi
-    ├── src/                      # Tip korumalı, loglamalı üretim kodu
+    ├── src/                      # Tip korumalı, loglamalı modüler PoC kodu
     ├── tests/                    # Pytest birim ve entegrasyon testleri
     ├── configs/                  # Dışsal parametreler ve şemalar
     └── outputs/                  # Deney logları ve test raporları
@@ -53,7 +53,10 @@ dayXX/
 
 ## Veri, Deney ve Yapay Zeka İlkeleri
 
-- **Veri Gizliliği:** Bu depoda hiçbir özel firma verisi, iç kimlik bilgisi veya telifli doküman kullanılmaz. Tüm testler sentetik, açık kaynaklı veya kamusal verilerle yürütülür.
+Ayrıntılı veri ve sistem politikası için [DATA_REALITY_POLICY.md](docs/DATA_REALITY_POLICY.md) dokümanına bakınız.
+
+- **Veri Gizliliği:** Bu depoda hiçbir özel firma verisi, iç kimlik bilgisi veya telifli doküman kullanılmaz. Tüm çalışmalar sentetik, çalışma amacıyla hazırlanmış veya açık verilerle yürütülür.
+- **Sistem Kapsamı:** Çıktılar yerel öğrenme / PoC (Proof of Concept) niteliğindedir; canlı fabrika, üretim hattı veya SCADA/PLC sistemlerine doğrudan bağlı değildir.
 - **Deneysel Dürüstlük:** Hiçbir başarım metriği (doğruluk, gecikme, bellek tüketimi) uydurulmaz. Gerçekte çalıştırılmamış testler için açıkça `NOT_EXECUTED` ibaresi düşülür.
 - **Mühendislik Gerçekçiliği:** Model çıktıları mutlak gerçek kabul edilmez; RAG sistemlerinde retrieval ve generation başarımları ayrı ayrı ölçülür. Üretilen halı desenlerinde otomatik metrikler mutlak estetik veya üretilebilirlik garantisi olarak sunulmaz.
 

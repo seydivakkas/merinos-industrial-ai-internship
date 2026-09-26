@@ -1,194 +1,130 @@
-"""
-generator.py - Synthetic Multi-Colored Carpet Generator for Benchmark Fixtures.
+"""Synthetic Carpet Image Generator for Day 09 OpenCV Image Analytics Toolkit.
+
+Generates realistic textile patterns with borders, medallions, noise,
+and illumination artifacts to benchmark filters, color spaces, and CLAHE.
 """
 
 from pathlib import Path
-import numpy as np
 import cv2
+import numpy as np
 
 
-def generate_oriental_classic_carpet(size: int = 512) -> np.ndarray:
-    """Generate 6-color intricate oriental medallion carpet fixture.
+class SyntheticCarpetGenerator:
+    """Generates synthetic carpet imagery with controllable artifacts."""
 
-    Colors:
-    - Field: Silk Cream [246, 243, 233]
-    - Medallion Main: Imperial Ruby Red [152, 28, 45]
-    - Medallion Center & Corner: Royal Navy [24, 38, 72]
-    - Inner Fill / Arabesque: Antique Gold [198, 156, 52]
-    - Floral Accent 1: Olive Grove [88, 102, 56]
-    - Floral Accent 2: Anatolian Terracotta [184, 84, 54]
-    """
-    canvas = np.zeros((size, size, 3), dtype=np.uint8)
+    def __init__(self, height: int = 360, width: int = 480, seed: int = 42):
+        self.height = height
+        self.width = width
+        self.seed = seed
+        self.rng = np.random.default_rng(seed)
 
-    # 1. Base Field (Silk Cream - BGR)
-    c_cream = (233, 243, 246)
-    canvas[:] = c_cream
+    def generate_base_carpet(self) -> np.ndarray:
+        """Generates a standard BGR carpet pattern with border and central medallion."""
+        img = np.zeros((self.height, self.width, 3), dtype=np.uint8)
 
-    c_navy = (72, 38, 24)
-    c_red = (45, 28, 152)
-    c_gold = (52, 156, 198)
-    c_olive = (56, 102, 88)
-    c_terracotta = (54, 84, 184)
+        # Base background: deep royal navy / burgundy weave
+        # BGR: Navy blue base [110, 45, 25]
+        img[:, :] = [110, 45, 25]
 
-    # 2. Main Outer Border (Royal Navy)
-    cv2.rectangle(canvas, (0, 0), (size - 1, size - 1), c_navy, thickness=40)
+        # Inner field: Cream / beige [180, 215, 235]
+        b_margin = 35
+        img[b_margin : self.height - b_margin, b_margin : self.width - b_margin] = [180, 215, 235]
 
-    # 3. Inner Secondary Border (Imperial Red)
-    cv2.rectangle(canvas, (40, 40), (size - 41, size - 41), c_red, thickness=16)
+        # Outer border line: Gold [45, 175, 215]
+        cv2.rectangle(img, (15, 15), (self.width - 15, self.height - 15), (45, 175, 215), 4)
+        cv2.rectangle(
+            img,
+            (b_margin, b_margin),
+            (self.width - b_margin, self.height - b_margin),
+            (40, 40, 140),
+            3,
+        )
 
-    # 4. Gold Guard Line
-    cv2.rectangle(canvas, (56, 56), (size - 57, size - 57), c_gold, thickness=6)
+        # Central Medallion
+        c_x, c_y = self.width // 2, self.height // 2
+        # Outer ellipse
+        cv2.ellipse(img, (c_x, c_y), (90, 65), 0, 0, 360, (40, 40, 140), -1)
+        # Inner ellipse
+        cv2.ellipse(img, (c_x, c_y), (70, 50), 0, 0, 360, (45, 175, 215), -1)
+        # Core flower
+        cv2.circle(img, (c_x, c_y), 25, (180, 215, 235), -1)
+        cv2.circle(img, (c_x, c_y), 10, (40, 40, 140), -1)
 
-    # 5. Corner Medallions (Royal Navy & Terracotta)
-    center = size // 2
-    r_corner = 70
-    corners = [(60, 60), (size - 60, 60), (60, size - 60), (size - 60, size - 60)]
-    for pt in corners:
-        cv2.circle(canvas, pt, r_corner, c_navy, -1)
-        cv2.circle(canvas, pt, r_corner - 20, c_terracotta, -1)
-        cv2.circle(canvas, pt, r_corner - 40, c_gold, -1)
+        # Micro weave texture (subtle yarn pattern)
+        y_grid, x_grid = np.ogrid[: self.height, : self.width]
+        weave = ((np.sin(x_grid * 0.5) * np.cos(y_grid * 0.5) + 1.0) * 10).astype(np.int16)
+        img_int = img.astype(np.int16)
+        img_int[:, :, 0] = np.clip(img_int[:, :, 0] + weave, 0, 255)
+        img_int[:, :, 1] = np.clip(img_int[:, :, 1] + weave, 0, 255)
+        img_int[:, :, 2] = np.clip(img_int[:, :, 2] + weave, 0, 255)
 
-    # 6. Central Medallion (Star / Diamond / Circles)
-    cv2.circle(canvas, (center, center), 120, c_navy, -1)
-    cv2.circle(canvas, (center, center), 105, c_red, -1)
-    cv2.circle(canvas, (center, center), 85, c_gold, -1)
-    cv2.circle(canvas, (center, center), 65, c_olive, -1)
-    cv2.circle(canvas, (center, center), 45, c_terracotta, -1)
-    cv2.circle(canvas, (center, center), 25, c_navy, -1)
+        return img_int.astype(np.uint8)
 
-    # 7. Floral / Arabesque Sprigs in Field
-    offsets = [
-        (center - 130, center - 80), (center + 130, center - 80),
-        (center - 130, center + 80), (center + 130, center + 80),
-        (center, center - 150), (center, center + 150),
-    ]
-    for pt in offsets:
-        cv2.circle(canvas, pt, 18, c_olive, -1)
-        cv2.circle(canvas, pt, 10, c_gold, -1)
+    def generate_low_contrast(self, base_img: np.ndarray) -> np.ndarray:
+        """Generates a washed-out, underexposed carpet image with squashed dynamic range."""
+        f_img = base_img.astype(np.float32) / 255.0
+        squashed = f_img * 70.0 + 40.0
+        return np.clip(squashed, 0, 255).astype(np.uint8)
 
-    # Add subtle textile noise
-    rng = np.random.default_rng(42)
-    noise = rng.integers(-4, 5, size=(size, size, 3), dtype=np.int16)
-    noisy_carpet = np.clip(canvas.astype(np.int16) + noise, 0, 255).astype(np.uint8)
-    return noisy_carpet
+    def generate_noisy_carpet(self, base_img: np.ndarray) -> np.ndarray:
+        """Adds salt & pepper noise and Gaussian sensor noise to simulate loom debris and sensor gain."""
+        noisy = base_img.copy()
 
+        # Gaussian noise
+        gauss = self.rng.normal(0, 12, base_img.shape).astype(np.float32)
+        noisy = np.clip(noisy.astype(np.float32) + gauss, 0, 255).astype(np.uint8)
 
-def generate_modern_geometric_carpet(size: int = 512) -> np.ndarray:
-    """Generate 5-color Bauhaus / Scandinavian geometric carpet fixture.
+        # Salt & Pepper noise
+        num_sp = int(self.height * self.width * 0.015)
+        y_coords = self.rng.integers(0, self.height, num_sp)
+        x_coords = self.rng.integers(0, self.width, num_sp)
+        noisy[y_coords, x_coords] = [255, 255, 255]
+        y_coords = self.rng.integers(0, self.height, num_sp)
+        x_coords = self.rng.integers(0, self.width, num_sp)
+        noisy[y_coords, x_coords] = [0, 0, 0]
 
-    Colors:
-    - Charcoal Black [32, 34, 38]
-    - Mustard Sun [215, 172, 48]
-    - Slate Blue [76, 108, 138]
-    - Ivory Bone [232, 226, 212]
-    - Sage Mist [134, 154, 138]
-    """
-    canvas = np.zeros((size, size, 3), dtype=np.uint8)
+        return noisy
 
-    c_ivory = (212, 226, 232)      # BGR
-    c_charcoal = (38, 34, 32)
-    c_mustard = (48, 172, 215)
-    c_slate = (138, 108, 76)
-    c_sage = (138, 154, 134)
+    def generate_uneven_illumination(self, base_img: np.ndarray) -> np.ndarray:
+        """Simulates non-uniform loom lighting (bright center-left, dark vignette at edges)."""
+        x = np.linspace(-1.0, 1.0, self.width)
+        y = np.linspace(-1.0, 1.0, self.height)
+        xx, yy = np.meshgrid(x, y)
 
-    # Base background: Ivory
-    canvas[:] = c_ivory
+        dist = np.sqrt((xx + 0.3) ** 2 + (yy + 0.2) ** 2)
+        illum_mask = np.clip(1.4 - 0.9 * dist, 0.25, 1.3)
+        illum_mask = np.expand_dims(illum_mask, axis=-1)
 
-    # Half diagonal color block (Sage)
-    pts_triangle = np.array([[0, 0], [size, 0], [0, size]], dtype=np.int32)
-    cv2.fillPoly(canvas, [pts_triangle], c_sage)
+        result = base_img.astype(np.float32) * illum_mask
+        return np.clip(result, 0, 255).astype(np.uint8)
 
-    # Large overlapping circle (Mustard Sun)
-    cv2.circle(canvas, (size // 3, size // 2), 140, c_mustard, -1)
+    def create_fixture_suite(self, output_dir: Path) -> dict[str, Path]:
+        """Creates and saves the full set of synthetic carpet test images using Unicode-safe encoding."""
+        output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Overlapping rectangle (Slate Blue)
-    cv2.rectangle(canvas, (size // 2 - 40, size // 4), (size - 50, 3 * size // 4), c_slate, -1)
+        base = self.generate_base_carpet()
+        low_con = self.generate_low_contrast(base)
+        noisy = self.generate_noisy_carpet(base)
+        uneven = self.generate_uneven_illumination(base)
 
-    # Charcoal Black bold geometric accent arcs and lines
-    cv2.ellipse(canvas, (size // 2 + 50, size // 2 + 50), (120, 80), 45, 0, 180, c_charcoal, 24)
-    cv2.line(canvas, (40, size - 60), (size - 40, size - 60), c_charcoal, 12)
+        files = {
+            "carpet_normal": output_dir / "carpet_normal.png",
+            "carpet_low_contrast": output_dir / "carpet_low_contrast.png",
+            "carpet_noisy": output_dir / "carpet_noisy.png",
+            "carpet_uneven_illumination": output_dir / "carpet_uneven_illumination.png",
+        }
 
-    # Secondary Charcoal circle
-    cv2.circle(canvas, (3 * size // 4, size // 4 + 20), 40, c_charcoal, -1)
+        for key, path in files.items():
+            img_to_save = {
+                "carpet_normal": base,
+                "carpet_low_contrast": low_con,
+                "carpet_noisy": noisy,
+                "carpet_uneven_illumination": uneven,
+            }[key]
 
-    # Small ivory cutout inside charcoal circle
-    cv2.circle(canvas, (3 * size // 4, size // 4 + 20), 16, c_ivory, -1)
+            is_success, buffer = cv2.imencode(".png", img_to_save)
+            if is_success:
+                with open(path, "wb") as f:
+                    f.write(buffer)
 
-    # Add subtle textile noise
-    rng = np.random.default_rng(99)
-    noise = rng.integers(-3, 4, size=(size, size, 3), dtype=np.int16)
-    return np.clip(canvas.astype(np.int16) + noise, 0, 255).astype(np.uint8)
-
-
-def generate_monochrome_textured_carpet(size: int = 512) -> np.ndarray:
-    """Generate 4-color textured beige/taupe tone-on-tone carpet fixture.
-
-    Colors:
-    - Warm Taupe [148, 132, 120]
-    - Silver Ash [188, 192, 196]
-    - Ivory Bone [232, 226, 212]
-    - Charcoal Black [32, 34, 38]
-    """
-    canvas = np.zeros((size, size, 3), dtype=np.uint8)
-
-    c_ivory = (212, 226, 232)
-    c_ash = (196, 192, 188)
-    c_taupe = (120, 132, 148)
-    c_charcoal = (38, 34, 32)
-
-    # Base: Warm Taupe
-    canvas[:] = c_taupe
-
-    # Striped / woven texture bands
-    band_h = 32
-    for y in range(0, size, band_h * 2):
-        canvas[y:y + band_h, :] = c_ash
-
-    # Overlay large soft textured organic wave (Ivory)
-    pts = []
-    for x in range(0, size, 20):
-        y = int(size // 2 + 80 * np.sin(2 * np.pi * x / size))
-        pts.append([x, y])
-    pts.append([size, size])
-    pts.append([0, size])
-    cv2.fillPoly(canvas, [np.array(pts, dtype=np.int32)], c_ivory)
-
-    # Fine cross-hatch grid (Charcoal thin lines)
-    for x in range(64, size, 64):
-        cv2.line(canvas, (x, 0), (x, size), c_charcoal, 2)
-
-    # Subtle pile loop microtexture
-    rng = np.random.default_rng(123)
-    noise = rng.integers(-6, 7, size=(size, size, 3), dtype=np.int16)
-    return np.clip(canvas.astype(np.int16) + noise, 0, 255).astype(np.uint8)
-
-
-def _safe_imwrite(path: Path, img: np.ndarray) -> None:
-    """Safely write image on Windows when path contains non-ASCII characters."""
-    success, enc = cv2.imencode(".png", img)
-    if not success:
-        raise RuntimeError(f"Failed to encode image for {path}")
-    enc.tofile(str(path))
-
-
-def create_all_synthetic_fixtures(output_dir: Path) -> dict:
-    """Generate all 3 benchmark fixtures and save them to disk."""
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    c1 = generate_oriental_classic_carpet(512)
-    p1 = output_dir / "carpet_oriental_classic.png"
-    _safe_imwrite(p1, c1)
-
-    c2 = generate_modern_geometric_carpet(512)
-    p2 = output_dir / "carpet_modern_geometric.png"
-    _safe_imwrite(p2, c2)
-
-    c3 = generate_monochrome_textured_carpet(512)
-    p3 = output_dir / "carpet_monochrome_textured.png"
-    _safe_imwrite(p3, c3)
-
-    return {
-        "oriental_classic": str(p1),
-        "modern_geometric": str(p2),
-        "monochrome_textured": str(p3),
-    }
+        return files

@@ -1,173 +1,193 @@
-"""
-generator.py - Synthetic Carpet Fabric & Physical Weaving Defect Fixtures Generator.
-"""
+"""generator.py - Synthetic Multi-Colored Carpet Generator for Day 11 Palette Fixtures."""
 
 from pathlib import Path
-from typing import Dict, Tuple
-import numpy as np
 import cv2
+import numpy as np
+
+
+def generate_oriental_classic_carpet(size: int = 512) -> np.ndarray:
+    """Generate 6-color intricate oriental medallion carpet fixture.
+
+    Colors:
+    - Field: Silk Cream [246, 243, 233]
+    - Medallion Main: Imperial Ruby Red [152, 28, 45]
+    - Medallion Center & Corner: Royal Navy [24, 38, 72]
+    - Inner Fill / Arabesque: Antique Gold [198, 156, 52]
+    - Floral Accent 1: Olive Grove [88, 102, 56]
+    - Floral Accent 2: Anatolian Terracotta [184, 84, 54]
+    """
+    canvas = np.zeros((size, size, 3), dtype=np.uint8)
+
+    # 1. Base Field (Silk Cream - BGR)
+    c_cream = (233, 243, 246)
+    canvas[:] = c_cream
+
+    c_navy = (72, 38, 24)
+    c_red = (45, 28, 152)
+    c_gold = (52, 156, 198)
+    c_olive = (56, 102, 88)
+    c_terracotta = (54, 84, 184)
+
+    # 2. Main Outer Border (Royal Navy)
+    cv2.rectangle(canvas, (0, 0), (size - 1, size - 1), c_navy, thickness=40)
+
+    # 3. Inner Secondary Border (Imperial Red)
+    cv2.rectangle(canvas, (40, 40), (size - 41, size - 41), c_red, thickness=16)
+
+    # 4. Gold Guard Line
+    cv2.rectangle(canvas, (56, 56), (size - 57, size - 57), c_gold, thickness=6)
+
+    # 5. Corner Medallions (Royal Navy & Terracotta)
+    center = size // 2
+    r_corner = 70
+    corners = [(60, 60), (size - 60, 60), (60, size - 60), (size - 60, size - 60)]
+    for pt in corners:
+        cv2.circle(canvas, pt, r_corner, c_navy, -1)
+        cv2.circle(canvas, pt, r_corner - 20, c_terracotta, -1)
+        cv2.circle(canvas, pt, r_corner - 40, c_gold, -1)
+
+    # 6. Central Medallion (Star / Diamond / Circles)
+    cv2.circle(canvas, (center, center), 120, c_navy, -1)
+    cv2.circle(canvas, (center, center), 105, c_red, -1)
+    cv2.circle(canvas, (center, center), 85, c_gold, -1)
+    cv2.circle(canvas, (center, center), 65, c_olive, -1)
+    cv2.circle(canvas, (center, center), 45, c_terracotta, -1)
+    cv2.circle(canvas, (center, center), 25, c_navy, -1)
+
+    # 7. Floral / Arabesque Sprigs in Field
+    offsets = [
+        (center - 130, center - 80), (center + 130, center - 80),
+        (center - 130, center + 80), (center + 130, center + 80),
+        (center, center - 150), (center, center + 150),
+    ]
+    for pt in offsets:
+        cv2.circle(canvas, pt, 18, c_olive, -1)
+        cv2.circle(canvas, pt, 10, c_gold, -1)
+
+    # Add subtle textile noise
+    rng = np.random.default_rng(42)
+    noise = rng.integers(-4, 5, size=(size, size, 3), dtype=np.int16)
+    noisy_carpet = np.clip(canvas.astype(np.int16) + noise, 0, 255).astype(np.uint8)
+    return noisy_carpet
+
+
+def generate_modern_geometric_carpet(size: int = 512) -> np.ndarray:
+    """Generate 5-color Bauhaus / Scandinavian geometric carpet fixture.
+
+    Colors:
+    - Charcoal Black [32, 34, 38]
+    - Mustard Sun [215, 172, 48]
+    - Slate Blue [76, 108, 138]
+    - Ivory Bone [232, 226, 212]
+    - Sage Mist [134, 154, 138]
+    """
+    canvas = np.zeros((size, size, 3), dtype=np.uint8)
+
+    c_ivory = (212, 226, 232)      # BGR
+    c_charcoal = (38, 34, 32)
+    c_mustard = (48, 172, 215)
+    c_slate = (138, 108, 76)
+    c_sage = (138, 154, 134)
+
+    # Base background: Ivory
+    canvas[:] = c_ivory
+
+    # Half diagonal color block (Sage)
+    pts_triangle = np.array([[0, 0], [size, 0], [0, size]], dtype=np.int32)
+    cv2.fillPoly(canvas, [pts_triangle], c_sage)
+
+    # Large overlapping circle (Mustard Sun)
+    cv2.circle(canvas, (size // 3, size // 2), 140, c_mustard, -1)
+
+    # Overlapping rectangle (Slate Blue)
+    cv2.rectangle(canvas, (size // 2 - 40, size // 4), (size - 50, 3 * size // 4), c_slate, -1)
+
+    # Charcoal Black bold geometric accent arcs and lines
+    cv2.ellipse(canvas, (size // 2 + 50, size // 2 + 50), (120, 80), 45, 0, 180, c_charcoal, 24)
+    cv2.line(canvas, (40, size - 60), (size - 40, size - 60), c_charcoal, 12)
+
+    # Secondary Charcoal circle
+    cv2.circle(canvas, (3 * size // 4, size // 4 + 20), 40, c_charcoal, -1)
+
+    # Small ivory cutout inside charcoal circle
+    cv2.circle(canvas, (3 * size // 4, size // 4 + 20), 16, c_ivory, -1)
+
+    # Add subtle textile noise
+    rng = np.random.default_rng(99)
+    noise = rng.integers(-3, 4, size=(size, size, 3), dtype=np.int16)
+    return np.clip(canvas.astype(np.int16) + noise, 0, 255).astype(np.uint8)
+
+
+def generate_monochrome_textured_carpet(size: int = 512) -> np.ndarray:
+    """Generate 4-color textured beige/taupe tone-on-tone carpet fixture.
+
+    Colors:
+    - Warm Taupe [148, 132, 120]
+    - Silver Ash [188, 192, 196]
+    - Ivory Bone [232, 226, 212]
+    - Charcoal Black [32, 34, 38]
+    """
+    canvas = np.zeros((size, size, 3), dtype=np.uint8)
+
+    c_ivory = (212, 226, 232)
+    c_ash = (196, 192, 188)
+    c_taupe = (120, 132, 148)
+    c_charcoal = (38, 34, 32)
+
+    # Base: Warm Taupe
+    canvas[:] = c_taupe
+
+    # Striped / woven texture bands
+    band_h = 32
+    for y in range(0, size, band_h * 2):
+        canvas[y:y + band_h, :] = c_ash
+
+    # Overlay large soft textured organic wave (Ivory)
+    pts = []
+    for x in range(0, size, 20):
+        y = int(size // 2 + 80 * np.sin(2 * np.pi * x / size))
+        pts.append([x, y])
+    pts.append([size, size])
+    pts.append([0, size])
+    cv2.fillPoly(canvas, [np.array(pts, dtype=np.int32)], c_ivory)
+
+    # Fine cross-hatch grid (Charcoal thin lines)
+    for x in range(64, size, 64):
+        cv2.line(canvas, (x, 0), (x, size), c_charcoal, 2)
+
+    # Subtle pile loop microtexture
+    rng = np.random.default_rng(123)
+    noise = rng.integers(-6, 7, size=(size, size, 3), dtype=np.int16)
+    return np.clip(canvas.astype(np.int16) + noise, 0, 255).astype(np.uint8)
 
 
 def _safe_imwrite(path: Path, img: np.ndarray) -> None:
     """Safely write image on Windows when path contains non-ASCII characters."""
+    path.parent.mkdir(parents=True, exist_ok=True)
     success, enc = cv2.imencode(".png", img)
     if not success:
         raise RuntimeError(f"Failed to encode image for {path}")
     enc.tofile(str(path))
 
 
-def create_woven_fabric_texture(
-    width: int = 512,
-    height: int = 512,
-    base_color: Tuple[int, int, int] = (195, 205, 215),  # Light slate grey/blue (BGR)
-) -> np.ndarray:
-    """Generate realistic woven carpet pile texture with warp and weft yarn grid."""
-    fabric = np.zeros((height, width, 3), dtype=np.uint8)
-    fabric[:] = base_color
-
-    # Yarn thread pitch (pixels between threads)
-    pitch = 4
-    rng = np.random.default_rng(42)
-
-    # Weft (horizontal) thread modulation
-    y_idx = np.arange(height)
-    weft_mod = (np.sin(2.0 * np.pi * y_idx / pitch) * 8.0).astype(np.int16)
-    fabric[:, :, 0] = np.clip(fabric[:, :, 0].astype(np.int16) + weft_mod[:, None], 0, 255).astype(np.uint8)
-    fabric[:, :, 1] = np.clip(fabric[:, :, 1].astype(np.int16) + weft_mod[:, None], 0, 255).astype(np.uint8)
-    fabric[:, :, 2] = np.clip(fabric[:, :, 2].astype(np.int16) + weft_mod[:, None], 0, 255).astype(np.uint8)
-
-    # Warp (vertical) thread modulation
-    x_idx = np.arange(width)
-    warp_mod = (np.sin(2.0 * np.pi * x_idx / pitch) * 8.0).astype(np.int16)
-    fabric[:, :, 0] = np.clip(fabric[:, :, 0].astype(np.int16) + warp_mod[None, :], 0, 255).astype(np.uint8)
-    fabric[:, :, 1] = np.clip(fabric[:, :, 1].astype(np.int16) + warp_mod[None, :], 0, 255).astype(np.uint8)
-    fabric[:, :, 2] = np.clip(fabric[:, :, 2].astype(np.int16) + warp_mod[None, :], 0, 255).astype(np.uint8)
-
-    # Fiber micro-texture noise
-    noise = rng.integers(-4, 5, size=(height, width, 3), dtype=np.int16)
-    fabric = np.clip(fabric.astype(np.int16) + noise, 0, 255).astype(np.uint8)
-
-    return fabric
-
-
-def inject_hole(
-    fabric: np.ndarray,
-    cx: int,
-    cy: int,
-    radius: int = 9,
-    darkness: Tuple[int, int, int] = (25, 25, 30),
-) -> np.ndarray:
-    """Inject a dark localized weaving hole or puncture into the fabric."""
-    out = fabric.copy()
-    cv2.circle(out, (cx, cy), radius, darkness, -1)
-
-    # Frayed hole boundary
-    rng = np.random.default_rng(cx + cy)
-    for _ in range(12):
-        r_angle = rng.uniform(0, 2 * np.pi)
-        r_dist = radius + rng.integers(1, 4)
-        px = int(cx + r_dist * np.cos(r_angle))
-        py = int(cy + r_dist * np.sin(r_angle))
-        if 0 <= px < fabric.shape[1] and 0 <= py < fabric.shape[0]:
-            out[py, px] = darkness
-
-    return out
-
-
-def inject_yarn_break(
-    fabric: np.ndarray,
-    x: int,
-    y: int,
-    length: int = 60,
-    orientation: str = "horizontal",
-    thickness: int = 2,
-    darkness: Tuple[int, int, int] = (40, 40, 45),
-) -> np.ndarray:
-    """Inject a linear missing yarn break (horizontal weft or vertical warp)."""
-    out = fabric.copy()
-    if orientation == "horizontal":
-        pt1 = (x, y)
-        pt2 = (min(fabric.shape[1] - 1, x + length), y)
-    else:
-        pt1 = (x, y)
-        pt2 = (x, min(fabric.shape[0] - 1, y + length))
-
-    cv2.line(out, pt1, pt2, darkness, thickness)
-    return out
-
-
-def inject_slub_knot(
-    fabric: np.ndarray,
-    cx: int,
-    cy: int,
-    radius: int = 9,
-    brightness: Tuple[int, int, int] = (255, 255, 255),
-) -> np.ndarray:
-    """Inject a bright thick yarn slub or knot anomaly."""
-    out = fabric.copy()
-    cv2.ellipse(out, (cx, cy), (radius + 2, radius), 30, 0, 360, brightness, -1)
-    return out
-
-
-def inject_oil_stain(
-    fabric: np.ndarray,
-    cx: int,
-    cy: int,
-    axes: Tuple[int, int] = (16, 12),
-    angle: int = 20,
-    dark_tint: Tuple[int, int, int] = (45, 60, 75),
-) -> np.ndarray:
-    """Inject a dark/brownish industrial loom oil stain."""
-    out = fabric.copy()
-    # Semi-transparent blending of oil stain
-    mask = np.zeros(fabric.shape[:2], dtype=np.uint8)
-    cv2.ellipse(mask, (cx, cy), axes, angle, 0, 360, 255, -1)
-    mask_blurred = cv2.GaussianBlur(mask, (7, 7), 2.5)
-
-    alpha = (mask_blurred.astype(np.float32) / 255.0) * 0.75
-    for c in range(3):
-        out[:, :, c] = np.clip(
-            fabric[:, :, c] * (1.0 - alpha) + dark_tint[c] * alpha,
-            0,
-            255,
-        ).astype(np.uint8)
-
-    return out
-
-
-def generate_all_synthetic_defect_fixtures(output_dir: Path) -> Dict[str, str]:
-    """Generate the full set of clean and defective carpet fixtures for Day 11."""
+def create_all_synthetic_fixtures(output_dir: Path) -> dict:
+    """Generate all 3 benchmark fixtures and save them to disk."""
     output_dir.mkdir(parents=True, exist_ok=True)
-    base = create_woven_fabric_texture(512, 512)
 
-    # 1. Clean Reference Fabric
-    p_clean = output_dir / "carpet_clean_reference.png"
-    _safe_imwrite(p_clean, base)
+    c1 = generate_oriental_classic_carpet(512)
+    p1 = output_dir / "carpet_oriental_classic.png"
+    _safe_imwrite(p1, c1)
 
-    # 2. Yarn Break Fixture (Weft + Warp breaks)
-    img_yarn = base.copy()
-    img_yarn = inject_yarn_break(img_yarn, x=100, y=180, length=70, orientation="horizontal")
-    img_yarn = inject_yarn_break(img_yarn, x=350, y=280, length=65, orientation="vertical")
-    p_yarn = output_dir / "carpet_defect_yarn_break.png"
-    _safe_imwrite(p_yarn, img_yarn)
+    c2 = generate_modern_geometric_carpet(512)
+    p2 = output_dir / "carpet_modern_geometric.png"
+    _safe_imwrite(p2, c2)
 
-    # 3. Hole Puncture Fixture (Multiple weaving punctures)
-    img_hole = base.copy()
-    img_hole = inject_hole(img_hole, cx=150, cy=150, radius=9)
-    img_hole = inject_hole(img_hole, cx=360, cy=320, radius=12)
-    p_hole = output_dir / "carpet_defect_hole_puncture.png"
-    _safe_imwrite(p_hole, img_hole)
-
-    # 4. Oil Stain & Slub Knot Fixture
-    img_oil_slub = base.copy()
-    img_oil_slub = inject_oil_stain(img_oil_slub, cx=200, cy=220, axes=(18, 14))
-    img_oil_slub = inject_slub_knot(img_oil_slub, cx=380, cy=180, radius=7)
-    p_oil_slub = output_dir / "carpet_defect_oil_slub.png"
-    _safe_imwrite(p_oil_slub, img_oil_slub)
+    c3 = generate_monochrome_textured_carpet(512)
+    p3 = output_dir / "carpet_monochrome_textured.png"
+    _safe_imwrite(p3, c3)
 
     return {
-        "clean_reference": str(p_clean),
-        "yarn_break": str(p_yarn),
-        "hole_puncture": str(p_hole),
-        "oil_slub": str(p_oil_slub),
+        "oriental_classic": str(p1),
+        "modern_geometric": str(p2),
+        "monochrome_textured": str(p3),
     }

@@ -42,7 +42,7 @@ YAZARIN AÇIK YAZILI İZNİ OLMAKSIZIN HİÇBİR KULLANIM HAKKI TANINMAZ.
 > 
 > *Bu doğrultuda mentörümle birlikte stratejik bir mühendislik kararı aldık: Tekstil ve dokuma mühendisliğinin fiziksel gerçekliklerine (Van de Wiele ve Schönherr tezgâhlarının teknik limitleri, sıcaklık/basınç sınırları, kumaş dokuma parametreleri) tam uyumlu **%100 sentetik veri setleri, simüle edilmiş telemetri akışları, sentetik doku kusurları ve sentetik teknik dokümanlar** ürettik. 40 gün boyunca bu sentetik veri omurgası üzerinde çalışan uçtan uca, üretime hazır bir PoC (Proof of Concept - Kavram Kanıtı) yapay zekâ mimarisi inşa ettik.*  
 > 
-> *Geliştirdiğimiz bu platform, fabrikanın ilerleyen aşamada gerçek SCADA ve PLC sistemlerini entegre etmesi durumunda doğrudan canlıya alınabilecek modüler bir yazılım iskeleti sunmaktadır. İzninizle, mentörümün yönlendirmeleriyle Bilgi İşlem masamda geliştirdiğim bu 40 günlük yazılım ve yapay zekâ serüvenini gün gün sizlere sunmak istiyorum."*
+> *Geliştirdiğimiz bu platform, fabrikanın ilerleyen aşamada gerçek SCADA ve PLC sistemlerini entegre etmesi durumunda; ayrı pilot, doğrulama, kurumsal yetkilendirme ve saha testi süreçlerinden geçtikten sonra devreye alınabilecek modüler bir yazılım iskeleti ve kavram kanıtı (PoC) sunmaktadır. İzninizle, mentörümün yönlendirmeleriyle Bilgi İşlem masamda geliştirdiğim bu 40 günlük yazılım ve yapay zekâ serüvenini gün gün sizlere sunmak istiyorum."*
 
 ---
 
@@ -324,7 +324,7 @@ YAZARIN AÇIK YAZILI İZNİ OLMAKSIZIN HİÇBİR KULLANIM HAKKI TANINMAZ.
 > 
 > *Merinos Bilgi İşlem Departmanı'nda geçirdiğim bu 40 gün boyunca, bir Bilgisayar Mühendisliği öğrencisi olarak veri gizliliği ve kurumsal güvenlik ilkelerinin ne kadar hayati olduğunu öğrendim. Canlı üretim verilerinin şirket dışına çıkarılamadığı bir ortamda; 'veri yoksa proje de yok' demek yerine, mentörümle birlikte endüstriyel gerçekliklere uygun sentetik veri modelleri kurgulayarak mimarimizi adım adım ayağa kaldırdık.*  
 > 
-> *Günün sonunda geride bıraktığımız çalışma; 218 birim testiyle %100 doğrulanmış, tip güvenliğine ve deterministik prensiplere dayanan, iş güvenliği korkuluklarıyla donatılmış ve işletme bünyesinde gerçek veri entegrasyonu onaylandığında anında sahaya sürülebilecek ENTERPRISE_READY_V1 sertifikalı bir kavram kanıtı (PoC) platformudur.*  
+> *Günün sonunda geride bıraktığımız çalışma; 400'ün üzerinde birim testiyle %100 doğrulanmış, tip güvenliğine ve deterministik prensiplere dayanan, iş güvenliği korkuluklarıyla donatılmış ve işletme bünyesinde ayrı bir pilot, kurumsal yetkilendirme ve saha testi süreçlerinden geçtikten sonra değerlendirilebilecek modüler bir kavram kanıtı (PoC) platformudur.*  
 > 
 > *Beni dinlediğiniz için teşekkür eder, sorularınızı memnuniyetle yanıtlamak isterim."*
 
@@ -337,4 +337,4 @@ YAZARIN AÇIK YAZILI İZNİ OLMAKSIZIN HİÇBİR KULLANIM HAKKI TANINMAZ.
 2. **"120 tezgâh ve 22.68 Milyon TL tasarruf nereden geliyor?" sorusuna:**  
    *"Hocam, bu rakamlar mentörümün Üretim Planlama biriminden aktardığı parametrik fabrika değişkenlerine dayanmaktadır. Merinos bünyesinde 120 tezgâh bulunuyor ve bir tezgâhın saatlik ortalama duruş maliyeti 1.500 TL. Geliştirdiğimiz kestirimci uyarı ve hızlı teşhis mimarisi, tezgâh başına yıllık 126 saat duruş tasarrufu sağlayabilecek şekilde simüle edilmiştir. Bu da $120 \times 126 \times 1.500 = 22.680.000\text{ TL}$ potansiyel tasarruf anlamına gelmektedir."*
 3. **"Sistemi yarın fabrikaya taksak hemen çalışır mı?" sorusuna:**  
-   *"Hocam, yazılım mimarimiz (Pydantic DTO'larımız, FastAPI servisimiz ve ONNX INT8 çıkarım motorumuz) canlıya tam uyumludur. Şu an sentetik veriyle 218 testin tamamından %100 yeşil almıştır. Bir sonraki aşamada işletme bünyesinde araştırılacak olan konu; SCADA PLC OPC-UA sunucuları ile bizim FastAPI ağ geçidimiz arasındaki veri hattının yetkilendirilmesidir. O bağlantı sağlandığı an platform canlı veriyi işlemeye hazırdır."*
+   *"Hocam, yazılım katmanımız (Pydantic DTO'larımız, FastAPI servisimiz ve ONNX INT8 çıkarım motorumuz) yerel test ortamında 400'ün üzerinde testten %100 yeşil almıştır. Ancak endüstriyel bir tesis ortamında doğrudan canlıya almak yerine; öncelikle OPC-UA/PLC ağ geçitleri üzerinde ayrı bir pilot çalışma, kurumsal siber güvenlik yetkilendirmesi ve tezgâh başında kontrollü saha testleri gerekecektir. Geliştirdiğimiz bu PoC, işte bu saha testine zemin hazırlayan modüler bir mühendislik prototipidir."*

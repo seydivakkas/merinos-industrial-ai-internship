@@ -1,21 +1,16 @@
-"""
-Merinos Industrial AI Internship - Day 06
-Vector Similarity Laboratory & Metric Search Engine
+"""Merinos Industrial AI Internship - Day 06.
+
+NumPy ve Vektörel Hesaplama: Matris Operasyonları, Vektörizasyon ve Tensör İşleme.
 """
 
-from day06.mini_project.src import metrics
-from day06.mini_project.src.scalers import StandardScaler, MinMaxScaler, L2Normalizer
-from day06.mini_project.src.curse_analyzer import CurseOfDimensionalityAnalyzer
-from day06.mini_project.src.search import VectorSimilaritySearchEngine, run_benchmark_and_generate_artifacts
+from day06.mini_project.src.array_ops import ArrayOperations
 from day06.mini_project.src.generator import CarpetEmbeddingGenerator
+from day06.mini_project.src.image_matrix import ImageMatrixToolkit
+from day06.mini_project.src.vectorization_benchmark import VectorizationBenchmark
 
 __all__ = [
-    "metrics",
-    "StandardScaler",
-    "MinMaxScaler",
-    "L2Normalizer",
-    "CurseOfDimensionalityAnalyzer",
-    "VectorSimilaritySearchEngine",
+    "ArrayOperations",
     "CarpetEmbeddingGenerator",
-    "run_benchmark_and_generate_artifacts",
+    "VectorizationBenchmark",
+    "ImageMatrixToolkit",
 ]

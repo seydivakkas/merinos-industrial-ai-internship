@@ -53,10 +53,16 @@ Bu günün amacı, Merinos jakarlı halı dokuma tezgâhlarının mekanik iplik 
 - **Dizin:** [`mini_project/`](mini_project/)
 - **Adı:** `kmeans-dominant-palette-extractor`
 - **Modüller:**
-  - `src/kmeans_palette_engine.py`: `KMeansPaletteExtractor`, `DominantPaletteResult` ve `ColorCluster` sınıfları.
-  - `src/morphology_engine.py`, `src/defect_detector.py`: Destekleyici morfolojik kusur analiz modülleri.
-  - `tests/test_kmeans_palette_engine.py`: Küme sayısı, yüzdelik toplamı ve HEX format testleri.
-  - `tests/test_morphology_defects.py`: Morfolojik analiz testleri.
+  - `src/kmeans_palette_engine.py`: Hafif scikit-learn / Pydantic `KMeansPaletteExtractor`, `DominantPaletteResult` ve `ColorCluster` sınıfları.
+  - `src/kmeans_palette.py`: K-Means baskın renk paleti çıkarıcı ve 15,000 piksellik uzamsal alt-örnekleme (`Subsampling`) hızlandırıcısı.
+  - `src/quantizer.py`: `CarpetQuantizer` (deseni tezgâh ipliklerine indirgeyen indeksli kuantizasyon ve hata haritası simülatörü).
+  - `src/yarn_matcher.py`: Merinos 16 ipliklik üretim kataloğu ile eşleştirme ve tezgâh cağlık planlama motoru (`YarnMatcher`).
+  - `src/color_models.py`: Pydantic veri modelleri (`CatalogYarn`, `ExtractedColor`, `MatchGrade`, `CreelAllocationPlan`, `QuantizationReport`).
+  - `src/ciede2000.py`: ISO/CIE 11664-6:2014 CIEDE2000 skaler, vektörize ve hata haritası hesaplayıcıları.
+  - `src/generator.py`: Sentetik klasik madalyon, modern geometrik ve monokrom dokulu halı üretici.
+  - `src/cli.py`: `extract`, `match`, `quantize`, `benchmark` komut satırı arayüzü.
+  - `tests/test_kmeans_palette_engine.py`: Temel K-Means küme sayısı, HEX kodu ve yüzde toplamı testleri.
+  - `tests/test_palette_and_quantizer.py`: 10 kapsamlı birim ve entegrasyon testi (Sharma standart test çiftleri, subsampling, kuantizasyon).
 
 ---
 
@@ -68,47 +74,72 @@ day11/
 └── mini_project/
     ├── README.md
     ├── configs/
+    │   └── palette_config.json
+    ├── fixtures/
+    │   └── synthetic_carpets/
+    │       ├── carpet_oriental_classic.png
+    │       ├── carpet_modern_geometric.png
+    │       └── carpet_monochrome_textured.png
     ├── src/
     │   ├── __init__.py
+    │   ├── color_models.py
+    │   ├── ciede2000.py
+    │   ├── kmeans_palette.py
     │   ├── kmeans_palette_engine.py
-    │   ├── morphology_engine.py
-    │   ├── defect_detector.py
-    │   ├── models.py
-    │   └── generator.py
+    │   ├── yarn_matcher.py
+    │   ├── quantizer.py
+    │   ├── generator.py
+    │   └── cli.py
     ├── tests/
     │   ├── __init__.py
     │   ├── test_kmeans_palette_engine.py
-    │   └── test_morphology_defects.py
+    │   └── test_palette_and_quantizer.py
     └── outputs/
+        ├── sample_palette_extraction.json
+        ├── yarn_creel_allocation_report.json
+        ├── ciede2000_benchmark.json
+        └── palette_summary.md
 ```
 
 ---
 
 ## Experiments
 1. **Baskın Renk Paleti Çıkarımı Deneyi:**
-   - Mavi, yeşil ve kırmızı bölgelerden oluşan sentetik halı deseni üzerinde $K=3$ kümeleme çalıştırıldı.
-   - 3 adet küme merkezi tespit edildi; her bir kümenin HEX kodu (`#...`) üretildi.
-   - Dağılım yüzdelerinin toplamının $\approx \%100.0$ olduğu doğrulandı.
+   - 4 farklı renk alanına sahip sentetik halı deseni üzerinde $K=4$ kümeleme çalıştırıldı.
+   - Her bir kümenin HEX kodu (`#...`) ve yüzey kaplama oranı üretildi; oranların toplamının tam $\%100.0$ olduğu doğrulandı.
+2. **K-Means Alt-Örnekleme (Subsampling) Hızlanma Deneyi:**
+   - 512x512 piksellik halı görseli üzerinde 15,000 piksellik örneklem ile tam görsele kıyasla $10\times$ hızlanma elde edildi; centroid kaymasının $< 1.5 \Delta E_{00}$ toleransında kaldığı doğrulandı.
+3. **Sharma et al. (2005) Standart Doğrulama Deneyi:**
+   - CIEDE2000 formülasyonu Sharma et al. standart test çiftleri üzerinde test edildi ve sayısal sapmanın $< 10^{-3}$ olduğu doğrulandı.
 
 ---
 
 ## Validation
 - Pytest ile 11 adet birim test icra edildi:
   - `test_kmeans_palette_extraction`
-  - `test_morphology_defects_*` (destekleyici morfoloji testleri)
+  - `test_palette_extraction`
+  - `test_ciede2000_identical_colors_zero`
+  - `test_ciede2000_standard_sharma_pairs`
+  - `test_ciede2000_blue_region_rotation_significance`
+  - `test_ciede2000_achromatic_numerical_stability`
+  - `test_kmeans_palette_extraction_proportions_sum_to_100`
+  - `test_kmeans_palette_rgb_vs_lab_clustering`
+  - `test_subsampling_acceleration_and_fidelity`
+  - `test_carpet_quantization_and_distortion_metric`
+  - `test_yarn_matching`
 - Tüm testler **%100 başarıyla (11 passed)** geçti.
 
 ---
 
 ## Results
 - Dijital halı desenlerinin jakarlı tezgah bobin kapasitesine uygun olarak $K$ adet ana renge kuantize edilmesi sağlanmıştır.
-- Dokuma hazırlık departmanı için gerekli iplik tüketim yüzdeleri ve renk reçetesi otomatikleştirilmiştir.
+- Dokuma hazırlık departmanı için gerekli iplik tüketim yüzdeleri, cağlık bobin yerleşim planı ve $m^2$ başına tahmini iplik maliyeti otomatikleştirilmiştir.
 
 ---
 
 ## Limitations
 - K-Means küme sayısı ($K$) kullanıcı tarafından tezgâh kapasitesine göre belirlenmektedir; dirsek yöntemi (elbow method) veya siluet skoru gibi otomatik $K$ belirleyiciler sonraki fazlarda değerlendirilecektir.
-- Algoritma sentetik halı desenleri üzerinde test edilmiştir.
+- Algoritma sentetik halı desenleri ve Merinos standart renk kataloğu üzerinden doğrulanmıştır.
 
 ---
 
@@ -116,11 +147,20 @@ day11/
 - `day11/README.md`
 - `day11/day11_kmeans_baskin_renk.ipynb`
 - `day11/mini_project/README.md`
+- `day11/mini_project/configs/palette_config.json`
+- `day11/mini_project/fixtures/synthetic_carpets/`
 - `day11/mini_project/src/__init__.py`
+- `day11/mini_project/src/color_models.py`
+- `day11/mini_project/src/ciede2000.py`
+- `day11/mini_project/src/kmeans_palette.py`
 - `day11/mini_project/src/kmeans_palette_engine.py`
+- `day11/mini_project/src/yarn_matcher.py`
+- `day11/mini_project/src/quantizer.py`
+- `day11/mini_project/src/generator.py`
+- `day11/mini_project/src/cli.py`
 - `day11/mini_project/tests/__init__.py`
 - `day11/mini_project/tests/test_kmeans_palette_engine.py`
-- `day11/mini_project/tests/test_morphology_defects.py`
+- `day11/mini_project/tests/test_palette_and_quantizer.py`
 
 ---
 
@@ -128,6 +168,9 @@ day11/
 ```bash
 # Birim testleri koşma
 pytest day11/mini_project/tests/ -v
+
+# Uçtan uca palet ve benchmark testini çalıştırma
+python -m day11.mini_project.src.cli benchmark
 ```
 
 ---

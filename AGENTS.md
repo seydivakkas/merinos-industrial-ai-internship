@@ -93,19 +93,24 @@ Use:
 
 ---
 
-## DATA POLICY
+## DATA & SYSTEM REALITY POLICY (PERMANENT AGENT CONTRACT)
 
-Never use:
-- confidential Merinos data
-- internal credentials
-- customer information
-- proprietary source code
-- private documents
+1. **No Proprietary / Confidential Data:**
+   - Never use confidential Merinos data, internal credentials, customer information, proprietary source code, or private documents.
+   - Use exclusively: synthetic data, public domain data, permissively licensed examples.
 
-Use:
-- synthetic data
-- public data
-- permissively licensed examples
+2. **No False Production or Live Claims:**
+   - Never write as if live SCADA/PLC, live production sensors, real loom telemetry, physical factory cameras, or internal production systems were directly connected.
+   - All implementations are local learning prototypes / Proof-of-Concept (PoC), not live industrial production deployments.
+   - Future architectural possibilities must be explicitly labeled as "Gelecekteki Entegrasyon Senaryosu / Future Work", never as already deployed.
+
+3. **Standalone Notebook Principle:**
+   - Every `dayXX/*.ipynb` notebook must run 100% standalone without external file dependencies, missing disk assets, or private package imports. Anyone opening the notebook must be able to execute "Run All" cleanly.
+
+4. **Curriculum Alignment & Boundary Isolation:**
+   - Each `dayXX` must strictly adhere to its official curriculum topic as defined in `ROADMAP.md` and the 80-page staj defteri.
+   - Reusable code belongs in `mini_project/src/`. Code belonging to other days must not be deleted, but moved using `git mv` to its proper day.
+   - The official staj defteri (`Merinos_40_Gun_80_Yaprak_Genislestirilmis_Staj_Defteri.md`) is the master document and MUST NEVER BE MODIFIED.
 
 ---
 

@@ -1,8 +1,8 @@
 # Yol Haritası ve Faz Planı — 40 Günlük Staj
 
-Bu doküman, 40 günlük staj defteri resmi planına göre organize edilmiş mühendislik fazlarını, gün gün hedefleri ve standart Git commit mesaj zincirini içerir.
+Bu doküman, 40 günlük staj defteri resmi planına ve müfredatına ait **tek gerçeklik kaynağıdır (Single Source of Truth)**. 40 günün sırası ve başlıkları 80 yapraklık resmi staj defteriyle (`Merinos_40_Gun_80_Yaprak_Genislestirilmis_Staj_Defteri.md`) birebir eşleşmektedir. Fazları, gün gün hedefleri ve standart Git commit mesaj zincirini içerir.
 
-> **Sabit Veri ve Gerçeklik Sınırı:** Bu projedeki tüm çalışmalar sentetik, çalışma amacıyla hazırlanmış veya açık veriler üzerinde yürütülen yerel öğrenme / PoC (Proof of Concept) çalışmalarıdır. Canlı SCADA/PLC sistemlerine bağlanıldığı, gerçek sensör telemetrisi kullanıldığı, gerçek tezgâh hata loglarının işlendiği veya fabrika içi veritabanlarına canlı erişildiği iddia edilmez.
+> **Sabit Veri ve Gerçeklik Sınırı:** Bu projedeki tüm çalışmalar sentetik, çalışma amacıyla hazırlanmış veya açık veriler üzerinde yürütülen yerel öğrenme / PoC (Proof of Concept) çalışmalarıdır. Canlı SCADA/PLC sistemlerine bağlanıldığı, gerçek sensör telemetrisi kullanıldığı, gerçek tezgâh hata loglarının işlendiği veya fabrika içi veritabanlarına canlı erişildiği iddia edilmez. Ayrıntılı politika için [DATA_REALITY_POLICY.md](docs/DATA_REALITY_POLICY.md) dokümanına bakınız.
 
 ---
 

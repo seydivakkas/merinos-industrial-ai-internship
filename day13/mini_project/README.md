@@ -1,8 +1,6 @@
-# Day 13 Mini Proje: Klasik Segmentasyon Kıyaslama Laboratuvarı (Otsu, Watershed, GrabCut)
+# Day 13 Mini Proje: Morfolojik İşlemler, Kenar ve Çizgi Tespiti & Halı Bordür Analitiği
 
-Bu paket, **Merinos Halı Sanayi ve Ticaret A.Ş.** üretim ve kalite denetim hatlarında (jakarlı dokuma tezgâhı çıkışı, apre, motif kontrolü ve konfeksiyon) halı desen motiflerinin zemin kumaşından piksel seviyesinde ayrıştırılması amacıyla geliştirilmiş endüstriyel makine görüşü modülüdür.
-
-Sistem, **Otsu Global & Multi-Otsu Eşikleme**, **İşaretçi Kontrollü Watershed (Havza)** ve **GrabCut (GMM Tabanlı Grafik Kesme)** algoritmalarını hem işlem hızı ($FPS, ms$) hem de piksel doğruluğu ($IoU, Dice, BF-Score$) yönünden kıyaslar.
+Bu paket, **Merinos Halı Sanayi ve Ticaret A.Ş.** üretim hatlarında (jakarlı dokuma çıkışı, traşlama, apre, overlok ve kalite muayene istasyonları) kumaş yüzeyindeki mikro dokuma kusurlarını (iplik kopuşu, delik/patlak, slub/düğüm, yağ lekesi) matematiksel morfoloji ile tespit etmek; aynı zamanda Sobel, Scharr, Laplacian, Canny kenar filtreleri ve Olasılıksal Hough Çizgi Dönüşümü (`HoughLinesP`) ile halı dış ve iç bordür kenarlarının paralelliğini, doğrusallığını ve ortogonalitesini (90° diklik) analiz etmek üzere geliştirilmiş endüstriyel makine görüşü modülüdür.
 
 ---
 
@@ -11,64 +9,74 @@ Sistem, **Otsu Global & Multi-Otsu Eşikleme**, **İşaretçi Kontrollü Watersh
 ```
 day13/mini_project/
 ├── configs/
-│   └── segmentation_config.json                 # Otsu, Watershed ve GrabCut hiperparametreleri
+│   ├── border_config.json                 # Kenar operatörü ve paralellik tolerans parametreleri
+│   └── defect_config.json                 # Morfolojik kusur eşikleri ve toleranslar
 ├── fixtures/
-│   └── synthetic_carpets/                       # Sentetik halılar ve piksel-örtüşümlü GT maskeleri
-│       ├── carpet_medallion_classic.png
-│       ├── carpet_medallion_classic_gt_mask.png
-│       ├── carpet_medallion_classic_gt_multiclass.png
-│       ├── carpet_geometric_modern.png
-│       └── carpet_geometric_modern_gt_mask.png
-├── outputs/                                     # Çıktı maskeleri, görsel paneller ve benchmark raporları
-│       ├── benchmark_comparison_grid.png
-│       ├── carpet_medallion_classic_segmentation_comparison_grid.png
-│       ├── carpet_medallion_classic_otsu_mask.png
-│       ├── carpet_medallion_classic_watershed_mask.png
-│       ├── carpet_medallion_classic_grabcut_mask.png
-│       ├── segmentation_benchmark.json
-│       └── segmentation_summary.md
+│   ├── borders/                           # Sentetik bordür ve paralellik test görselleri
+│   │   ├── carpet_border_broken_edge.png
+│   │   ├── carpet_border_clean_parallel.png
+│   │   ├── carpet_border_skewed_angular.png
+│   │   └── carpet_border_wavy_distortion.png
+│   └── defects/                           # Sentetik kumaş dokusu ve fiziksel kusur görselleri
+│       ├── carpet_clean_reference.png
+│       ├── carpet_defect_hole_puncture.png
+│       ├── carpet_defect_oil_slub.png
+│       └── carpet_defect_yarn_break.png
+├── outputs/                               # Üretilen kenar haritaları, maskeler ve raporlar
 ├── src/
 │   ├── __init__.py
-│   ├── models.py                                # Pydantic modelleri (Metrics, Benchmark, Report)
-│   ├── otsu_segmenter.py                        # Otsu global ve 3 seviyeli Multi-Otsu motoru
-│   ├── watershed_segmenter.py                   # Mesafe dönüşümü tohumlamalı Watershed motoru
-│   ├── grabcut_segmenter.py                     # Bounding-box ve tohum rafineli GrabCut motoru
-│   ├── evaluator.py                             # IoU, Dice, Pixel Accuracy, Boundary F1 motoru
-│   ├── generator.py                             # Sentetik jakarlı halı ve GT maske üretici
-│   ├── benchmark.py                             # Hız vs doğruluk kıyaslama laboratuvarı motoru
-│   └── cli.py                                   # Komut satırı arayüzü (CLI)
+│   ├── border_analyzer.py                 # Uçtan uca CarpetBorderAnalyzer motoru
+│   ├── border_cli.py                      # Bordür analizi CLI
+│   ├── border_generator.py                # Sentetik bordür fikstür jeneratörü
+│   ├── border_models.py                   # LineSegment, BorderEdge, BorderParallelismReport
+│   ├── cli.py                             # Birleşik komut satırı arayüzü
+│   ├── defect_cli.py                      # Dokuma kusurları CLI
+│   ├── defect_detector.py                 # CarpetDefectDetector (Top-Hat & Morfoloji)
+│   ├── defect_generator.py                # Kumaş dokusu ve sentetik kusur enjektörü
+│   ├── defect_models.py                   # DetectedDefect, MorphologyInspectionReport
+│   ├── edge_operators.py                  # Sobel, Scharr, Laplacian ve Canny motoru
+│   ├── generator.py                       # Birleşik fikstür jeneratörü
+│   ├── hough_engine.py                    # Olasılıksal Hough ve bordür regrese motoru
+│   ├── models.py                          # Birleşik Pydantic veri modelleri
+│   ├── morphology_engine.py               # Erode, Dilate, Open, Close, Top-Hat motoru
+│   └── morphology_lines.py                # MorphologyEdgeEngine sınıfı
 └── tests/
     ├── __init__.py
-    └── test_segmentation.py                     # 10 adet kapsamlı birim ve entegrasyon testi
+    ├── test_edge_lines.py                 # 10 adet kenar ve bordür testi
+    ├── test_morphology_defects.py         # 10 adet morfolojik kusur testi
+    └── test_morphology_lines.py           # 2 adet temel morfoloji ve çizgi testi
 ```
 
 ---
 
 ## 🚀 CLI Kullanım Kılavuzu
 
-### 1. Sentetik Halı ve Ground Truth Fikstürlerini Üretme
+### 1. Sentetik Bordür Fikstürlerini Üretme
 ```bash
 python -m day13.mini_project.src.cli generate-fixtures
 ```
 
-### 2. Segmentasyon Çalıştırma ve Maskeleri Kaydetme
+### 2. Kenar Operatörlerini Çalıştırma (Canny, Sobel vb.)
 ```bash
-python -m day13.mini_project.src.cli segment \
-    --image day13/mini_project/fixtures/synthetic_carpets/carpet_medallion_classic.png \
-    --method ALL \
-    --gt-mask day13/mini_project/fixtures/synthetic_carpets/carpet_medallion_classic_gt_mask.png
+python -m day13.mini_project.src.cli detect-edges \
+    --image day13/mini_project/fixtures/borders/carpet_border_clean_parallel.png \
+    --operator ALL \
+    --output-dir day13/mini_project/outputs
 ```
 
-### 3. Tahmin Maskesini Ground Truth ile Değerlendirme
+### 3. Halı Bordür Paralellik ve Ortogonalite Analizi
 ```bash
-python -m day13.mini_project.src.cli evaluate \
-    --pred-mask day13/mini_project/outputs/carpet_medallion_classic_otsu_mask.png \
-    --gt-mask day13/mini_project/fixtures/synthetic_carpets/carpet_medallion_classic_gt_mask.png
+python -m day13.mini_project.src.cli analyze-borders \
+    --image day13/mini_project/fixtures/borders/carpet_border_skewed_angular.png \
+    --output-image day13/mini_project/outputs/sample_border_overlay.png \
+    --output-report day13/mini_project/outputs/sample_border_report.json
 ```
 
-### 4. Algoritma Kıyaslama Laboratuvarını Çalıştırma
+### 4. Morfolojik Dokuma Kusuru Muayenesi
 ```bash
-python -m day13.mini_project.src.cli benchmark
+python -m day13.mini_project.src.defect_cli inspect \
+    --input day13/mini_project/fixtures/defects/carpet_defect_hole_puncture.png \
+    --output-dir day13/mini_project/outputs
 ```
 
 ---

@@ -1,74 +1,31 @@
-# Day 05 Mini Project: NumPy Vektörize Operasyonlar ve Matris Hesaplama Laboratuvarı
+# Day 05 — Mini Project: Pandas Data Pipeline and Data Quality
 
-Bu mini proje, Merinos fabrikasyon ortamında dokuma tezgâhı koordinatörleri, optik kalite kontrol kameraları ve desen tarayıcılarından gelen yüksek çözünürlüklü 2D ve 3D matrisler ($H \times W \times C$) üzerinde saf Python döngüleri (naive loop), NumPy SIMD vektörizasyonu, broadcasting kuralları ve Einstein Summation (`np.einsum`) arasındaki başarım farklarını ölçümleyen kapsamlı bir benchmark ve bellek analizi motorudur.
+## Genel Bakış
+Bu mini proje, çok kaynaklı üretim verilerini (CSV üretim logları ve JSON halı katalog kayıtları) Pandas ile birleştiren, normalleştiren, eksik/aykırı değerleri karantinaya ayıran ve Great Expectations benzeri kural kümeleri (`ExpectationSuite`) ile istatistiksel veri kalitesi profillemesi (`AutomatedDataProfiler`) yapan kapsamlı bir veri mühendisliği boru hattıdır.
 
----
+> **Veri Güvenliği ve Sentetik Kuralı:** Gerçek endüstriyel veri veya canlı SCADA bağlantısı yoktur. Tüm telemetri ve katalog beslemeleri sentetiktir ([`docs/DATA_REALITY_POLICY.md`](../../docs/DATA_REALITY_POLICY.md)).
 
-## 📁 Proje Yapısı
+## Modüller
+- `src/pandas_pipeline.py`: Pandas tabular temizleme, eksik veri tamamlama ve karantina ayrımı.
+- `src/parsers.py`: CSV ve JSON veri kaynakları ayrıştırıcıları.
+- `src/normalizer.py`: Nümerik veri ölçekleyici ve standartlaştırıcı.
+- `src/etl_pipeline.py`: Çok kaynaklı ETL boru hattı (`DataIngestionPipeline`).
+- `src/expectations.py`: Sütun düzeyinde doğrulama beklentileri (Null, Benzersizlik, Aralık, Regex vb.).
+- `src/suite.py`: Beklenti paketi yöneticisi ve sonuç toplayıcı (`ExpectationSuite`, `SuiteValidator`).
+- `src/profiler.py`: Otomatik istatistiksel profilleyici (`AutomatedDataProfiler`).
+- `src/quality_pipeline.py`: Kalite denetim hattı (`DataQualityPipeline`).
+- `src/generator.py`: Sentetik desen ve dokuma matrisi üreteci.
+- `src/benchmark.py`: Vektörizasyon ve işlem süresi karşılaştırma motoru.
+- `src/memory_analyzer.py`: Bellek düzeni ve tüketim analizörü.
+- `src/operations.py`: Temel nümerik operasyonlar.
 
+## Testler
+- `tests/test_pandas_pipeline.py`: Veri kalitesi, eksik veri ve karantina testleri.
+- `tests/test_etl_pipeline.py`: Çok kaynaklı ayrıştırma, birleştirme ve karantina testleri.
+- `tests/test_quality_validation.py`: Kural paketleri ve profilleme motoru testleri.
+- `tests/test_benchmarks.py`: Nümerik manipülasyon ve başarım testleri.
+
+## Çalıştırma ve Test
 ```bash
-day05/mini_project/
-├── configs/
-│   └── benchmark_config.json        # Matris çözünürlükleri, ısınma/tekrar parametreleri
-├── fixtures/
-│   └── synthetic_patterns.npz       # Çok çözünürlüklü sentetik halı desen ve ilmek tensörleri
-├── src/
-│   ├── __init__.py
-│   ├── generator.py                 # Sentetik halı deseni ve ilmek yoğunluğu matris üreteci
-│   ├── operations.py                # Naive vs Vectorized vs Einsum operasyon çiftleri
-│   ├── memory_analyzer.py           # C/F-Contiguous bellek düzeni, strides ve önbellek analizi
-│   └── benchmark.py                 # BenchmarkEngine, istatistiksel zamanlayıcı ve raporlayıcı
-├── tests/
-│   ├── __init__.py
-│   └── test_benchmarks.py           # 10 kapsamlı birim ve performans testi
-├── outputs/
-│   ├── benchmark_results.json       # Milisaniye gecikme, bellek tüketimi ve hızlanma oranları
-│   ├── memory_layout_report.json    # Strides, bellek boyutu ve CPU önbellek yerelliği raporu
-│   └── performance_summary.md       # Kurumsal Markdown özet tablosu
-└── README.md                        # Bu dokümantasyon
+pytest tests/ -v
 ```
-
----
-
-## ⚙️ Uygulanan Operasyonlar ve Matematiksel Formüller
-
-1. **Luma Kanal Ağırlıklandırması (RGB $\rightarrow$ Grayscale):**
-   $$Y = 0.299 \cdot R + 0.587 \cdot G + 0.114 \cdot B$$
-   - *Naive:* 3 iç içe Python döngüsü.
-   - *Vectorized:* NumPy broadcasting ile `np.sum(img * weights, axis=-1)`.
-   - *Einsum:* `np.einsum('hwc,c->hw', img, weights)`.
-
-2. **Min-Max Normalizasyonu:**
-   $$X_{\text{norm}} = \frac{X - X_{\min}}{X_{\max} - X_{\min}}$$
-   - *Naive:* Döngüyle min/max bulma ve ölçekleme.
-   - *Vectorized:* NumPy SIMD min/max ve dizi tensör çıkarma/bölme.
-
-3. **Z-Score Standardizasyonu:**
-   $$X_{\text{std}} = \frac{X - \mu}{\sigma}$$
-   - *Naive:* Ortalama ve varyansı döngüyle toplama.
-   - *Vectorized:* `(X - np.mean(X)) / np.std(X)`.
-
-4. **Gram Matrisi (Doku & Stil Özellik Matrisi):**
-   $$G_{ij} = \sum_{k=1}^N F_{ik} F_{jk} \quad \implies \quad G = F \cdot F^T$$
-   - *Naive:* 3 iç içe döngü ($C \times C \times N$).
-   - *Vectorized:* BLAS hızlandırmalı `np.matmul(F, F.T)`.
-   - *Einsum:* `np.einsum('ik,jk->ij', F, F)`.
-
-5. **Mekânsal Kutu Filtreleme (2D Spatial Box Blur):**
-   - *Naive:* 4 iç içe döngü ile kayan pencere ortalaması.
-   - *Vectorized:* `np.lib.stride_tricks.sliding_window_view` ile sıfır kopyalı görünüm ve eksen bazlı ortalama.
-
----
-
-## 🧪 Testleri Çalıştırma
-
-```bash
-python -m pytest day05/mini_project/tests/ -v
-```
-
-## 🚀 Kıyaslama Motorunu Çalıştırma
-
-```bash
-python -m day05.mini_project.src.benchmark
-```
-Çıktılar `day05/mini_project/outputs/` dizinine otomatik kaydedilir.

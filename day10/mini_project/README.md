@@ -1,7 +1,7 @@
-# Merinos Halı Perspektif Düzeltme ve Homografi Matrisi Motoru (Mini Proje)
+# Merinos Renk Uzayları ve Algısal Renk Farkı Analiz Motoru (Mini Proje)
 
 > **Modül:** Day 10 Mini Project  
-> **Konu:** DLT Homografi Matrisi, Otomatik 4 Köşe Tespiti, Geometrik Ortogonalizasyon ve Konveyör Perspektif Rektifikasyonu  
+> **Konu:** RGB, HSV, CIE $L^*a^*b^*$ Uzayları, $\Delta E$ (CIE76) / CIEDE2000 Algısal Renk Farkı ve Boya Partisi Muayenesi  
 > **Yazar:** Seydi Eryılmaz (@seydivakkas)  
 > **Lisans:** [Özel Lisans — Tüm Hakları Saklıdır](file:///c:/Users/seydieryilmaz/Desktop/Projeler/Merinos%2040%20G%C3%BCnl%C3%BCk%20Staj%20Deneyimim/merinos-industrial-ai-internship/LICENSE)  
 
@@ -9,19 +9,14 @@
 
 ## 📌 Genel Bakış
 
-Merinos halı üretim hatlarında konveyör bantları üzerinde hareket eden halıların kalite kontrolü yüksek çözünürlüklü endüstriyel kameralarla yapılır. Ancak fiziksel kamera açısı eğimi (oblique pitch), konveyör kılavuzundan kaynaklanan açısal sapmalar ve geniş açılı lens distorsiyonları nedeniyle kamera görüntüsü tezgâhtan çıkan dikdörtgen halıyı bir **yamuk (trapezoid/quadrilateral)** olarak kaydeder.
-
-Bu perspektif bozulması (keystone distorsiyonu):
-1. Milimetrik desen ve bordür genişliklerinin ölçümünü bozar.
-2. Tezgâh atkı/çözgü sıklığı (density) sayımında piksel ölçeğini konveyör derinliği boyunca değişken kılar.
-3. Tezgâh desen şablonu ile dokunan halı arasında dijital piksel farkı (subtraction) almayı imkânsız hale getirir.
+Merinos boyahane ve dokuma tesislerinde iplik ve halı yüzeylerinin renk kalitesini matematiksel ve algısal olarak denetleyen modüler bir sistemdir. Donanım tabanlı RGB/BGR renk uzayının homojen olmama sorununu gidermek üzere insan görme sistemini modelleyen CIE $L^*a^*b^*$ ve renk tonu/doygunluğunu ayrıştıran HSV uzaylarına dönüşüm yapar; iki numune arasındaki algısal renk sapmasını $\Delta E$ (CIE76) ve ISO/CIE 11664-6:2014 CIEDE2000 formülasyonu ile hesaplayarak boya partisi kalite derecelendirmesi (PASS, WARNING, REJECT) sunar.
 
 Bu mini proje:
-1. **Otomatik 4 Köşe Tespiti (`CornerDetector`):** Endüstriyel konveyör üzerindeki halı dış hatlarını Canny ve morfolojik kapama ile tespit eder, konveks gövde (`convexHull`) ve Ramer-Douglas-Peucker poligon basitleştirmesi (`approxPolyDP`) ile 4 köşeyi sub-pixel hassasiyetle bulur.
-2. **Deterministik Saat Yönü Köşe Sıralama (`order_points`):** Geometrik ağırlık merkezi etrafında polar açı sıralaması ve orijine en yakın tepe noktası seçimiyle köşeleri her zaman `[Top-Left, Top-Right, Bottom-Right, Bottom-Left]` formatında deterministik olarak sıralar (kendi içinde kesişen kum saati/bowtie poligon anomalilerini engeller).
-3. **Doğrudan Lineer Dönüşüm (DLT) Homografi Çözücü (`HomographyEngine`):** 8 Serbestlik Dereceli (8-DOF) izdüşümsel homografi matrisini ($3 \times 3$) çözer; tekillik, eşdoğrusallık (collinear), determinant ve matris koşul sayısı ($Cond(H) < 10^6$) kontrolleri uygular.
-4. **Merinos Sertifikalı Ebat Rektifikasyonu (`CarpetPerspectiveRectifier`):** İster ortalama kenar uzunluklarından türetilen adaptif boyutlarda, ister Merinos standart en-boy oranlarında (`160x230`, `200x290`, `80x150`, `100x100 cm`) pikselEnterpolasyonu (Bilinear / Bicubic) ile kuşbakışı ortogonal görüntü üretir.
-5. **Ortogonalite ve Kalite Güvence Değerlendirmesi (`QA Grading`):** Düzeltilen halının köşe iç açılarını hesaplar, $90.0^\circ$ diklikten sapmayı ölçer ve üretim hattı için PASS / WARNING / FAIL raporu üretir.
+1. **Renk Uzayı Dönüşümleri (`ColorConverter` & `color_difference`):** BGR, RGB, CIELAB ve HSV dönüşümleri gerçekleştirir.
+2. **Algısal Renk Farkı Hesaplayıcıları (`DeltaECalculator` & `ciede2000`):** CIE76 Öklid mesafesi ve CIEDE2000 formülasyonu ile endüstriyel boya partisi tolerans derecelendirmesi (PASS $\le 2.0$, WARNING $\le 5.0$, REJECT $> 5.0$) yapar.
+3. **Renk Eşikleme ve Morfoloji (`HSVColorThresholder`, `PerceptualDeltaEThresholder`):** Renk tonu süreksizliği (Hue wrap-around) gözeten HSV ve CIELAB $\Delta E$ tabanlı iplik segmentasyonu ve morfolojik temizlik uygular.
+4. **Halı Renk Kompozisyonu ve Boya Sapma Denetimi (`CarpetColorAnalyzer`):** Halı yüzeyindeki iplik renk kompozisyon oranlarını (`%`) ve referans master palete göre boya partisi sapma miktarını denetler.
+5. **İplik Kataloğu Eşleştirme (`YarnMatcher`):** Çıkarılan renkleri fabrika sertifikalı bobin kataloğu ile eşleştirir.
 
 ---
 
@@ -30,67 +25,52 @@ Bu mini proje:
 ```
 day10/mini_project/
 ├── configs/
-│   └── rectification_config.json    # Canny, blur, Merinos standart ebatları ve QA tolerans eşikleri
+│   └── color_config.json
 ├── fixtures/
-│   └── synthetic_carpets/           # Sentetik perspektif distorsiyonlu halı test fikstürleri
-│       ├── carpet_skewed_oblique_25deg.png      # 25° eğik kamera açısı
-│       ├── carpet_conveyor_skewed_35deg.png    # 35° konveyör yaklaşım açısı
-│       └── carpet_skewed_severe_45deg.png      # 45° şiddetli perspektif keystone açısı
+│   └── synthetic_carpets/
+│       ├── carpet_palette_master.png
+│       ├── carpet_lot_drift_pass.png
+│       ├── carpet_lot_drift_warning.png
+│       └── carpet_lot_drift_reject.png
 ├── src/
 │   ├── __init__.py
-│   ├── models.py                    # Point2D, QuadCorners, HomographyResult, RectificationReport
-│   ├── corner_detector.py           # order_points, CornerDetector (Canny + Hull + approxPolyDP)
-│   ├── homography.py                # compute_homography, transform_points, warp_perspective
-│   ├── rectifier.py                 # CarpetPerspectiveRectifier (pipeline & QA grader)
-│   ├── generator.py                 # Sentetik desenli perspektif halı üretici
-│   └── cli.py                       # detect-corners, rectify, benchmark, generate-fixtures CLI
+│   ├── analyzer.py
+│   ├── ciede2000.py
+│   ├── color_difference.py
+│   ├── color_models.py
+│   ├── conversions.py
+│   ├── delta_e.py
+│   ├── generator.py
+│   ├── thresholding.py
+│   ├── yarn_catalog_models.py
+│   ├── yarn_matcher.py
+│   └── cli.py
 ├── tests/
 │   ├── __init__.py
-│   └── test_rectification.py        # 10 kapsamlı birim ve entegrasyon testi
-└── outputs/                         # Üretilen rektifiye edilmiş halılar ve benchmark raporları
-    ├── sample_corners.json
-    ├── sample_corner_detection_overlay.png
-    ├── sample_rectified_carpet.png
-    ├── sample_rectification_report.json
-    ├── rectification_benchmark.json
-    └── rectification_summary.md
+│   ├── conftest.py
+│   ├── test_color_analysis.py
+│   └── test_color_difference.py
+└── outputs/
+    ├── dye_lot_inspection_report.json
+    ├── color_analysis_benchmark.json
+    └── color_analysis_summary.md
 ```
 
 ---
 
-## 🚀 CLI Kullanım Kılavuzu
+## 🚀 CLI Kullanımı
 
-### 1. Sentetik Fikstürleri Üretme
+### 1. Renk Analizi ve Boya Partisi Muayenesi
 ```bash
-python -m day10.mini_project.src.cli generate-fixtures
+python -m day10.mini_project.src.cli inspect --image fixtures/synthetic_carpets/carpet_lot_drift_warning.png
 ```
 
-### 2. Halı Köşelerini Tespit Etme ve Görselleştirme
+### 2. İki Renk / Numune Arasında Delta E Hesaplama
 ```bash
-python -m day10.mini_project.src.cli detect-corners \
-    --image day10/mini_project/fixtures/synthetic_carpets/carpet_skewed_oblique_25deg.png \
-    --output day10/mini_project/outputs/sample_corners.json \
-    --overlay-output day10/mini_project/outputs/sample_corner_detection_overlay.png
+python -m day10.mini_project.src.cli delta-e --ref 76 43 26 --sample 82 48 32
 ```
 
-### 3. Perspektif Düzeltme (Rektifikasyon) ve Kalite Raporu
-```bash
-# Adaptif Boyutlandırma Modu
-python -m day10.mini_project.src.cli rectify \
-    --image day10/mini_project/fixtures/synthetic_carpets/carpet_skewed_oblique_25deg.png \
-    --mode adaptive \
-    --output-image day10/mini_project/outputs/sample_rectified_carpet.png \
-    --output-report day10/mini_project/outputs/sample_rectification_report.json
-
-# Standart Merinos 160x230 cm Oranı Modu
-python -m day10.mini_project.src.cli rectify \
-    --image day10/mini_project/fixtures/synthetic_carpets/carpet_skewed_oblique_25deg.png \
-    --mode standard \
-    --ratio 160x230 \
-    --output-image day10/mini_project/outputs/sample_rectified_160x230.png
-```
-
-### 4. Hız ve Doğruluk Benchmark Testi
+### 3. Kapsamlı Benchmark ve Rapor Üretimi
 ```bash
 python -m day10.mini_project.src.cli benchmark
 ```
@@ -99,8 +79,21 @@ python -m day10.mini_project.src.cli benchmark
 
 ## 🧪 Birim Testleri
 
-Test paketini çalıştırmak için:
 ```bash
 python -m pytest day10/mini_project/tests/ -v
 ```
-Tüm 10 test homografi matrisi tersinirliği, köşe açı hesaplamaları, deterministik saat yönü sıralaması, dejenere eşdoğrusal nokta hata yakalama ve sentetik fikstür doğruluğunu test eder.
+
+13 birim testi şunları doğrular:
+1. `test_color_conversions_accuracy`: BGR -> RGB -> CIELAB -> HSV dönüşümlerinin sayısal doğruluğu.
+2. `test_delta_e_cie76_identical_and_known`: Özdeş renklerde $\Delta E = 0.0$ ve bilinen fark doğrulaması.
+3. `test_delta_e_tolerance_grading`: PASS, WARNING ve REJECT tolerans sınıflandırması.
+4. `test_hsv_thresholding_hue_wraparound`: Kırmızı renk için dairesel ($0^\circ \leftrightarrow 180^\circ$) çift aralık eşiklemesi.
+5. `test_hsv_illumination_invariance`: Değişen aydınlatma altında HSV ton kararlılığı.
+6. `test_cielab_delta_e_thresholding_mask`: $\Delta E$ tabanlı hassas piksel maskesi çıkarma.
+7. `test_mask_morphological_cleanup`: Açma/kapama morfolojisi ile iplik gürültüsü temizleme.
+8. `test_carpet_color_composition_sum`: Segmentasyon oranlarının toplamının $\%100$ etmesi.
+9. `test_dye_lot_drift_detection`: Dört farklı boya partisinin drift analizinin doğruluğu.
+10. `test_cli_color_analysis_pipeline_and_artifacts`: CLI benchmark ve JSON/Markdown rapor bütünlüğü.
+11. `test_color_space_conversions`: Temel BGR, LAB ve HSV dönüşüm testleri.
+12. `test_delta_e_identical`: Temel sıfır mesafe testi.
+13. `test_color_difference_grading`: Tolerans eşik testi.

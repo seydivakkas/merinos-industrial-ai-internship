@@ -1,25 +1,21 @@
-"""
-day01.mini_project.src
-Endüstriyel çalışma ortamı denetimi, donanım profilleme ve veri modaliteleri taksonomisi.
+"""Day 01 - Mini Project: Industrial Observation Catalog and Data Taxonomy.
+
+Exposes models and catalog manager for heterogeneous industrial data types
+(numerical, visual, textual) observed in a textile manufacturing enterprise.
 """
 
-from day01.mini_project.src.env_checker import EnvironmentChecker, EnvironmentReport
-from day01.mini_project.src.environment_profiler import EnvironmentProfiler
 from day01.mini_project.src.models import (
     DataAsset,
     DataModality,
     SystemResourceRequirements,
     WorkstationAuditResult,
 )
-from day01.mini_project.src.repo_bootstrap import RepositoryBootstrap
+from day01.mini_project.src.observation_catalog import ObservationCatalog
 
 __all__ = [
-    "EnvironmentChecker",
-    "EnvironmentReport",
-    "EnvironmentProfiler",
-    "DataAsset",
     "DataModality",
+    "DataAsset",
     "SystemResourceRequirements",
     "WorkstationAuditResult",
-    "RepositoryBootstrap",
+    "ObservationCatalog",
 ]

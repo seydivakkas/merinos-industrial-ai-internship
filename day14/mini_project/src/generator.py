@@ -1,6 +1,6 @@
 """
-Merinos Halı Sanayi ve Ticaret A.Ş. — Day 14
-4 Farklı Jakar Desen Sınıfında Sentetik Halı Jeneratörü (CarpetPatternFixtureGenerator)
+Merinos Halı Sanayi ve Ticaret A.Ş. — Day 13
+Sentetik Halı ve Birebir Ground Truth Maske Üretici (CarpetSegmentationFixtureGenerator)
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 Özel Lisans — Tüm Hakları Saklıdır.
@@ -10,8 +10,6 @@ from pathlib import Path
 from typing import Dict, Optional, Tuple
 import cv2
 import numpy as np
-
-from .models import PatternClass
 
 
 def _safe_imwrite(filepath: Path, image: np.ndarray) -> bool:
@@ -45,181 +43,144 @@ def _safe_imread(filepath: Path, flags: int = cv2.IMREAD_COLOR) -> Optional[np.n
         return None
 
 
-class CarpetPatternFixtureGenerator:
-    """Desen sınıflandırma ve görsel arama testleri için sentetik jakarlı halılar üretir."""
+class CarpetSegmentationFixtureGenerator:
+    """Segmentasyon test ve kıyaslaması için sentetik jakarlı halılar ve kusursuz GT maskeleri üretir."""
 
     def __init__(self, seed: int = 42):
         self.rng = np.random.RandomState(seed)
 
-    def generate_medallion_classic(
+    def generate_medallion_carpet(
         self,
-        width: int = 400,
-        height: int = 400,
-    ) -> Tuple[np.ndarray, PatternClass]:
-        """Klasik oryantal madalyon halısı üretir (Koyu lacivert zemin, kırmızı madalyon, altın bordür)."""
-        carpet = np.full((height, width, 3), (50, 30, 20), dtype=np.uint8)  # Lacivert zemin
-        
-        # Kumaş dokusu
+        width: int = 600,
+        height: int = 600,
+    ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+        """Klasik oryantal madalyon halısı, ikili motif GT maskesi ve çok sınıflı GT maskesi üretir."""
+        # 1. Koyu Lacivert Zemin Kumaşı (BGR: 45, 30, 20)
+        carpet = np.full((height, width, 3), (45, 30, 20), dtype=np.uint8)
+        gt_motif = np.zeros((height, width), dtype=np.uint8)
+        gt_multiclass = np.zeros((height, width), dtype=np.uint8)  # 0: Zemin
+
+        # Periyodik kumaş atkı/çözgü doku paraziti
         y_grid, x_grid = np.ogrid[:height, :width]
-        weave = ((x_grid % 3 == 0) | (y_grid % 3 == 0)).astype(np.uint8) * 8
+        weave = ((x_grid % 3 == 0) | (y_grid % 3 == 0)).astype(np.uint8) * 10
         carpet = cv2.add(carpet, cv2.merge([weave, weave, weave]))
 
-        # Dış ve iç bordürler
-        cv2.rectangle(carpet, (20, 20), (width - 20, height - 20), (30, 60, 180), 12)  # Kırmızı şerit
-        cv2.rectangle(carpet, (40, 40), (width - 40, height - 40), (40, 180, 220), 4)  # Altın şerit
+        # 2. Dış Bordür Çerçevesi (Altın ve Kırmızı şeritler)
+        m_out = 35
+        thick_out = 16
+        cv2.rectangle(carpet, (m_out, m_out), (width - m_out, height - m_out), (30, 50, 160), thick_out)
+        cv2.rectangle(gt_multiclass, (m_out, m_out), (width - m_out, height - m_out), 1, thick_out)  # 1: Bordür
 
-        # Köşe spandrelleri (Üçgenler)
-        c_size = 75
+        m_in = 65
+        cv2.rectangle(carpet, (m_in, m_in), (width - m_in, height - m_in), (40, 160, 220), 4)
+        cv2.rectangle(gt_multiclass, (m_in, m_in), (width - m_in, height - m_in), 1, 4)
+
+        # 3. Köşe Spandrelleri (Köşe Üçgen Motifleri)
+        corner_len = 110
         corners = [
-            [(40, 40), (40 + c_size, 40), (40, 40 + c_size)],
-            [(width - 40, 40), (width - 40 - c_size, 40), (width - 40, 40 + c_size)],
-            [(40, height - 40), (40 + c_size, height - 40), (40, height - 40 - c_size)],
-            [(width - 40, height - 40), (width - 40 - c_size, height - 40), (width - 40, height - 40 - c_size)],
+            [(m_in, m_in), (m_in + corner_len, m_in), (m_in, m_in + corner_len)],  # TL
+            [(width - m_in, m_in), (width - m_in - corner_len, m_in), (width - m_in, m_in + corner_len)],  # TR
+            [(m_in, height - m_in), (m_in + corner_len, height - m_in), (m_in, height - m_in - corner_len)],  # BL
+            [(width - m_in, height - m_in), (width - m_in - corner_len, height - m_in), (width - m_in, height - m_in - corner_len)],  # BR
         ]
         for pts in corners:
-            cv2.fillPoly(carpet, [np.array(pts, dtype=np.int32)], (40, 70, 190))
+            poly = np.array(pts, dtype=np.int32)
+            cv2.fillPoly(carpet, [poly], (50, 60, 180))
+            cv2.fillPoly(gt_motif, [poly], 255)
+            cv2.fillPoly(gt_multiclass, [poly], 2)
 
-        # Merkez madalyon ve loblar
+        # 4. Merkez Madalyon Yapısı
         center = (width // 2, height // 2)
-        cv2.circle(carpet, center, 90, (40, 70, 190), -1)  # Kırmızı gövde
+
+        # Dış madalyon lobları (8 köşeli çiçekli yapı)
+        cv2.circle(carpet, center, 140, (40, 70, 190), -1)  # Kırmızı taban
+        cv2.circle(gt_motif, center, 140, 255, -1)
+        cv2.circle(gt_multiclass, center, 140, 2, -1)
+
+        # Lob çıkıntıları
         for angle in range(0, 360, 45):
             rad = np.deg2rad(angle)
-            cx = int(center[0] + 85 * np.cos(rad))
-            cy = int(center[1] + 85 * np.sin(rad))
-            cv2.circle(carpet, (cx, cy), 22, (40, 70, 190), -1)
+            cx = int(center[0] + 135 * np.cos(rad))
+            cy = int(center[1] + 135 * np.sin(rad))
+            cv2.circle(carpet, (cx, cy), 35, (40, 70, 190), -1)
+            cv2.circle(gt_motif, (cx, cy), 35, 255, -1)
+            cv2.circle(gt_multiclass, (cx, cy), 35, 2, -1)
 
-        cv2.circle(carpet, center, 65, (40, 180, 220), -1)  # Altın halka
-        cv2.circle(carpet, center, 40, (200, 215, 230), -1)  # Krem çiçek
-        cv2.circle(carpet, center, 15, (30, 40, 140), -1)   # Kırmızı göbek
+        # Madalyon içi altın çember ve krem göbek
+        cv2.circle(carpet, center, 100, (40, 180, 230), -1)  # Altın halka
+        cv2.circle(carpet, center, 60, (200, 215, 225), -1)  # Krem çiçek
+        cv2.circle(carpet, center, 25, (30, 40, 140), -1)   # Kırmızı tohum
 
-        return carpet, PatternClass.MEDALLION_CLASSIC
+        # Hafif doğal gürültü ekle
+        noise = self.rng.normal(0, 2.5, carpet.shape).astype(np.int16)
+        carpet = np.clip(carpet.astype(np.int16) + noise, 0, 255).astype(np.uint8)
 
-    def generate_geometric_modern(
+        return carpet, gt_motif, gt_multiclass
+
+    def generate_geometric_carpet(
         self,
-        width: int = 400,
-        height: int = 400,
-    ) -> Tuple[np.ndarray, PatternClass]:
-        """Modern Bauhaus geometrik halı üretir (Gri zemin, antrasit/hardal keskin prizmalar)."""
-        carpet = np.full((height, width, 3), (215, 215, 220), dtype=np.uint8)  # Açık gri
+        width: int = 600,
+        height: int = 600,
+    ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+        """Modern geometrik desenli halı ve GT maskesi üretir."""
+        carpet = np.full((height, width, 3), (210, 210, 215), dtype=np.uint8)  # Açık gri zemin
+        gt_motif = np.zeros((height, width), dtype=np.uint8)
+        gt_multiclass = np.zeros((height, width), dtype=np.uint8)
 
-        # Siyah dış çerçeve
-        cv2.rectangle(carpet, (15, 15), (width - 15, height - 15), (35, 35, 40), 8)
+        # Dış siyah bordür
+        cv2.rectangle(carpet, (20, 20), (width - 20, height - 20), (30, 30, 30), 10)
+        cv2.rectangle(gt_multiclass, (20, 20), (width - 20, height - 20), 1, 10)
 
+        # Merkez büyük baklava (Diamond) motifi
         center = (width // 2, height // 2)
-        r = 130
-
-        # Büyük dış baklava (Koyu antrasit)
+        r = 180
         diamond_pts = np.array([
             (center[0], center[1] - r),
             (center[0] + r, center[1]),
             (center[0], center[1] + r),
             (center[0] - r, center[1]),
         ], dtype=np.int32)
-        cv2.fillPoly(carpet, [diamond_pts], (45, 45, 55))
+
+        cv2.fillPoly(carpet, [diamond_pts], (40, 50, 160))  # Kırmızı
+        cv2.fillPoly(gt_motif, [diamond_pts], 255)
+        cv2.fillPoly(gt_multiclass, [diamond_pts], 2)
 
         # İç ters baklava (Hardal sarısı)
-        r_in = 80
+        r_in = 100
         in_pts = np.array([
             (center[0], center[1] - r_in),
             (center[0] + r_in, center[1]),
             (center[0], center[1] + r_in),
             (center[0] - r_in, center[1]),
         ], dtype=np.int32)
-        cv2.fillPoly(carpet, [in_pts], (30, 170, 220))
+        cv2.fillPoly(carpet, [in_pts], (40, 160, 210))
 
-        # Merkez kare (Kiremit kırmızısı)
-        cv2.rectangle(carpet, (center[0] - 35, center[1] - 35), (center[0] + 35, center[1] + 35), (40, 70, 180), -1)
-
-        # Çapraz çizgiler
-        cv2.line(carpet, (30, 30), (width - 30, height - 30), (35, 35, 40), 3)
-        cv2.line(carpet, (30, height - 30), (width - 30, 30), (35, 35, 40), 3)
-
-        return carpet, PatternClass.GEOMETRIC_MODERN
-
-    def generate_floral_traditional(
-        self,
-        width: int = 400,
-        height: int = 400,
-    ) -> Tuple[np.ndarray, PatternClass]:
-        """Geleneksel çiçekli halı üretir (Krem zemin, tekrarlayan küçük çiçekler ve sarmaşıklar)."""
-        carpet = np.full((height, width, 3), (210, 230, 240), dtype=np.uint8)  # İpeksi krem zemin
-
-        # Açık yeşil dalga bordür
-        cv2.rectangle(carpet, (25, 25), (width - 25, height - 25), (100, 160, 110), 6)
-
-        # Düzenli ızgarada küçük çiçek rozetleri
-        step = 55
-        for x in range(60, width - 50, step):
-            for y in range(60, height - 50, step):
-                # Çiçek taç yaprakları (Pembe)
-                for dx, dy in [(-8, 0), (8, 0), (0, -8), (0, 8)]:
-                    cv2.circle(carpet, (x + dx, y + dy), 7, (150, 130, 220), -1)
-                # Çiçek göbeği (Sarı)
-                cv2.circle(carpet, (x, y), 6, (30, 190, 230), -1)
-                # Yaprak tendrili (Yeşil)
-                cv2.ellipse(carpet, (x + 12, y + 12), (10, 5), 45, 0, 360, (90, 150, 100), -1)
-
-        return carpet, PatternClass.FLORAL_TRADITIONAL
-
-    def generate_vintage_distressed(
-        self,
-        width: int = 400,
-        height: int = 400,
-    ) -> Tuple[np.ndarray, PatternClass]:
-        """Eskitme efektli vintage bukle halı üretir (Taşlanmış zemin, aşınmış konturlar, yüksek gren)."""
-        # Soluk bej/gri taban
-        carpet = np.full((height, width, 3), (170, 175, 180), dtype=np.uint8)
-
-        # Soluk madalyon izleri
-        center = (width // 2, height // 2)
-        cv2.circle(carpet, center, 80, (150, 155, 165), -1)
-        cv2.circle(carpet, center, 50, (180, 185, 195), -1)
-
-        # Yoğun taşlanmış eskitme paraziti (Büyük varyanslı Gauss gürültüsü)
-        noise = self.rng.normal(0, 22.0, carpet.shape).astype(np.int16)
-        carpet = np.clip(carpet.astype(np.int16) + noise, 0, 255).astype(np.uint8)
-
-        # Aşınmış yatay traşlama çizgileri
-        for y in range(10, height - 10, 12):
-            if self.rng.rand() > 0.4:
-                length = self.rng.randint(60, width - 80)
-                start_x = self.rng.randint(20, width - length - 20)
-                alpha_val = self.rng.randint(130, 220)
-                cv2.line(carpet, (start_x, y), (start_x + length, y), (alpha_val, alpha_val, alpha_val), 1)
-
-        return carpet, PatternClass.VINTAGE_DISTRESSED
+        return carpet, gt_motif, gt_multiclass
 
     def generate_all_fixtures(self, output_dir: Path) -> Dict[str, Path]:
-        """4 farklı sınıfta sentetik halı fikstürlerini üretir ve kaydeder."""
+        """Tüm sentetik halı ve GT maske fikstürlerini üretir."""
         output_dir.mkdir(parents=True, exist_ok=True)
         paths: Dict[str, Path] = {}
 
-        # 1. Medallion Classic (1. Klasik Madalyon)
-        c_med, _ = self.generate_medallion_classic()
-        p1 = output_dir / "carpet_class_medallion_classic.png"
+        # 1. Klasik Madalyon Halı
+        c_med, gt_med, gt_multi = self.generate_medallion_carpet()
+        p1 = output_dir / "carpet_medallion_classic.png"
+        p2 = output_dir / "carpet_medallion_classic_gt_mask.png"
+        p3 = output_dir / "carpet_medallion_classic_gt_multiclass.png"
+
         _safe_imwrite(p1, c_med)
-        _safe_imwrite(output_dir / "carpet_001.png", c_med)
-        paths["MEDALLION_CLASSIC"] = p1
+        _safe_imwrite(p2, gt_med)
+        _safe_imwrite(p3, gt_multi * 85)  # 0, 85, 170, 255 görselleştirilebilir
+        paths["medallion_carpet"] = p1
+        paths["medallion_gt"] = p2
 
-        # 2. Floral Traditional (2. Çiçek Desenli)
-        c_flo, _ = self.generate_floral_traditional()
-        p3 = output_dir / "carpet_class_floral_traditional.png"
-        _safe_imwrite(p3, c_flo)
-        _safe_imwrite(output_dir / "carpet_002.png", c_flo)
-        paths["FLORAL_TRADITIONAL"] = p3
-
-        # 3. Geometric Modern (3. Geometrik)
-        c_geo, _ = self.generate_geometric_modern()
-        p2 = output_dir / "carpet_class_geometric_modern.png"
-        _safe_imwrite(p2, c_geo)
-        _safe_imwrite(output_dir / "carpet_003.png", c_geo)
-        paths["GEOMETRIC_MODERN"] = p2
-
-        # 4. Vintage Distressed (4. Modern / Eskitme)
-        c_vin, _ = self.generate_vintage_distressed()
-        p4 = output_dir / "carpet_class_vintage_distressed.png"
-        _safe_imwrite(p4, c_vin)
-        _safe_imwrite(output_dir / "carpet_004.png", c_vin)
-        paths["VINTAGE_DISTRESSED"] = p4
+        # 2. Modern Geometrik Halı
+        c_geo, gt_geo, _ = self.generate_geometric_carpet()
+        p4 = output_dir / "carpet_geometric_modern.png"
+        p5 = output_dir / "carpet_geometric_modern_gt_mask.png"
+        _safe_imwrite(p4, c_geo)
+        _safe_imwrite(p5, gt_geo)
+        paths["geometric_carpet"] = p4
+        paths["geometric_gt"] = p5
 
         return paths

@@ -1,7 +1,7 @@
-# Merinos Dominant Renk Paleti ve CIEDE2000 Eşleştirme Motoru (Mini Proje)
+# OpenCV Görüntü İşleme ve Analitik Araç Kiti (Mini Proje)
 
 > **Modül:** Day 09 Mini Project  
-> **Konu:** K-Means Dominant Renk Paleti Çıkarımı, ISO/CIE 11664-6:2014 CIEDE2000 Renk Farkı ve Jakarlı Tezgâh Cağlık Bobin Eşleştirmesi  
+> **Konu:** OpenCV ile Endüstriyel Görüntü Ön İşleme, Gürültü Filtreleme, CLAHE Kontrast İyileştirme ve En-Boy Oranı Koruyan Letterbox Yeniden Boyutlandırma  
 > **Yazar:** Seydi Eryılmaz (@seydivakkas)  
 > **Lisans:** [Özel Lisans — Tüm Hakları Saklıdır](file:///c:/Users/seydieryilmaz/Desktop/Projeler/Merinos%2040%20G%C3%BCnl%C3%BCk%20Staj%20Deneyimim/merinos-industrial-ai-internship/LICENSE)  
 
@@ -9,14 +9,15 @@
 
 ## 📌 Genel Bakış
 
-Endüstriyel jakarlı halı tezgâhları (Merinos Elektronik Jakar Sistemleri), desenleri 6, 8, 10 veya 12 sınırlı bobin rengi (iplik cağlığı / creel) ile dokur. Müşterilerden veya tasarım stüdyolarından gelen dijital desenlerde veya optik hat kameralarından alınan fotoğraflarda ise gölgeler, iplik lif dokuları ve sensör gürültüsü nedeniyle yüz binlerce farklı piksel tonu yer alır.
+Merinos halı üretim hatlarındaki optik muayene kameralarından gelen ham görsel verilerin OpenCV kütüphanesi ile okunması, BGR kanal mimarisinin RGB/Gri seviyeye dönüştürülmesi, en-boy oranını koruyarak standart çözünürlüğe ölçeklenmesi, Gauss filtresi ile sensör gürültüsünün bastırılması ve CLAHE (Contrast Limited Adaptive Histogram Equalization) ile yerel kontrastın iyileştirilmesini sağlayan modüler bir ön işleme ve görüntü analitiği araç kitidir.
 
 Bu mini proje:
-1. **Denetimsiz K-Means Renk Paleti Çıkarımı:** Halı desenindeki pikselleri CIELAB veya sRGB uzayında kümeleyerek baskın $K$ rengi ve yüzey kaplama oranlarını (`%`) çıkarır.
-2. **Uzamsal Alt-Örnekleme (`Subsampling`):** 512x512 veya daha yüksek çözünürlüklü halı görsellerini 15,000 piksellik örneklemle kümeleyerek $10\times$ hızlanma sağlar.
-3. **ISO/CIE 11664-6:2014 CIEDE2000 ($\Delta E_{00}$) Motoru:** $S_L, S_C, S_H$ ağırlık fonksiyonları, $G$ kroma düzeltmesi, $360^\circ$ açısal süreksizlik ve mavi bölge elips rotasyon faktörü ($R_T$) ile saniyede 2.1 milyon renk çifti hesaplar.
-4. **Fabrika İplik Bobin Eşleştirme & Cağlık Planı:** Çıkarılan serbest renkleri Merinos 16 ipliklik sertifikalı üretim kataloğuyla eşleştirerek jakarlı tezgâh cağlık yerleşim manifestosu (`CreelAllocationPlan`) ve $m^2$ başına tahmini iplik maliyetini hesaplar.
-5. **Halı Kuantizasyonu & Distorsiyon Haritası:** Deseni tezgâh ipliklerine indirger (indeksli görüntü simülasyonu) ve piksel bazlı kuantizasyon distorsiyon haritası üretir.
+1. **Güvenli Görüntü Giriş/Çıkış (`ImageIOValidator`):** Türkçe veya boşluklu dosya yollarını Windows ortamında hatasız okumak için `cv2.imdecode` ve `np.fromfile` tabanlı Unicode güvenli I/O sağlar.
+2. **Kanal Mimarisi ve Renk Dönüşümleri (`ColorSpaceConverter`):** BGR, RGB, Gri seviye, CIELAB ve HSV dönüşümleri ile kanal istatistiklerini hesaplar.
+3. **Endüstriyel Filtreleme Boru Hattı (`IndustrialFilterPipeline`):** Gauss filtresi, tuz-biber gürültüsü temizleme için Medyan filtre, kenar korumalı yumuşatma için Bilateral filtre ve keskinleştirme için Unsharp Masking sunar.
+4. **Perseptüel Kontrast İyileştirme (`HistogramEqualizer`):** Renk tonu bozulmalarını önlemek için CIELAB uzayının $L^*$ parlaklık kanalı veya YCrCb uzayının $Y$ kanalı üzerinde CLAHE ve Global Histogram Eşitleme uygular.
+5. **En-Boy Oranı Koruyan Yeniden Boyutlandırma (`AspectPreservingResizer`):** Halının özgün en-boy oranını bozmadan derin öğrenme modelleri için siyah dolgulu (letterbox) kare tensörler üretir.
+6. **Görüntü Analitiği ve Profilleme (`ImageAnalyticsEngine`):** Shannon entropisi, RMS kontrastı, dinamik aralık ve Laplacian varyansı ile keskinlik ölçümü yapar.
 
 ---
 
@@ -25,71 +26,54 @@ Bu mini proje:
 ```
 day09/mini_project/
 ├── configs/
-│   └── palette_config.json          # 16 Merinos sertifikalı iplik kataloğu, K-Means & CIEDE2000 parametreleri
+│   └── toolkit_config.json
 ├── fixtures/
-│   └── synthetic_carpets/           # Sentetik çok renkli halı test fikstürleri
-│       ├── carpet_oriental_classic.png      # 6 renkli klasik madalyon halı
-│       ├── carpet_modern_geometric.png      # 5 renkli Bauhaus modern geometrik halı
-│       └── carpet_monochrome_textured.png   # 4 renkli dokulu bej/gri halı
+│   └── synthetic_carpets/
+│       ├── carpet_normal.png
+│       ├── carpet_low_contrast.png
+│       ├── carpet_noisy.png
+│       └── carpet_uneven_illumination.png
 ├── src/
 │   ├── __init__.py
-│   ├── color_models.py             # CatalogYarn, ExtractedColor, MatchGrade, CreelAllocationPlan
-│   ├── ciede2000.py                # ISO/CIE 11664-6 CIEDE2000 skaler, 2D/3D vektörize motor
-│   ├── kmeans_palette.py           # K-Means palet çıkarıcı ve subsampling hızlandırıcı
-│   ├── yarn_matcher.py             # Fabrika bobin eşleştirme ve cağlık planlama motoru
-│   ├── quantizer.py                # Halı kuantizasyonu ve indeksli harita simülatörü
-│   ├── generator.py                # Sentetik benchmark halı üretici
-│   └── cli.py                      # extract, match, quantize, benchmark terminal komutları
+│   ├── analytics.py
+│   ├── color_spaces.py
+│   ├── equalization.py
+│   ├── filters.py
+│   ├── generator.py
+│   ├── image_preprocessor.py
+│   ├── io_validator.py
+│   ├── resizer.py
+│   └── cli.py
 ├── tests/
 │   ├── __init__.py
-│   └── test_palette_and_ciede2000.py # 10 birim ve entegrasyon testi
-└── outputs/                        # Üretilen JSON raporları, ısı haritaları ve özetler
-    ├── sample_palette_extraction.json
-    ├── yarn_creel_allocation_report.json
-    ├── carpet_oriental_classic_quantized.png
-    ├── carpet_oriental_classic_indexed_map.png
-    ├── carpet_oriental_classic_error_heatmap.png
-    ├── carpet_oriental_classic_quantization_report.json
-    ├── ciede2000_benchmark.json
-    └── palette_summary.md
+│   ├── test_image_preprocessor.py
+│   └── test_toolkit.py
+└── outputs/
+    ├── sample_analysis_report.json
+    ├── image_enhancement_benchmark.json
+    └── toolkit_summary.md
 ```
 
 ---
 
-## 🚀 CLI Kullanım Kılavuzu
+## 🚀 CLI Kullanımı
 
-### 1. Sentetik Halı Fikstürlerini Üretme
+### 1. Görüntü Analizi ve İstatistiksel Profil
 ```bash
-python -m day09.mini_project.src.cli generate-fixtures
+python -m day09.mini_project.src.cli analyze --input fixtures/synthetic_carpets/carpet_normal.png
 ```
 
-### 2. Dominant Renk Paleti Çıkarımı
+### 2. CLAHE ile Kontrast İyileştirme
 ```bash
-python -m day09.mini_project.src.cli extract \
-    --image day09/mini_project/fixtures/synthetic_carpets/carpet_oriental_classic.png \
-    --k 6 \
-    --space LAB \
-    --subsample 15000 \
-    --output day09/mini_project/outputs/sample_palette_extraction.json
+python -m day09.mini_project.src.cli enhance --input fixtures/synthetic_carpets/carpet_low_contrast.png --method clahe_lab --output outputs/enhanced.png
 ```
 
-### 3. Merinos İplik Kataloğu ile Eşleştirme & Cağlık Planı
+### 3. Letterbox Yeniden Boyutlandırma
 ```bash
-python -m day09.mini_project.src.cli match \
-    --image day09/mini_project/fixtures/synthetic_carpets/carpet_oriental_classic.png \
-    --k 6 \
-    --output day09/mini_project/outputs/yarn_creel_allocation_report.json
+python -m day09.mini_project.src.cli resize --input fixtures/synthetic_carpets/carpet_normal.png --size 512 512 --output outputs/resized.png
 ```
 
-### 4. Halı Kuantizasyonu ve Hata Isı Haritası
-```bash
-python -m day09.mini_project.src.cli quantize \
-    --image day09/mini_project/fixtures/synthetic_carpets/carpet_oriental_classic.png \
-    --target catalog \
-    --output-dir day09/mini_project/outputs
-```
-
-### 5. Performans ve Standart Doğrulama Benchmark'ı
+### 4. Uçtan Uca Kıyaslama Benchmark'ı
 ```bash
 python -m day09.mini_project.src.cli benchmark
 ```
@@ -102,14 +86,15 @@ python -m day09.mini_project.src.cli benchmark
 python -m pytest day09/mini_project/tests/ -v
 ```
 
-10 birim testi şunları doğrular:
-1. `test_ciede2000_identical_colors_zero`: Özdeş renklerde $\Delta E_{00} = 0.0$.
-2. `test_ciede2000_standard_sharma_pairs`: Sharma et al. (2005) standart 6 test çifti doğrulaması ($< 10^{-3}$).
-3. `test_ciede2000_blue_region_rotation_significance`: Mavi bölge elips rotasyonu ($h \approx 275^\circ$) doğrulaması.
-4. `test_ciede2000_achromatic_numerical_stability`: Nötr gri piksellerde ($C^* \to 0$) NaN ve sıfıra bölme hatası oluşmaz.
-5. `test_kmeans_palette_extraction_proportions_sum_to_100`: Çıkarılan küme oranları toplamı tam $\%100.0$ eder.
-6. `test_kmeans_palette_rgb_vs_lab_clustering`: CIELAB ve RGB uzaylarında kararlı kümeleme.
-7. `test_subsampling_acceleration_and_fidelity`: Subsampling $10\times$ hızlanma sağlarken centroid kayması $< 1.5 \Delta E_{00}$ kalır.
-8. `test_yarn_matcher_exact_catalog_match`: Katalogdaki bir renk sorgulandığında $\Delta E_{00} = 0$ ve `EXACT` döner.
-9. `test_yarn_matcher_creel_allocation_plan`: Cağlık tahsisatında bobin ID ve maliyet raporlaması.
-10. `test_carpet_quantization_and_distortion_metric`: İndeksli desen boyutu $(H, W)$ korunur ve kuantizasyon distorsiyon haritası üretilir.
+11 birim testi şunları doğrular:
+1. `test_image_preprocessing_pipeline`: Pipeline uçtan uca boyut ve tür doğrulaması.
+2. `test_image_io_unicode_safe_read_write`: Unicode güvenli dosya okuma ve yazma.
+3. `test_image_io_metadata_extraction`: Görüntü meta verisi çıkarımı.
+4. `test_color_space_conversions`: BGR, RGB, GRAY, LAB dönüşümleri ve kanal istatistikleri.
+5. `test_aspect_preserving_resizer_letterbox`: En-boy oranı korumalı letterbox ölçekleme.
+6. `test_median_filter_salt_pepper_removal`: Tuz-biber gürültüsü temizleme.
+7. `test_bilateral_filter_edge_preservation`: Kenar korumalı yumuşatma.
+8. `test_unsharp_masking_laplacian_variance`: Laplacian keskinlik artışı.
+9. `test_clahe_vs_global_equalization_luminance`: CLAHE ve yerel histogram eşitleme.
+10. `test_image_analytics_entropy_and_contrast`: RMS kontrastı ve Shannon entropisi analizi.
+11. `test_cli_pipeline_execution_and_reports`: CLI rapor ve benchmark üretimi.

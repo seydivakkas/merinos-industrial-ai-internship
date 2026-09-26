@@ -47,3 +47,26 @@ def test_baseline_evaluator_validation_error_on_mismatched_lengths(sample_spec: 
             baseline_lat_ms=0.1,
             candidate_lat_ms=0.2,
         )
+
+
+def test_majority_class_baseline():
+    """Verify MajorityClassBaseline predicts mode correctly."""
+    from day03.mini_project.src.baseline import MajorityClassBaseline
+
+    baseline = MajorityClassBaseline()
+    train_y = ["normal", "normal", "normal", "defect", "warp_break"]
+    baseline.fit(train_y)
+    preds = baseline.predict(3)
+    assert preds == ["normal", "normal", "normal"]
+
+
+def test_mean_threshold_baseline():
+    """Verify MeanThresholdBaseline identifies outliers above mean threshold."""
+    from day03.mini_project.src.baseline import MeanThresholdBaseline
+
+    baseline = MeanThresholdBaseline(threshold_margin=1.2)
+    normal_telemetry = [50.0, 52.0, 48.0, 50.0]  # mean = 50.0, cutoff = 60.0
+    baseline.fit(normal_telemetry)
+    preds = baseline.predict([45.0, 55.0, 65.0, 70.0])
+    assert preds == [0, 0, 1, 1]
+

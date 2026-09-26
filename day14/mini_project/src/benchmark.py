@@ -1,168 +1,182 @@
 """
-Merinos Halı Sanayi ve Ticaret A.Ş. — Day 14
-Geleneksel Öznitelik Kıyaslama ve Performans Laboratuvarı (FeatureBenchmarkEngine)
+Merinos Halı Sanayi ve Ticaret A.Ş. — Day 13
+Segmentasyon Kıyaslama Laboratuvarı Motoru (SegmentationBenchmarkEngine)
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 Özel Lisans — Tüm Hakları Saklıdır.
 """
 
 import time
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, Optional, Tuple
 import cv2
 import numpy as np
 
-from .feature_fusion import CarpetPatternClassifierAndMatcher
-from .generator import CarpetPatternFixtureGenerator
-from .glcm_engine import GLCMFeatureEngine
-from .keypoint_engine import KeypointFeatureEngine
+from .evaluator import SegmentationEvaluator
+from .grabcut_segmenter import GrabCutSegmenter
 from .models import (
-    FeatureBenchmarkReport,
-    KeypointDescriptorType,
-    PatternClass,
+    AlgorithmBenchmarkResult,
+    CarpetSegmentationReport,
+    EvaluationMetrics,
+    SegmentationMethod,
 )
+from .otsu_segmenter import OtsuSegmenter
+from .watershed_segmenter import WatershedSegmenter
 
 
-class FeatureBenchmarkEngine:
-    """ORB, SIFT ve GLCM öznitelik çıkarıcılarının hızını ve sınıflandırma başarısını kıyaslar."""
+class SegmentationBenchmarkEngine:
+    """Otsu, Watershed ve GrabCut algoritmalarını hız ve doğruluk yönünden kıyaslayan motor."""
 
     def __init__(self, config: Optional[Dict[str, Any]] = None):
         self.config = config or {}
-        self.kp_engine = KeypointFeatureEngine(self.config)
-        self.glcm_engine = GLCMFeatureEngine(self.config)
-        self.matcher = CarpetPatternClassifierAndMatcher(self.config)
+        self.otsu_engine = OtsuSegmenter(self.config)
+        self.watershed_engine = WatershedSegmenter(self.config)
+        self.grabcut_engine = GrabCutSegmenter(self.config)
+        self.evaluator = SegmentationEvaluator()
 
     def run_benchmark(
         self,
+        image: np.ndarray,
+        gt_mask: Optional[np.ndarray] = None,
         iterations: int = 10,
-    ) -> Tuple[FeatureBenchmarkReport, Dict[str, np.ndarray]]:
-        """Sentetik veri üzerinde kapsamlı hız ve sınıflandırma kıyaslaması yürütür."""
-        generator = CarpetPatternFixtureGenerator(seed=42)
+    ) -> Tuple[CarpetSegmentationReport, Dict[str, np.ndarray]]:
+        """Üç segmentasyon algoritmasını çalıştırır, sürelerini ve metriklerini kıyaslar."""
+        h, w = image.shape[:2]
+        masks: Dict[str, np.ndarray] = {}
+        benchmarks: Dict[str, AlgorithmBenchmarkResult] = {}
 
-        # 4 Sınıf Halı Görsellerini Oluştur
-        c_med, p_med = generator.generate_medallion_classic(400, 400)
-        c_geo, p_geo = generator.generate_geometric_modern(400, 400)
-        c_flo, p_flo = generator.generate_floral_traditional(400, 400)
-        c_vin, p_vin = generator.generate_vintage_distressed(400, 400)
-
-        catalog = {
-            "medallion_classic": (c_med, p_med),
-            "geometric_modern": (c_geo, p_geo),
-            "floral_traditional": (c_flo, p_flo),
-            "vintage_distressed": (c_vin, p_vin),
-        }
-
-        # 1. ORB Hız Ölçümü
+        # -------------------------------------------------------------
+        # 1. Otsu Global Segmentasyon
+        # -------------------------------------------------------------
         for _ in range(3):
-            self.kp_engine.extract_orb(c_med)
+            self.otsu_engine.segment_global(image)
         t0 = time.perf_counter()
+        otsu_mask = None
         for _ in range(iterations):
-            self.kp_engine.extract_orb(c_med)
-        t_orb = (time.perf_counter() - t0) / iterations * 1000.0
-        fps_orb = 1000.0 / t_orb if t_orb > 0 else 0.0
+            otsu_mask, _ = self.otsu_engine.segment_global(image)
+        t_otsu = (time.perf_counter() - t0) / iterations * 1000.0
+        fps_otsu = 1000.0 / t_otsu if t_otsu > 0 else 0.0
 
-        # 2. SIFT Hız Ölçümü
-        for _ in range(2):
-            self.kp_engine.extract_sift(c_med)
-        sift_iters = max(1, min(iterations, 5))
-        t0 = time.perf_counter()
-        for _ in range(sift_iters):
-            self.kp_engine.extract_sift(c_med)
-        t_sift = (time.perf_counter() - t0) / sift_iters * 1000.0
-        fps_sift = 1000.0 / t_sift if t_sift > 0 else 0.0
+        masks[SegmentationMethod.OTSU.value] = otsu_mask
+        otsu_metrics = self.evaluator.evaluate_all(otsu_mask, gt_mask) if gt_mask is not None else None
+        cov_otsu = float((otsu_mask > 0).sum() / otsu_mask.size) * 100.0
 
-        # 3. GLCM Hız Ölçümü
-        for _ in range(2):
-            self.glcm_engine.extract_features(c_med)
-        glcm_iters = max(1, min(iterations, 5))
-        t0 = time.perf_counter()
-        for _ in range(glcm_iters):
-            self.glcm_engine.extract_features(c_med)
-        t_glcm = (time.perf_counter() - t0) / glcm_iters * 1000.0
-        fps_glcm = 1000.0 / t_glcm if t_glcm > 0 else 0.0
-
-        # 4. Katalog İndeksleme ve Top-K Arama Gecikmesi
-        self.matcher.index_catalog(catalog, keypoint_type=KeypointDescriptorType.ORB)
-
-        t0 = time.perf_counter()
-        retrieval_iters = max(1, iterations)
-        for _ in range(retrieval_iters):
-            self.matcher.find_top_k_similar(c_geo, query_name="query_geo", k=3)
-        t_retrieval = (time.perf_counter() - t0) / retrieval_iters * 1000.0
-
-        # 5. Sınıflandırma Başarısı (Katalog Görselleri + Döndürülmüş/Gürültülü Test Görselleri)
-        test_samples = [
-            (c_med, p_med),
-            (c_geo, p_geo),
-            (c_flo, p_flo),
-            (c_vin, p_vin),
-        ]
-        # Hafif rotasyon ve varyasyon ekle
-        for img, p_class in [(c_med, p_med), (c_geo, p_geo)]:
-            # 15 derece döndür
-            h, w = img.shape[:2]
-            M = cv2.getRotationMatrix2D((w // 2, h // 2), 15, 1.0)
-            rotated = cv2.warpAffine(img, M, (w, h), borderMode=cv2.BORDER_REFLECT)
-            test_samples.append((rotated, p_class))
-
-        correct = 0
-        for sample_img, expected_class in test_samples:
-            pred_class, _ = self.matcher.classify_pattern(sample_img, k=1)
-            if pred_class == expected_class:
-                correct += 1
-
-        accuracy = (correct / len(test_samples)) * 100.0
-
-        notes = [
-            f"ORB Anahtar Noktaları: Ultra hızlı ({t_orb:.2f} ms, {fps_orb:.0f} FPS). Canlı tezgâh izleme için uygundur.",
-            f"SIFT Anahtar Noktaları: Ölçek/rotasyon değişmez, yüksek tanımlama ({t_sift:.2f} ms, {fps_sift:.0f} FPS). Arşiv kontrolü için uygundur.",
-            f"GLCM Haralick: İplik sıklığı ve kumaş pürüzlülüğü için sağlam doku özetlemesi ({t_glcm:.2f} ms).",
-            f"Çok Modlu Füzyon: Top-K arama gecikmesi {t_retrieval:.2f} ms, 4 sınıflı desen sınıflandırma doğruluğu %{accuracy:.1f}.",
-        ]
-
-        report = FeatureBenchmarkReport(
-            orb_latency_ms=round(t_orb, 3),
-            orb_fps=round(fps_orb, 1),
-            sift_latency_ms=round(t_sift, 3),
-            sift_fps=round(fps_sift, 1),
-            glcm_latency_ms=round(t_glcm, 3),
-            glcm_fps=round(fps_glcm, 1),
-            retrieval_latency_ms=round(t_retrieval, 3),
-            classification_accuracy=round(accuracy, 2),
-            industrial_recommendations=notes,
+        benchmarks[SegmentationMethod.OTSU.value] = AlgorithmBenchmarkResult(
+            method=SegmentationMethod.OTSU,
+            latency_ms=round(t_otsu, 3),
+            fps=round(fps_otsu, 1),
+            metrics=otsu_metrics,
+            foreground_coverage_pct=round(cov_otsu, 2),
         )
 
-        catalog_raw = {k: v[0] for k, v in catalog.items()}
-        return report, catalog_raw
+        # -------------------------------------------------------------
+        # 2. Watershed Segmentasyon
+        # -------------------------------------------------------------
+        for _ in range(3):
+            self.watershed_engine.segment(image)
+        t0 = time.perf_counter()
+        ws_mask = None
+        for _ in range(iterations):
+            ws_mask, _, _ = self.watershed_engine.segment(image)
+        t_ws = (time.perf_counter() - t0) / iterations * 1000.0
+        fps_ws = 1000.0 / t_ws if t_ws > 0 else 0.0
 
-    def create_feature_summary_panel(
-        self,
-        catalog_images: Dict[str, np.ndarray],
+        masks[SegmentationMethod.WATERSHED.value] = ws_mask
+        ws_metrics = self.evaluator.evaluate_all(ws_mask, gt_mask) if gt_mask is not None else None
+        cov_ws = float((ws_mask > 0).sum() / ws_mask.size) * 100.0
+
+        benchmarks[SegmentationMethod.WATERSHED.value] = AlgorithmBenchmarkResult(
+            method=SegmentationMethod.WATERSHED,
+            latency_ms=round(t_ws, 3),
+            fps=round(fps_ws, 1),
+            metrics=ws_metrics,
+            foreground_coverage_pct=round(cov_ws, 2),
+        )
+
+        # -------------------------------------------------------------
+        # 3. GrabCut Segmentasyon
+        # -------------------------------------------------------------
+        gc_iters = max(1, min(iterations, 3))  # GrabCut ağırdır, 3 tekrar yeterlidir
+        for _ in range(1):
+            self.grabcut_engine.segment_with_rect(image, iterations=3)
+        t0 = time.perf_counter()
+        gc_mask = None
+        for _ in range(gc_iters):
+            gc_mask, _ = self.grabcut_engine.segment_with_rect(image, iterations=3)
+        t_gc = (time.perf_counter() - t0) / gc_iters * 1000.0
+        fps_gc = 1000.0 / t_gc if t_gc > 0 else 0.0
+
+        masks[SegmentationMethod.GRABCUT.value] = gc_mask
+        gc_metrics = self.evaluator.evaluate_all(gc_mask, gt_mask) if gt_mask is not None else None
+        cov_gc = float((gc_mask > 0).sum() / gc_mask.size) * 100.0
+
+        benchmarks[SegmentationMethod.GRABCUT.value] = AlgorithmBenchmarkResult(
+            method=SegmentationMethod.GRABCUT,
+            latency_ms=round(t_gc, 3),
+            fps=round(fps_gc, 1),
+            metrics=gc_metrics,
+            foreground_coverage_pct=round(cov_gc, 2),
+        )
+
+        # -------------------------------------------------------------
+        # 4. Rapor ve Karar Önerisi
+        # -------------------------------------------------------------
+        notes = [
+            f"Otsu Eşikleme: Ultra hızlı ({t_otsu:.2f} ms, {fps_otsu:.0f} FPS), ancak doku gradyanlarına duyarlıdır.",
+            f"Watershed: Hızlı ({t_ws:.2f} ms, {fps_ws:.0f} FPS), mesafe dönüşümü ile tohumlama yaparak sınırları iyi ayırır.",
+            f"GrabCut: En yüksek sınır hassasiyeti (GMM optimizasyonu), ancak yüksek işlem süresi ({t_gc:.2f} ms).",
+        ]
+
+        report = CarpetSegmentationReport(
+            image_shape=(h, w),
+            evaluated_methods=[SegmentationMethod.OTSU, SegmentationMethod.WATERSHED, SegmentationMethod.GRABCUT],
+            results=benchmarks,
+            recommended_online_method=SegmentationMethod.WATERSHED,
+            recommended_offline_method=SegmentationMethod.GRABCUT,
+            industrial_notes=notes,
+        )
+
+        return report, masks
+
+    @staticmethod
+    def create_comparison_grid(
+        image: np.ndarray,
+        masks: Dict[str, np.ndarray],
+        gt_mask: Optional[np.ndarray] = None,
     ) -> np.ndarray:
-        """4 desen sınıfını ve üzerindeki ORB anahtar noktalarını 2x2 grid olarak görselleştirir."""
+        """Orijinal görsel, GT ve algoritmaların maskelerini yan yana gösteren karşılaştırma paneli oluşturur."""
+        h, w = image.shape[:2]
+        canvas_h = h
+        target_w = w
+
         panels = []
-        for name, img in catalog_images.items():
-            vis = img.copy()
-            kpts, _, _ = self.kp_engine.extract_orb(img)
-            # Anahtar noktaları yeşil çemberler olarak çiz
-            vis = cv2.drawKeypoints(
-                vis,
-                kpts[:150],
-                None,
-                color=(0, 255, 0),
-                flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS,
-            )
-            # Başlık ekle
-            title = name.replace("_", " ").upper()
-            cv2.putText(vis, title, (15, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (0, 0, 255), 2)
-            cv2.putText(vis, f"ORB KP: {len(kpts)}", (15, 55), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 0), 2)
-            panels.append(vis)
 
-        # 2x2 birleştirme
-        if len(panels) >= 4:
-            row1 = np.hstack([panels[0], panels[1]])
-            row2 = np.hstack([panels[2], panels[3]])
-            grid = np.vstack([row1, row2])
-        else:
-            grid = np.hstack(panels)
+        # 1. Orijinal Görsel
+        bgr = image if len(image.shape) == 3 else cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+        p1 = bgr.copy()
+        cv2.putText(p1, "ORIJINAL HALI", (15, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
+        panels.append(p1)
 
+        # 2. GT Maske (Varsa)
+        if gt_mask is not None:
+            gt_bgr = cv2.cvtColor(gt_mask, cv2.COLOR_GRAY2BGR)
+            cv2.putText(gt_bgr, "GROUND TRUTH", (15, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+            panels.append(gt_bgr)
+
+        # 3. Yöntem Maskeleri ve Kontur Overlayleri
+        colors = {
+            "OTSU": (255, 100, 0),      # Mavi
+            "WATERSHED": (0, 200, 255), # Sarı
+            "GRABCUT": (50, 220, 50),   # Yeşil
+        }
+
+        for name, mask in masks.items():
+            overlay = bgr.copy()
+            # Konturları çiz
+            contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            color = colors.get(name, (0, 0, 255))
+            cv2.drawContours(overlay, contours, -1, color, 2)
+            cv2.putText(overlay, f"METOD: {name}", (15, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+            panels.append(overlay)
+
+        grid = np.hstack(panels)
         return grid

@@ -1,8 +1,8 @@
-# Day 14 Mini Proje: Geleneksel Öznitelik Çıkarımı ve Jakarlı Halı Desen Sınıflandırması
+# Day 14 Mini Proje: Klasik Segmentasyon Kıyaslama Laboratuvarı (Otsu, Watershed, GrabCut)
 
-Bu paket, **Merinos Halı Sanayi ve Ticaret A.Ş.** üretim, tasarım arşivleme ve kalite güvence hatlarında jakarlı halı desenlerinin (Madalyon Klasik, Geometrik Modern, Geleneksel Çiçekli, Vintage Bukle) otomatik olarak sınıflandırılması, desen taklit denetimi ve katalog içi benzerlik sorgulaması (Visual Retrieval) amacıyla geliştirilmiş klasik bilgisayarlı görü öznitelik çıkarım modülüdür.
+Bu paket, **Merinos Halı Sanayi ve Ticaret A.Ş.** üretim ve kalite denetim hatlarında (jakarlı dokuma tezgâhı çıkışı, apre, motif kontrolü ve konfeksiyon) halı desen motiflerinin zemin kumaşından piksel seviyesinde ayrıştırılması amacıyla geliştirilmiş endüstriyel makine görüşü modülüdür.
 
-Sistem; **ORB** ve **SIFT** yerel anahtar nokta tanımlayıcılarını, **GLCM (Gri Seviye Eş-Oluşum Matrisi)** Haralick doku analizini ve **3D HSV Renk Histogramlarını** çok modlu bir öznitelik füzyon mimarisinde birleştirir.
+Sistem, **Otsu Global & Multi-Otsu Eşikleme**, **İşaretçi Kontrollü Watershed (Havza)** ve **GrabCut (GMM Tabanlı Grafik Kesme)** algoritmalarını hem işlem hızı ($FPS, ms$) hem de piksel doğruluğu ($IoU, Dice, BF-Score$) yönünden kıyaslar.
 
 ---
 
@@ -11,68 +11,57 @@ Sistem; **ORB** ve **SIFT** yerel anahtar nokta tanımlayıcılarını, **GLCM (
 ```
 day14/mini_project/
 ├── configs/
-│   └── feature_config.json                 # ORB, SIFT, GLCM ve Renk Histogramı hiperparametreleri
+│   └── segmentation_config.json                 # Otsu, Watershed ve GrabCut hiperparametreleri
 ├── fixtures/
-│   └── synthetic_carpets/                 # 4 desen sınıfında sentetik jakarlı halı görselleri
-│       ├── carpet_class_medallion_classic.png
-│       ├── carpet_class_geometric_modern.png
-│       ├── carpet_class_floral_traditional.png
-│       └── carpet_class_vintage_distressed.png
-├── outputs/                               # Üretilen öznitelik haritaları, görsel paneller ve benchmark raporları
-│   ├── retrieval_benchmark.json
-│   ├── feature_summary_panel.png
-│   ├── feature_summary.md
-│   ├── sample_medallion_features.json
-│   └── match_medallion_vs_floral.png
+│   └── synthetic_carpets/                       # Sentetik halılar ve piksel-örtüşümlü GT maskeleri
+│       ├── carpet_medallion_classic.png
+│       ├── carpet_medallion_classic_gt_mask.png
+│       ├── carpet_medallion_classic_gt_multiclass.png
+│       ├── carpet_geometric_modern.png
+│       └── carpet_geometric_modern_gt_mask.png
+├── outputs/                                     # Çıktı maskeleri, görsel paneller ve benchmark raporları
 ├── src/
 │   ├── __init__.py
-│   ├── models.py                          # Pydantic veri modelleri (KeypointStats, GLCMFeatures, FusedVector vb.)
-│   ├── keypoint_engine.py                 # ORB ve SIFT çıkarıcı, Lowe ratio testi ve RANSAC eşleştirici
-│   ├── glcm_engine.py                     # GLCM doku matrisi ve Haralick öznitelik çıkarıcı
-│   ├── color_histogram.py                 # 3D HSV çok kanallı normalize renk histogramı motoru
-│   ├── feature_fusion.py                  # Doku + Renk + Anahtar Nokta füzyonu ve k-NN sınıflandırıcı
-│   ├── generator.py                       # 4 Merinos desen sınıfında sentetik halı jeneratörü
-│   ├── benchmark.py                       # Hız (FPS / ms) ve sınıflandırma başarısı kıyaslama motoru
-│   └── cli.py                             # Komut satırı arayüzü (CLI)
+│   ├── models.py                                # Pydantic modelleri (Metrics, Benchmark, Report)
+│   ├── otsu_segmenter.py                        # Otsu global ve 3 seviyeli Multi-Otsu motoru
+│   ├── watershed_segmenter.py                   # Mesafe dönüşümü tohumlamalı Watershed motoru
+│   ├── grabcut_segmenter.py                     # Bounding-box ve tohum rafineli GrabCut motoru
+│   ├── carpet_segmenter.py                      # CarpetSegmenter ve morfolojik bölge çıkarıcı
+│   ├── evaluator.py                             # IoU, Dice, Pixel Accuracy, Boundary F1 motoru
+│   ├── generator.py                             # Sentetik jakarlı halı ve GT maske üretici
+│   ├── benchmark.py                             # Hız vs doğruluk kıyaslama laboratuvarı motoru
+│   └── cli.py                                   # Komut satırı arayüzü (CLI)
 └── tests/
     ├── __init__.py
-    └── test_features.py                   # 10 adet kapsamlı birim ve entegrasyon testi
+    ├── test_carpet_segmenter.py                 # Otsu ve dairesellik testi
+    └── test_segmentation.py                     # 10 adet kapsamlı birim ve entegrasyon testi
 ```
 
 ---
 
 ## 🚀 CLI Kullanım Kılavuzu
 
-### 1. Sentetik Halı Desen Fikstürlerini Üretme
+### 1. Sentetik Halı ve Ground Truth Fikstürlerini Üretme
 ```bash
 python -m day14.mini_project.src.cli generate-fixtures
 ```
 
-### 2. Tek Bir Halıdan Tüm Öznitelikleri Çıkarma
+### 2. Segmentasyon Çalıştırma ve Maskeleri Kaydetme
 ```bash
-python -m day14.mini_project.src.cli extract \
-    --image day14/mini_project/fixtures/synthetic_carpets/carpet_class_medallion_classic.png \
-    --keypoint-type ORB \
-    --output-json day14/mini_project/outputs/sample_medallion_features.json
+python -m day14.mini_project.src.cli segment \
+    --image day14/mini_project/fixtures/synthetic_carpets/carpet_medallion_classic.png \
+    --method ALL \
+    --gt-mask day14/mini_project/fixtures/synthetic_carpets/carpet_medallion_classic_gt_mask.png
 ```
 
-### 3. İki Halı Arasında Anahtar Nokta Eşleştirme (ORB veya SIFT)
+### 3. Tahmin Maskesini Ground Truth ile Değerlendirme
 ```bash
-python -m day14.mini_project.src.cli match \
-    --image1 day14/mini_project/fixtures/synthetic_carpets/carpet_class_medallion_classic.png \
-    --image2 day14/mini_project/fixtures/synthetic_carpets/carpet_class_floral_traditional.png \
-    --method ORB \
-    --output-vis day14/mini_project/outputs/match_medallion_vs_floral.png
+python -m day14.mini_project.src.cli evaluate \
+    --pred-mask day14/mini_project/outputs/carpet_medallion_classic_otsu_mask.png \
+    --gt-mask day14/mini_project/fixtures/synthetic_carpets/carpet_medallion_classic_gt_mask.png
 ```
 
-### 4. Halı Desenini Sınıflandırma ve Katalogda Benzerlerini Bulma
-```bash
-python -m day14.mini_project.src.cli classify \
-    --query day14/mini_project/fixtures/synthetic_carpets/carpet_class_geometric_modern.png \
-    --top-k 3
-```
-
-### 5. Kapsamlı Hız ve Başarı Benchmark Testi
+### 4. Algoritma Kıyaslama Laboratuvarını Çalıştırma
 ```bash
 python -m day14.mini_project.src.cli benchmark
 ```

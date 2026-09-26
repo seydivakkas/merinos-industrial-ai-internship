@@ -21,24 +21,28 @@ Bu doküman, 40 günlük staj boyunca geliştirilen yapay zeka, görüntü anali
 │   └── /api/v1/generation    (Desen üretim ve analiz prototipi)              │
 └──────────────────┬──────────────────────────────────────┬───────────────────┘
                    │                                      │
-   Senkron / Hızlı │                      Asenkron Görev  │ (Task Dispatch)
-   İstekler        │                      (Redis Broker)  │
+  Gerçekleştirilen │ Yerel İstekler         Gelecekteki   │ Dağıtık Senaryo
+  Doğrulanmış PoC  │ (In-Process Sync)      Ölçekleme     │ (Opsiyonel Broker)
                    ▼                                      ▼
 ┌──────────────────────────────┐        ┌─────────────────────────────────────┐
-│      Hızlı Çıkarım Hattı     │        │          Celery Worker              │
-│ ├── OpenCV Analitiği         │        │    (Ağır GPU & Model Çıkarımı)      │
-│ ├── NumPy CIEDE2000 Proj.    │        │ ├── SDXL Latent Diffusion Pipeline  │
-│ └── Sentence Transformer Emb.│        │ ├── Multi-ControlNet (Canny/Depth)  │
-└──────────────┬───────────────┘        │ └── LoRA Adaptörleri                │
+│    Yerel PoC Çıkarım Hattı   │        │     Gelecekteki Asenkron Worker     │
+│ ├── OpenCV Görüntü Analitiği │        │     (Kurumsal GPU & Dağıtık Kuyruk) │
+│ ├── NumPy / Sklearn Analitik │        │ ├── SDXL Latent Diffusion Pipeline  │
+│ └── Bi-Encoder & BM25 Arama  │        │ ├── Multi-ControlNet (Canny/Depth)  │
+└──────────────┬───────────────┘        │ └── LoRA Adaptörleri & Celery       │
                │                        └──────────────────┬──────────────────┘
                │                                           │
 ┌──────────────▼───────────────────────────────────────────▼──────────────────┐
 │                             Veri Katmanı                                    │
-│ ├── Qdrant Vektör Veritabanı (Embedding İndeksleri & Metadata Filtreleme)   │
-│ ├── Paylaşımlı Dosya Sistemi (Desen Çıktıları, Maskeler, Raporlar)          │
-│ └── Sentetik Tekstil & Teknik Doküman Koleksiyonu                           │
+│ ├── Yerel / Bellek İçi Vektör İndeksleri & Metadata Filtreleme              │
+│ ├── Dosya Sistemi (Sentetik Desen Çıktıları, Maskeler, Test Raporları)      │
+│ └── Sentetik Tekstil & Teknik Doküman Koleksiyonu (0 Gerçek Firma Verisi)   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+> **Mimari Kapsam Ayrımı (PoC vs. Gelecekteki Entegrasyon):**
+> - **Gerçekleştirilen PoC:** Sol kolda yer alan yerel Python/FastAPI/OpenCV/Scikit-learn/PyTorch bileşenleridir. Tamamen yerel bellek ve disk üzerinde harici sunucuya ihtiyaç duymadan çalışır ve test edilir.
+> - **Gelecekteki Entegrasyon Olasılığı:** Sağ kolda yer alan Celery/Redis/dağıtık GPU kuyruğu, fabrikanın olası bir gelecekteki kurumsal altyapı dönüşümünde sisteme nasıl eklenebileceğini gösteren kuramsal mimari senaryodur; staj süresince canlı üretim hattına bağlanmamıştır.
 
 ---
 

@@ -3,25 +3,25 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Phase](https://img.shields.io/badge/Phase%202-Final%20Release-orange.svg)]()
 [![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red.svg)](https://github.com/seydivakkas)
-[![Tests](https://img.shields.io/badge/tests-10%2F10%20passing-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/tests-21%2F21%20passing-brightgreen.svg)]()
 
 > **Merinos Halı Sanayi ve Ticaret A.Ş. — Gaziantep Dokuma Tesisleri**  
-> Faz 2: Endüstriyel Görüntü İşleme nihai üretim sürümü ve birleşik CLI kalite kontrol paketi.
+> Faz 2: Endüstriyel Bilgisayarlı Görü nihai üretim sürümü, çok modlu görsel öznitelik füzyon motoru ve birleşik CLI kalite muayene paketi.
 
 ---
 
 ## 1. Genel Bakış ve Mimari
 
-Bu paket, Faz 2 boyunca geliştirilen 8 bağımsız bilgisayarlı görü modülünü (Day 07 — Day 14) endüstriyel üretim hattında tek noktadan yönetilebilir bir CLI araç setinde (`merinos-vision`) birleştirmektedir.
+Bu paket, Faz 2 boyunca geliştirilen klasik bilgisayarlı görü ve görüntü işleme modüllerini (Day 09 — Day 15) endüstriyel üretim hattında tek noktadan yönetilebilir bir CLI araç setinde (`merinos-vision`) birleştirmektedir.
 
 ```mermaid
 flowchart TD
-    Raw[Ham Halı Kamerası / Görüntü Dosyası] --> S1[Aşama 1: Perspektif Düzeltme & Homografi\nDay 10]
-    S1 --> S2[Aşama 2: K-Means Dominant Palet & CIEDE2000\nDay 08 & 09]
-    S1 --> S3[Aşama 3: Morfolojik Kusur Tespiti\nDay 11]
-    S1 --> S4[Aşama 4: Kenar & Bordür Paralellik Analizi\nDay 12]
-    S1 --> S5[Aşama 5: Havza / Otsu Jakar Segmentasyonu\nDay 13]
-    S1 --> S6[Aşama 6: Çok Modlu Öznitelik Füzyonu ORB/GLCM/HSV\nDay 14]
+    Raw[Ham Halı Kamerası / Görüntü Dosyası] --> S1[Aşama 1: Perspektif Düzeltme & Homografi\nDay 12]
+    S1 --> S2[Aşama 2: K-Means Dominant Palet & CIEDE2000\nDay 10 & 11]
+    S1 --> S3[Aşama 3: Morfolojik Kusur Tespiti\nDay 13]
+    S1 --> S4[Aşama 4: Kenar & Bordür Paralellik Analizi\nDay 13]
+    S1 --> S5[Aşama 5: Havza / Otsu Jakar Segmentasyonu\nDay 14]
+    S1 --> S6[Aşama 6: Çok Modlu Öznitelik Füzyonu ORB/GLCM/HSV\nDay 15]
     
     S1 & S2 & S3 & S4 & S5 & S6 --> VerdictEngine[Kalite Karar Motoru\nACCEPT / WARNING / REJECT]
     VerdictEngine --> Report[Yapılandırılmış JSON Raporu]
@@ -49,12 +49,14 @@ python -m day15.mini_project.src.cli inspect \
 
 ### 3) Faz 2 Modül Başarım Kıyaslaması (Benchmark)
 ```bash
-python -m day15.mini_project.src.cli benchmark --iterations 10 --output-json day15/mini_project/fixtures/benchmark_manifest.json
+python -m day15.mini_project.src.cli benchmark --iterations 5 --output-json day15/mini_project/fixtures/benchmark_manifest.json
 ```
 
-### 4) Sürüm ve Sağlık Bilgisi (Release-Info)
+### 4) Çok Modlu Öznitelik Çıkarımı ve Desen Sınıflandırma
 ```bash
-python -m day15.mini_project.src.cli release-info
+python -m day15.mini_project.src.feature_cli extract \
+  --image day15/mini_project/fixtures/perfect_carpet.png \
+  --keypoint-type ORB
 ```
 
 ---
@@ -65,6 +67,10 @@ Birim ve entegrasyon testlerini çalıştırmak için:
 ```bash
 python -m pytest day15/mini_project/tests/ -v
 ```
+- `test_feature_integrator.py`: 1 birim testi
+- `test_features.py`: 10 birim ve entegrasyon testi
+- `test_vision_toolkit.py`: 10 entegrasyon ve boru hattı testi
+- **Toplam: 21 passed (%100)**
 
 ---
 

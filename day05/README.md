@@ -3,8 +3,10 @@
 > **Aşama:** Faz 1 — Problem, Veri ve Geliştirme Temelleri (Day 01–08)  
 > **Resmi Staj Defteri Konusu:** Pandas ve Veri Hattı: Çok Kaynaklı Veri Bütünleştirme ve Veri Kalitesi (Yaprak 9 & 10)
 
+---
+
 ## Goal
-Bu günün amacı, Merinos üretim sahasında ortaya çıkan çok kaynaklı heterojen verileri (dokuma tezgâhı telemetrisi, vardiya çizelgeleri, iplik bobin lotları ve kalite kontrol formları) Pandas kütüphanesi ile birleştirmek; veri kalitesini tamlık (completeness), geçerlilik (validity) ve tutarlılık (consistency) boyutlarında denetleyen, hatalı kayıtları karantinaya ayıran ve eksik değerleri impute eden otomatik bir veri boru hattı (`PandasDataPipeline`) inşa etmektir.
+Bu günün amacı, Merinos üretim sahasında ortaya çıkan çok kaynaklı heterojen verileri (dokuma tezgâhı telemetrisi, vardiya çizelgeleri, iplik bobin lotları ve kalite kontrol formları) Pandas kütüphanesi ile birleştirmek; veri kalitesini tamlık (completeness), geçerlilik (validity) ve tutarlılık (consistency) boyutlarında denetleyen, hatalı kayıtları karantinaya ayıran ve eksik değerleri impute eden otomatik bir veri boru hattı (`PandasDataPipeline`, `DataIngestionPipeline`, `DataQualityPipeline`) inşa etmektir.
 
 ---
 
@@ -12,7 +14,7 @@ Bu günün amacı, Merinos üretim sahasında ortaya çıkan çok kaynaklı hete
 - Endüstriyel sensör kesintilerinde veya operatör veri giriş hatalarında eksik verilerin doğrudan satır silme (drop) yerine istatistiksel imputasyon (medyan/ortalama) ile tamamlanmasının makine öğrenmesi modelleri üzerindeki etkilerini araştırmak.
 - Fiziksel sınırların dışına çıkan (örneğin motor sıcaklığı <10°C veya >120°C, pnömatik basınç tolerans dışı) hatalı telemetri kayıtlarının boru hattını çökertmeden karantinaya (`quarantine_df`) ayrılması mimarisini tasarlamak.
 - Çok kaynaklı tabular veri setlerinin tezgâh kimliği (`loom_id`) ve zaman damgası üzerinden kayıpsız birleştirilmesinde (inner vs outer join) referans bütünlüğü risklerini analiz etmek.
-- Veri kalitesi metriklerini nicel bir sağlık puanına (`DataQualityReport`) dönüştürmek.
+- Büyük ölçekli veri kalite beklenti kümelerini (Expectation Suites) ve profilleme motorunu veri hattına entegre etmek.
 
 ---
 
@@ -24,6 +26,7 @@ Bu günün amacı, Merinos üretim sahasında ortaya çıkan çok kaynaklı hete
 - **Karantina Ayrımı (Quarantine Isolation):** Hatalı veya sınır dışı kayıtların temiz analiz kümesinden ayrı bir veri çerçevesine (`quarantine_df`) taşınarak loglanması.
 - **İstatistiksel İmputasyon (Imputation):** Eksik verilerin dağılımı bozmadan kolon medyanı ile doldurulması.
 - **Çok Kaynaklı Veri Entegrasyonu:** Farklı sistemlerden toplanan operasyonel kayıtların Pandas `merge`/`join` yöntemleriyle birleştirilmesi.
+- **Otomatik Veri Profilleme ve Beklenti Kümeleri:** Sütun dağılımları, tipleri ve sınır değerlerinin otomatik kural kümeleriyle doğrulanması.
 
 ---
 
@@ -38,15 +41,16 @@ Bu günün amacı, Merinos üretim sahasında ortaya çıkan çok kaynaklı hete
 
 ## Functions / Classes Studied
 - `PandasDataPipeline`, `DataQualityReport`
-- `PandasDataPipeline.clean_and_profile()`
+- `CsvDataSourceParser`, `JsonDataSourceParser`, `DataNormalizer`
+- `DataIngestionPipeline`, `DataQualityPipeline`
+- `BaseExpectation`, `ExpectationSuite`, `SuiteValidator`, `AutomatedDataProfiler`
 - `pd.DataFrame.merge()`, `pd.DataFrame.fillna()`, `pd.DataFrame.isnull()`, `pd.Series.between()`
-- `CarpetPatternGenerator`, `BenchmarkEngine`, `MemoryLayoutAnalyzer`
 
 ---
 
 ## Notebook
 - **Dosya:** [`day05_pandas_ve_veri_kalitesi.ipynb`](day05_pandas_ve_veri_kalitesi.ipynb)
-- **Kapsam:** 10 standart bölüm (Problem, Neden Önemli, Mühendislik Kavramları, Kütüphane İncelemesi, Minimal Uygulama, Deney, Görselleştirme, Doğrulama, Hata Senaryoları, Sonuç). Çok kaynaklı verilerin temizlenmesi, karantina ayrımı ve kalite metriklerinin hesaplanmasını adım adım gösterir.
+- **Kapsam:** 10 standart bölüm (Problem, Neden Önemli, Mühendislik Kavramları, Kütüphane İncelemesi, Minimal Uygulama, Deney, Görselleştirme, Doğrulama, Hata Senaryoları, Sonuç). Çok kaynaklı verilerin temizlenmesi, karantina ayrımı, eksik veri tamamlama ve kalite metriklerinin hesaplanmasını adım adım gösterir.
 
 ---
 
@@ -55,11 +59,20 @@ Bu günün amacı, Merinos üretim sahasında ortaya çıkan çok kaynaklı hete
 - **Adı:** `pandas-data-pipeline-and-quality`
 - **Modüller:**
   - `src/pandas_pipeline.py`: `PandasDataPipeline` ve `DataQualityReport` sınıfları.
+  - `src/parsers.py`: Çok kaynaklı CSV ve JSON veri ayrıştırıcıları (`CsvDataSourceParser`, `JsonDataSourceParser`).
+  - `src/normalizer.py`: Nümerik ölçekleme ve standartlaştırma (`DataNormalizer`).
+  - `src/etl_pipeline.py`: CSV telemetri ve JSON katalog beslemelerini birleştiren ETL hattı (`DataIngestionPipeline`).
+  - `src/expectations.py`: Sütun bazlı veri kalitesi kural ve beklenti sınıfları.
+  - `src/suite.py`: Kural paketleri ve otomatik doğrulama motoru (`ExpectationSuite`, `SuiteValidator`).
+  - `src/profiler.py`: İstatistiksel veri profilleme motoru (`AutomatedDataProfiler`).
+  - `src/quality_pipeline.py`: Uçtan uca veri kalitesi denetim hattı (`DataQualityPipeline`).
   - `src/generator.py`: Sentetik dokuma tezgâhı ve halı matrisi üreteci.
   - `src/benchmark.py`: Veri işleme gecikme ve bellek tüketim analiz motoru.
   - `src/memory_analyzer.py`: Tabular ve tensör veri bellek düzeni analiz modülü.
   - `src/operations.py`: Temel nümerik veri dönüşümleri.
   - `tests/test_pandas_pipeline.py`: Veri kalitesi, eksik veri ve karantina testleri.
+  - `tests/test_etl_pipeline.py`: Çok kaynaklı ayrıştırma, birleştirme ve karantina testleri.
+  - `tests/test_quality_validation.py`: Beklenti paketleri ve profilleme motoru testleri.
   - `tests/test_benchmarks.py`: Nümerik manipülasyon ve başarım testleri.
 
 ---
@@ -72,50 +85,70 @@ day05/
 └── mini_project/
     ├── README.md
     ├── configs/
+    │   ├── etl_pipeline_config.json
+    │   └── expectation_suite_config.json
+    ├── fixtures/
+    │   ├── clean_production_data.csv
+    │   ├── dirty_production_data.csv
+    │   ├── dirty_records.csv
+    │   ├── drifted_production_data.csv
+    │   ├── raw_catalog_feed.json
+    │   ├── raw_production_logs.csv
+    │   └── synthetic_patterns.npz
     ├── src/
     │   ├── __init__.py
-    │   ├── pandas_pipeline.py
-    │   ├── generator.py
     │   ├── benchmark.py
+    │   ├── etl_pipeline.py
+    │   ├── expectations.py
+    │   ├── generator.py
     │   ├── memory_analyzer.py
-    │   └── operations.py
-    ├── tests/
-    │   ├── __init__.py
-    │   ├── test_pandas_pipeline.py
-    │   └── test_benchmarks.py
-    └── outputs/
+    │   ├── normalizer.py
+    │   ├── operations.py
+    │   ├── pandas_pipeline.py
+    │   ├── parsers.py
+    │   ├── profiler.py
+    │   ├── quality_pipeline.py
+    │   └── suite.py
+    └── tests/
+        ├── __init__.py
+        ├── test_benchmarks.py
+        ├── test_etl_pipeline.py
+        ├── test_pandas_pipeline.py
+        └── test_quality_validation.py
 ```
 
 ---
 
 ## Experiments
-1. **Veri Kalitesi ve Karantina Deneyi:**
-   - 5 satırlık tezgâh telemetri verisinde eksik değer (`NaN`) içeren satır tespit edildi ve başarıyla medyan ile tamamlandı.
-   - Tanımlı sıcaklık sınırının (120°C) üzerinde olan (145.0°C) aykırı kayıt `quarantine_df` kümesine aktarılarak temiz veriden ayrıştırıldı.
-   - Tamlık skoru %95.0, geçerlilik skoru %80.0 olarak hesaplandı.
-2. **Boş Veri Çerçevesi Hata Denetimi:**
-   - Boş DataFrame verildiğinde boru hattının `ValueError` fırlattığı doğrulandı.
+1. **Çok Kaynaklı Veri Entegrasyonu ve Karantina:**
+   - 10 telemetri kaydı ile 5 katalog kaydı başarıyla birleştirildi; hatalı kayıtlar temiz kümeden karantinaya ayrıldı.
+2. **Eksik Veri ve Tip Dönüşümü:**
+   - Boş hücreler kolon medyanı ile impute edildi; `quality_score` metriği hesaplandı.
+3. **Veri Kalitesi Beklenti Kümeleri Doğrulaması:**
+   - Değer aralıkları, regex desenleri ve benzersizlik kuralları `ExpectationSuite` ile denetlendi.
 
 ---
 
 ## Validation
-- Pytest ile 11 adet birim test icra edildi:
-  - `test_pandas_pipeline_cleaning_and_quality_report`
-  - `test_empty_dataframe_raises_value_error`
-  - `test_benchmarks_*` (vektörize işlemler ve bellek analizleri)
-- Tüm testler **%100 başarıyla (11 passed)** geçti.
+- Pytest ile 29 adet birim test icra edildi:
+  - `test_pandas_pipeline.py` (2 test)
+  - `test_benchmarks.py` (10 test)
+  - `test_etl_pipeline.py` (8 test)
+  - `test_quality_validation.py` (9 test)
+- Tüm testler **%100 başarıyla (29 passed)** geçti.
 
 ---
 
 ## Results
-- Çok kaynaklı üretim verilerinin eksik ve sınır dışı değerlerden arındırılarak güvenli analiz kümesine dönüştürülmesi temin edilmiştir.
-- Hatalı tezgâh verileri karantinaya alınarak model eğitimi için veri bütünlüğü garanti altına alınmıştır.
+- Heterojen veri kaynakları kayıpsız birleştirildi, eksik ve aykırı veriler güvenle yönetildi.
+- Otomatik kalite raporlama ve kural doğrulama altyapısı kuruldu.
+- Tüm veriler sentetik test senaryolarından oluşmaktadır.
 
 ---
 
 ## Limitations
-- İleri aşamalarda gerçek zamanlı akış motorları (Stream processing) yerine bu günde batch (toplu) tabular veri kümeleri üzerinde çalışılmıştır.
-- Veri kalitesi denetimi sentetik endüstriyel telemetri kayıtları üzerinden doğrulanmıştır.
+- Veriler yerel Pandas DataFrame nesneleri üzerinde işlenmiştir; Spark veya Dask gibi dağıtık büyük veri işleme araçları Faz 1 kapsamında değildir.
+- Gerçek zamanlı akış yerine mikro-küme (batch) simülasyonu uygulanmıştır.
 
 ---
 
@@ -125,12 +158,20 @@ day05/
 - `day05/mini_project/README.md`
 - `day05/mini_project/src/__init__.py`
 - `day05/mini_project/src/pandas_pipeline.py`
+- `day05/mini_project/src/etl_pipeline.py`
+- `day05/mini_project/src/parsers.py`
+- `day05/mini_project/src/normalizer.py`
+- `day05/mini_project/src/expectations.py`
+- `day05/mini_project/src/suite.py`
+- `day05/mini_project/src/profiler.py`
+- `day05/mini_project/src/quality_pipeline.py`
 - `day05/mini_project/src/generator.py`
 - `day05/mini_project/src/benchmark.py`
 - `day05/mini_project/src/memory_analyzer.py`
 - `day05/mini_project/src/operations.py`
-- `day05/mini_project/tests/__init__.py`
 - `day05/mini_project/tests/test_pandas_pipeline.py`
+- `day05/mini_project/tests/test_etl_pipeline.py`
+- `day05/mini_project/tests/test_quality_validation.py`
 - `day05/mini_project/tests/test_benchmarks.py`
 
 ---
@@ -144,4 +185,4 @@ pytest day05/mini_project/tests/ -v
 ---
 
 ## Next Day
-- **Day 06:** NumPy ve Vektörel Hesaplama: Büyük Ölçekli Matris İşlemleri ve Performans — SIMD vektörizasyonu, bellek düzeni (C vs Fortran) ve broadcasting optimizasyonu.
+- **Day 06:** NumPy ve Vektörel Hesaplama — Tensör temsilleri, matris operasyonları ve CPU vektörizasyonu.

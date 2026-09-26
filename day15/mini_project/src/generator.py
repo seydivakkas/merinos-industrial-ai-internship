@@ -122,3 +122,6 @@ class VisionToolkitFixtureGenerator:
             return saved_paths
 
         return fixtures
+
+
+from .pattern_generator import CarpetPatternFixtureGenerator, _safe_imread, _safe_imwrite

@@ -6,41 +6,35 @@ Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 Özel Lisans — Tüm Hakları Saklıdır.
 """
 
-from .benchmark import FeatureBenchmarkEngine
+from .benchmark import SegmentationBenchmarkEngine
 from .carpet_segmenter import CarpetSegmenter, SegmentedRegion
-from .color_histogram import ColorHistogramEngine
-from .feature_fusion import CarpetPatternClassifierAndMatcher
-from .generator import CarpetPatternFixtureGenerator, _safe_imread, _safe_imwrite
-from .glcm_engine import GLCMFeatureEngine
-from .keypoint_engine import KeypointFeatureEngine
+from .evaluator import SegmentationEvaluator
+from .generator import CarpetSegmentationFixtureGenerator, _safe_imread, _safe_imwrite
+from .grabcut_segmenter import GrabCutSegmenter
 from .models import (
-    CarpetFeatureVector,
-    ColorHistogramFeatures,
-    FeatureBenchmarkReport,
-    GLCMFeatures,
-    KeypointDescriptorType,
-    KeypointStats,
-    PatternClass,
-    PatternMatchResult,
+    AlgorithmBenchmarkResult,
+    CarpetSegmentationReport,
+    EvaluationMetrics,
+    SegmentationClass,
+    SegmentationMethod,
 )
+from .otsu_segmenter import OtsuSegmenter
+from .watershed_segmenter import WatershedSegmenter
 
 __all__ = [
     "CarpetSegmenter",
     "SegmentedRegion",
-    "KeypointFeatureEngine",
-    "GLCMFeatureEngine",
-    "ColorHistogramEngine",
-    "CarpetPatternClassifierAndMatcher",
-    "CarpetPatternFixtureGenerator",
-    "FeatureBenchmarkEngine",
+    "OtsuSegmenter",
+    "WatershedSegmenter",
+    "GrabCutSegmenter",
+    "SegmentationEvaluator",
+    "SegmentationBenchmarkEngine",
+    "CarpetSegmentationFixtureGenerator",
     "_safe_imread",
     "_safe_imwrite",
-    "PatternClass",
-    "KeypointDescriptorType",
-    "KeypointStats",
-    "GLCMFeatures",
-    "ColorHistogramFeatures",
-    "CarpetFeatureVector",
-    "PatternMatchResult",
-    "FeatureBenchmarkReport",
+    "SegmentationMethod",
+    "SegmentationClass",
+    "EvaluationMetrics",
+    "AlgorithmBenchmarkResult",
+    "CarpetSegmentationReport",
 ]

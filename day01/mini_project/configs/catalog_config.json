@@ -1,0 +1,26 @@
+{
+  "project_name": "merinos-industrial-ai-internship-day01",
+  "taxonomy_version": "1.0.0",
+  "data_scope": "synthetic_and_simulated_only",
+  "enterprise_problem_domains": [
+    {
+      "domain_id": "DOM-01",
+      "name": "Weave Defect Detection",
+      "primary_modality": "visual",
+      "description": "Visual surface inspection of woven carpets to detect warp/weft abnormalities."
+    },
+    {
+      "domain_id": "DOM-02",
+      "name": "Loom Process Monitoring",
+      "primary_modality": "numerical",
+      "description": "Numerical sensor streams including yarn tension, operating speed, and temperature."
+    },
+    {
+      "domain_id": "DOM-03",
+      "name": "Maintenance Knowledge Assistant",
+      "primary_modality": "textual",
+      "description": "Technical maintenance documentation, operator guidelines, and equipment manuals."
+    }
+  ],
+  "modalities": ["numerical", "visual", "textual"]
+}

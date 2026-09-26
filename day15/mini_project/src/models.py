@@ -10,6 +10,17 @@ from enum import Enum
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field
 
+from .pattern_models import (
+    CarpetFeatureVector,
+    ColorHistogramFeatures,
+    FeatureBenchmarkReport,
+    GLCMFeatures,
+    KeypointDescriptorType,
+    KeypointStats,
+    PatternClass,
+    PatternMatchResult,
+)
+
 
 class QualityVerdict(str, Enum):
     """Overall carpet manufacturing quality verdict."""

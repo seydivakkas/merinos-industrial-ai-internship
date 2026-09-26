@@ -1,6 +1,6 @@
 """
-Merinos Halı Sanayi ve Ticaret A.Ş. — Day 14
-Geleneksel Öznitelik Çıkarımı ve Jakarlı Halı Desen Sınıflandırma CLI Aracı
+Merinos Halı Sanayi ve Ticaret A.Ş. — Day 13
+Klasik Segmentasyon Kıyaslaması CLI Komut Satırı Arayüzü
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 Özel Lisans — Tüm Hakları Saklıdır.
@@ -9,264 +9,230 @@ Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 import argparse
 import json
 from pathlib import Path
-from typing import Dict, Tuple
+import time
+from typing import Any, Dict
 import cv2
 import numpy as np
 
-from .benchmark import FeatureBenchmarkEngine
-from .color_histogram import ColorHistogramEngine
-from .feature_fusion import CarpetPatternClassifierAndMatcher
-from .generator import CarpetPatternFixtureGenerator, _safe_imread, _safe_imwrite
-from .glcm_engine import GLCMFeatureEngine
-from .keypoint_engine import KeypointFeatureEngine
-from .models import (
-    KeypointDescriptorType,
-    PatternClass,
-)
+from .benchmark import SegmentationBenchmarkEngine
+from .evaluator import SegmentationEvaluator
+from .generator import CarpetSegmentationFixtureGenerator, _safe_imread, _safe_imwrite
+from .grabcut_segmenter import GrabCutSegmenter
+from .otsu_segmenter import OtsuSegmenter
+from .watershed_segmenter import WatershedSegmenter
 
 
-def cmd_generate_fixtures(args: argparse.Namespace):
-    """Sentetik halı fikstürlerini üretir."""
-    output_dir = Path(args.output_dir)
-    gen = CarpetPatternFixtureGenerator(seed=42)
-    paths = gen.generate_all_fixtures(output_dir)
-
-    print(f"[OK] {len(paths)} adet sentetik halı fikstürü başarıyla üretildi:")
-    for cls_name, p in paths.items():
-        print(f"  - {cls_name:<22} -> {p.resolve()}")
+def load_config() -> Dict[str, Any]:
+    """Konfigürasyon dosyasını yükler."""
+    cfg_path = Path(__file__).parent.parent / "configs" / "segmentation_config.json"
+    if cfg_path.exists():
+        with open(cfg_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
 
 
-def cmd_extract(args: argparse.Namespace):
-    """Görüntüden öznitelikleri çıkarır ve özetler."""
+def cmd_generate_fixtures(args: argparse.Namespace) -> None:
+    """Sentetik test halılarını ve birebir Ground Truth maskelerini üretir."""
+    out_dir = Path(args.output_dir)
+    generator = CarpetSegmentationFixtureGenerator()
+    paths = generator.generate_all_fixtures(out_dir)
+    print(f"[OK] {len(paths)} adet sentetik halı ve GT maske fikstürü üretildi:")
+    for name, p in paths.items():
+        print(f"  - {name} -> {p}")
+
+
+def cmd_segment(args: argparse.Namespace) -> None:
+    """Belirtilen halı üzerinde segmentasyon algoritmasını çalıştırır."""
     img_path = Path(args.image)
     image = _safe_imread(img_path)
     if image is None:
         print(f"[HATA] Görsel okunamadı: {img_path}")
         return
 
-    kp_engine = KeypointFeatureEngine()
-    glcm_engine = GLCMFeatureEngine()
-    color_engine = ColorHistogramEngine()
-    matcher = CarpetPatternClassifierAndMatcher()
+    out_dir = Path(args.output_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
 
-    method = KeypointDescriptorType(args.keypoint_type)
-    if method == KeypointDescriptorType.SIFT:
-        kpts, _, kp_stats = kp_engine.extract_sift(image)
-    else:
-        kpts, _, kp_stats = kp_engine.extract_orb(image)
+    config = load_config()
+    method = args.method.upper()
 
-    glcm_feats = glcm_engine.extract_features(image)
-    _, color_feats = color_engine.compute_histogram(image)
-    fused_model = matcher.build_feature_vector(image, image_name=img_path.name, keypoint_type=method)
+    print(f"[*] Segmentasyon çalıştırılıyor ({method}): {img_path.name}...")
 
-    print("\n" + "=" * 55)
-    print(f"ÖZNİTELİK ÇIKARIM ÖZETİ: {img_path.name}")
-    print("=" * 55)
-    print(f"[1] Anahtar Nokta ({method.value}):")
-    print(f"  - Tespit Edilen Nokta Sayısı: {kp_stats.count}")
-    print(f"  - Ortalama Tepki (Response):   {kp_stats.mean_response}")
-    print(f"  - Açı Entropisi (Rotasyon):   {kp_stats.angle_entropy}")
-    print(f"[2] GLCM Haralick Doku:")
-    print(f"  - Kontrast:      {glcm_feats.contrast}")
-    print(f"  - Homojenlik:    {glcm_feats.homogeneity}")
-    print(f"  - Enerji (ASM):  {glcm_feats.energy}")
-    print(f"  - Korelasyon:    {glcm_feats.correlation}")
-    print(f"  - Doku Entropi:  {glcm_feats.entropy}")
-    print(f"[3] 3D Renk Histogramı (HSV):")
-    print(f"  - Toplam Bin:    {color_feats.dimension}")
-    print(f"  - Renk Entropisi:{color_feats.entropy}")
-    print(f"  - Zirve Bin %:   %{color_feats.peak_bin_value * 100:.2f}")
-    print(f"[4] Birleştirilmiş (Fused) Vektör Boyutu: {fused_model.total_dimension}")
-    print("=" * 55 + "\n")
+    masks: Dict[str, np.ndarray] = {}
+
+    if method in ("ALL", "OTSU"):
+        otsu = OtsuSegmenter(config)
+        mask_otsu, t_val = otsu.segment_global(image)
+        masks["OTSU"] = mask_otsu
+        _safe_imwrite(out_dir / f"{img_path.stem}_otsu_mask.png", mask_otsu)
+        print(f"  [+] Otsu maskesi kaydedildi (Eşik: {t_val:.1f})")
+
+    if method in ("ALL", "WATERSHED"):
+        ws = WatershedSegmenter(config)
+        mask_ws, _, _ = ws.segment(image)
+        masks["WATERSHED"] = mask_ws
+        _safe_imwrite(out_dir / f"{img_path.stem}_watershed_mask.png", mask_ws)
+        print(f"  [+] Watershed maskesi kaydedildi")
+
+    if method in ("ALL", "GRABCUT"):
+        gc = GrabCutSegmenter(config)
+        mask_gc, _ = gc.segment_with_rect(image, iterations=3)
+        masks["GRABCUT"] = mask_gc
+        _safe_imwrite(out_dir / f"{img_path.stem}_grabcut_mask.png", mask_gc)
+        print(f"  [+] GrabCut maskesi kaydedildi")
+
+    # Karşılaştırma grid görselini oluştur
+    gt_mask = None
+    if args.gt_mask:
+        gt_mask = _safe_imread(Path(args.gt_mask), cv2.IMREAD_GRAYSCALE)
+
+    grid = SegmentationBenchmarkEngine.create_comparison_grid(image, masks, gt_mask)
+    grid_path = out_dir / f"{img_path.stem}_segmentation_comparison_grid.png"
+    _safe_imwrite(grid_path, grid)
+    print(f"  [+] Karşılaştırma grid görseli kaydedildi: {grid_path}")
+
+
+def cmd_evaluate(args: argparse.Namespace) -> None:
+    """Tahmin maskesi ile Ground Truth maskeyi kıyaslayıp metrikleri hesaplar."""
+    pred_path = Path(args.pred_mask)
+    gt_path = Path(args.gt_mask)
+
+    pred = _safe_imread(pred_path, cv2.IMREAD_GRAYSCALE)
+    gt = _safe_imread(gt_path, cv2.IMREAD_GRAYSCALE)
+
+    if pred is None or gt is None:
+        print("[HATA] Maske dosyaları okunamadı.")
+        return
+
+    evaluator = SegmentationEvaluator()
+    metrics = evaluator.evaluate_all(pred, gt)
+
+    print("\n" + "=" * 50)
+    print("SEGMENTASYON DOĞRULAMA METRİK RAPORU")
+    print("=" * 50)
+    print(f"  - Intersection over Union (IoU): {metrics.iou:.4f}")
+    print(f"  - Dice Katsayısı (F1):          {metrics.dice:.4f}")
+    print(f"  - Piksel Doğruluğu:             {metrics.pixel_accuracy:.4f}")
+    print(f"  - Hassasiyet (Precision):       {metrics.precision:.4f}")
+    print(f"  - Duyarlılık (Recall):          {metrics.recall:.4f}")
+    if metrics.boundary_f1 is not None:
+        print(f"  - Sınır F1 Skoru (BF-Score):    {metrics.boundary_f1:.4f}")
+    print("=" * 50)
 
     if args.output_json:
         out_p = Path(args.output_json)
         out_p.parent.mkdir(parents=True, exist_ok=True)
         with open(out_p, "w", encoding="utf-8") as f:
-            f.write(fused_model.model_dump_json(indent=2))
-        print(f"[+] Öznitelik vektörü JSON kaydedildi: {out_p.resolve()}")
+            f.write(metrics.model_dump_json(indent=2))
+        print(f"[+] Metrik JSON kaydedildi: {out_p}")
 
 
-def cmd_match(args: argparse.Namespace):
-    """İki halı görseli arasındaki anahtar nokta eşleşmelerini analiz eder."""
-    p1 = Path(args.image1)
-    p2 = Path(args.image2)
-    img1 = _safe_imread(p1)
-    img2 = _safe_imread(p2)
+def cmd_benchmark(args: argparse.Namespace) -> None:
+    """Tüm segmentasyon yöntemlerini hız ve doğruluk yönünden kıyaslar."""
+    config = load_config()
+    engine = SegmentationBenchmarkEngine(config)
+    generator = CarpetSegmentationFixtureGenerator()
 
-    if img1 is None or img2 is None:
-        print("[HATA] Görsellerden biri veya her ikisi okunamadı.")
-        return
+    carpet, gt_mask, _ = generator.generate_medallion_carpet(width=600, height=600)
 
-    kp_engine = KeypointFeatureEngine()
-    method = KeypointDescriptorType(args.method)
+    print("=" * 65)
+    print("Merinos Halı — Day 13 Klasik Segmentasyon Kıyaslama Laboratuvarı")
+    print("=" * 65)
 
-    if method == KeypointDescriptorType.SIFT:
-        kpts1, desc1, _ = kp_engine.extract_sift(img1)
-        kpts2, desc2, _ = kp_engine.extract_sift(img2)
-    else:
-        kpts1, desc1, _ = kp_engine.extract_orb(img1)
-        kpts2, desc2, _ = kp_engine.extract_orb(img2)
+    report, masks = engine.run_benchmark(carpet, gt_mask, iterations=10)
 
-    good_matches = kp_engine.match_features(desc1, desc2, method=method)
-    H, inlier_ratio = kp_engine.compute_homography_inliers(kpts1, kpts2, good_matches)
+    print("\n[1] Algoritma Performans ve Doğruluk Özeti:")
+    print(f"{'Metod':<12} | {'Süre (ms)':<10} | {'Throughput':<12} | {'IoU':<8} | {'Dice':<8} | {'BF-Score':<8}")
+    print("-" * 65)
+    for name, res in report.results.items():
+        iou_str = f"{res.metrics.iou:.4f}" if res.metrics else "N/A"
+        dice_str = f"{res.metrics.dice:.4f}" if res.metrics else "N/A"
+        bf_str = f"{res.metrics.boundary_f1:.4f}" if res.metrics and res.metrics.boundary_f1 else "N/A"
+        print(f"{name:<12} | {res.latency_ms:<10.3f} | {res.fps:<6.1f} FPS | {iou_str:<8} | {dice_str:<8} | {bf_str:<8}")
 
-    print("\n" + "=" * 50)
-    print("ANAHTAR NOKTA EŞLEŞTİRME ANALİZİ")
-    print("=" * 50)
-    print(f"  - Metod:                {method.value}")
-    print(f"  - Görsel 1 Nokta:       {len(kpts1)}")
-    print(f"  - Görsel 2 Nokta:       {len(kpts2)}")
-    print(f"  - İyi Eşleşme (Lowe):   {len(good_matches)}")
-    print(f"  - RANSAC Inlier Oranı:  %{inlier_ratio * 100:.1f}")
-    print(f"  - Geometri Uyumlu (H):  {'EVET' if H is not None else 'HAYIR'}")
-    print("=" * 50 + "\n")
+    print("\n[2] Endüstriyel Tavsiyeler:")
+    for note in report.industrial_notes:
+        print(f"  - {note}")
+    print(f"  -> Canlı Hat Önerisi:  {report.recommended_online_method.value}")
+    print(f"  -> Kalite Lab Önerisi: {report.recommended_offline_method.value}")
 
-    if args.output_vis:
-        vis_p = Path(args.output_vis)
-        vis = kp_engine.draw_matches(img1, kpts1, img2, kpts2, good_matches)
-        _safe_imwrite(vis_p, vis)
-        print(f"[+] Eşleşme görseli kaydedildi: {vis_p.resolve()}")
-
-
-def cmd_classify(args: argparse.Namespace):
-    """Sorgu halısını katalogda arar ve desen sınıfını tahmin eder."""
-    q_path = Path(args.query)
-    query_img = _safe_imread(q_path)
-    if query_img is None:
-        print(f"[HATA] Sorgu görseli okunamadı: {q_path}")
-        return
-
-    cat_dir = Path(args.catalog_dir)
-    if not cat_dir.exists():
-        print(f"[*] Katalog dizini bulunamadı, sentetik fikstürler üretiliyor: {cat_dir}")
-        CarpetPatternFixtureGenerator(seed=42).generate_all_fixtures(cat_dir)
-
-    # Katalog görsellerini yükle
-    catalog_items: Dict[str, Tuple[np.ndarray, PatternClass]] = {}
-    class_mapping = {
-        "medallion": PatternClass.MEDALLION_CLASSIC,
-        "geometric": PatternClass.GEOMETRIC_MODERN,
-        "floral": PatternClass.FLORAL_TRADITIONAL,
-        "vintage": PatternClass.VINTAGE_DISTRESSED,
-    }
-
-    for f in cat_dir.glob("*.png"):
-        img = _safe_imread(f)
-        if img is not None:
-            name_lower = f.stem.lower()
-            p_class = PatternClass.MEDALLION_CLASSIC
-            for key, cls_val in class_mapping.items():
-                if key in name_lower:
-                    p_class = cls_val
-                    break
-            catalog_items[f.stem] = (img, p_class)
-
-    matcher = CarpetPatternClassifierAndMatcher()
-    matcher.index_catalog(catalog_items, keypoint_type=KeypointDescriptorType.ORB)
-
-    # Top-K Benzerlik ve Sınıflandırma
-    top_matches = matcher.find_top_k_similar(query_img, query_name=q_path.stem, k=args.top_k)
-    best_class, confidence = matcher.classify_pattern(query_img, k=args.top_k)
-
-    print("\n" + "=" * 60)
-    print(f"HALI DESEN SINIFLANDIRMA VE RETRIEVAL SONUCU: {q_path.name}")
-    print("=" * 60)
-    print(f"  -> TAHMİN EDİLEN SINIF:  {best_class.value}")
-    print(f"  -> GÜVEN SKORU:          %{confidence:.1f}")
-    print("-" * 60)
-    print(f"{'Sıra':<5} | {'Katalog Halısı':<25} | {'Sınıf':<20} | {'Benzerlik'}")
-    print("-" * 60)
-    for i, res in enumerate(top_matches, start=1):
-        print(f"{i:<5} | {res.catalog_name:<25} | {res.predicted_class.value:<20} | %{res.similarity_score:.1f}")
-    print("=" * 60 + "\n")
-
-
-def cmd_benchmark(args: argparse.Namespace):
-    """Öznitelik çıkarımı ve görsel arama kıyaslama testini yürütür."""
-    out_dir = Path(args.output_dir)
+    # Çıktıları kaydet
+    out_dir = Path(__file__).parent.parent / "outputs"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    engine = FeatureBenchmarkEngine()
-    report, catalog_images = engine.run_benchmark(iterations=10)
-
-    print("\n" + "=" * 65)
-    print("Merinos Halı — Day 14 Geleneksel Öznitelik Benchmark Raporu")
-    print("=" * 65)
-    print(f"{'Öznitelik Modülü':<22} | {'Süre (ms)':<12} | {'Throughput':<15}")
-    print("-" * 65)
-    print(f"{'ORB Anahtar Nokta':<22} | {report.orb_latency_ms:<12.3f} | {report.orb_fps:.1f} FPS")
-    print(f"{'SIFT Anahtar Nokta':<22} | {report.sift_latency_ms:<12.3f} | {report.sift_fps:.1f} FPS")
-    print(f"{'GLCM Haralick Doku':<22} | {report.glcm_latency_ms:<12.3f} | {report.glcm_fps:.1f} FPS")
-    print(f"{'Katalog Arama (Top-K)':<22} | {report.retrieval_latency_ms:<12.3f} | -")
-    print("-" * 65)
-    print(f"4 Sınıflı Desen Doğruluğu: %{report.classification_accuracy:.1f}")
-    print("=" * 65)
-
-    # JSON ve Panel Kaydet
-    json_path = out_dir / "retrieval_benchmark.json"
+    json_path = out_dir / "segmentation_benchmark.json"
     with open(json_path, "w", encoding="utf-8") as f:
         f.write(report.model_dump_json(indent=2))
-    print(f"[+] Benchmark JSON kaydedildi: {json_path.resolve()}")
+    print(f"\n[+] Benchmark JSON kaydedildi: {json_path}")
 
-    panel = engine.create_feature_summary_panel(catalog_images)
-    panel_path = out_dir / "feature_summary_panel.png"
-    _safe_imwrite(panel_path, panel)
-    print(f"[+] Öznitelik paneli kaydedildi: {panel_path.resolve()}")
+    # Karşılaştırma grid görseli
+    grid = engine.create_comparison_grid(carpet, masks, gt_mask)
+    grid_path = out_dir / "benchmark_comparison_grid.png"
+    _safe_imwrite(grid_path, grid)
+    print(f"[+] Karşılaştırma Grid görseli kaydedildi: {grid_path}")
 
-    # Özet Markdown
-    md_path = out_dir / "feature_summary.md"
-    with open(md_path, "w", encoding="utf-8") as f:
-        f.write(f"# Day 14 Öznitelik Çıkarımı ve Desen Sınıflandırma Özeti\n\n")
-        f.write(f"- **ORB Hızı:** {report.orb_latency_ms:.2f} ms ({report.orb_fps:.0f} FPS)\n")
-        f.write(f"- **SIFT Hızı:** {report.sift_latency_ms:.2f} ms ({report.sift_fps:.0f} FPS)\n")
-        f.write(f"- **GLCM Hızı:** {report.glcm_latency_ms:.2f} ms ({report.glcm_fps:.0f} FPS)\n")
-        f.write(f"- **Sınıflandırma Başarısı:** %{report.classification_accuracy:.1f}\n")
-    print(f"[+] Özet Markdown kaydedildi: {md_path.resolve()}\n")
+    # Markdown Özeti
+    summary_path = out_dir / "segmentation_summary.md"
+    with open(summary_path, "w", encoding="utf-8") as f:
+        f.write("# Day 13: Klasik Segmentasyon Kıyaslama Özeti\n\n")
+        f.write("| Yöntem | Ortalama Süre (ms) | Throughput (FPS) | IoU | Dice | BF-Score | Kapsama (%) |\n")
+        f.write("| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n")
+        for name, res in report.results.items():
+            m = res.metrics
+            iou = f"{m.iou:.4f}" if m else "-"
+            dice = f"{m.dice:.4f}" if m else "-"
+            bf = f"{m.boundary_f1:.4f}" if m and m.boundary_f1 else "-"
+            f.write(f"| **{name}** | {res.latency_ms} ms | {res.fps} FPS | {iou} | {dice} | {bf} | %{res.foreground_coverage_pct} |\n")
+
+        f.write(f"\n- **Önerilen Canlı Hat Yöntemi:** `{report.recommended_online_method.value}`\n")
+        f.write(f"- **Önerilen Laboratuvar Yöntemi:** `{report.recommended_offline_method.value}`\n")
+    print(f"[+] Özet Markdown kaydedildi: {summary_path}")
 
 
-def main():
-    parser = argparse.ArgumentParser(description="Merinos Halı — Day 14 Geleneksel Öznitelik Çıkarımı CLI")
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Merinos Halı — Day 13 Klasik Segmentasyon Kıyaslama CLI"
+    )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    # 1. generate-fixtures
-    p_gen = subparsers.add_parser("generate-fixtures", help="Sentetik halı desen fikstürlerini üretir")
-    p_gen.add_argument("--output-dir", default="day14/mini_project/fixtures/synthetic_carpets")
+    # generate-fixtures
+    p_gen = subparsers.add_parser("generate-fixtures", help="Sentetik halı ve GT maske fikstürlerini üretir")
+    p_gen.add_argument(
+        "--output-dir",
+        type=str,
+        default=str(Path(__file__).parent.parent / "fixtures" / "synthetic_carpets"),
+        help="Çıktı klasörü yolu",
+    )
 
-    # 2. extract
-    p_ext = subparsers.add_parser("extract", help="Halı görselinden öznitelikleri çıkarır")
-    p_ext.add_argument("--image", required=True, help="Halı görsel yolu")
-    p_ext.add_argument("--keypoint-type", default="ORB", choices=["ORB", "SIFT"])
-    p_ext.add_argument("--output-json", help="Öznitelik JSON çıktı yolu")
+    # segment
+    p_seg = subparsers.add_parser("segment", help="Halı görüntüsü üzerinde segmentasyon yapar")
+    p_seg.add_argument("--image", type=str, required=True, help="Giriş görseli yolu")
+    p_seg.add_argument("--method", type=str, default="ALL", choices=["ALL", "OTSU", "WATERSHED", "GRABCUT"])
+    p_seg.add_argument("--gt-mask", type=str, default=None, help="İsteğe bağlı GT maskesi")
+    p_seg.add_argument(
+        "--output-dir",
+        type=str,
+        default=str(Path(__file__).parent.parent / "outputs"),
+        help="Maskeler çıktı klasörü",
+    )
 
-    # 3. match
-    p_match = subparsers.add_parser("match", help="İki halı arasında anahtar nokta eşleştirmesi yapar")
-    p_match.add_argument("--image1", required=True, help="Birinci halı görsel yolu")
-    p_match.add_argument("--image2", required=True, help="İkinci halı görsel yolu")
-    p_match.add_argument("--method", default="ORB", choices=["ORB", "SIFT"])
-    p_match.add_argument("--output-vis", help="Eşleşme paneli görsel çıktı yolu")
+    # evaluate
+    p_eval = subparsers.add_parser("evaluate", help="Tahmin maskesini GT maskesi ile değerlendirir")
+    p_eval.add_argument("--pred-mask", type=str, required=True, help="Tahmin segmentasyon maskesi")
+    p_eval.add_argument("--gt-mask", type=str, required=True, help="Ground Truth referans maskesi")
+    p_eval.add_argument("--output-json", type=str, default=None, help="JSON çıktı yolu")
 
-    # 4. classify
-    p_clf = subparsers.add_parser("classify", help="Sorgu halısını katalogda arar ve sınıflandırır")
-    p_clf.add_argument("--query", required=True, help="Sorgu görsel yolu")
-    p_clf.add_argument("--catalog-dir", default="day14/mini_project/fixtures/synthetic_carpets")
-    p_clf.add_argument("--top-k", type=int, default=3)
-
-    # 5. benchmark
-    p_bm = subparsers.add_parser("benchmark", help="Hız ve sınıflandırma benchmark testini çalıştırır")
-    p_bm.add_argument("--output-dir", default="day14/mini_project/outputs")
+    # benchmark
+    subparsers.add_parser("benchmark", help="Hız ve doğruluk kıyaslama testini çalıştırır")
 
     args = parser.parse_args()
-
-    dispatch = {
-        "generate-fixtures": cmd_generate_fixtures,
-        "extract": cmd_extract,
-        "match": cmd_match,
-        "classify": cmd_classify,
-        "benchmark": cmd_benchmark,
-    }
-
-    dispatch[args.command](args)
+    if args.command == "generate-fixtures":
+        cmd_generate_fixtures(args)
+    elif args.command == "segment":
+        cmd_segment(args)
+    elif args.command == "evaluate":
+        cmd_evaluate(args)
+    elif args.command == "benchmark":
+        cmd_benchmark(args)
 
 
 if __name__ == "__main__":

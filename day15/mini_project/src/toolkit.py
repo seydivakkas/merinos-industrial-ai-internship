@@ -121,7 +121,7 @@ class MerinosIndustrialVisionToolkit:
             centers_rgb: (K, 3) array of RGB cluster centers
             weights: (K,) array of percentage coverage [0, 1]
         """
-        from day09.mini_project.src.kmeans_palette import KMeansPaletteExtractor
+        from day11.mini_project.src.kmeans_palette import KMeansPaletteExtractor
 
         extractor = KMeansPaletteExtractor(default_k=n_colors, random_state=42)
         res = extractor.extract_palette(image, k=n_colors)
@@ -131,12 +131,12 @@ class MerinosIndustrialVisionToolkit:
 
     def calculate_delta_e(self, lab1: np.ndarray, lab2: np.ndarray) -> float:
         """Calculate CIEDE2000 perceptual color difference between two LAB colors."""
-        from day09.mini_project.src.ciede2000 import ciede2000_scalar
+        from day10.mini_project.src.ciede2000 import ciede2000_scalar
 
         return float(ciede2000_scalar(lab1, lab2))
 
     # -------------------------------------------------------------
-    # Day 10: Perspective Rectification & Homography
+    # Day 12: Perspective Rectification & Homography
     # -------------------------------------------------------------
     def rectify_carpet(
         self, image: np.ndarray, target_width: int = 600, target_height: int = 600
@@ -147,7 +147,7 @@ class MerinosIndustrialVisionToolkit:
             warped: (H, W, 3) rectified carpet image
             H: (3, 3) homography transformation matrix
         """
-        from day10.mini_project.src.rectifier import CarpetPerspectiveRectifier
+        from day12.mini_project.src.rectifier import CarpetPerspectiveRectifier
 
         rectifier = CarpetPerspectiveRectifier()
         warped_img, rep = rectifier.rectify(image)
@@ -157,7 +157,7 @@ class MerinosIndustrialVisionToolkit:
         return warped_img, H_matrix
 
     # -------------------------------------------------------------
-    # Day 11: Morphological Defect Detection
+    # Day 13: Morphological Defect Detection
     # -------------------------------------------------------------
     def detect_defects(
         self, image: np.ndarray, min_area: int = 25, max_area: int = 5000
@@ -168,7 +168,7 @@ class MerinosIndustrialVisionToolkit:
             defects: List of detected defect metadata dicts
             defect_mask: Binary mask of detected defects
         """
-        from day11.mini_project.src.defect_detector import CarpetDefectDetector
+        from day13.mini_project.src.defect_detector import CarpetDefectDetector
 
         detector = CarpetDefectDetector(min_area=float(min_area), max_area=float(max_area))
         report, debug_masks = detector.inspect(image)
@@ -189,7 +189,7 @@ class MerinosIndustrialVisionToolkit:
         return defects_info, mask
 
     # -------------------------------------------------------------
-    # Day 12: Edge & Border Parallelism Analysis
+    # Day 13: Edge & Border Parallelism Analysis
     # -------------------------------------------------------------
     def analyze_borders(
         self,
@@ -203,7 +203,7 @@ class MerinosIndustrialVisionToolkit:
         Returns:
             border_metrics: Dict with max_skew_deg, orthogonality_error_deg, is_parallel
         """
-        from day12.mini_project.src.border_analyzer import CarpetBorderAnalyzer
+        from day13.mini_project.src.border_analyzer import CarpetBorderAnalyzer
 
         analyzer = CarpetBorderAnalyzer()
         report, _ = analyzer.analyze_carpet(image)
@@ -229,7 +229,7 @@ class MerinosIndustrialVisionToolkit:
         }
 
     # -------------------------------------------------------------
-    # Day 13: Classical Segmentation (Watershed / Otsu)
+    # Day 14: Classical Segmentation (Watershed / Otsu)
     # -------------------------------------------------------------
     def segment_motif(
         self, image: np.ndarray, method: str = "watershed"
@@ -241,12 +241,12 @@ class MerinosIndustrialVisionToolkit:
             coverage_pct: Motif pixel coverage percentage [0, 100]
         """
         if method.lower() == "otsu":
-            from day13.mini_project.src.otsu_segmenter import OtsuSegmenter
+            from day14.mini_project.src.otsu_segmenter import OtsuSegmenter
 
             seg = OtsuSegmenter()
             mask, _ = seg.segment_global(image)
         else:
-            from day13.mini_project.src.watershed_segmenter import WatershedSegmenter
+            from day14.mini_project.src.watershed_segmenter import WatershedSegmenter
 
             seg = WatershedSegmenter()
             mask, _, _ = seg.segment(image)
@@ -266,7 +266,7 @@ class MerinosIndustrialVisionToolkit:
             features: Dict containing keypoint count, GLCM contrast/homogeneity/energy,
                       and fused vector dimension
         """
-        from day14.mini_project.src.feature_fusion import CarpetPatternClassifierAndMatcher
+        from day15.mini_project.src.feature_fusion import CarpetPatternClassifierAndMatcher
 
         matcher = CarpetPatternClassifierAndMatcher()
         glcm_feats = matcher.glcm_engine.extract_features(image)
