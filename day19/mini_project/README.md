@@ -133,7 +133,7 @@ python -u -m day19.mini_project.src.cli predict \
 ## 📜 Lisans
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

@@ -278,7 +278,7 @@ Geliştirilen modellerin ileride endüstriyel ortama entegrasyonu senaryosunda �
 ## 17. Lisans & Telif Hakkı
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

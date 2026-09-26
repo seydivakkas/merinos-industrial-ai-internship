@@ -301,7 +301,7 @@ Faz 3 kıyaslama bulgularına dayanarak Merinos fabrikasında 4 katmanlı hibrit
 ## 17. Lisans & Telif Hakkı
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 
