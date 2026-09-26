@@ -108,5 +108,5 @@ Merinos 384-boyutlu vektör korpusu ve 15 teknik arıza sorgusu üzerinde yürü
 
 ## 5. Lisans
 
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR  
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR  
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)

@@ -257,7 +257,7 @@ mini_project/ with 10/10 passing pytest tests, and a defensible README.md under 
 ## Lisans
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

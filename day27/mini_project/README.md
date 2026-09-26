@@ -103,5 +103,5 @@ python -m day27.mini_project.src.cli benchmark --plot
 
 ## 6. Lisans
 
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR  
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR  
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)

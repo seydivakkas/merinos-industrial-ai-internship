@@ -297,7 +297,7 @@ python -m day24.mini_project.src.cli plot -o day24/mini_project/outputs/hybrid_r
 ## 17. Lisans ve Telif Hakları Bildirimi (License & Intellectual Property Notice)
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

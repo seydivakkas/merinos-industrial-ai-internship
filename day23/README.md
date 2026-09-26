@@ -266,7 +266,7 @@ day23/mini_project/tests/test_dense_retrieval.py::test_dense_retrieval_benchmark
 ## 17. Lisans & Telif Hakkı
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

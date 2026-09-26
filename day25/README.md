@@ -254,7 +254,7 @@ Bu çalışma, Merinos Halı Sanayi A.Ş. 40 Günlük Endüstriyel Yapay Zeka St
 ## Lisans Bildirimi
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

@@ -125,7 +125,7 @@ python -m pytest day23/mini_project/tests/test_dense_retrieval.py -v
 ## 📜 Lisans
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

@@ -288,7 +288,7 @@ Faz 4 boyunca inşa edilecek **Merinos Hibrit RAG Arama Platformu** mimarisi:
 ## 17. Lisans & Telif Hakkı
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

@@ -307,7 +307,7 @@ Day 27 kapsamında Merinos Halı Sanayi A.Ş. teknik bakım ve kalite kontrol do
 ## Lisans Bildirimi
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 
