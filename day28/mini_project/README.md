@@ -55,5 +55,5 @@ python -m pytest day28/mini_project/tests/test_integrated_pipeline.py -v
 
 ## 📄 Lisans
 
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR  
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR  
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)

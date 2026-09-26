@@ -310,7 +310,7 @@ Day 28 kapsamında Merinos Halı bünyesinde SDXL modeli ile kontrollü halı g�
 ## Lisans Bildirimi
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 

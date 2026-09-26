@@ -277,7 +277,7 @@ day29/mini_project/tests/test_visual_analysis.py::test_master_carpet_analyzer_in
 ## 12. Özel Lisans ve Telif Hakkı
 
 ```
-ÖZEL LİSANS — TÜM HAKLAR SAKLIDIR
+ÖZEL LİSANS — TÜM HAKLARI SAKLIDIR
 
 Telif Hakkı (c) 2026 Seydi Eryılmaz (@seydivakkas)
 
